@@ -48,6 +48,9 @@ public class Robot extends TimedRobot {
 
     //RESET OUR GYRO 
     Robot.driveTrain_Subsystem.resetGyro();
+
+    //RESET OUR DRIVETRAIN ROTARY ENCODERS
+    Robot.driveTrain_Subsystem.resetDTEncoders();
     
 
 

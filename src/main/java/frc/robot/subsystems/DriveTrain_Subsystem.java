@@ -140,9 +140,45 @@ public DriveTrain_Subsystem(){
   }
 
   public void setDistance(int dis) {
-    //Set our Direction to either "1" for forward or "-1" for reverse.
+  
     //Gets called above.
        this.distance = dis;
+  }
+
+  public void resetDTEncoders() {
+    //Reset both of our rotary encoders.   We call this usually at the start of every drivetrain command.
+      System.out.println("Resetting DriveTrain Encoders");
+      dTEncoderLeft.reset();
+      dTEncoderRight.reset();
+  }
+      
+  public double getAvgEncoderPosition() {
+    // We needed to add this to error check just in case one of our encoders is out of service due to
+    // a bad connection or sliced wire.  These if/else commands make sure that each encoder is giving 
+    // positive values >= 3 before performing an average.    If one of the encoders is < 3, then it will
+    // only return a reading from the working encoder.
+    if (Math.abs(dTEncoderLeft.getDistance()) < 3) {
+      System.out.println("LEFT DRIVETRAIN ENCODER IS NOT WORKING!!!");
+      return dTEncoderRight.getDistance();
+    } 
+    else if(Math.abs(dTEncoderRight.getDistance()) < 3) {
+      System.out.println("RIGHT DRIVETRAIN ENCODER IS NOT WORKING!!!");
+      return -dTEncoderLeft.getDistance();
+    } 
+    else {
+    //Average our two rotary encoders together to account for slippage and turning.
+    return (-dTEncoderLeft.getDistance() + dTEncoderRight.getDistance()) / 2;
+    }
+  }
+      
+  public double getLeftEncoderPosition() {
+    //Get the Position of the Left encoder
+    return dTEncoderLeft.getDistance();
+  }
+      
+  public double getRightEncoderPosition() {
+    //Get the Position of the Right encoder
+    return dTEncoderRight.getDistance();
   }
 
 }

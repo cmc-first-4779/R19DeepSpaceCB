@@ -52,7 +52,7 @@ public class RobotMap {
   public static int CAN_ADDRESS_TBD = 4;
 
   //PWM ADDRESSES FOR OUR ROBORIO
-  public static int PWM_PORT_CARGO_BINDY_INTAKE = 0;
+  public static int PWM_PORT_CARGO_INTAKE = 0;
 
   //GYRO SPI PORT NUMBER
   public static int SPI_PORT_AHRS = 0;
