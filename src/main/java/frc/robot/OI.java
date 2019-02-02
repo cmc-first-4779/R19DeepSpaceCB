@@ -7,36 +7,62 @@
 
 package frc.robot;
 
-/**
- * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
- */
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 public class OI {
-  //// CREATING BUTTONS
-  // One type of button is a joystick button which is any button on a
-  //// joystick.
-  // You create one by telling it which joystick it's on and which button
-  // number it is.
-  // Joystick stick = new Joystick(port);
-  // Button button = new JoystickButton(stick, buttonNumber);
+	// Declare the two joysticks and initate them on the two appropriate USB ports
+	// recognized by the Drivers Station.
+	Joystick driverStick = new Joystick(RobotMap.DRIVERSTICK_USB_PORT);
+	Joystick operStick = new Joystick(RobotMap.OPERSTICK_USB_PORT);
 
-  // There are a few additional built in buttons you can use. Additionally,
-  // by subclassing Button you can create custom triggers and bind those to
-  // commands the same as any other Button.
+	public OI() {
+		//// CREATING BUTTONS
+		// One type of button is a joystick button which is any button on a
+		//// joystick.
+		// You create one by telling it which joystick it's on and which button
+		// number it is.
+		// Joystick stick = new Joystick(port);
+		// Button button = new JoystickButton(stick, buttonNumber);
 
-  //// TRIGGERING COMMANDS WITH BUTTONS
-  // Once you have a button, it's trivial to bind it to a button in one of
-  // three ways:
+		// Declare and Initiate all of the Buttons on the OperStick
+		JoystickButton operStickYButton = new JoystickButton(operStick, RobotMap.Y_BUTTON);
+		JoystickButton operStickXButton = new JoystickButton(operStick, RobotMap.X_BUTTON);
+		JoystickButton operStickAButton = new JoystickButton(operStick, RobotMap.A_BUTTON);
+		JoystickButton operStickBButton = new JoystickButton(operStick, RobotMap.B_BUTTON);
+		JoystickButton operStickLeftBumper = new JoystickButton(operStick, RobotMap.LEFT_BUMPER_BUTTON);
+		JoystickButton operStickRightBumper = new JoystickButton(operStick, RobotMap.RIGHT_BUMPER_BUTTON);
+		JoystickButton operStickBackButton = new JoystickButton(operStick, RobotMap.BACK_BUTTON);
+		JoystickButton operStickStartButton = new JoystickButton(operStick, RobotMap.START_BUTTON);
 
-  // Start the command when the button is pressed and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenPressed(new ExampleCommand());
+		// Declare and Initiate all of the Buttons on the Driver Stick
+		JoystickButton driverStickYButton = new JoystickButton(driverStick, RobotMap.Y_BUTTON);
+		JoystickButton driverStickXButton = new JoystickButton(driverStick, RobotMap.X_BUTTON);
+		JoystickButton driverStickAButton = new JoystickButton(driverStick, RobotMap.A_BUTTON);
+		JoystickButton driverStickBButton = new JoystickButton(driverStick, RobotMap.B_BUTTON);
+		JoystickButton driverStickLeftBumper = new JoystickButton(driverStick, RobotMap.LEFT_BUMPER_BUTTON);
+		JoystickButton driverStickRightBumper = new JoystickButton(driverStick, RobotMap.RIGHT_BUMPER_BUTTON);
+		JoystickButton driverStickBackButton = new JoystickButton(driverStick, RobotMap.BACK_BUTTON);
+		JoystickButton driverStickStartButton = new JoystickButton(driverStick, RobotMap.START_BUTTON);
 
-  // Run the command while the button is being held down and interrupt it once
-  // the button is released.
-  // button.whileHeld(new ExampleCommand());
+		// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
+		// Driver Stick
+		//driverStickYButton.whileHeld(new ClimberOn());
 
-  // Start the command when the button is released and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenReleased(new ExampleCommand());
+		// Operator Stick
+		//operStickLeftBumper.whileHeld(new VacCubeIntake());
+
 }
+
+	// This method is used later to return the the driverStick when called.
+	public Joystick getDriverStick() {
+		return driverStick;
+	}
+
+	// This method is used later to return the the operStick when called.
+	public Joystick getOperStick() {
+		return operStick;
+	}
+
+}
+

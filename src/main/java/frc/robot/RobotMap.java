@@ -23,4 +23,62 @@ public class RobotMap {
   // number and the module. For example you with a rangefinder:
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
+
+  	//Map out the Joystick #'s in the DriverStation USB Ports
+	public static int DRIVERSTICK_USB_PORT = 0;
+	public static int OPERSTICK_USB_PORT = 1;
+	
+	//These are the buttons on the Joysticks as recognized by the Drivers Station. You can call in other subsystems.
+	public static int A_BUTTON = 1;
+	public static int B_BUTTON = 2;
+	public static int X_BUTTON = 3;
+	public static int Y_BUTTON = 4;
+	public static int LEFT_BUMPER_BUTTON = 5;
+	public static int RIGHT_BUMPER_BUTTON = 6;
+	public static int BACK_BUTTON = 7;
+	public static int START_BUTTON = 8;
+	public static int X_AXIS_STICK = 0;
+	public static int Y_AXIS_STICK = 1;
+	public static int LEFT_TRIGGER = 2;
+	public static int RIGHT_TRIGGER = 3;
+
+
+  //CAN ADDRESSES FOR OUR CAN NETWORK
+  public static int CAN_ADDRESS_LEFT_FRONT_DRIVE = 1;
+  public static int CAN_ADDRESS_LEFT_REAR_DRIVE  = 11;
+  public static int CAN_ADDRESS_RIGHT_FRONT_DRIVE = 2;
+  public static int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;
+  public static int CAN_ADDRESS_ARM = 3;
+  public static int CAN_ADDRESS_TBD = 4;
+
+  //PWM ADDRESSES FOR OUR ROBORIO
+  public static int PWM_PORT_CARGO_BINDY_INTAKE = 0;
+
+
+
+  public static double DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
+  public static double DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
+
+  // limelight constants
+  public static double LIMELIGHT_CAMMODE_VISION = 0; // Vision Mode = 0
+  public static double LIMELIGHT_CAMMODE_DRIVER = 1; // Driver Mode = 1
+  public static double LIMELIGHT_LEDMODE_ON = 3; // Force LED Mode On
+  public static double LIMELIGHT_LEDMODE_OFF = 1; // Force LED Mode Off
+  public static double LIMELIGHT_LEDMODE_BLINK = 2; // Force LED Mode Blink
+  public static double LIMELIGHT_PIPELINE_VEST = 0; // Use the VEST Pipeline
+  public static double LIMELIGHT_PIPELINE_CARGO = 1;// Use the Cargo Ball Pipeline
+  public static double LIMELIGHT_PIPELINE_ROCKET = 2;
+  public static double LIMELIGHT_NO_TARGET = 0.0; // Value when the Limelight doesn't see its target
+  public static double LIMELIGHT_SEEK_TURN_POWER = 0.4; // Power when we are turning
+  public static double LIMELIGHT_SEEK_DRIVE_POWER = 0.7; // Power when we are driving toward the target
+  // public static double LIMELIGHT_SEEK_AREA = 0.9;
+  public static double LIMELIGHT_X_PIXEL_COUNT = 320; // pixels
+  public static double LIMELIGHT_Y_PIXEL_COUNT = 240; // pixels
+  public static double LIMELIGHT_X_FOV = 59.6; // degrees
+  public static double LIMELIGHT_Y_FOV = 45.7; // degrees
+  public static double LIMELIGHT_CAMERAMOUNT_ANGLE = 0.0; // degrees
+  public static double LIMELIGHT_CAMERA_HEIGHT = 26.25; // inches
+  public static double LIMELIGHT_DISTANCE_FROM_TARGET = 24.0; // inches
+  public static double LIMELIGHT_CARGO_HEIGHT = 5.5; // inches
+  public static double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
 }
