@@ -46,10 +46,15 @@ public class Robot extends TimedRobot {
     //Initiate the OI LAST!!!!
     m_oi = new OI();
 
+    //RESET OUR GYRO 
+    Robot.driveTrain_Subsystem.resetGyro();
+    
+
 
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+    
   }
 
   /**

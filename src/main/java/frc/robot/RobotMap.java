@@ -54,7 +54,14 @@ public class RobotMap {
   //PWM ADDRESSES FOR OUR ROBORIO
   public static int PWM_PORT_CARGO_BINDY_INTAKE = 0;
 
+  //GYRO SPI PORT NUMBER
+  public static int SPI_PORT_AHRS = 0;
 
+  //ENCODER DIO CHANNELS
+  public static int DIO_PORT_DTENCODER_LEFT_CHANNEL_A = 0;
+  public static int DIO_PORT_DTENCODER_LEFT_CHANNEL_B = 1;
+  public static int DIO_PORT_DTENCODER_RIGHT_CHANNEL_A = 2;
+  public static int DIO_PORT_DTENCODER_RIGHT_CHANNEL_B = 3;
 
   public static double DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
   public static double DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
