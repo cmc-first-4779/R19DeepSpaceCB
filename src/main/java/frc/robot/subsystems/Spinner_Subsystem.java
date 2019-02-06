@@ -17,7 +17,7 @@ public class Spinner_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  Spark = new Spark(0);
+  //Spark = new Spark(0);
 
   @Override
   public void initDefaultCommand() {
