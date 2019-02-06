@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain_Subsystem;
+import frc.robot.subsystems.HatchHandler_Subsystem;
 import frc.robot.subsystems.Limelight_Subsystem;
 
 
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot {
   //Declare our Subsystems
   public static DriveTrain_Subsystem driveTrain_Subsystem;
   public static Limelight_Subsystem limeLight_Subsystem;
+  public static HatchHandler_Subsystem hatchHandler_Subsystem;
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -42,6 +44,7 @@ public class Robot extends TimedRobot {
     //Initiate our subystems
     driveTrain_Subsystem = new DriveTrain_Subsystem();
     limeLight_Subsystem = new Limelight_Subsystem();
+    hatchHandler_Subsystem = new HatchHandler_Subsystem();
 
     //Initiate the OI LAST!!!!
     m_oi = new OI();

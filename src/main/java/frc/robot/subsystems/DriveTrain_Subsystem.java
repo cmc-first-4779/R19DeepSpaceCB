@@ -41,7 +41,7 @@ public class DriveTrain_Subsystem extends Subsystem {
 
 
   //DECLARE OUR DIFFERENTAL DRIVE
-  DifferentialDrive myDrive = new DifferentialDrive(leftMaster, rightMaster);
+  DifferentialDrive myDrive; 
 
   	//Declare  our DriveTrain Encoders
 	private Encoder dTEncoderLeft;
@@ -82,6 +82,8 @@ public DriveTrain_Subsystem(){
   leftSlave.setInverted(false);
   rightMaster.setInverted(false);
   rightSlave.setInverted(false);
+
+  myDrive = new DifferentialDrive(leftMaster, rightMaster);
 
   //INITIATE OUR DRIVETRAIN ROTARY ENCODERS
   dTEncoderLeft = new Encoder (RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_A, RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_B);
