@@ -7,7 +7,11 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 
 /**
@@ -17,11 +21,21 @@ public class Spinner_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  //Spark = new Spark(0);
+  WPI_TalonSRX spinMotor = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_SPINNER);
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+  }
+
+  public void spinForward() {
+    // spin the spinner forwards at a set speed
+    spinMotor.set(.5);
+  }
+
+  public void spinReverse() {
+    // spin the spiner backwards at a set speed
+    spinMotor.set(-.5);
   }
 }

@@ -49,7 +49,7 @@ public class RobotMap {
   public static int CAN_ADDRESS_RIGHT_FRONT_DRIVE = 2;
   public static int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;
   public static int CAN_ADDRESS_ARM = 3;
-  public static int CAN_ADDRESS_TBD = 4;
+  public static int CAN_ADDRESS_SPINNER = 4;
 
   //PWM ADDRESSES FOR OUR ROBORIO
   public static int PWM_PORT_CARGO_INTAKE = 0;
