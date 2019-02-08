@@ -7,30 +7,25 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-import com.kauailabs.navx.*;
 import com.kauailabs.navx.frc.AHRS;
-
-import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Encoder;
-
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.PIDOutput;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveJoystickCommand;
 
 /**
  * Add your docs here.
  */
-public class DriveTrainSubsystem extends Subsystem {
+public class DriveTrainSubsystem extends Subsystem implements PIDOutput {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  //Spark armMotor = new Spark(0);
-  //Test Comment
   
   //DECLARE OUR TALONS
   WPI_TalonSRX leftMaster;
@@ -44,8 +39,8 @@ public class DriveTrainSubsystem extends Subsystem {
   DifferentialDrive myDrive; 
 
   	//Declare  our DriveTrain Encoders
-	private Encoder dTEncoderLeft;
-	private Encoder dTEncoderRight;
+	private Encoder driveTrainEncoderLeft;
+	private Encoder driveTrainEncoderRight;
 
   //DECLARE OUR NAV-X GYRO
   public AHRS gyro;
@@ -57,8 +52,21 @@ public class DriveTrainSubsystem extends Subsystem {
 	public double distance;
 	
 	//Declare the variable we are using for speed for our Auton Command Groups.
-	private double speed;
+  private double speed;
+  
+  //PIDController to handle turning
+  public final PIDController turController;
 
+  //PID Tuning values
+  private final double kP = 0;
+  private final double kI = 0;
+  private final double kD = 0;
+
+
+  /**
+   * Default constructor for the DriveTrainSubsytem.  We will create our motor controlers and sensors in here 
+   * and configure them for how they need to be used in this subsystem
+   */
 public DriveTrainSubsystem(){
 
   //INITIATE OUR TALONS
@@ -67,15 +75,15 @@ public DriveTrainSubsystem(){
   leftSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_LEFT_REAR_DRIVE);
   rightSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_RIGHT_REAR_DRIVE);
 
+  //Init the talons
+  Robot.initMotorController(leftMaster);
+  Robot.initMotorController(rightMaster);
+  Robot.initMotorController(leftSlave);
+  Robot.initMotorController(rightSlave);
+ 
   //SLAVE OUR REAR MOTORS TO OUR FRONT MASTER MOTORS
   leftSlave.follow(leftMaster);
   rightSlave.follow(rightMaster);
-
-  //SET OUR FACTORY DEFAULTS ON ALL TALONS AND VICTORS
-  leftMaster.configFactoryDefault();
-  leftSlave.configFactoryDefault();
-  rightMaster.configFactoryDefault();
-  rightSlave.configFactoryDefault();
 
   //IN CASE WE HAVE TO INVERT ANY MOTORS
   leftMaster.setInverted(false);
@@ -85,9 +93,11 @@ public DriveTrainSubsystem(){
 
   myDrive = new DifferentialDrive(leftMaster, rightMaster);
 
+
+
   //INITIATE OUR DRIVETRAIN ROTARY ENCODERS
-  dTEncoderLeft = new Encoder (RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_A, RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_B);
-  dTEncoderRight = new Encoder(RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_A, RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_B);
+  driveTrainEncoderLeft = new Encoder (RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_A, RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_B);
+  driveTrainEncoderRight = new Encoder(RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_A, RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_B);
 
   //Initiate NAV-X GYRO
       /* Communicate w/navX-MXP via the MXP SPI Bus.                                     */
@@ -96,7 +106,8 @@ public DriveTrainSubsystem(){
   gyro = new AHRS(SPI.Port.kMXP);
 
 
-
+  //Instantiate our turn controller 
+  turController = new PIDController(kP, kI, kD, gyro, this);
 }
 
   @Override
@@ -150,8 +161,8 @@ public DriveTrainSubsystem(){
   public void resetDTEncoders() {
     //Reset both of our rotary encoders.   We call this usually at the start of every drivetrain command.
       System.out.println("Resetting DriveTrain Encoders");
-      dTEncoderLeft.reset();
-      dTEncoderRight.reset();
+      driveTrainEncoderLeft.reset();
+      driveTrainEncoderRight.reset();
   }
       
   public double getAvgEncoderPosition() {
@@ -159,28 +170,33 @@ public DriveTrainSubsystem(){
     // a bad connection or sliced wire.  These if/else commands make sure that each encoder is giving 
     // positive values >= 3 before performing an average.    If one of the encoders is < 3, then it will
     // only return a reading from the working encoder.
-    if (Math.abs(dTEncoderLeft.getDistance()) < 3) {
+    if (Math.abs(driveTrainEncoderLeft.getDistance()) < 3) {
       System.out.println("LEFT DRIVETRAIN ENCODER IS NOT WORKING!!!");
-      return dTEncoderRight.getDistance();
+      return driveTrainEncoderRight.getDistance();
     } 
-    else if(Math.abs(dTEncoderRight.getDistance()) < 3) {
+    else if(Math.abs(driveTrainEncoderRight.getDistance()) < 3) {
       System.out.println("RIGHT DRIVETRAIN ENCODER IS NOT WORKING!!!");
-      return -dTEncoderLeft.getDistance();
+      return -driveTrainEncoderLeft.getDistance();
     } 
     else {
     //Average our two rotary encoders together to account for slippage and turning.
-    return (-dTEncoderLeft.getDistance() + dTEncoderRight.getDistance()) / 2;
+    return (-driveTrainEncoderLeft.getDistance() + driveTrainEncoderRight.getDistance()) / 2;
     }
   }
       
   public double getLeftEncoderPosition() {
     //Get the Position of the Left encoder
-    return dTEncoderLeft.getDistance();
+    return driveTrainEncoderLeft.getDistance();
   }
       
   public double getRightEncoderPosition() {
     //Get the Position of the Right encoder
-    return dTEncoderRight.getDistance();
+    return driveTrainEncoderRight.getDistance();
+  }
+
+  @Override
+  public void pidWrite(double output) {
+
   }
 
 }

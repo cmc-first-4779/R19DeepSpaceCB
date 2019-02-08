@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 /**
@@ -19,7 +20,12 @@ public class ArmsSubsytem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  WPI_TalonSRX armMotor = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM);
+  WPI_TalonSRX armMotor; 
+
+  public ArmsSubsytem() {
+    armMotor =  new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM);
+    Robot.initMotorController(armMotor);
+  }
 
   @Override
   public void initDefaultCommand() {

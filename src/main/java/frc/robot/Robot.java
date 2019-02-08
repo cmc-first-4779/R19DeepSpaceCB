@@ -7,7 +7,14 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
+import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -149,5 +156,29 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void testPeriodic() {
+  }
+  
+
+  public static void initMotorController(WPI_TalonSRX talon) {
+    talon.configFactoryDefault();
+    talon.setNeutralMode(NeutralMode.Coast);
+    talon.neutralOutput();
+    talon.setSensorPhase(false);
+    talon.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
+    talon.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
+    talon.configNominalOutputForward(0.0, 0);
+    talon.configNominalOutputReverse(0.0, 0);
+    talon.configClosedloopRamp(0.5, 0);
+  }
+
+  public static void initMotorController (WPI_VictorSPX victor) {
+    victor.configFactoryDefault();
+    victor.setNeutralMode(NeutralMode.Coast);
+    victor.neutralOutput();
+    victor.setSensorPhase(false);
+    victor.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
+    victor.configNominalOutputForward(0.0, 0);
+    victor.configNominalOutputReverse(0.0, 0);
+    victor.configClosedloopRamp(0.5, 0);    
   }
 }

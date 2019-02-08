@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 /**
@@ -18,7 +19,12 @@ public class SpinnerSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  WPI_TalonSRX spinMotor = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_SPINNER);
+  WPI_TalonSRX spinMotor;
+
+  public SpinnerSubsystem() {
+    spinMotor = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_SPINNER);
+    Robot.initMotorController(spinMotor);
+  }
 
   @Override
   public void initDefaultCommand() {
