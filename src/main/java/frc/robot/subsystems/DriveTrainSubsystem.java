@@ -21,12 +21,12 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
-import frc.robot.commands.DriveJoystick_Command;
+import frc.robot.commands.DriveJoystickCommand;
 
 /**
  * Add your docs here.
  */
-public class DriveTrain_Subsystem extends Subsystem {
+public class DriveTrainSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   //Spark armMotor = new Spark(0);
@@ -59,7 +59,7 @@ public class DriveTrain_Subsystem extends Subsystem {
 	//Declare the variable we are using for speed for our Auton Command Groups.
 	private double speed;
 
-public DriveTrain_Subsystem(){
+public DriveTrainSubsystem(){
 
   //INITIATE OUR TALONS
   leftMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_LEFT_FRONT_DRIVE);
@@ -104,7 +104,7 @@ public DriveTrain_Subsystem(){
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   //DEFAULT COMMAND FOR DRIVETRAND IS TO DRIVE THE JOYSTICK.
-  setDefaultCommand(new DriveJoystick_Command());
+  setDefaultCommand(new DriveJoystickCommand());
   }
 
   //Our Arcade drive method  

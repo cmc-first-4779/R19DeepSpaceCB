@@ -7,19 +7,18 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Solenoid;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
  */
-public class HatchHandler_Subsystem extends Subsystem {
+public class SpinnerSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  Solenoid beak = new Solenoid(3);
-  DoubleSolenoid beak2 = new DoubleSolenoid(1, 2);
 
+  WPI_TalonSRX spinMotor = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_SPINNER);
 
   @Override
   public void initDefaultCommand() {
@@ -27,13 +26,13 @@ public class HatchHandler_Subsystem extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public void TurnOn() {
-    beak.set(true);
-    beak2.set(DoubleSolenoid.Value.kForward);
+  public void spinForward() {
+    // spin the spinner forwards at a set speed
+    spinMotor.set(.5);
   }
 
-  public void TurnOff() {
-    beak.set(false);
-    beak2.set(DoubleSolenoid.Value.kReverse);
+  public void spinReverse() {
+    // spin the spiner backwards at a set speed
+    spinMotor.set(-.5);
   }
 }

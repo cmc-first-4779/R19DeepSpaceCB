@@ -9,8 +9,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.SolenoidOff_Command;
-import frc.robot.commands.SolenoidOn_Command;
+import frc.robot.commands.SolenoidOffCommand;
+import frc.robot.commands.SolenoidOnCommand;
 
 public class OI {
 	// Declare the two joysticks and initate them on the two appropriate USB ports
@@ -54,8 +54,8 @@ public class OI {
 		// Operator Stick
 		//operStickLeftBumper.whileHeld(new VacCubeIntake());
 
-		driverStickAButton.whileHeld(new SolenoidOn_Command());
-		driverStickBButton.whileHeld(new SolenoidOff_Command());
+		driverStickAButton.whileHeld(new SolenoidOnCommand());
+		driverStickBButton.whileHeld(new SolenoidOffCommand());
 
 
 }

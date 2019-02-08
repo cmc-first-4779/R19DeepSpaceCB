@@ -10,12 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class DriveJoystick_Command extends Command {
-  public DriveJoystick_Command() {
+public class SolenoidOffCommand extends Command {
+  public SolenoidOffCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-
-requires(Robot.driveTrain_Subsystem);
+    requires(Robot.hatchHandlerSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -26,19 +25,20 @@ requires(Robot.driveTrain_Subsystem);
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveTrain_Subsystem.arcadeDrive(Robot.m_oi.getDriverStick().getY(), Robot.m_oi.getDriverStick().getX());
+    Robot.hatchHandlerSubsystem.TurnOff();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-   // Robot.cindyDrive.cindyArcadeDrive(0, 0);
+    Robot.hatchHandlerSubsystem.TurnOff();
+
   }
 
   // Called when another command which requires one or more of the same
@@ -47,5 +47,3 @@ requires(Robot.driveTrain_Subsystem);
   protected void interrupted() {
   }
 }
-
-

@@ -8,14 +8,14 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.subsystems.HatchHandler_Subsystem;
 import frc.robot.Robot;
 
-public class SolenoidOn_Command extends Command {
-  public SolenoidOn_Command() {
+public class DriveJoystickCommand extends Command {
+  public DriveJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.hatchHandler_Subsystem);
+
+    requires(Robot.driveTrainSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -26,20 +26,19 @@ public class SolenoidOn_Command extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.hatchHandler_Subsystem.TurnOn();
+    Robot.driveTrainSubsystem.arcadeDrive(Robot.oi.getDriverStick().getY(), Robot.oi.getDriverStick().getX());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    //Robot.hatchHandler_Subsystem.TurnOff();
-
+    // Robot.cindyDrive.cindyArcadeDrive(0, 0);
   }
 
   // Called when another command which requires one or more of the same

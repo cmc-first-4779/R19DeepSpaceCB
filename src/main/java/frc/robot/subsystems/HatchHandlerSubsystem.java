@@ -7,19 +7,19 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
  */
-public class Arms_Subsytem extends Subsystem {
+public class HatchHandlerSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  Solenoid beak = new Solenoid(3);
+  DoubleSolenoid beak2 = new DoubleSolenoid(1, 2);
 
-  WPI_TalonSRX armMotor = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM);
 
   @Override
   public void initDefaultCommand() {
@@ -27,13 +27,13 @@ public class Arms_Subsytem extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public void raiseArm() {
-    // Lift the arms up
-    armMotor.set(.5);
+  public void TurnOn() {
+    beak.set(true);
+    beak2.set(DoubleSolenoid.Value.kForward);
   }
 
-  public void lowerArm() {
-    // Lower the robot arm
-    armMotor.set(-.5);
+  public void TurnOff() {
+    beak.set(false);
+    beak2.set(DoubleSolenoid.Value.kReverse);
   }
 }

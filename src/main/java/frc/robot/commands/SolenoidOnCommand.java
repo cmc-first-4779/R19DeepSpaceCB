@@ -8,14 +8,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.subsystems.HatchHandler_Subsystem;
 import frc.robot.Robot;
 
-public class SolenoidOff_Command extends Command {
-  public SolenoidOff_Command() {
+public class SolenoidOnCommand extends Command {
+  public SolenoidOnCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.hatchHandler_Subsystem);
+    requires(Robot.hatchHandlerSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +25,7 @@ public class SolenoidOff_Command extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.hatchHandler_Subsystem.TurnOff();
+    Robot.hatchHandlerSubsystem.TurnOn();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,7 +37,7 @@ public class SolenoidOff_Command extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.hatchHandler_Subsystem.TurnOff();
+    //Robot.hatchHandler_Subsystem.TurnOff();
 
   }
 

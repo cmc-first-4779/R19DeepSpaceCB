@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.subsystems.DriveTrain_Subsystem;
-import frc.robot.subsystems.HatchHandler_Subsystem;
-import frc.robot.subsystems.Limelight_Subsystem;
+import frc.robot.subsystems.DriveTrainSubsystem;
+import frc.robot.subsystems.HatchHandlerSubsystem;
+import frc.robot.subsystems.LimelightSubsystem;
 
 
 /**
@@ -27,10 +27,10 @@ import frc.robot.subsystems.Limelight_Subsystem;
 public class Robot extends TimedRobot {
 
   //Declare our Subsystems
-  public static DriveTrain_Subsystem driveTrain_Subsystem;
-  public static Limelight_Subsystem limeLight_Subsystem;
-  public static HatchHandler_Subsystem hatchHandler_Subsystem;
-  public static OI m_oi;
+  public static DriveTrainSubsystem driveTrainSubsystem;
+  public static LimelightSubsystem limeLightSubsystem;
+  public static HatchHandlerSubsystem hatchHandlerSubsystem;
+  public static OI oi;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -42,18 +42,18 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     //Initiate our subystems
-    driveTrain_Subsystem = new DriveTrain_Subsystem();
-    limeLight_Subsystem = new Limelight_Subsystem();
-    hatchHandler_Subsystem = new HatchHandler_Subsystem();
+    driveTrainSubsystem = new DriveTrainSubsystem();
+    limeLightSubsystem = new LimelightSubsystem();
+    hatchHandlerSubsystem = new HatchHandlerSubsystem();
 
     //Initiate the OI LAST!!!!
-    m_oi = new OI();
+    oi = new OI();
 
     //RESET OUR GYRO 
-    Robot.driveTrain_Subsystem.resetGyro();
+    Robot.driveTrainSubsystem.resetGyro();
 
     //RESET OUR DRIVETRAIN ROTARY ENCODERS
-    Robot.driveTrain_Subsystem.resetDTEncoders();
+    Robot.driveTrainSubsystem.resetDTEncoders();
     
 
 
