@@ -53,6 +53,7 @@ public class RobotMap {
 
   //PWM ADDRESSES FOR OUR ROBORIO
   public static int PWM_PORT_CARGO_INTAKE = 0;
+  public static int PWM_PORT_BLING = 1;
 
   //GYRO SPI PORT NUMBER
   public static int SPI_PORT_AHRS = 0;
@@ -65,6 +66,12 @@ public class RobotMap {
 
   public static double DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
   public static double DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
+
+  //Pneumatics Values
+  public static int SOLINOID_DOUBLE_PCM_PORT_A = 1;
+  public static int SOLINOID_DOUBLE_PCM_PORT_B = 2;
+  public static int SOLINOID_SINGLE_PCM_PORT = 3;
+
 
   // limelight constants
   public static double LIMELIGHT_CAMMODE_VISION = 0; // Vision Mode = 0
@@ -88,4 +95,7 @@ public class RobotMap {
   public static double LIMELIGHT_DISTANCE_FROM_TARGET = 24.0; // inches
   public static double LIMELIGHT_CARGO_HEIGHT = 5.5; // inches
   public static double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
+
+  public static double ARM_RAISE_SPEED = 0.5;
+  public static double ARM_LOWER_SPEED = -0.5;
 }

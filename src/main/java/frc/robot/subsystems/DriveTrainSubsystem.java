@@ -100,6 +100,8 @@ public DriveTrainSubsystem(){
   driveTrainEncoderLeft = new Encoder (RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_A, RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_B);
   driveTrainEncoderRight = new Encoder(RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_A, RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_B);
 
+
+
   //Initiate NAV-X GYRO
       /* Communicate w/navX-MXP via the MXP SPI Bus.                                     */
           /* Alternatively:  I2C.Port.kMXP, SerialPort.Port.kMXP or SerialPort.Port.kUSB     */
