@@ -35,11 +35,11 @@ public class ArmsSubsytem extends Subsystem {
 
   public void raiseArm() {
     // Lift the arms up
-    armMotor.set(.5);
+    armMotor.set(RobotMap.ARM_RAISE_SPEED);
   }
 
   public void lowerArm() {
     // Lower the robot arm
-    armMotor.set(-.5);
+    armMotor.set(RobotMap.ARM_LOWER_SPEED);
   }
 }
