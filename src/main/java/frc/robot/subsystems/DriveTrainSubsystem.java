@@ -59,7 +59,7 @@ public class DriveTrainSubsystem extends Subsystem implements PIDOutput {
   public final PIDController turnController;
 
   //PID Tuning values
-  private final double kP = 0.05;
+  private final double kP = 0.025;
   private final double kI = 0;
   private final double kD = 0;
 
@@ -71,10 +71,16 @@ public class DriveTrainSubsystem extends Subsystem implements PIDOutput {
 public DriveTrainSubsystem(){
 
   //INITIATE OUR TALONS
-  leftMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_LEFT_FRONT_DRIVE);
-  rightMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_RIGHT_FRONT_DRIVE);
-  leftSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_LEFT_REAR_DRIVE);
-  rightSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_RIGHT_REAR_DRIVE);
+ // leftMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_LEFT_FRONT_DRIVE);
+//rightMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_RIGHT_FRONT_DRIVE);
+  //leftSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_LEFT_REAR_DRIVE);
+ // rightSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_RIGHT_REAR_DRIVE);
+
+  leftMaster = new WPI_TalonSRX(1);
+  rightMaster = new WPI_TalonSRX(2);
+  leftSlave = new WPI_VictorSPX(4);
+  rightSlave = new WPI_VictorSPX(3);
+
 
   //Init the talons
   Robot.initMotorController(leftMaster);
@@ -87,12 +93,12 @@ public DriveTrainSubsystem(){
   rightSlave.follow(rightMaster);
 
   //IN CASE WE HAVE TO INVERT ANY MOTORS
-  leftMaster.setInverted(true);
-  leftSlave.setInverted(true);
+  leftMaster.setInverted(false);
+  leftSlave.setInverted(false);
   rightMaster.setInverted(false);
   rightSlave.setInverted(false);
 
- // myDrive = new DifferentialDrive(leftMaster, rightMaster);
+  myDrive = new DifferentialDrive(leftMaster, rightMaster);
 
 
 
@@ -122,12 +128,14 @@ public DriveTrainSubsystem(){
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   //DEFAULT COMMAND FOR DRIVETRAND IS TO DRIVE THE JOYSTICK.
-  //setDefaultCommand(new DriveJoystickCommand());
+  setDefaultCommand(new DriveJoystickCommand());
   }
 
   //Our Arcade drive method  
   public void arcadeDrive(double move, double turn) {
-    //myDrive.arcadeDrive(-move, turn);
+   // System.out.println("move: " + move + " turn: " + turn);
+    myDrive.arcadeDrive(-move, turn);
+   
   }
 
   //RETURN THE GYRO OBJECT
@@ -219,7 +227,8 @@ public DriveTrainSubsystem(){
   @Override
   public void pidWrite(double output) {
     System.out.println("In pidWrite output: " + output);
-    set(ControlMode.PercentOutput, -output, output);
+   // set(ControlMode.PercentOutput, -output, output);
+   arcadeDrive (0, output);
   }
 
 }

@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.PrintAngle;
 import frc.robot.commands.SolenoidOffCommand;
 import frc.robot.commands.SolenoidOnCommand;
+import frc.robot.commands.SpinningBecauseWhyNot;
 import frc.robot.commands.TurnToAngle;
 
 public class OI {
@@ -56,9 +57,9 @@ public class OI {
 		// Operator Stick
 		//operStickLeftBumper.whileHeld(new VacCubeIntake());
 
-		driverStickAButton.whileHeld(new SolenoidOnCommand());
+		driverStickAButton.whileHeld(new SpinningBecauseWhyNot());
 		driverStickBButton.whileHeld(new SolenoidOffCommand());
-		driverStickYButton.whenPressed(new TurnToAngle(15));
+		driverStickYButton.whenPressed(new TurnToAngle(120));
 		driverStickXButton.whileHeld(new PrintAngle());
 
 

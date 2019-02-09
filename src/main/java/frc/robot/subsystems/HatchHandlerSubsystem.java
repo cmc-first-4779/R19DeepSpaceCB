@@ -18,8 +18,8 @@ import frc.robot.RobotMap;
 public class HatchHandlerSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  Solenoid beak = new Solenoid(RobotMap.SOLINOID_SINGLE_PCM_PORT);
-  DoubleSolenoid beak2 = new DoubleSolenoid(RobotMap.SOLINOID_DOUBLE_PCM_PORT_A, RobotMap.SOLINOID_DOUBLE_PCM_PORT_B);
+  //Solenoid beak = new Solenoid(RobotMap.SOLINOID_SINGLE_PCM_PORT);
+  //DoubleSolenoid beak2 = new DoubleSolenoid(RobotMap.SOLINOID_DOUBLE_PCM_PORT_A, RobotMap.SOLINOID_DOUBLE_PCM_PORT_B);
 
 
   @Override
@@ -29,12 +29,12 @@ public class HatchHandlerSubsystem extends Subsystem {
   }
 
   public void TurnOn() {
-    beak.set(true);
-    beak2.set(DoubleSolenoid.Value.kForward);
+  //  beak.set(true);
+  //  beak2.set(DoubleSolenoid.Value.kForward);
   }
 
   public void TurnOff() {
-    beak.set(false);
-    beak2.set(DoubleSolenoid.Value.kReverse);
+  //  beak.set(false);
+  //  beak2.set(DoubleSolenoid.Value.kReverse);
   }
 }

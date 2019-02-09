@@ -7,72 +7,44 @@
 
 package frc.robot.commands;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class TurnToAngle extends Command {
-  double angle;
-  boolean isFinished = false;
-  boolean inErrorZone = false;
-  int count = 0;
-  int printCount = 0;
-
-  public TurnToAngle(double angle) {
+public class SpinningBecauseWhyNot extends Command {
+  public SpinningBecauseWhyNot() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    System.out.println("In Constructor");
     requires(Robot.driveTrainSubsystem);
-    this.angle = angle;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.driveTrainSubsystem.rotateDegrees(angle);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double error = Robot.driveTrainSubsystem.turnController.getError();
-    inErrorZone = Math.abs(error) < 5;
-    System.out.println("Count: " + count);
-    if(inErrorZone) {
-      count++;
-      if (count > 5 ){
-              isFinished = true;
-              count = 0;
-      }
-    } else {
-      count = 0;
-    }
-
-  
-    if(printCount++ > 0 ) {
-      System.out.println("Error: " + error);
-      printCount = 0;
-    }
-
+     Robot.driveTrainSubsystem.arcadeDrive(0, 0.45);
+    //Robot.driveTrainSubsystem.set(ControlMode.PercentOutput, -0.45, 0.45);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isFinished;
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    System.out.println("Ending TurnToAngle");
-    isFinished = false;
-    Robot.driveTrainSubsystem.turnController.disable();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }
