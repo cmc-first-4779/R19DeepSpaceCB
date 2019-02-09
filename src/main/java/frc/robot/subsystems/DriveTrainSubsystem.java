@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.kauailabs.navx.frc.AHRS;
@@ -55,10 +56,10 @@ public class DriveTrainSubsystem extends Subsystem implements PIDOutput {
   private double speed;
   
   //PIDController to handle turning
-  public final PIDController turController;
+  public final PIDController turnController;
 
   //PID Tuning values
-  private final double kP = 0;
+  private final double kP = 0.05;
   private final double kI = 0;
   private final double kD = 0;
 
@@ -86,12 +87,12 @@ public DriveTrainSubsystem(){
   rightSlave.follow(rightMaster);
 
   //IN CASE WE HAVE TO INVERT ANY MOTORS
-  leftMaster.setInverted(false);
-  leftSlave.setInverted(false);
+  leftMaster.setInverted(true);
+  leftSlave.setInverted(true);
   rightMaster.setInverted(false);
   rightSlave.setInverted(false);
 
-  myDrive = new DifferentialDrive(leftMaster, rightMaster);
+ // myDrive = new DifferentialDrive(leftMaster, rightMaster);
 
 
 
@@ -107,7 +108,11 @@ public DriveTrainSubsystem(){
 
 
   //Instantiate our turn controller 
-  turController = new PIDController(kP, kI, kD, gyro, this);
+  turnController = new PIDController(kP, kI, kD, gyro, this);
+  turnController.setInputRange(-180.0, 180.0);
+  turnController.setOutputRange(-45.0, 45.0);
+  turnController.setAbsoluteTolerance(2.0);
+  turnController.setContinuous();
 }
 
   @Override
@@ -115,12 +120,12 @@ public DriveTrainSubsystem(){
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   //DEFAULT COMMAND FOR DRIVETRAND IS TO DRIVE THE JOYSTICK.
-  setDefaultCommand(new DriveJoystickCommand());
+  //setDefaultCommand(new DriveJoystickCommand());
   }
 
   //Our Arcade drive method  
   public void arcadeDrive(double move, double turn) {
-    myDrive.arcadeDrive(-move, turn);
+    //myDrive.arcadeDrive(-move, turn);
   }
 
   //RETURN THE GYRO OBJECT
@@ -137,7 +142,7 @@ public DriveTrainSubsystem(){
 
   public void stop() {
     //  If needed, we can stop the driveTrain by sending 0's to arcadeDrive.
-    myDrive.arcadeDrive(0,0);
+   // myDrive.arcadeDrive(0,0);
   }
 
   public void setSpeed (double speed) {
@@ -194,9 +199,25 @@ public DriveTrainSubsystem(){
     return driveTrainEncoderRight.getDistance();
   }
 
+  public void set(ControlMode mode, double leftValue, double rightValue){
+    leftMaster.set(mode, leftValue);
+    rightMaster.set(mode, rightValue);
+  }
+
+  public void rotateDegrees(double angle) {
+    System.out.println("got in to rotate");
+    gyro.reset();
+    turnController.reset();
+    turnController.setPID(kP, kI, kD);
+    System.out.println("Angle: " + angle );
+    turnController.setSetpoint(angle);
+    turnController.enable();
+  }
+
   @Override
   public void pidWrite(double output) {
-
+    System.out.println("In pidWrite output: " + output);
+    set(ControlMode.PercentOutput, -output, output);
   }
 
 }

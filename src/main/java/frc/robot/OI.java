@@ -9,8 +9,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.PrintAngle;
 import frc.robot.commands.SolenoidOffCommand;
 import frc.robot.commands.SolenoidOnCommand;
+import frc.robot.commands.TurnToAngle;
 
 public class OI {
 	// Declare the two joysticks and initate them on the two appropriate USB ports
@@ -56,6 +58,8 @@ public class OI {
 
 		driverStickAButton.whileHeld(new SolenoidOnCommand());
 		driverStickBButton.whileHeld(new SolenoidOffCommand());
+		driverStickYButton.whenPressed(new TurnToAngle(15));
+		driverStickXButton.whileHeld(new PrintAngle());
 
 
 }
