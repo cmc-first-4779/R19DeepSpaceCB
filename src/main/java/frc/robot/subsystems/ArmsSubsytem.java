@@ -12,6 +12,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.Encoder;
 
 /**
  * Add your docs here.
@@ -21,10 +22,13 @@ public class ArmsSubsytem extends Subsystem {
   // here. Call these from Commands.
 
   WPI_TalonSRX armMotor; 
+  Encoder encoder;
 
   public ArmsSubsytem() {
     armMotor =  new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM);
     Robot.initMotorController(armMotor);
+
+    encoder = new Encoder(sourceA, sourceB);
   }
 
   @Override
