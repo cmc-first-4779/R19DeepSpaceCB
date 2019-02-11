@@ -8,6 +8,9 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
@@ -21,14 +24,12 @@ public class ArmsSubsytem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  WPI_TalonSRX armMotor; 
-  Encoder encoder;
-
+  public WPI_TalonSRX armMotor; 
+ 
   public ArmsSubsytem() {
     armMotor =  new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM);
-    Robot.initMotorController(armMotor);
-
-    encoder = new Encoder(sourceA, sourceB);
+    Robot.initMotorController(armMotor);    
+    armMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
   }
 
   @Override
