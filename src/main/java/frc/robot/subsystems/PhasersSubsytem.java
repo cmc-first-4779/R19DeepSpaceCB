@@ -15,17 +15,17 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 /**
  * Add your docs here.
  */
-public class BlingSubsystem extends Subsystem {
+public class PhasersSubsytem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  Spark bling;
+  Spark phasers;
 
  
   
 
- public BlingSubsystem(){
-    bling = new Spark(RobotMap.PWM_PORT_BLING);
+ public PhasersSubsytem(){
+    phasers = new Spark(RobotMap.PWM_PORT_BLING);
  }
   
 

@@ -7,38 +7,22 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.Robot;
-import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 
 /**
  * Add your docs here.
  */
-public class SpinnerSubsystem extends Subsystem {
+public class EventHorizonSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  WPI_TalonSRX spinMotor;
-
-  public SpinnerSubsystem() {
-    spinMotor = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_SPINNER);
-    Robot.initMotorController(spinMotor);
-  }
+  Spark eventHorizon;
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-  }
-
-  public void spinForward() {
-    // spin the spinner forwards at a set speed
-    spinMotor.set(.5);
-  }
-
-  public void spinReverse() {
-    // spin the spiner backwards at a set speed
-    spinMotor.set(-.5);
   }
 }

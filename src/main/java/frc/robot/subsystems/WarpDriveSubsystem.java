@@ -24,7 +24,7 @@ import frc.robot.commands.DriveJoystickCommand;
 /**
  * Add your docs here.
  */
-public class DriveTrainSubsystem extends Subsystem implements PIDOutput {
+public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   
@@ -68,7 +68,7 @@ public class DriveTrainSubsystem extends Subsystem implements PIDOutput {
    * Default constructor for the DriveTrainSubsytem.  We will create our motor controlers and sensors in here 
    * and configure them for how they need to be used in this subsystem
    */
-public DriveTrainSubsystem(){
+public WarpDriveSubsystem(){
 
   //INITIATE OUR TALONS
  // leftMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_LEFT_FRONT_DRIVE);

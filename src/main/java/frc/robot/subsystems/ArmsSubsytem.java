@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -24,12 +25,17 @@ public class ArmsSubsytem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public WPI_TalonSRX armMotor; 
- 
+  public WPI_TalonSRX armMaster; 
+ public WPI_VictorSPX armSlave;
+
   public ArmsSubsytem() {
-    armMotor =  new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM);
-    Robot.initMotorController(armMotor);    
-    armMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+    armMaster =  new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM_MASTER);
+    armSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_ARM_SLAVE);
+    Robot.initMotorController(armMaster);
+    Robot.initMotorController(armSlave);    
+    armSlave.follow(armMaster);
+    armMaster.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+    armMaster.configurePID()
   }
 
   @Override
@@ -40,11 +46,16 @@ public class ArmsSubsytem extends Subsystem {
 
   public void raiseArm() {
     // Lift the arms up
-    armMotor.set(RobotMap.ARM_RAISE_SPEED);
+    armMaster.set(RobotMap.ARM_RAISE_SPEED);
   }
 
   public void lowerArm() {
     // Lower the robot arm
-    armMotor.set(RobotMap.ARM_LOWER_SPEED);
+    armMaster.set(RobotMap.ARM_LOWER_SPEED);
+  }
+  
+  public void setSetPoint(double setPoint){
+    // Move arm to set point
+    armMaster.set(ControlMode.Position, setPoint);
   }
 }
