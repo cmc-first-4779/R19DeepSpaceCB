@@ -35,7 +35,7 @@ public class ArmsSubsytem extends Subsystem {
     Robot.initMotorController(armSlave);    
     armSlave.follow(armMaster);
     armMaster.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-    armMaster.configurePID()
+    armMaster.config_kP(0,.04, 0);
   }
 
   @Override

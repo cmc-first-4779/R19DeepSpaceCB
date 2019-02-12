@@ -21,20 +21,20 @@ public class TurnToAngle extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     System.out.println("In Constructor");
-    requires(Robot.driveTrainSubsystem);
+    requires(Robot.warpDriveSubsystem);
     this.angle = angle;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.driveTrainSubsystem.rotateDegrees(angle);
+    Robot.warpDriveSubsystem.rotateDegrees(angle);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double error = Robot.driveTrainSubsystem.turnController.getError();
+    double error = Robot.warpDriveSubsystem.turnController.getError();
     inErrorZone = Math.abs(error) < 5;
     System.out.println("Count: " + count);
     if(inErrorZone) {
@@ -66,7 +66,7 @@ public class TurnToAngle extends Command {
   protected void end() {
     System.out.println("Ending TurnToAngle");
     isFinished = false;
-    Robot.driveTrainSubsystem.turnController.disable();
+    Robot.warpDriveSubsystem.turnController.disable();
   }
 
   // Called when another command which requires one or more of the same

@@ -34,7 +34,7 @@ import frc.robot.subsystems.LimelightSubsystem;
 public class Robot extends TimedRobot {
 
   //Declare our Subsystems
-  public static WarpDriveSubsystem driveTrainSubsystem;
+  public static WarpDriveSubsystem warpDriveSubsystem;
   public static LimelightSubsystem limeLightSubsystem;
   public static HatchHandlerSubsystem hatchHandlerSubsystem;
   public static OI oi;
@@ -49,7 +49,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     //Initiate our subystems
-    driveTrainSubsystem = new WarpDriveSubsystem();
+    warpDriveSubsystem = new WarpDriveSubsystem();
     limeLightSubsystem = new LimelightSubsystem();
     hatchHandlerSubsystem = new HatchHandlerSubsystem();
 
@@ -57,10 +57,10 @@ public class Robot extends TimedRobot {
     oi = new OI();
 
     //RESET OUR GYRO 
-    Robot.driveTrainSubsystem.resetGyro();
+    Robot.warpDriveSubsystem.resetGyro();
 
     //RESET OUR DRIVETRAIN ROTARY ENCODERS
-    Robot.driveTrainSubsystem.resetDTEncoders();
+    Robot.warpDriveSubsystem.resetDTEncoders();
     
 
 

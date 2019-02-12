@@ -16,7 +16,7 @@ public class SpinningBecauseWhyNot extends Command {
   public SpinningBecauseWhyNot() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.driveTrainSubsystem);
+    requires(Robot.warpDriveSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -27,7 +27,7 @@ public class SpinningBecauseWhyNot extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-     Robot.driveTrainSubsystem.arcadeDrive(0, 0.45);
+     Robot.warpDriveSubsystem.arcadeDrive(0, 0.45);
     //Robot.driveTrainSubsystem.set(ControlMode.PercentOutput, -0.45, 0.45);
   }
 

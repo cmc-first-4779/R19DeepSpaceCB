@@ -14,7 +14,7 @@ public class PrintAngle extends Command {
   public PrintAngle() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.driveTrainSubsystem);
+    requires(Robot.warpDriveSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class PrintAngle extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println(Robot.driveTrainSubsystem.gyro.getYaw());
+    System.out.println(Robot.warpDriveSubsystem.gyro.getYaw());
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -15,7 +15,7 @@ public class DriveJoystickCommand extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
 
-    requires(Robot.driveTrainSubsystem);
+    requires(Robot.warpDriveSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +26,7 @@ public class DriveJoystickCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveTrainSubsystem.arcadeDrive(Robot.oi.getDriverStick().getY(), Robot.oi.getDriverStick().getX());
+    Robot.warpDriveSubsystem.arcadeDrive(Robot.oi.getDriverStick().getY(), Robot.oi.getDriverStick().getX());
   }
 
   // Make this return true when this Command no longer needs to run execute()
