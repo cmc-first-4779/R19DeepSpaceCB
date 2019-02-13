@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.PhasersSetForestCommand;
 import frc.robot.commands.PrintAngle;
 import frc.robot.commands.SolenoidOffCommand;
 import frc.robot.commands.SolenoidOnCommand;
@@ -19,6 +20,7 @@ import frc.robot.commands.Phasers.PhasersGlitterCommand;
 import frc.robot.commands.Phasers.PhasersLarsonScannerCommand;
 import frc.robot.commands.Phasers.PhasersLavaCommand;
 import frc.robot.commands.Phasers.PhasersOceanCommand;
+import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
 import frc.robot.commands.Phasers.PhasersShotCommand;
 
 public class OI {
@@ -73,7 +75,9 @@ public class OI {
 		operStickXButton.whenPressed(new PhasersOceanCommand());
 		operStickYButton.whenPressed(new PhasersLavaCommand());
 		operStickLeftBumper.whenPressed(new PhasersLarsonScannerCommand());
-		operStickRightBumper.whenPressed(new PhasersBlackCommand());
+		operStickRightBumper.whenPressed(new PhasersSetForestCommand());
+		operStickStartButton.whenPressed(new PhasersSetPhaserCommand());
+		
 
 
 }
