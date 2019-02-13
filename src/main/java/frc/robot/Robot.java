@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.WarpDriveSubsystem;
+import frc.robot.subsystems.ArmsSubsytem;
 import frc.robot.subsystems.HatchHandlerSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 
@@ -37,6 +38,7 @@ public class Robot extends TimedRobot {
   public static WarpDriveSubsystem warpDriveSubsystem;
   public static LimelightSubsystem limeLightSubsystem;
   public static HatchHandlerSubsystem hatchHandlerSubsystem;
+  public static ArmsSubsytem armsSubsytem;
   public static OI oi;
 
   Command m_autonomousCommand;
@@ -52,6 +54,7 @@ public class Robot extends TimedRobot {
     warpDriveSubsystem = new WarpDriveSubsystem();
     limeLightSubsystem = new LimelightSubsystem();
     hatchHandlerSubsystem = new HatchHandlerSubsystem();
+    armsSubsytem = new ArmsSubsytem();
 
     //Initiate the OI LAST!!!!
     oi = new OI();
@@ -161,7 +164,7 @@ public class Robot extends TimedRobot {
 
   public static void initMotorController(WPI_TalonSRX talon) {
     talon.configFactoryDefault();
-    talon.setNeutralMode(NeutralMode.Coast);
+    talon.setNeutralMode(NeutralMode.Brake);
     talon.neutralOutput();
     talon.setSensorPhase(false);
     talon.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
@@ -173,7 +176,7 @@ public class Robot extends TimedRobot {
 
   public static void initMotorController (WPI_VictorSPX victor) {
     victor.configFactoryDefault();
-    victor.setNeutralMode(NeutralMode.Coast);
+    victor.setNeutralMode(NeutralMode.Brake);
     victor.neutralOutput();
     victor.setSensorPhase(false);
     victor.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);

@@ -9,7 +9,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.PrintAngle;
+import frc.robot.commands.PrintAngleCommand;
+import frc.robot.commands.RaiseArmCommand;
+import frc.robot.commands.SetArmEncoderPositionCommand;
 import frc.robot.commands.SolenoidOffCommand;
 import frc.robot.commands.SolenoidOnCommand;
 import frc.robot.commands.SpinningBecauseWhyNot;
@@ -57,10 +59,10 @@ public class OI {
 		// Operator Stick
 		//operStickLeftBumper.whileHeld(new VacCubeIntake());
 
-		driverStickAButton.whileHeld(new SpinningBecauseWhyNot());
-		driverStickBButton.whileHeld(new SolenoidOffCommand());
-		driverStickYButton.whenPressed(new TurnToAngle(120));
-		driverStickXButton.whileHeld(new PrintAngle());
+		driverStickAButton.whenPressed(new SetArmEncoderPositionCommand(400));
+		driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(-400));
+		//driverStickYButton.whenPressed(new TurnToAngle(120));
+		driverStickXButton.whileHeld(new RaiseArmCommand());
 
 
 }

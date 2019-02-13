@@ -30,12 +30,17 @@ public class ArmsSubsytem extends Subsystem {
 
   public ArmsSubsytem() {
     armMaster =  new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM_MASTER);
-    armSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_ARM_SLAVE);
+    //armSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_ARM_SLAVE);
     Robot.initMotorController(armMaster);
-    Robot.initMotorController(armSlave);    
-    armSlave.follow(armMaster);
+    //Robot.initMotorController(armSlave);    
+    //armSlave.follow(armMaster);
     armMaster.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-    armMaster.config_kP(0,.04, 0);
+    armMaster.config_kP(0,.5, 0);
+    armMaster.config_kI(0, 0.0005, 0);
+    armMaster.config_kD(0, 0, 0);
+    armMaster.config_kF(0, 0, 0);
+    armMaster.setSensorPhase(true);
+    
   }
 
   @Override
@@ -46,7 +51,10 @@ public class ArmsSubsytem extends Subsystem {
 
   public void raiseArm() {
     // Lift the arms up
-    armMaster.set(RobotMap.ARM_RAISE_SPEED);
+    //System.out.println("Lifting my arms up!");
+
+    armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_RAISE_SPEED);
+    System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
   }
 
   public void lowerArm() {
@@ -54,8 +62,18 @@ public class ArmsSubsytem extends Subsystem {
     armMaster.set(RobotMap.ARM_LOWER_SPEED);
   }
   
+  public void stop() {
+    System.out.println("I should be stopping now");
+    armMaster.stopMotor();
+  }
   public void setSetPoint(double setPoint){
     // Move arm to set point
+    armMaster.setSelectedSensorPosition(0, 0, 0);
     armMaster.set(ControlMode.Position, setPoint);
+    System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
+  }
+
+  public void resetEncoder() {
+    armMaster.setSelectedSensorPosition(0);
   }
 }
