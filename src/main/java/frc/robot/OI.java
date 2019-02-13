@@ -14,6 +14,12 @@ import frc.robot.commands.SolenoidOffCommand;
 import frc.robot.commands.SolenoidOnCommand;
 import frc.robot.commands.SpinningBecauseWhyNot;
 import frc.robot.commands.TurnToAngle;
+import frc.robot.commands.Phasers.PhasersBlackCommand;
+import frc.robot.commands.Phasers.PhasersGlitterCommand;
+import frc.robot.commands.Phasers.PhasersLarsonScannerCommand;
+import frc.robot.commands.Phasers.PhasersLavaCommand;
+import frc.robot.commands.Phasers.PhasersOceanCommand;
+import frc.robot.commands.Phasers.PhasersShotCommand;
 
 public class OI {
 	// Declare the two joysticks and initate them on the two appropriate USB ports
@@ -61,6 +67,13 @@ public class OI {
 		driverStickBButton.whileHeld(new SolenoidOffCommand());
 		driverStickYButton.whenPressed(new TurnToAngle(120));
 		driverStickXButton.whileHeld(new PrintAngle());
+
+		operStickAButton.whenPressed(new PhasersShotCommand());
+		operStickBButton.whenPressed(new PhasersGlitterCommand());
+		operStickXButton.whenPressed(new PhasersOceanCommand());
+		operStickYButton.whenPressed(new PhasersLavaCommand());
+		operStickLeftBumper.whenPressed(new PhasersLarsonScannerCommand());
+		operStickRightBumper.whenPressed(new PhasersBlackCommand());
 
 
 }

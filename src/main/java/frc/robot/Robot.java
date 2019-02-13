@@ -22,7 +22,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.WarpDriveSubsystem;
 import frc.robot.subsystems.HatchHandlerSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
-
+import frc.robot.subsystems.PhasersSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -37,6 +37,7 @@ public class Robot extends TimedRobot {
   public static WarpDriveSubsystem warpDriveSubsystem;
   public static LimelightSubsystem limeLightSubsystem;
   public static HatchHandlerSubsystem hatchHandlerSubsystem;
+  public static PhasersSubsystem phasers;
   public static OI oi;
 
   Command m_autonomousCommand;
@@ -52,6 +53,7 @@ public class Robot extends TimedRobot {
     warpDriveSubsystem = new WarpDriveSubsystem();
     limeLightSubsystem = new LimelightSubsystem();
     hatchHandlerSubsystem = new HatchHandlerSubsystem();
+    phasers = new PhasersSubsystem();
 
     //Initiate the OI LAST!!!!
     oi = new OI();

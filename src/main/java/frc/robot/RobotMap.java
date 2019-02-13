@@ -54,7 +54,7 @@ public class RobotMap {
 
   //PWM ADDRESSES FOR OUR ROBORIO
   public static int PWM_PORT_CARGO_INTAKE = 0;
-  public static int PWM_PORT_BLING = 1;
+  public static int PWM_PORT_PHASERS = 1;
 
   //GYRO SPI PORT NUMBER
   public static int SPI_PORT_AHRS = 0;
@@ -99,4 +99,22 @@ public class RobotMap {
 
   public static double ARM_RAISE_SPEED = 0.5;
   public static double ARM_LOWER_SPEED = -0.5;
+
+  public static double CARGO_INTAKE_SPEED = 0.8;
+  public static double CARGO_EJECT_SPEED = -0.8;
+
+  //phasers
+  public static double PHASERS_OCEAN_PALETTE = -0.95;
+  public static double PHASERS_FOREST_PALETTE = -0.91;
+  public static double PHASERS_GLITTER_PALETTE = -0.89;
+  public static double PHASERS_CONFETTI_PALETTE = -0.87;
+  public static double PHASERS_SINELON_LAVA_PALETTE = -0.71;
+  public static double PHASERS_FIRE_PALETTE = -0.57;
+  public static double PHASERS_LARSON_SCANNER = -0.35;
+  public static double PHASERS_SHOT = 0.33;
+  public static double PHASERS_LAWN_GREEN = 0.71;
+  public static double PHASERS_WHITE = 0.93;
+  public static double PHASERS_BLACK = 0.99;
+
+
 }

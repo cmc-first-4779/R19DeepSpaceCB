@@ -8,11 +8,13 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 
 /**
- * Add your docs here.
+ * THE EVENT HORIZON Subsystem is the CARGO BALL INTAKE.
+ * IT IS Driven by one Motor on a SPARK controller
  */
 public class EventHorizonSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
@@ -20,9 +22,23 @@ public class EventHorizonSubsystem extends Subsystem {
 
   Spark eventHorizon;
 
+  public EventHorizonSubsystem(){
+
+    eventHorizon = new Spark(RobotMap.PWM_PORT_CARGO_INTAKE);
+
+  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+  }
+
+  public void intakeCargo(){
+    eventHorizon.set(RobotMap.CARGO_INTAKE_SPEED);
+  }
+
+  public void ejectCargo(){
+    eventHorizon.set(RobotMap.CARGO_EJECT_SPEED);
   }
 }
