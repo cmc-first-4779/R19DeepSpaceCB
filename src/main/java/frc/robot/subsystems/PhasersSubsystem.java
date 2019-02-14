@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import frc.robot.commands.Phasers.PhasersGlitterCommand;
 
 /**
  * Add your docs here.
@@ -35,6 +36,7 @@ public class PhasersSubsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new PhasersGlitterCommand());
   }
 
   public void setPhasers(double pattern){
