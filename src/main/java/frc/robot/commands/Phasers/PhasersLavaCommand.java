@@ -5,16 +5,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.commands.Phasers;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class SolenoidOffCommand extends Command {
-  public SolenoidOffCommand() {
+public class PhasersLavaCommand extends Command {
+  public PhasersLavaCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.hatchHandlerSubsystem);
+    requires(Robot.phasers);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class SolenoidOffCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.hatchHandlerSubsystem.TurnOff();
+    Robot.phasers.setPhasersLava();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -37,8 +37,6 @@ public class SolenoidOffCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.hatchHandlerSubsystem.TurnOff();
-
   }
 
   // Called when another command which requires one or more of the same

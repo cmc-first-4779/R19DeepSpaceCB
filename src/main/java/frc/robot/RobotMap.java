@@ -56,8 +56,17 @@ public class RobotMap {
   public static int CAN_ADDRESS_SPINNER = 4;
 
   //PWM ADDRESSES FOR OUR ROBORIO
-  public static int PWM_PORT_CARGO_INTAKE = 0;
-  public static int PWM_PORT_BLING = 1;
+  public static int PWM_PORT_EVENTHORIZON_WHEELS = 0;
+  public static int PWM_PORT_PHASERS = 1;
+
+  //PCM (Pneumatics Control Module) Addresses 
+  public static int PCM_EVENTHORIZON_LEFT_RAISE_PORT = 0;  //Placeholder for now..
+  public static int PCM_EVENTHORIZON_LEFT_LOWER_PORT = 1;  //Placeholder for now..
+  public static int PCM_EVENTHORIZON_RIGHT_RAISE_PORT = 2;  //Placeholder for now..
+  public static int PCM_EVENTHORIZON_RIGHT_LOWER_PORT = 3;  //Placeholder for now..
+  public static int PCM_HATCHHANDLER_NOSECONE_EXPAND_PORT = 6; //Placeholder for now..
+  public static int PCM_HATCHHANDLER_NOSECONE_RETRACT_PORT = 7;  //Placeholder for now..
+
 
   //GYRO SPI PORT NUMBER
   public static int SPI_PORT_AHRS = 0;
@@ -100,6 +109,28 @@ public class RobotMap {
   public static double LIMELIGHT_CARGO_HEIGHT = 5.5; // inches
   public static double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
 
+  //Arm Constants
   public static double ARM_RAISE_SPEED = 0.5;
   public static double ARM_LOWER_SPEED = -0.5;
+
+  //Event Horizon Constants
+  public static double EVENTHORIZON_INTAKE_SPEED = 0.8;  //Power to Spark Controller
+  public static double EVENTHORIZON_EJECT_SPEED = -0.8;  //Power to Spark Controller
+  public static int EVENTHORIZON_LEFT_SOLENOID_CHANNEL = 0;  //Will change these later
+  public static int EVENTHORIZON_RIGHT_SOLENOID_CHANNEL = 1;  //placeholder..   while change later.
+
+  //Phaser Constants for Pretty colors
+  public static double PHASERS_OCEAN_PALETTE = -0.95;
+  public static double PHASERS_FOREST_PALETTE = -0.91;
+  public static double PHASERS_GLITTER_PALETTE = -0.89;
+  public static double PHASERS_CONFETTI_PALETTE = -0.87;
+  public static double PHASERS_SINELON_LAVA_PALETTE = -0.71;
+  public static double PHASERS_FIRE_PALETTE = -0.57;
+  public static double PHASERS_LARSON_SCANNER = -0.35;
+  public static double PHASERS_SHOT = 0.33;
+  public static double PHASERS_LAWN_GREEN = 0.71;
+  public static double PHASERS_WHITE = 0.93;
+  public static double PHASERS_BLACK = 0.99;
+
+
 }

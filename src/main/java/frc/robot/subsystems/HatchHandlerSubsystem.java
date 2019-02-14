@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.HatchHander.NoseconeCloseCommand;
 
 /**
  * Add your docs here.
@@ -19,22 +20,27 @@ public class HatchHandlerSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   //Solenoid beak = new Solenoid(RobotMap.SOLINOID_SINGLE_PCM_PORT);
-  DoubleSolenoid noseCone = new DoubleSolenoid(RobotMap.SOLINOID_DOUBLE_PCM_PORT_A, RobotMap.SOLINOID_DOUBLE_PCM_PORT_B);
+  DoubleSolenoid noseCone;
 
+  public HatchHandlerSubsystem(){
+    noseCone = new DoubleSolenoid(RobotMap.PCM_HATCHHANDLER_NOSECONE_EXPAND_PORT, RobotMap.PCM_HATCHHANDLER_NOSECONE_RETRACT_PORT);
+  }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new NoseconeCloseCommand());
   }
 
-  public void TurnOn() {
+  public void openNoseCone() {
   //  beak.set(true);
-   noseCone.set(DoubleSolenoid.Value.kForward);
+    noseCone.set(DoubleSolenoid.Value.kForward);
   }
 
-  public void TurnOff() {
+  public void closeNoseCone() {
   //  beak.set(false);
     noseCone.set(DoubleSolenoid.Value.kReverse);
+
   }
 }

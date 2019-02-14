@@ -20,11 +20,12 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.WarpDriveSubsystem;
+import frc.robot.subsystems.EventHorizonSubsystem;
 import frc.robot.subsystems.ArmsSubsytem;
 import frc.robot.subsystems.BlackHoleSubsystem;
 import frc.robot.subsystems.HatchHandlerSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
-
+import frc.robot.subsystems.PhasersSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -39,6 +40,8 @@ public class Robot extends TimedRobot {
   public static WarpDriveSubsystem warpDriveSubsystem;
   public static LimelightSubsystem limeLightSubsystem;
   public static HatchHandlerSubsystem hatchHandlerSubsystem;
+  public static EventHorizonSubsystem eventHorizon;
+  public static PhasersSubsystem phasers;
   public static ArmsSubsytem armsSubsytem;
   public static BlackHoleSubsystem blackHoleSubsystem;
   public static OI oi;
@@ -56,6 +59,9 @@ public class Robot extends TimedRobot {
     warpDriveSubsystem = new WarpDriveSubsystem();
     limeLightSubsystem = new LimelightSubsystem();
     hatchHandlerSubsystem = new HatchHandlerSubsystem();
+    blackHoleSubsystem = new BlackHoleSubsystem();
+    eventHorizon = new EventHorizonSubsystem();
+    phasers = new PhasersSubsystem();
     armsSubsytem = new ArmsSubsytem();
 
     //Initiate the OI LAST!!!!
