@@ -53,8 +53,14 @@ public class RobotMap {
   public static int CAN_ADDRESS_SPINNER = 4;
 
   //PWM ADDRESSES FOR OUR ROBORIO
-  public static int PWM_PORT_CARGO_INTAKE = 0;
+  public static int PWM_PORT_EVENTHORIZON_WHEELS = 0;
   public static int PWM_PORT_PHASERS = 1;
+
+  //PCM (Pneumatics Control Module) Addresses 
+  public static int PCM_EVENTHORIZON_LEFT_DOUBLESOLENOID_PORT_A = 0;  //Placeholder for now..
+  public static int PCM_EVENTHORIZON_LEFT_DOUBLESOLENOID_PORT_B = 1;  //Placeholder for now..
+  public static int PCM_EVENTHORIZON_RIGHT_DOUBLESOLENOID_PORT_A = 2;  //Placeholder for now..
+  public static int PCM_EVENTHORIZON_RIGHT_DOUBLESOLENOID_PORT_B = 3;  //Placeholder for now..
 
   //GYRO SPI PORT NUMBER
   public static int SPI_PORT_AHRS = 0;
@@ -97,13 +103,17 @@ public class RobotMap {
   public static double LIMELIGHT_CARGO_HEIGHT = 5.5; // inches
   public static double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
 
+  //Arm Constants
   public static double ARM_RAISE_SPEED = 0.5;
   public static double ARM_LOWER_SPEED = -0.5;
 
-  public static double CARGO_INTAKE_SPEED = 0.8;
-  public static double CARGO_EJECT_SPEED = -0.8;
+  //Event Horizon Constants
+  public static double EVENTHORIZON_INTAKE_SPEED = 0.8;  //Power to Spark Controller
+  public static double EVENTHORIZON_EJECT_SPEED = -0.8;  //Power to Spark Controller
+  public static int EVENTHORIZON_LEFT_SOLENOID_CHANNEL = 0;  //Will change these later
+  public static int EVENTHORIZON_RIGHT_SOLENOID_CHANNEL = 1;  //placeholder..   while change later.
 
-  //phasers
+  //Phaser Constants for Pretty colors
   public static double PHASERS_OCEAN_PALETTE = -0.95;
   public static double PHASERS_FOREST_PALETTE = -0.91;
   public static double PHASERS_GLITTER_PALETTE = -0.89;
