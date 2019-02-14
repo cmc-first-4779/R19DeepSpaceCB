@@ -21,6 +21,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.WarpDriveSubsystem;
 import frc.robot.subsystems.EventHorizonSubsystem;
+import frc.robot.subsystems.ArmsSubsytem;
+import frc.robot.subsystems.BlackHoleSubsystem;
 import frc.robot.subsystems.HatchHandlerSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.PhasersSubsystem;
@@ -40,6 +42,8 @@ public class Robot extends TimedRobot {
   public static HatchHandlerSubsystem hatchHandlerSubsystem;
   public static EventHorizonSubsystem eventHorizon;
   public static PhasersSubsystem phasers;
+  public static ArmsSubsytem armsSubsytem;
+  public static BlackHoleSubsystem blackHoleSubsystem;
   public static OI oi;
 
   Command m_autonomousCommand;
@@ -55,8 +59,10 @@ public class Robot extends TimedRobot {
     warpDriveSubsystem = new WarpDriveSubsystem();
     limeLightSubsystem = new LimelightSubsystem();
     hatchHandlerSubsystem = new HatchHandlerSubsystem();
+    blackHoleSubsystem = new BlackHoleSubsystem();
     eventHorizon = new EventHorizonSubsystem();
     phasers = new PhasersSubsystem();
+    armsSubsytem = new ArmsSubsytem();
 
     //Initiate the OI LAST!!!!
     oi = new OI();
@@ -166,7 +172,7 @@ public class Robot extends TimedRobot {
 
   public static void initMotorController(WPI_TalonSRX talon) {
     talon.configFactoryDefault();
-    talon.setNeutralMode(NeutralMode.Coast);
+    talon.setNeutralMode(NeutralMode.Brake);
     talon.neutralOutput();
     talon.setSensorPhase(false);
     talon.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
@@ -178,7 +184,7 @@ public class Robot extends TimedRobot {
 
   public static void initMotorController (WPI_VictorSPX victor) {
     victor.configFactoryDefault();
-    victor.setNeutralMode(NeutralMode.Coast);
+    victor.setNeutralMode(NeutralMode.Brake);
     victor.neutralOutput();
     victor.setSensorPhase(false);
     victor.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);

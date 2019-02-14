@@ -10,22 +10,26 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class PrintAngle extends Command {
-  public PrintAngle() {
+public class SetArmEncoderPositionCommand extends Command {
+
+  double setPostion;
+  public SetArmEncoderPositionCommand(double position) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.warpDriveSubsystem);
+    requires(Robot.armsSubsytem);
+    setPostion = position;
   }
 
   // Called just before this Command runs the first time
   @Override
-  protected void initialize() {
+  protected void initialize() {    
+    Robot.armsSubsytem.setSetPoint(setPostion);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println(Robot.warpDriveSubsystem.gyro.getYaw());
+
   }
 
   // Make this return true when this Command no longer needs to run execute()

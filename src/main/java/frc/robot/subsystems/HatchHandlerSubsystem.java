@@ -20,10 +20,10 @@ public class HatchHandlerSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   //Solenoid beak = new Solenoid(RobotMap.SOLINOID_SINGLE_PCM_PORT);
-  DoubleSolenoid nosecone;
+  DoubleSolenoid noseCone;
 
   public HatchHandlerSubsystem(){
-    nosecone = new DoubleSolenoid(RobotMap.PCM_HATCHHANDLER_NOSECONE_EXPAND_PORT, RobotMap.PCM_HATCHHANDLER_NOSECONE_RETRACT_PORT);
+    noseCone = new DoubleSolenoid(RobotMap.PCM_HATCHHANDLER_NOSECONE_EXPAND_PORT, RobotMap.PCM_HATCHHANDLER_NOSECONE_RETRACT_PORT);
   }
 
   @Override
@@ -35,12 +35,12 @@ public class HatchHandlerSubsystem extends Subsystem {
 
   public void openNoseCone() {
   //  beak.set(true);
-  //  beak2.set(DoubleSolenoid.Value.kForward);
-    nosecone.set(DoubleSolenoid.Value.kForward);
+    noseCone.set(DoubleSolenoid.Value.kForward);
   }
 
   public void closeNoseCone() {
   //  beak.set(false);
-    nosecone.set(DoubleSolenoid.Value.kReverse);
+    noseCone.set(DoubleSolenoid.Value.kReverse);
+
   }
 }

@@ -24,7 +24,10 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-  	//Map out the Joystick #'s in the DriverStation USB Ports
+  public static final int PLUNGER_RETRACT_PORT = 4;
+  public static final int PLUNGER_PLUNGE_PORT = 5;
+  
+	//Map out the Joystick #'s in the DriverStation USB Ports
 	public static int DRIVERSTICK_USB_PORT = 0;
 	public static int OPERSTICK_USB_PORT = 1;
 	

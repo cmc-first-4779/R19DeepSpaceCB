@@ -9,8 +9,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.Phasers.PhasersSetForestCommand;
-import frc.robot.commands.PrintAngle;
+import frc.robot.commands.PrintAngleCommand;
+import frc.robot.commands.RaiseArmCommand;
+import frc.robot.commands.SetArmEncoderPositionCommand;
 import frc.robot.commands.SpinningBecauseWhyNot;
 import frc.robot.commands.TurnToAngle;
 import frc.robot.commands.Phasers.PhasersBlackCommand;
@@ -63,9 +64,11 @@ public class OI {
 		// Operator Stick
 		//operStickLeftBumper.whileHeld(new VacCubeIntake());
 
-		driverStickAButton.whileHeld(new SpinningBecauseWhyNot());
-		driverStickYButton.whenPressed(new TurnToAngle(120));
-		driverStickXButton.whileHeld(new PrintAngle());
+		driverStickAButton.whenPressed(new SetArmEncoderPositionCommand(40));
+		driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(-40));
+		//driverStickYButton.whenPressed(new TurnToAngle(120));
+		driverStickXButton.whileHeld(new RaiseArmCommand());
+
 
 		operStickAButton.whenPressed(new PhasersShotCommand());
 		operStickBButton.whenPressed(new PhasersGlitterCommand());
