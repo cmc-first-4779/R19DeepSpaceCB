@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.Phasers.PhasersSetForestCommand;
 import frc.robot.commands.PrintAngle;
-import frc.robot.commands.SolenoidOffCommand;
-import frc.robot.commands.SolenoidOnCommand;
 import frc.robot.commands.SpinningBecauseWhyNot;
 import frc.robot.commands.TurnToAngle;
 import frc.robot.commands.Phasers.PhasersBlackCommand;
@@ -66,7 +64,6 @@ public class OI {
 		//operStickLeftBumper.whileHeld(new VacCubeIntake());
 
 		driverStickAButton.whileHeld(new SpinningBecauseWhyNot());
-		driverStickBButton.whileHeld(new SolenoidOffCommand());
 		driverStickYButton.whenPressed(new TurnToAngle(120));
 		driverStickXButton.whileHeld(new PrintAngle());
 

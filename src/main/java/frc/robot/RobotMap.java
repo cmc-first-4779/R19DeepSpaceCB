@@ -57,10 +57,13 @@ public class RobotMap {
   public static int PWM_PORT_PHASERS = 1;
 
   //PCM (Pneumatics Control Module) Addresses 
-  public static int PCM_EVENTHORIZON_LEFT_DOUBLESOLENOID_PORT_A = 0;  //Placeholder for now..
-  public static int PCM_EVENTHORIZON_LEFT_DOUBLESOLENOID_PORT_B = 1;  //Placeholder for now..
-  public static int PCM_EVENTHORIZON_RIGHT_DOUBLESOLENOID_PORT_A = 2;  //Placeholder for now..
-  public static int PCM_EVENTHORIZON_RIGHT_DOUBLESOLENOID_PORT_B = 3;  //Placeholder for now..
+  public static int PCM_EVENTHORIZON_LEFT_RAISE_PORT = 0;  //Placeholder for now..
+  public static int PCM_EVENTHORIZON_LEFT_LOWER_PORT = 1;  //Placeholder for now..
+  public static int PCM_EVENTHORIZON_RIGHT_RAISE_PORT = 2;  //Placeholder for now..
+  public static int PCM_EVENTHORIZON_RIGHT_LOWER_PORT = 3;  //Placeholder for now..
+  public static int PCM_HATCHHANDLER_NOSECONE_EXPAND_PORT = 6; //Placeholder for now..
+  public static int PCM_HATCHHANDLER_NOSECONE_RETRACT_PORT = 7;  //Placeholder for now..
+
 
   //GYRO SPI PORT NUMBER
   public static int SPI_PORT_AHRS = 0;

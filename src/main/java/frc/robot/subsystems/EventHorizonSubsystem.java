@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 
+
 /**
  * THE EVENT HORIZON Subsystem is the CARGO BALL INTAKE.
  * IT IS Driven by one Motor on a SPARK controller
@@ -35,8 +36,8 @@ public class EventHorizonSubsystem extends Subsystem {
     eventHorizon = new Spark(RobotMap.PWM_PORT_EVENTHORIZON_WHEELS);
 
     //Initiate our solenoids
-    leftDoubleSolenoid = new DoubleSolenoid(RobotMap.PCM_EVENTHORIZON_LEFT_DOUBLESOLENOID_PORT_A, RobotMap.PCM_EVENTHORIZON_LEFT_DOUBLESOLENOID_PORT_B);
-    rightDoubleSolenoid = new DoubleSolenoid(RobotMap.PCM_EVENTHORIZON_RIGHT_DOUBLESOLENOID_PORT_A, RobotMap.PCM_EVENTHORIZON_RIGHT_DOUBLESOLENOID_PORT_B);
+    leftDoubleSolenoid = new DoubleSolenoid(RobotMap.PCM_EVENTHORIZON_LEFT_RAISE_PORT, RobotMap.PCM_EVENTHORIZON_LEFT_LOWER_PORT);
+    rightDoubleSolenoid = new DoubleSolenoid(RobotMap.PCM_EVENTHORIZON_RIGHT_RAISE_PORT, RobotMap.PCM_EVENTHORIZON_RIGHT_LOWER_PORT);
 
   }
 
@@ -44,6 +45,7 @@ public class EventHorizonSubsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    //setDefaultCommand(new EventHorizonRaiseArm());
   }
 
   //Spin the Event Horizon Wheels to suck in a ball into the "BLACK HOLE" cargo holder.
