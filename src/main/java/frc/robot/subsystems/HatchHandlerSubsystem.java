@@ -19,27 +19,29 @@ import frc.robot.commands.HatchHander.NoseconeCloseCommand;
 public class HatchHandlerSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  //Solenoid beak = new Solenoid(RobotMap.SOLINOID_SINGLE_PCM_PORT);
+
+  //Declare our noseCone as a Double Solenoid
   DoubleSolenoid noseCone;
 
   public HatchHandlerSubsystem(){
+    //Initiate the noseCone.
     noseCone = new DoubleSolenoid(RobotMap.PCM_HATCHHANDLER_NOSECONE_EXPAND_PORT, RobotMap.PCM_HATCHHANDLER_NOSECONE_RETRACT_PORT);
   }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    // By default, close the noseCone
     setDefaultCommand(new NoseconeCloseCommand());
   }
 
+  //Open the noseCone
   public void openNoseCone() {
-  //  beak.set(true);
     noseCone.set(DoubleSolenoid.Value.kForward);
   }
 
+  //Close the noseCone
   public void closeNoseCone() {
-  //  beak.set(false);
     noseCone.set(DoubleSolenoid.Value.kReverse);
 
   }

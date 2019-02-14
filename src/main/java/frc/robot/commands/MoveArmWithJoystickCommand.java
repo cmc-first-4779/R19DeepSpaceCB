@@ -23,6 +23,7 @@ public class MoveArmWithJoystickCommand extends Command {
   }
 
   // Called repeatedly when this Command is scheduled to run
+  //Move the ARM using the Oper Joystick Y-axis
   @Override
   protected void execute() {
     Robot.armsSubsytem.moveArm(-Robot.oi.getOperStick().getY());

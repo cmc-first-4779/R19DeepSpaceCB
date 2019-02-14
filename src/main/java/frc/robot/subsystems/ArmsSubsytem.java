@@ -12,7 +12,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
@@ -26,16 +25,21 @@ public class ArmsSubsytem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
+  //Declare our two Talons to drive our Arm Motors.
   public WPI_TalonSRX armMaster;
   public WPI_TalonSRX armSlave;
 
 
   public ArmsSubsytem() {
+    //Initiate the Arm Talon objects
     armMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM_MASTER);
     armSlave = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM_SLAVE);
+    //Initiatlize both of the Talons
     Robot.initMotorController(armMaster);
     Robot.initMotorController(armSlave);
+    //Slave the armSlave motor to the armMaster
     armSlave.follow(armMaster);
+    //Setup our PID values on the encoder
     armMaster.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
     armMaster.config_kP(0, 5, 0);
     armMaster.config_kI(0, 0.0005, 0);
@@ -59,7 +63,7 @@ public class ArmsSubsytem extends Subsystem {
     // System.out.println("Lifting my arms up!");
     if (move > .25) {
       armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_RAISE_SPEED);
-      System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
+      //System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
     } else if (move < -0.25) {
       armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_LOWER_SPEED);
     } else {
@@ -67,8 +71,9 @@ public class ArmsSubsytem extends Subsystem {
     }
   }
 
+  //Stop the Arm Motors
   public void stop() {
-    System.out.println("I should be stopping now");
+    //System.out.println("I should be stopping now");
     armMaster.stopMotor();
   }
 
@@ -76,9 +81,10 @@ public class ArmsSubsytem extends Subsystem {
     // do the math to figure out what the encoder count should be
     // Move arm to set point
     armMaster.set(ControlMode.Position, height);
-    System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
+    //System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
   }
 
+  //Reset the encoder on our Arm Master Talon.
   public void resetEncoder() {
     armMaster.setSelectedSensorPosition(0);
   }
