@@ -9,7 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.PhasersSetForestCommand;
+import frc.robot.commands.Phasers.PhasersSetForestCommand;
 import frc.robot.commands.PrintAngle;
 import frc.robot.commands.SolenoidOffCommand;
 import frc.robot.commands.SolenoidOnCommand;
