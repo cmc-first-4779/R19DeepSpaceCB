@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.WarpDriveSubsystem;
 import frc.robot.subsystems.ArmsSubsytem;
+import frc.robot.subsystems.BlackHoleSubsystem;
 import frc.robot.subsystems.HatchHandlerSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 
@@ -39,6 +40,7 @@ public class Robot extends TimedRobot {
   public static LimelightSubsystem limeLightSubsystem;
   public static HatchHandlerSubsystem hatchHandlerSubsystem;
   public static ArmsSubsytem armsSubsytem;
+  public static BlackHoleSubsystem blackHoleSubsystem;
   public static OI oi;
 
   Command m_autonomousCommand;

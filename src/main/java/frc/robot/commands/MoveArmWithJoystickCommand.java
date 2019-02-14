@@ -10,8 +10,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class RaiseArmCommand extends Command {
-  public RaiseArmCommand() {
+public class MoveArmWithJoystickCommand extends Command {
+  public MoveArmWithJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.armsSubsytem);
@@ -20,14 +20,12 @@ public class RaiseArmCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    System.out.println("Running Raise Arm Init ");
-    Robot.armsSubsytem.resetEncoder();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.armsSubsytem.moveArm(0.45);
+    Robot.armsSubsytem.moveArm(-Robot.oi.getOperStick().getY());
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,14 +37,11 @@ public class RaiseArmCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    System.out.println("Stopping ");
-    Robot.armsSubsytem.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }
