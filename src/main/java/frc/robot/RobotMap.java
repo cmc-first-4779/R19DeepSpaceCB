@@ -24,8 +24,7 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-  public static final int PLUNGER_RETRACT_PORT = 4;
-  public static final int PLUNGER_PLUNGE_PORT = 5;
+
   
 	//Map out the Joystick #'s in the DriverStation USB Ports
 	public static int DRIVERSTICK_USB_PORT = 0;
@@ -52,8 +51,8 @@ public class RobotMap {
   public static int CAN_ADDRESS_RIGHT_FRONT_DRIVE = 2;
   public static int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;
   public static int CAN_ADDRESS_ARM_MASTER = 3;
-  public static int CAN_ADDRESS_ARM_SLAVE = 13;
-  public static int CAN_ADDRESS_SPINNER = 4;
+  public static int CAN_ADDRESS_ARM_SLAVE = 5;  //Change back to 13 once we have access to the board
+  public static int CAN_ADDRESS_BLACKHOLE = 4;
 
   //PWM ADDRESSES FOR OUR ROBORIO
   public static int PWM_PORT_EVENTHORIZON_WHEELS = 0;
@@ -64,6 +63,8 @@ public class RobotMap {
   public static int PCM_EVENTHORIZON_LEFT_LOWER_PORT = 1;  //Placeholder for now..
   public static int PCM_EVENTHORIZON_RIGHT_RAISE_PORT = 2;  //Placeholder for now..
   public static int PCM_EVENTHORIZON_RIGHT_LOWER_PORT = 3;  //Placeholder for now..
+  public static final int PCM_PLUNGER_RETRACT_PORT = 4;
+  public static final int PCM_PLUNGER_PLUNGE_PORT = 5;
   public static int PCM_HATCHHANDLER_NOSECONE_EXPAND_PORT = 6; //Placeholder for now..
   public static int PCM_HATCHHANDLER_NOSECONE_RETRACT_PORT = 7;  //Placeholder for now..
 

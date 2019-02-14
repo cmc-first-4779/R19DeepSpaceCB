@@ -28,8 +28,8 @@ public class BlackHoleSubsystem extends Subsystem {
   DoubleSolenoid plunger;
 
   public BlackHoleSubsystem() {
-    plunger = new DoubleSolenoid(RobotMap.PLUNGER_PLUNGE_PORT, RobotMap.PLUNGER_RETRACT_PORT);
-    spinMotor = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_SPINNER);
+    plunger = new DoubleSolenoid(RobotMap.PCM_PLUNGER_PLUNGE_PORT, RobotMap.PCM_PLUNGER_RETRACT_PORT);
+    spinMotor = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_BLACKHOLE);
     Robot.initMotorController(spinMotor);
     spinMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
     spinMotor.config_kP(0, 0, 0);

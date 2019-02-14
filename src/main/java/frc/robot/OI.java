@@ -64,7 +64,7 @@ public class OI {
 		driverStickAButton.whenPressed(new SetArmEncoderPositionCommand(40));
 		driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(-40));
 		//driverStickYButton.whenPressed(new TurnToAngle(120));
-		driverStickXButton.whileHeld(new RaiseArmCommand());
+		//driverStickXButton.whileHeld(new RaiseArmCommand());
 
 
 		operStickAButton.whenPressed(new PhasersShotCommand());

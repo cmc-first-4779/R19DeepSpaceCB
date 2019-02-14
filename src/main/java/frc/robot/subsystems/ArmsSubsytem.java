@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+//import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -27,14 +27,15 @@ public class ArmsSubsytem extends Subsystem {
   // here. Call these from Commands.
 
   public WPI_TalonSRX armMaster;
-  public WPI_VictorSPX armSlave;
+  public WPI_TalonSRX armSlave;
+
 
   public ArmsSubsytem() {
     armMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM_MASTER);
-    // armSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_ARM_SLAVE);
+    armSlave = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_ARM_SLAVE);
     Robot.initMotorController(armMaster);
-    // Robot.initMotorController(armSlave);
-    // armSlave.follow(armMaster);
+    Robot.initMotorController(armSlave);
+    armSlave.follow(armMaster);
     armMaster.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
     armMaster.config_kP(0, 5, 0);
     armMaster.config_kI(0, 0.0005, 0);
@@ -50,7 +51,7 @@ public class ArmsSubsytem extends Subsystem {
 
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-   setDefaultCommand(new MoveArmWithJoystickCommand());
+    setDefaultCommand(new MoveArmWithJoystickCommand());
   }
 
   public void moveArm(double move) {
