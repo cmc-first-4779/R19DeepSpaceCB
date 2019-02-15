@@ -41,12 +41,14 @@ public class ArmsSubsytem extends Subsystem {
     armSlave.follow(armMaster);
     //Setup our PID values on the encoder
     armMaster.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-    armMaster.config_kP(0, 5, 0);
-    armMaster.config_kI(0, 0.0005, 0);
-    armMaster.config_kD(0, 0, 0);
+    armMaster.config_kP(0, .012, 0);
+    armMaster.config_kI(0, 0, 0);
+    armMaster.config_kD(0, 2.5, 0);
     armMaster.config_kF(0, 0, 0);
-    armMaster.setSensorPhase(true);
+    armMaster.setSensorPhase(false);
     armMaster.configPeakCurrentLimit(10);
+    armMaster.enableVoltageCompensation(true);
+    armMaster.setSelectedSensorPosition(0, 0, 0);
 
   }
 
@@ -62,7 +64,7 @@ public class ArmsSubsytem extends Subsystem {
     // Lift the arms up
     // System.out.println("Lifting my arms up!");
     if (move > .25) {
-      armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_RAISE_SPEED);
+      armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_RAISE_SPEED);;
       //System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
     } else if (move < -0.25) {
       armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_LOWER_SPEED);
@@ -87,5 +89,9 @@ public class ArmsSubsytem extends Subsystem {
   //Reset the encoder on our Arm Master Talon.
   public void resetEncoder() {
     armMaster.setSelectedSensorPosition(0);
+  }
+
+  public double getEncoderPosition() {
+    return armMaster.getSelectedSensorPosition();
   }
 }

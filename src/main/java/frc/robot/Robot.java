@@ -73,6 +73,8 @@ public class Robot extends TimedRobot {
     //RESET OUR DRIVETRAIN ROTARY ENCODERS
     Robot.warpDriveSubsystem.resetDTEncoders();
     
+    //Reset the Arm encoder
+    Robot.armsSubsytem.resetEncoder();
 
 
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());

@@ -50,8 +50,8 @@ public class RobotMap {
   public static int CAN_ADDRESS_LEFT_REAR_DRIVE  = 11;
   public static int CAN_ADDRESS_RIGHT_FRONT_DRIVE = 2;
   public static int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;
-  public static int CAN_ADDRESS_ARM_MASTER = 4;
-  public static int CAN_ADDRESS_ARM_SLAVE = 5;  //Change back to 14 once we have access to the board
+  public static int CAN_ADDRESS_ARM_MASTER = 5;
+  public static int CAN_ADDRESS_ARM_SLAVE = 15;  //Change back to 14 once we have access to the board
   public static int CAN_ADDRESS_BLACKHOLE = 3;
 
   //PWM ADDRESSES FOR OUR ROBORIO
@@ -112,12 +112,14 @@ public class RobotMap {
   public static double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
 
   //Arm Constants
-  public static double ARM_RAISE_SPEED = 0.5;
-  public static double ARM_LOWER_SPEED = -0.5;
+  public static double ARM_RAISE_SPEED = .6;
+  public static double ARM_LOWER_SPEED = -.6;
+  public static double ARM_RAISE_VOLTAGE = 7;
+  public static double ARM_LOWER_VOLTAGE = -3;
 
   //Event Horizon Constants
-  public static double EVENTHORIZON_INTAKE_SPEED = 0.8;  //Power to Spark Controller
-  public static double EVENTHORIZON_EJECT_SPEED = -0.8;  //Power to Spark Controller
+  public static double EVENTHORIZON_INTAKE_SPEED = 0.4;  //Power to Spark Controller
+  public static double EVENTHORIZON_EJECT_SPEED = -0.4;  //Power to Spark Controller
   public static int EVENTHORIZON_LEFT_SOLENOID_CHANNEL = 0;  //Will change these later
   public static int EVENTHORIZON_RIGHT_SOLENOID_CHANNEL = 1;  //placeholder..   while change later.
 

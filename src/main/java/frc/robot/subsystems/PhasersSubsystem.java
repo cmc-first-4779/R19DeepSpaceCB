@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import frc.robot.commands.Phasers.PhasersGlitterCommand;
@@ -94,5 +95,6 @@ public class PhasersSubsystem extends Subsystem {
   //Set the phasers to Shot
   public void setPhasersShot(){
     phasers.set(RobotMap.PHASERS_COLOR2_SHOT);
+   // DriverStation.getInstance().getMatchTime()
   }
 }
