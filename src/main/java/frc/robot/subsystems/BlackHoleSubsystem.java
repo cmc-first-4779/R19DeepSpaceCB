@@ -15,7 +15,9 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.commands.BlackHoleChillCommand;
+import frc.robot.commands.BlackHole.BlackHoleChillCommand;
+import frc.robot.commands.BlackHole.SpinBlackHoleCommand;
+
 
 /**
  * Add your docs here.
@@ -50,7 +52,8 @@ public class BlackHoleSubsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     //Default Command Causes the Black Hole to Chill Out...
-    setDefaultCommand(new BlackHoleChillCommand());
+    //setDefaultCommand(new BlackHoleChillCommand());
+    setDefaultCommand(new SpinBlackHoleCommand());
   }
 
   //Spin the Black Hole Cargo Box around
@@ -66,7 +69,7 @@ public class BlackHoleSubsystem extends Subsystem {
   }
 
   //Spin the Black Hole to a certain setpoint.
-  public void setSetPoint(double angle) {
+  public void rotateToSetPoint(double angle) {
     // do the math to figure out what the encoder count should be
     // Move arm to set point
     spinMotor.set(ControlMode.Position, angle);

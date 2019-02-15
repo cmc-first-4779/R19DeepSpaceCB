@@ -9,8 +9,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.RaiseArmCommand;
-import frc.robot.commands.SetArmEncoderPositionCommand;
+import frc.robot.commands.Arms.RaiseArmCommand;
+import frc.robot.commands.Arms.SetArmEncoderPositionCommand;
+import frc.robot.commands.EventHorizon.EventHorizonEjectCargoCommand;
+import frc.robot.commands.EventHorizon.EventHorizonIntakeCargoCommand;
 import frc.robot.commands.Phasers.PhasersGlitterCommand;
 import frc.robot.commands.Phasers.PhasersLarsonScannerCommand;
 import frc.robot.commands.Phasers.PhasersLavaCommand;
@@ -61,8 +63,11 @@ public class OI {
 		// Operator Stick
 		//operStickLeftBumper.whileHeld(new VacCubeIntake());
 
-		driverStickAButton.whenPressed(new SetArmEncoderPositionCommand(300000));
-		driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(50000));
+	//	driverStickAButton.whenPressed(new SetArmEncoderPositionCommand(300000));
+	//	driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(50000));
+		driverStickXButton.whileHeld(new EventHorizonIntakeCargoCommand());
+		driverStickYButton.whileHeld(new EventHorizonEjectCargoCommand());
+		
 		//driverStickYButton.whenPressed(new TurnToAngle(120));
 		//driverStickXButton.whileHeld(new RaiseArmCommand());
 

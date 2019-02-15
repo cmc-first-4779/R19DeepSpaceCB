@@ -5,74 +5,45 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.commands.WarpDrive;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class TurnToAngle extends Command {
-  double angle;
-  boolean isFinished = false;
-  boolean inErrorZone = false;
-  int count = 0;
-  int printCount = 0;
-
-  public TurnToAngle(double angle) {
+public class DriveJoystickCommand extends Command {
+  public DriveJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    System.out.println("In Constructor");
+
     requires(Robot.warpDriveSubsystem);
-    this.angle = angle;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.warpDriveSubsystem.rotateDegrees(angle);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double error = Robot.warpDriveSubsystem.turnController.getError();
-    inErrorZone = Math.abs(error) < 5;
-    System.out.println("Count: " + count);
-    if(inErrorZone) {
-      count++;
-      if (count > 5 ){
-              isFinished = true;
-              count = 0;
-      }
-    } else {
-      count = 0;
-    }
-
-  
-    if(printCount++ > 0 ) {
-      System.out.println("Error: " + error);
-      printCount = 0;
-    }
-
+    Robot.warpDriveSubsystem.arcadeDrive(Robot.oi.getDriverStick().getY(), Robot.oi.getDriverStick().getX());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isFinished;
+    return true;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    System.out.println("Ending TurnToAngle");
-    isFinished = false;
-    Robot.warpDriveSubsystem.turnController.disable();
+    // Robot.cindyDrive.cindyArcadeDrive(0, 0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }

@@ -5,31 +5,28 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.commands.BlackHole;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class SetArmEncoderPositionCommand extends Command {
-
-  double setPostion;
-  public SetArmEncoderPositionCommand(double position) {
+public class BlackHoleChillCommand extends Command {
+  public BlackHoleChillCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.armsSubsytem);
-    setPostion = position;
+    requires(Robot.blackHoleSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
-  protected void initialize() {    
-    Robot.armsSubsytem.setSetPoint(setPostion);
+  protected void initialize() {
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("Arm Encoder position: " + Robot.armsSubsytem.getEncoderPosition());
+    Robot.blackHoleSubsystem.stop();
+    Robot.blackHoleSubsystem.retractPlunger();
   }
 
   // Make this return true when this Command no longer needs to run execute()

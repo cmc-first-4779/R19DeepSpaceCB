@@ -15,7 +15,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.commands.MoveArmWithJoystickCommand;
+import frc.robot.commands.Arms.MoveArmWithJoystickCommand;
 import edu.wpi.first.wpilibj.Encoder;
 
 /**
@@ -57,7 +57,7 @@ public class ArmsSubsytem extends Subsystem {
 
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new MoveArmWithJoystickCommand());
+    //setDefaultCommand(new MoveArmWithJoystickCommand());
   }
 
   public void moveArm(double move) {

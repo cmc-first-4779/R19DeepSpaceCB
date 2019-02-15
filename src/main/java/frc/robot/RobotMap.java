@@ -112,8 +112,8 @@ public class RobotMap {
   public static double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
 
   //Arm Constants
-  public static double ARM_RAISE_SPEED = .6;
-  public static double ARM_LOWER_SPEED = -.6;
+  public static double ARM_RAISE_SPEED = .4;
+  public static double ARM_LOWER_SPEED = -.4;
   public static double ARM_RAISE_VOLTAGE = 7;
   public static double ARM_LOWER_VOLTAGE = -3;
 

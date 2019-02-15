@@ -5,16 +5,18 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.commands.WarpDrive;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class MoveArmWithJoystickCommand extends Command {
-  public MoveArmWithJoystickCommand() {
+public class SpinningBecauseWhyNot extends Command {
+  public SpinningBecauseWhyNot() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.armsSubsytem);
+    requires(Robot.warpDriveSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -23,11 +25,10 @@ public class MoveArmWithJoystickCommand extends Command {
   }
 
   // Called repeatedly when this Command is scheduled to run
-  //Move the ARM using the Oper Joystick Y-axis
   @Override
   protected void execute() {
-//    Robot.armsSubsytem.moveArm(-Robot.oi.getOperStick().getY());
-    Robot.armsSubsytem.moveArm(-Robot.oi.getDriverStick().getY());
+     Robot.warpDriveSubsystem.arcadeDrive(0, 0.45);
+    //Robot.driveTrainSubsystem.set(ControlMode.PercentOutput, -0.45, 0.45);
   }
 
   // Make this return true when this Command no longer needs to run execute()
