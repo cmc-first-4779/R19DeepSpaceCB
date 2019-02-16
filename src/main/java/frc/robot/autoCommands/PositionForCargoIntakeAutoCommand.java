@@ -7,20 +7,20 @@
 
 package frc.robot.autoCommands;
 
-import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.commands.BlackHole.SetBlackHoleCargoLoadCommand;
-import frc.robot.commands.BlackHole.SetBlackHoleCargoCarryCommand;
-import frc.robot.commands.Arms.SetArmFloorCargoCommand;
-import frc.robot.commands.EventHorizon.*;
-import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
+import frc.robot.RobotMap;
 import frc.robot.commands.Misc.TimerCommand;
+import frc.robot.commands.Arms.SetArmFloorCargoCommand;
+import frc.robot.commands.BlackHole.SetBlackHoleCargoLoadCommand;
+import frc.robot.commands.EventHorizon.EventHorizonLowerArmCommand;
+//import frc.robot.commands.EventHorizon.EventHorizonIntakeCargoCommand;
+import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
 
-public class CargoIntakeFromFloorAutoCommand extends CommandGroup {
+public class PositionForCargoIntakeAutoCommand extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public CargoIntakeFromFloorAutoCommand() {
+  public PositionForCargoIntakeAutoCommand() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -37,25 +37,15 @@ public class CargoIntakeFromFloorAutoCommand extends CommandGroup {
     // e.g. if Command1 requires chassis, and Command2 requires arm,
     // a CommandGroup containing them would require both the chassis and the
     // arm.
-    
-    // Move the arm to the floor to get the Cargo
-    addParallel(new SetArmFloorCargoCommand());
-    // Rotate the Blackhole into place to pick up the cargo
-    addParallel(new SetBlackHoleCargoLoadCommand());
-    addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_STROBE_RED));
-    addSequential(new TimerCommand(0.5));
 
-    // Lower the Event Horizon Arm to take in the cargo
-    addSequential(new EventHorizonLowerArmCommand());
-    // Spin the Event Horizon wheels to suck in the Cargo into the BlackHole
-    addSequential(new EventHorizonIntakeCargoCommand());
-    addSequential(new TimerCommand(1.0));
-    //  Stop the Event Horizon wheels....
-    addParallel(new EventHorizonStopMotorCommand());
-    // Raise the Event Horizon Arms
-    addSequential(new EventHorizonRaiseArmCommand());
-    //  Rotate the Black Hole into the Carry Position
-    addSequential(new SetBlackHoleCargoCarryCommand());
-
+       // Move the arm to the floor to get the Cargo
+       addParallel(new PhasersSetPhaserCommand(RobotMap.PHASERS_STROBE_RED));
+       addParallel(new SetArmFloorCargoCommand());
+       // Rotate the Blackhole into place to pick up the cargo
+       addParallel(new SetBlackHoleCargoLoadCommand());
+       // Wait for a little before swinging down the Event Horizon arm
+       addSequential(new TimerCommand(0.5)); 
+       // Lower the Event Horizon Arm to take in the cargo
+       addSequential(new EventHorizonLowerArmCommand());
   }
 }

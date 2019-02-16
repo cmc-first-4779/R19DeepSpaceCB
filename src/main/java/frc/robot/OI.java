@@ -13,12 +13,8 @@ import frc.robot.commands.Arms.RaiseArmCommand;
 import frc.robot.commands.Arms.SetArmEncoderPositionCommand;
 import frc.robot.commands.EventHorizon.EventHorizonEjectCargoCommand;
 import frc.robot.commands.EventHorizon.EventHorizonIntakeCargoCommand;
-import frc.robot.commands.Phasers.PhasersGlitterCommand;
-import frc.robot.commands.Phasers.PhasersLarsonScannerCommand;
-import frc.robot.commands.Phasers.PhasersLavaCommand;
-import frc.robot.commands.Phasers.PhasersOceanCommand;
-import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
-import frc.robot.commands.Phasers.PhasersShotCommand;
+import frc.robot.commands.HatchHander.*;
+import frc.robot.autoCommands.*;
 
 public class OI {
 	// Declare the two joysticks and initate them on the two appropriate USB ports
@@ -64,19 +60,30 @@ public class OI {
 
 		driverStickAButton.whenPressed(new SetArmEncoderPositionCommand(300000));
 		driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(50000));
+		driverStickYButton.whileHeld(new EventHorizonIntakeCargoCommand());
+		driverStickXButton.whenPressed(new NoseconeOpenCommand());
+		driverStickStartButton.whenPressed(new BlastOffAutoCommand());
+
+		operStickLeftBumper.whenPressed(new PositionForCargoIntakeAutoCommand());
+		operStickRightBumper.whenPressed(new PositionForCargoCarryAutoCommand());
+		operStickXButton.whenPressed(new PositionForHatchIntakeAutoCommand());
+
+
+
+
 	//	driverStickXButton.whileHeld(new EventHorizonIntakeCargoCommand());
 	//	driverStickYButton.whileHeld(new EventHorizonEjectCargoCommand());
 		
 		//driverStickYButton.whenPressed(new TurnToAngle(120));
 		//driverStickXButton.whileHeld(new RaiseArmCommand());
 
-
+/*
 		operStickAButton.whenPressed(new PhasersShotCommand());
 		operStickBButton.whenPressed(new PhasersGlitterCommand());
 		operStickXButton.whenPressed(new PhasersOceanCommand());
 		operStickYButton.whenPressed(new PhasersLavaCommand());
 		operStickLeftBumper.whenPressed(new PhasersLarsonScannerCommand());
-		//operStickStartButton.whenPressed(new PhasersSetPhaserCommand());
+*/	
 		
 
 

@@ -78,37 +78,46 @@ public class RobotMap {
 /*********************************************************************************/
 
 
-  /***********************************************************************/
-  /************* GYRO SETTINGS********************************************/
-  /***********************************************************************/
-  public static double DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
-  public static double DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
-
 
   /************************************************************************/
   /***************LIMELIGHT / VISION SETTINGS *****************************/
   /************************************************************************/
-  public static double LIMELIGHT_CAMMODE_VISION = 0; // Vision Mode = 0
-  public static double LIMELIGHT_CAMMODE_DRIVER = 1; // Driver Mode = 1
-  public static double LIMELIGHT_LEDMODE_ON = 3; // Force LED Mode On
-  public static double LIMELIGHT_LEDMODE_OFF = 1; // Force LED Mode Off
-  public static double LIMELIGHT_LEDMODE_BLINK = 2; // Force LED Mode Blink
-  public static double LIMELIGHT_PIPELINE_VEST = 0; // Use the VEST Pipeline
-  public static double LIMELIGHT_PIPELINE_CARGO = 1;// Use the Cargo Ball Pipeline
-  public static double LIMELIGHT_PIPELINE_ROCKET = 2;
-  public static double LIMELIGHT_NO_TARGET = 0.0; // Value when the Limelight doesn't see its target
-  public static double LIMELIGHT_SEEK_TURN_POWER = 0.4; // Power when we are turning
-  public static double LIMELIGHT_SEEK_DRIVE_POWER = 0.7; // Power when we are driving toward the target
+  //
+  //  LIMELIGHT Camera Modes
+  public static final double LIMELIGHT_CAMMODE_VISION = 0; // Vision Processing Mode = 0
+  public static final double LIMELIGHT_CAMMODE_DRIVER = 1; // Driver Mode = 1
+  //  LIMELIGHT LED Modes
+  public static final double LIMELIGHT_LEDMODE_PIPELINE_DEFAULT = 0;  // Uses the Default LED Mode for the Pipeline
+  public static final double LIMELIGHT_LEDMODE_OFF = 1; // Force LED Mode Off
+  public static final double LIMELIGHT_LEDMODE_BLINK = 2; // Force LED Mode Blink
+  public static final double LIMELIGHT_LEDMODE_ON = 3; // Force LED Mode On
+  //  LIMELIGHT Vision Pipelines
+  public static final double LIMELIGHT_PIPELINE_ROCKET_HATCH = 0; // Use the Rocket Hatch Pipeline
+  public static final double LIMELIGHT_PIPELINE_ROCKET_CARGO = 1;  //Use the Rocket CARGO Pipeline
+  public static final double LIMELINE_PIPELINE_CARGOSHIP_HATCH = 2;  // Use the Cargo Ship Hatch Pipeline
+  public static final double LIMELINE_PIPELINE_CARGOSHIP_CARGO = 3;  // Use the Cargo Ship Hatch Pipeline
+  public static final double LIMELIGHT_PIPELINE_HATCHCOVER = 4;  // Use the Hatch Cover Pipeline
+  public static final double LIMELIGHT_PIPELINE_CARGO_BALL = 5;   //  Use the Cargo Ball Pipeline
+  public static final double LIMELIGHT_PIPELINE_VEST = 9; // Use the VEST Pipeline..    We use this for Testing...
+  // LIMELIGHT TV Value when there is no target
+  public static final double LIMELIGHT_NO_TARGET = 0.0; // TV Value when the Limelight doesn't see its target
+  public static final double LIMELIGHT_HAS_TARGET = 1.0;  //TV Value when the Limelight has a target
+  //  LIMELIGHT SEEK MODE - How much power do we give the motors when it is turning to scan and driving...
+  public static final double LIMELIGHT_SEEK_TURN_POWER = 0.4; // Power when we are turning
+  public static final double LIMELIGHT_SEEK_DRIVE_POWER = 0.7; // Power when we are driving toward the target
   // public static double LIMELIGHT_SEEK_AREA = 0.9;
-  public static double LIMELIGHT_X_PIXEL_COUNT = 320; // pixels
-  public static double LIMELIGHT_Y_PIXEL_COUNT = 240; // pixels
-  public static double LIMELIGHT_X_FOV = 59.6; // degrees
-  public static double LIMELIGHT_Y_FOV = 45.7; // degrees
-  public static double LIMELIGHT_CAMERAMOUNT_ANGLE = 0.0; // degrees
-  public static double LIMELIGHT_CAMERA_HEIGHT = 26.25; // inches
-  public static double LIMELIGHT_DISTANCE_FROM_TARGET = 24.0; // inches
-  public static double LIMELIGHT_CARGO_HEIGHT = 5.5; // inches
-  public static double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
+  //  LIMELIGHT Details about where the camera is mounted, and target details...
+  public static final double LIMELIGHT_X_PIXEL_COUNT = 320; // pixels
+  public static final double LIMELIGHT_Y_PIXEL_COUNT = 240; // pixels
+  public static final double LIMELIGHT_X_FOV = 59.6; // degrees
+  public static final double LIMELIGHT_Y_FOV = 45.7; // degrees
+  public static final double LIMELIGHT_CAMERAMOUNT_ANGLE = 0.0; // degrees
+  public static final double LIMELIGHT_CAMERA_HEIGHT = 26.25; // inches
+  public static final double LIMELIGHT_DISTANCE_FROM_TARGET = 24.0; // inches
+  public static final double LIMELIGHT_CARGO_HEIGHT = 5.5; // inches
+  public static final double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
+  public static final double LIMELIGHT_DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
+  public static final double LIMELIGHT_DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
 
 
   /*********************************************************************/
@@ -163,6 +172,10 @@ public class RobotMap {
   //public static int EVENTHORIZON_LEFT_SOLENOID_CHANNEL = 0;  //Will change these later
   //public static int EVENTHORIZON_RIGHT_SOLENOID_CHANNEL = 1;  //placeholder..   while change later.
 
+   /************************************************************************************/
+   /******************** MISC SETTINGS *************************************************/
+   /********************************************************************************** */
+   public static double CARGO_LOAD_WAIT_TIME = 0.5;  // seconds.  Time to wait for the Cargo to settle before moving
 
   /**********************************************************************/
   /************** PHASER / LED LIGHT SETTINGS ***************************/
