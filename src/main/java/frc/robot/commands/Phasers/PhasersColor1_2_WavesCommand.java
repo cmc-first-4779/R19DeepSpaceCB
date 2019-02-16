@@ -9,13 +9,13 @@ package frc.robot.commands.Phasers;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class PhasersSetForestCommand extends Command {
-  public PhasersSetForestCommand() {
+public class PhasersColor1_2_WavesCommand extends Command {
+  public PhasersColor1_2_WavesCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.phasersSubsystem);
-
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +26,7 @@ public class PhasersSetForestCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.phasersSubsystem.setPhasersForest();
+    Robot.phasersSubsystem.setPhasers(RobotMap.PHASERS_COLOR1_2_WAVES);
   }
 
   // Make this return true when this Command no longer needs to run execute()

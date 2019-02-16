@@ -79,7 +79,7 @@ public class PhasersSubsystem extends Subsystem {
 
   //Change the phasers to Lava
   public void setPhasersLava(){
-    phasers.set(RobotMap.PHASERS_SINELON_LAVA_PALETTE);
+    phasers.set(RobotMap.PHASERS_LAVA_PALETTE);
   }
 
   //Set the Phasers to Fire

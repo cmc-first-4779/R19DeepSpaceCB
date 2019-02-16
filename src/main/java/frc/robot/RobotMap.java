@@ -146,7 +146,7 @@ public class RobotMap {
   public static double PHASERS_RAINBOW_PALETTE = -0.99;
   public static double PHASERS_PARTY_PALETTE = -0.97;
   public static double PHASERS_OCEAN_PALETTE = -0.95;
-  public static double PHASERS_LAVE_PALETTE = -0.93;
+  public static double PHASERS_LAVA_PALETTE = -0.93;
   public static double PHASERS_FOREST_PALETTE = -0.91;
   public static double PHASERS_GLITTER_PALETTE = -0.89;
   public static double PHASERS_CONFETTI_PALETTE = -0.87;
