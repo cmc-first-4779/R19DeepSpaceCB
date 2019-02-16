@@ -14,7 +14,7 @@ public class PhasersShotCommand extends Command {
   public PhasersShotCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.phasers);
+    requires(Robot.phasersSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class PhasersShotCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.phasers.setPhasersShot();
+    Robot.phasersSubsystem.setPhasersShot();
   }
 
 

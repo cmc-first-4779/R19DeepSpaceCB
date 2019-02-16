@@ -22,22 +22,21 @@ public class EventHorizonSubsystem extends Subsystem {
   // here. Call these from Commands.
 
   // Declare the SPARK Controller for our Motor
-  Spark eventHorizon;
+  Spark eventHorizonMotor;
 
   // Declare our double solenoids
-  DoubleSolenoid leftDoubleSolenoid;
-  DoubleSolenoid rightDoubleSolenoid;
+  DoubleSolenoid eventHorizonSolenoid;
+
 
   public EventHorizonSubsystem() {
 
     // Initiate our Spark Controller for the motor
-    eventHorizon = new Spark(RobotMap.PWM_PORT_EVENTHORIZON_WHEELS);
+    eventHorizonMotor = new Spark(RobotMap.PWM_PORT_EVENTHORIZON_WHEELS);
 
     // Initiate our solenoids
-    leftDoubleSolenoid = new DoubleSolenoid(RobotMap.PCM_EVENTHORIZON_LEFT_RAISE_PORT,
-      RobotMap.PCM_EVENTHORIZON_LEFT_LOWER_PORT);
-    rightDoubleSolenoid = new DoubleSolenoid(RobotMap.PCM_EVENTHORIZON_RIGHT_RAISE_PORT,
-        RobotMap.PCM_EVENTHORIZON_RIGHT_LOWER_PORT);
+    eventHorizonSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_EVENTHORIZON_RAISE,
+      RobotMap.PCM_PORT_EVENTHORIZON_LOWER);
+
 
   }
 
@@ -51,30 +50,28 @@ public class EventHorizonSubsystem extends Subsystem {
   // Spin the Event Horizon Wheels to suck in a ball into the "BLACK HOLE" cargo
   // holder.
   public void intakeCargo() {
-    eventHorizon.set(RobotMap.EVENTHORIZON_INTAKE_SPEED);
+    eventHorizonMotor.set(RobotMap.EVENTHORIZON_INTAKE_SPEED);
   }
 
   // Not sure if we will need this, but it will spin the Event Horizon wheels
   // backwards
   public void ejectCargo() {
-    eventHorizon.set(RobotMap.EVENTHORIZON_EJECT_SPEED);
+    eventHorizonMotor.set(RobotMap.EVENTHORIZON_EJECT_SPEED);
   }
 
   // Stop the Event Horizon Wheels
   public void stopMotor() {
-    eventHorizon.stopMotor();
+    eventHorizonMotor.stopMotor();
   }
 
   // Raise Event Horizon Arms using pneumatics
   public void raiseEventHorizon() {
-    leftDoubleSolenoid.set(DoubleSolenoid.Value.kForward);
-    rightDoubleSolenoid.set(DoubleSolenoid.Value.kForward);
+    eventHorizonSolenoid.set(DoubleSolenoid.Value.kForward);
   }
 
   // Lower Event Horizon Arms using pneumatics
   public void lowerEventHorizon() {
-    leftDoubleSolenoid.set(DoubleSolenoid.Value.kReverse);
- //   rightDoubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+    eventHorizonSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
 }

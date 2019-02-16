@@ -14,7 +14,7 @@ public class EventHorizonRaiseArm extends Command {
   public EventHorizonRaiseArm() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.eventHorizon);
+    requires(Robot.eventHorizonSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class EventHorizonRaiseArm extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.eventHorizon.raiseEventHorizon();
+    Robot.eventHorizonSubsystem.raiseEventHorizon();
   }
 
   // Make this return true when this Command no longer needs to run execute()

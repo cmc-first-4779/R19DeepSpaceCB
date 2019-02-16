@@ -39,8 +39,8 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
   DifferentialDrive myDrive;
 
   // Declare our DriveTrain Encoders
-  private Encoder driveTrainEncoderLeft;
-  private Encoder driveTrainEncoderRight;
+//  private Encoder driveTrainEncoderLeft;
+ // private Encoder driveTrainEncoderRight;
 
   // DECLARE OUR NAV-X GYRO
   public AHRS gyro;
@@ -76,11 +76,6 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     leftSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_LEFT_REAR_DRIVE);
     rightSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_RIGHT_REAR_DRIVE);
 
-    // leftMaster = new WPI_TalonSRX(1);
-    // rightMaster = new WPI_TalonSRX(2);
-    // leftSlave = new WPI_VictorSPX(4);
-    // rightSlave = new WPI_VictorSPX(3);
-
     // Init the talons
     Robot.initMotorController(leftMaster);
     Robot.initMotorController(rightMaster);
@@ -100,10 +95,10 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     myDrive = new DifferentialDrive(leftMaster, rightMaster);
 
     // INITIATE OUR DRIVETRAIN ROTARY ENCODERS
-    driveTrainEncoderLeft = new Encoder(RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_A,
-        RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_B);
-    driveTrainEncoderRight = new Encoder(RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_A,
-        RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_B);
+    //driveTrainEncoderLeft = new Encoder(RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_A,
+      //  RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_B);
+    //driveTrainEncoderRight = new Encoder(RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_A,
+      //  RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_B);
 
     // Initiate NAV-X GYRO
     /* Communicate w/navX-MXP via the MXP SPI Bus. */
@@ -173,7 +168,7 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     this.distance = dis;
   }
 
-  public void resetDTEncoders() {
+/*   public void resetDTEncoders() {
     // Reset both of our rotary encoders. We call this usually at the start of every
     // drivetrain command.
     System.out.println("Resetting DriveTrain Encoders");
@@ -209,7 +204,7 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
   public double getRightEncoderPosition() {
     // Get the Position of the Right encoder
     return driveTrainEncoderRight.getDistance();
-  }
+  } */
 
   public void set(ControlMode mode, double leftValue, double rightValue) {
     leftMaster.set(mode, leftValue);

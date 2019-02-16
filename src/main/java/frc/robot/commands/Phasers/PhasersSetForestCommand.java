@@ -14,7 +14,7 @@ public class PhasersSetForestCommand extends Command {
   public PhasersSetForestCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.phasers);
+    requires(Robot.phasersSubsystem);
 
   }
 
@@ -26,7 +26,7 @@ public class PhasersSetForestCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.phasers.setPhasersForest();
+    Robot.phasersSubsystem.setPhasersForest();
   }
 
   // Make this return true when this Command no longer needs to run execute()

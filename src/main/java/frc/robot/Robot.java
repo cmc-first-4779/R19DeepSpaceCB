@@ -23,6 +23,7 @@ import frc.robot.subsystems.WarpDriveSubsystem;
 import frc.robot.subsystems.EventHorizonSubsystem;
 import frc.robot.subsystems.ArmsSubsytem;
 import frc.robot.subsystems.BlackHoleSubsystem;
+import frc.robot.subsystems.BlastOffSubsystem;
 import frc.robot.subsystems.HatchHandlerSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.PhasersSubsystem;
@@ -40,10 +41,11 @@ public class Robot extends TimedRobot {
   public static WarpDriveSubsystem warpDriveSubsystem;
   public static LimelightSubsystem limeLightSubsystem;
   public static HatchHandlerSubsystem hatchHandlerSubsystem;
-  public static EventHorizonSubsystem eventHorizon;
-  public static PhasersSubsystem phasers;
+  public static EventHorizonSubsystem eventHorizonSubsystem;
+  public static PhasersSubsystem phasersSubsystem;
   public static ArmsSubsytem armsSubsytem;
   public static BlackHoleSubsystem blackHoleSubsystem;
+  public static BlastOffSubsystem blastOffSubsystem;
   public static OI oi;
 
   Command m_autonomousCommand;
@@ -60,9 +62,12 @@ public class Robot extends TimedRobot {
     limeLightSubsystem = new LimelightSubsystem();
     hatchHandlerSubsystem = new HatchHandlerSubsystem();
     blackHoleSubsystem = new BlackHoleSubsystem();
-    eventHorizon = new EventHorizonSubsystem();
-    phasers = new PhasersSubsystem();
+    eventHorizonSubsystem = new EventHorizonSubsystem();
+    phasersSubsystem = new PhasersSubsystem();
     armsSubsytem = new ArmsSubsytem();
+    blastOffSubsystem = new BlastOffSubsystem();
+
+
 
     //Initiate the OI LAST!!!!
     oi = new OI();
@@ -71,7 +76,7 @@ public class Robot extends TimedRobot {
     Robot.warpDriveSubsystem.resetGyro();
 
     //RESET OUR DRIVETRAIN ROTARY ENCODERS
-    Robot.warpDriveSubsystem.resetDTEncoders();
+    //Robot.warpDriveSubsystem.resetDTEncoders();
     
     //Reset the Arm encoder
     Robot.armsSubsytem.resetEncoder();

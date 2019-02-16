@@ -27,58 +27,53 @@ public class RobotMap {
 
   
 	//Map out the Joystick #'s in the DriverStation USB Ports
-	public static int DRIVERSTICK_USB_PORT = 0;
-	public static int OPERSTICK_USB_PORT = 1;
+	public static final int DRIVERSTICK_USB_PORT = 0;
+	public static final int OPERSTICK_USB_PORT = 1;
 	
 	//These are the buttons on the Joysticks as recognized by the Drivers Station. You can call in other subsystems.
-	public static int A_BUTTON = 1;
-	public static int B_BUTTON = 2;
-	public static int X_BUTTON = 3;
-	public static int Y_BUTTON = 4;
-	public static int LEFT_BUMPER_BUTTON = 5;
-	public static int RIGHT_BUMPER_BUTTON = 6;
-	public static int BACK_BUTTON = 7;
-	public static int START_BUTTON = 8;
-	public static int X_AXIS_STICK = 0;
-	public static int Y_AXIS_STICK = 1;
-	public static int LEFT_TRIGGER = 2;
-	public static int RIGHT_TRIGGER = 3;
+	public static final int A_BUTTON = 1;
+	public static final int B_BUTTON = 2;
+	public static final int X_BUTTON = 3;
+	public static final int Y_BUTTON = 4;
+	public static final int LEFT_BUMPER_BUTTON = 5;
+	public static final int RIGHT_BUMPER_BUTTON = 6;
+	public static final int BACK_BUTTON = 7;
+	public static final int START_BUTTON = 8;
+	public static final int X_AXIS_STICK = 0;
+	public static final int Y_AXIS_STICK = 1;
+	public static final int LEFT_TRIGGER = 2;
+	public static final int RIGHT_TRIGGER = 3;
 
 
   //CAN ADDRESSES FOR OUR CAN NETWORK
-  public static int CAN_ADDRESS_LEFT_FRONT_DRIVE = 1;
-  public static int CAN_ADDRESS_LEFT_REAR_DRIVE  = 11;
-  public static int CAN_ADDRESS_RIGHT_FRONT_DRIVE = 2;
-  public static int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;
-  public static int CAN_ADDRESS_ARM_MASTER = 5;
-  public static int CAN_ADDRESS_ARM_SLAVE = 15;  //Change back to 14 once we have access to the board
-  public static int CAN_ADDRESS_BLACKHOLE = 3;
+  public static final int CAN_ADDRESS_LEFT_FRONT_DRIVE = 1;
+  public static final int CAN_ADDRESS_LEFT_REAR_DRIVE  = 11;
+  public static final int CAN_ADDRESS_RIGHT_FRONT_DRIVE = 2;
+  public static final int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;
+  public static final int CAN_ADDRESS_ARM_MASTER = 5;
+  public static final int CAN_ADDRESS_ARM_SLAVE = 15;  //Change back to 14 once we have access to the board
+  public static final int CAN_ADDRESS_BLACKHOLE = 3;
 
   //PWM ADDRESSES FOR OUR ROBORIO
-  public static int PWM_PORT_EVENTHORIZON_WHEELS = 0;
-  public static int PWM_PORT_BLASTOFF = 1;
-  public static int PWM_PORT_PHASERS = 2;
+  public static final int PWM_PORT_EVENTHORIZON_WHEELS = 0;
+  public static final int PWM_PORT_BLASTOFF = 1;
+  public static final int PWM_PORT_PHASERS = 2;
 
   //PCM (Pneumatics Control Module) Addresses 
-  public static int PCM_EVENTHORIZON_LEFT_RAISE_PORT = 0;  //Placeholder for now..
-  public static int PCM_EVENTHORIZON_LEFT_LOWER_PORT = 1;  //Placeholder for now..
-  public static int PCM_EVENTHORIZON_RIGHT_RAISE_PORT = 2;  //Placeholder for now..
-  public static int PCM_EVENTHORIZON_RIGHT_LOWER_PORT = 3;  //Placeholder for now..
-  public static final int PCM_PLUNGER_RETRACT_PORT = 4;
-  public static final int PCM_PLUNGER_PLUNGE_PORT = 5;
-  public static int PCM_HATCHHANDLER_NOSECONE_EXPAND_PORT = 6; //Placeholder for now..
-  public static int PCM_HATCHHANDLER_NOSECONE_RETRACT_PORT = 7;  //Placeholder for now..
+  public static final int PCM_PORT_EVENTHORIZON_RAISE = 0;  //Placeholder for now..
+  public static final int PCM_PORT_EVENTHORIZON_LOWER = 1;  //Placeholder for now..
+  public static final int PCM_PLUNGER_RETRACT_PORT = 2;
+  public static final int PCM_PLUNGER_PLUNGE_PORT = 3;
+  public static final int PCM_HATCHHANDLER_NOSECONE_EXPAND_PORT = 4; //Placeholder for now..
+  public static final int PCM_HATCHHANDLER_NOSECONE_RETRACT_PORT = 5;  //Placeholder for now..
+  public static final int PCM_PORT_BLASTOFF_LAUNCH = 6;
+  public static final int PCM_PORT_BLASTOFF_LAND = 7;
 
 
   //GYRO SPI PORT NUMBER
-  public static int SPI_PORT_AHRS = 0;
+  public static final int SPI_PORT_AHRS = 0;
 
-  //ENCODER DIO CHANNELS
-  public static int DIO_PORT_DTENCODER_LEFT_CHANNEL_A = 0;
-  public static int DIO_PORT_DTENCODER_LEFT_CHANNEL_B = 1;
-  public static int DIO_PORT_DTENCODER_RIGHT_CHANNEL_A = 2;
-  public static int DIO_PORT_DTENCODER_RIGHT_CHANNEL_B = 3;
-
+ 
   public static double DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
   public static double DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
 
@@ -116,6 +111,10 @@ public class RobotMap {
   public static double ARM_LOWER_SPEED = -.4;
   public static double ARM_RAISE_VOLTAGE = 7;
   public static double ARM_LOWER_VOLTAGE = -3;
+
+  //BlastOff Constants
+  public static double BLASTOFF_FORWARD_SPEED = 0.7;
+  public static double BLASTOFF_REVERSE_SPEED = 0.5;
 
   //Event Horizon Constants
   public static double EVENTHORIZON_INTAKE_SPEED = 0.4;  //Power to Spark Controller

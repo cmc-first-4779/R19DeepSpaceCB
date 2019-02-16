@@ -14,7 +14,7 @@ public class EventHorizonEjectCargoCommand extends Command {
   public EventHorizonEjectCargoCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.eventHorizon);
+    requires(Robot.eventHorizonSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class EventHorizonEjectCargoCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.eventHorizon.ejectCargo();
+    Robot.eventHorizonSubsystem.ejectCargo();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -37,13 +37,13 @@ public class EventHorizonEjectCargoCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.eventHorizon.stopMotor();
+    Robot.eventHorizonSubsystem.stopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.eventHorizon.stopMotor();
+    Robot.eventHorizonSubsystem.stopMotor();
   }
 }

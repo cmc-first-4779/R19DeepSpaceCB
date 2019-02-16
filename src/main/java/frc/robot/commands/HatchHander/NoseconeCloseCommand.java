@@ -10,6 +10,8 @@ package frc.robot.commands.HatchHander;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
+//Open our Nosecone for handling our Hatchcovers...
+
 public class NoseconeCloseCommand extends Command {
   public NoseconeCloseCommand() {
     // Use requires() here to declare subsystem dependencies
