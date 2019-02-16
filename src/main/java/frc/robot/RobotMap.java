@@ -130,10 +130,10 @@ public class RobotMap {
   public static double BLACK_HOLE_SPIN_FORWARD_SPEED = -0.4; 
   public static double BLACK_HOLE_SPIN_REVERSE_SPEED = 0.4;
   public static double BLACK_HOLE_SPIN_STOP_SPEED = 0.0;
-  public static double BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD = -10000;  //placeholder..  Need to fix
-  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 10000;  //placeholder..  Need to fix
-  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 13000;  //placeholder..  Need to fix
-  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 12500;   //placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD = 180;  //degrees placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 270;  //degrees placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 0;  //degrees placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 30;   //degrees placeholder..  Need to fix
 
   //Event Horizon Constants
   public static double EVENTHORIZON_INTAKE_SPEED = 0.4;  //Power to Spark Controller
