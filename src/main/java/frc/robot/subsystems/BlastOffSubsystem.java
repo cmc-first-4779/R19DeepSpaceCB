@@ -35,6 +35,8 @@ public class BlastOffSubsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    //
+    //  NO DEFAULT COMMAND HERE!!!   WE CAN"T USE BLACKHOLE UNTIL THE VERY END
   }
 
   //Launches the Robot onto the top habitat platform

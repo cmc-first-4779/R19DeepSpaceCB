@@ -68,19 +68,18 @@ public class Robot extends TimedRobot {
     armsSubsytem = new ArmsSubsytem();
     blastOffSubsystem = new BlastOffSubsystem();
 
-
-
     //Initiate the OI LAST!!!!
     oi = new OI();
 
     //RESET OUR GYRO 
     Robot.warpDriveSubsystem.resetGyro();
-
     //RESET OUR DRIVETRAIN ROTARY ENCODERS
-    //Robot.warpDriveSubsystem.resetDTEncoders();
-    
+    Robot.warpDriveSubsystem.resetEncoders(); 
     //Reset the Arm encoder
     Robot.armsSubsytem.resetEncoder();
+    //Reset the Blackhole / Cargo Handler Encoder
+    Robot.blackHoleSubsystem.resetEncoder();
+
 
 
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
@@ -141,6 +140,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.start();
     }
+
   }
 
   /**

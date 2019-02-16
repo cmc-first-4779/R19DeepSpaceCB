@@ -279,5 +279,7 @@ public class RobotMap {
   public static double PHASERS_DARK_GRAY = 0.97;
   public static double PHASERS_WHITE = 0.93;
   public static double PHASERS_BLACK = 0.99;
+  //   Set a DEFAULT Phasers mode here so that way we only have to change it in one place..
+  public static double PHASERS_DEFAULT = PHASERS_COLOR1_2_BPM;
   
 }

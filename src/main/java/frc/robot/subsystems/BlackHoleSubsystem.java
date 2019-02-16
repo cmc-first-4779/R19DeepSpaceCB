@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.BlackHole.BlackHoleChillCommand;
+import frc.robot.commands.BlackHole.SetBlackHoleCargoCarryCommand;
 import frc.robot.commands.BlackHole.SpinBlackHoleCommand;
 
 
@@ -51,9 +52,8 @@ public class BlackHoleSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    //Default Command Causes the Black Hole to Chill Out...
-    //setDefaultCommand(new BlackHoleChillCommand());
-    //setDefaultCommand(new SpinBlackHoleCommand());
+    //Default Command:   BLACK HOLE STAYS WHERE IT IS AT!!
+    setDefaultCommand(new BlackHoleChillCommand());
   }
 
   //Spin the Black Hole Cargo Box around
@@ -89,6 +89,15 @@ public class BlackHoleSubsystem extends Subsystem {
   //Stop the motor from spinning!!
   public void stop() {
     spinMotor.stopMotor();
+  }
+
+  //Reset the encoder on our Arm Master Talon.
+  public void resetEncoder() {
+    spinMotor.setSelectedSensorPosition(0);
+  }
+
+  public double getEncoderPosition() {
+    return spinMotor.getSelectedSensorPosition();
   }
 
 }

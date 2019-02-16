@@ -31,7 +31,8 @@ public class HatchHandlerSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // By default, close the noseCone
+    //
+    // DEFAULT COMMAND:  Close the noseCone!!
     setDefaultCommand(new NoseconeCloseCommand());
   }
 
