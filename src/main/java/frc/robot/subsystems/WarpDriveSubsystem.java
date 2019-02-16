@@ -122,7 +122,7 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     // DEFAULT COMMAND FOR DRIVETRAND IS TO DRIVE THE JOYSTICK.
-    //setDefaultCommand(new DriveJoystickCommand());
+    setDefaultCommand(new DriveJoystickCommand());
   }
 
   // Our Arcade drive method

@@ -57,7 +57,7 @@ public class ArmsSubsytem extends Subsystem {
 
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    //setDefaultCommand(new MoveArmWithJoystickCommand());
+    setDefaultCommand(new MoveArmWithJoystickCommand());
   }
 
   public void moveArm(double move) {

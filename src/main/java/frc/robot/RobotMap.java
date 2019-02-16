@@ -115,6 +115,10 @@ public class RobotMap {
   //BlastOff Constants
   public static double BLASTOFF_FORWARD_SPEED = 0.7;
   public static double BLASTOFF_REVERSE_SPEED = 0.5;
+  
+    //BlackHole Constants
+    public static double BLACK_HOLE_SPIN_FORWARD_SPEED = -.4;
+    public static double BLACK_HOLE_SPIN_REVERSE_SPEED = .4;
 
   //Event Horizon Constants
   public static double EVENTHORIZON_INTAKE_SPEED = 0.4;  //Power to Spark Controller

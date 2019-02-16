@@ -63,10 +63,10 @@ public class OI {
 		// Operator Stick
 		//operStickLeftBumper.whileHeld(new VacCubeIntake());
 
-	//	driverStickAButton.whenPressed(new SetArmEncoderPositionCommand(300000));
-	//	driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(50000));
-		driverStickXButton.whileHeld(new EventHorizonIntakeCargoCommand());
-		driverStickYButton.whileHeld(new EventHorizonEjectCargoCommand());
+		driverStickAButton.whenPressed(new SetArmEncoderPositionCommand(300000));
+		driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(50000));
+	//	driverStickXButton.whileHeld(new EventHorizonIntakeCargoCommand());
+	//	driverStickYButton.whileHeld(new EventHorizonEjectCargoCommand());
 		
 		//driverStickYButton.whenPressed(new TurnToAngle(120));
 		//driverStickXButton.whileHeld(new RaiseArmCommand());
