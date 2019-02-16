@@ -105,18 +105,19 @@ public class RobotMap {
   public static double ARM_LOWER_SPEED = -0.4;
   public static double ARM_RAISE_VOLTAGE = 7.0;  //volts
   public static double ARM_LOWER_VOLTAGE = -3.0;  //volts
-  public static int ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH = 300000;
-  public static int ARM_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = 200000;
-  public static int ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH = 100000;
-  public static int ARM_ENCODER_POSITION_ROCKET_UPPER_CARGO = 300000;
-  public static int ARM_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = 200000;
-  public static int ARM_ENCODER_POSITION_ROCKET_LOWER_CARGO = 100000;
-  public static int ARM_ENCODER_POSITION_CARGO_SHIP_HATCH = 100000;
-  public static int ARM_ENCODER_POSITION_CARGO_SHIP_CARGO = 200000;
-  public static int ARM_ENCODER_POSITION_CARGO_FLOOR = 75000;
-  public static int ARM_ENCODER_POSITION_HATCH_FLOOR = 75000;
-  public static int ARM_ENCODER_POSITION_CARGO_HUMAN = 80000;
-  public static int ARM_ENCODER_POSITION_HATCH_HUMAN = 80000;
+  public static double ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH = 300000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = 200000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH = 100000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_ROCKET_UPPER_CARGO = 300000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = 200000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_ROCKET_LOWER_CARGO = 100000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_CARGO_SHIP_HATCH = 100000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_CARGO_SHIP_CARGO = 200000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_FLOOR_CARGO = 75000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_FLOOR_HATCH = 75000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_HUMAN_CARGO = 80000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_HUMAN_HATCH = 80000;  //placeholder..  Need to fix
+
 
   //BlastOff Constants
   public static double BLASTOFF_FORWARD_SPEED = 0.7;  //volts
@@ -129,10 +130,10 @@ public class RobotMap {
   public static double BLACK_HOLE_SPIN_FORWARD_SPEED = -0.4; 
   public static double BLACK_HOLE_SPIN_REVERSE_SPEED = 0.4;
   public static double BLACK_HOLE_SPIN_STOP_SPEED = 0.0;
-  public static int BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD = -10000;
-  public static int BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 10000;
-  public static int BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 13000;
-  public static int BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 12500; 
+  public static double BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD = -10000;  //placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 10000;  //placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 13000;  //placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 12500;   //placeholder..  Need to fix
 
   //Event Horizon Constants
   public static double EVENTHORIZON_INTAKE_SPEED = 0.4;  //Power to Spark Controller
