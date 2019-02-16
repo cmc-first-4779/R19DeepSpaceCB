@@ -27,7 +27,7 @@ public class BlastOffSubsystem extends Subsystem {
     //Init our Spark Motor Controller
     blastOffMotor = new Spark(RobotMap.PWM_PORT_BLASTOFF);
     //Init our Double Solenoid
-    blastOffSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_BLASTOFF_LAND, RobotMap.PCM_PORT_BLASTOFF_LAND);
+    blastOffSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_BLASTOFF_LAUNCH, RobotMap.PCM_PORT_BLASTOFF_LAND);
   }
 
   @Override
