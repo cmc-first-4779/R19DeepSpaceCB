@@ -13,6 +13,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
@@ -176,7 +177,7 @@ public class Robot extends TimedRobot {
   public void testPeriodic() {
   }
   
-
+//Initialize a TalonSRX Motor controller and set our default settings.
   public static void initMotorController(WPI_TalonSRX talon) {
     talon.configFactoryDefault();
     talon.setNeutralMode(NeutralMode.Brake);
@@ -189,6 +190,7 @@ public class Robot extends TimedRobot {
     talon.configClosedloopRamp(0.5, 0);
   }
 
+  //Initialize a VictorSPX Motor controller and set our default settings.
   public static void initMotorController (WPI_VictorSPX victor) {
     victor.configFactoryDefault();
     victor.setNeutralMode(NeutralMode.Brake);
@@ -198,5 +200,17 @@ public class Robot extends TimedRobot {
     victor.configNominalOutputForward(0.0, 0);
     victor.configNominalOutputReverse(0.0, 0);
     victor.configClosedloopRamp(0.5, 0);    
+  }
+
+  //Get the amount of time left in the Match from the DriverStation.
+  //NOTE:  The time is a double and is in seconds.
+  //       An entire match is 180 seconds
+  //       Auton would be:  0 - 15 seconds
+  //       TeleOp would be:  15 seconds - 149 seconds
+  //       EndGame would be:  150 - 180 seconds
+  public static double getMatchTime(){
+    double matchTime;
+    matchTime = DriverStation.getInstance().getMatchTime();
+    return matchTime;
   }
 }

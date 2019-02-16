@@ -17,7 +17,6 @@ import frc.robot.commands.Phasers.PhasersGlitterCommand;
 import frc.robot.commands.Phasers.PhasersLarsonScannerCommand;
 import frc.robot.commands.Phasers.PhasersLavaCommand;
 import frc.robot.commands.Phasers.PhasersOceanCommand;
-import frc.robot.commands.Phasers.PhasersSetForestCommand;
 import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
 import frc.robot.commands.Phasers.PhasersShotCommand;
 
@@ -77,7 +76,6 @@ public class OI {
 		operStickXButton.whenPressed(new PhasersOceanCommand());
 		operStickYButton.whenPressed(new PhasersLavaCommand());
 		operStickLeftBumper.whenPressed(new PhasersLarsonScannerCommand());
-		operStickRightBumper.whenPressed(new PhasersSetForestCommand());
 		operStickStartButton.whenPressed(new PhasersSetPhaserCommand());
 		
 

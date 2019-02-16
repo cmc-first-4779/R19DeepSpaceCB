@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -36,8 +37,15 @@ public class BlastOffSubsystem extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
+  //Launches the Robot onto the top habitat platform
   public void launch(){
-    blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
+    //Get the time of the match...
+    double matchTime;
+    matchTime = Robot.getMatchTime();
+    //LAUNCH ON TO THE PLATFORM IF AND ONLY IF, WE ARE IN THE ENDGAME AND READY TO USE THE BIG SOLENOID!!!!
+    if (matchTime > RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH){
+        blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
+    }
   }
 
   public void land(){

@@ -14,22 +14,20 @@ package frc.robot;
  * floating around.
  */
 public class RobotMap {
-  // For example to map the left and right motors, you could define the
-  // following variables to use with your drivetrain subsystem.
-  // public static int leftMotor = 1;
-  // public static int rightMotor = 2;
 
-  // If you are using multiple modules, make sure to define both the port
-  // number and the module. For example you with a rangefinder:
-  // public static int rangefinderPort = 1;
-  // public static int rangefinderModule = 1;
+/*********************************************************************************/
+/*********************************************************************************/
+/** SETTINGS THAT DEFINE JOYSTICKS, RIO PORTS AND CONTROL MODULES  ***************/
+/***(Do NOT Change these unless we have to rewire something on the Robot)*********/
+/*********************************************************************************/
+/*********************************************************************************/
 
-
-  
+//***************** JOYSTICK USB PORTS *******************************************/
 	//Map out the Joystick #'s in the DriverStation USB Ports
 	public static final int DRIVERSTICK_USB_PORT = 0;
 	public static final int OPERSTICK_USB_PORT = 1;
-	
+  
+  //***************** JOYSTICK BUTTONS *******************************************/
 	//These are the buttons on the Joysticks as recognized by the Drivers Station. You can call in other subsystems.
 	public static final int A_BUTTON = 1;
 	public static final int B_BUTTON = 2;
@@ -45,7 +43,7 @@ public class RobotMap {
 	public static final int RIGHT_TRIGGER = 3;
 
 
-  //CAN ADDRESSES FOR OUR CAN NETWORK
+   //***************** CAN ADDRESSES *******************************************/
   public static final int CAN_ADDRESS_LEFT_FRONT_DRIVE = 1;
   public static final int CAN_ADDRESS_LEFT_REAR_DRIVE  = 11;
   public static final int CAN_ADDRESS_RIGHT_FRONT_DRIVE = 2;
@@ -54,12 +52,12 @@ public class RobotMap {
   public static final int CAN_ADDRESS_ARM_SLAVE = 15;  //Change back to 14 once we have access to the board
   public static final int CAN_ADDRESS_BLACKHOLE = 3;
 
-  //PWM ADDRESSES FOR OUR ROBORIO
+  //***************** PWM PORTS ON THE ROBORIO **********************************/
   public static final int PWM_PORT_EVENTHORIZON_WHEELS = 0;
   public static final int PWM_PORT_BLASTOFF = 1;
   public static final int PWM_PORT_PHASERS = 2;
 
-  //PCM (Pneumatics Control Module) Addresses 
+  //************** PCM (PNEUMATICS CONTROL MODULE) PORTS *************************/
   public static final int PCM_PORT_EVENTHORIZON_RAISE = 0;  //Placeholder for now..
   public static final int PCM_PORT_EVENTHORIZON_LOWER = 1;  //Placeholder for now..
   public static final int PCM_PORT_PLUNGER_RETRACT = 2;
@@ -69,15 +67,28 @@ public class RobotMap {
   public static final int PCM_PORT_BLASTOFF_LAUNCH = 6;
   public static final int PCM_PORT_BLASTOFF_LAND = 7;
 
+  /********************** GYRO SPI PORT **************************************************/
   //GYRO SPI PORT NUMBER
   public static final int SPI_PORT_AHRS = 0;
 
   
-  //Drivetrain aim constants
+/*********************************************************************************/
+/*********************************************************************************/
+/*************** SETTINGS WE CAN CHANGE TO TUNE THE ROBOT  ***********************/
+/*********************************************************************************/
+/*********************************************************************************/
+
+
+  /***********************************************************************/
+  /************* GYRO SETTINGS********************************************/
+  /***********************************************************************/
   public static double DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
   public static double DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
 
-  // Limelight constants
+
+  /************************************************************************/
+  /***************LIMELIGHT / VISION SETTINGS *****************************/
+  /************************************************************************/
   public static double LIMELIGHT_CAMMODE_VISION = 0; // Vision Mode = 0
   public static double LIMELIGHT_CAMMODE_DRIVER = 1; // Driver Mode = 1
   public static double LIMELIGHT_LEDMODE_ON = 3; // Force LED Mode On
@@ -100,7 +111,10 @@ public class RobotMap {
   public static double LIMELIGHT_CARGO_HEIGHT = 5.5; // inches
   public static double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
 
-  //Arm Constants
+
+  /*********************************************************************/
+  /*************** ARM SETTINGS ****************************************/
+  /*********************************************************************/
   public static double ARM_RAISE_SPEED =  0.4;
   public static double ARM_LOWER_SPEED = -0.4;
   public static double ARM_RAISE_VOLTAGE = 7.0;  //volts
@@ -118,15 +132,19 @@ public class RobotMap {
   public static double ARM_ENCODER_POSITION_HUMAN_CARGO = 80000;  //placeholder..  Need to fix
   public static double ARM_ENCODER_POSITION_HUMAN_HATCH = 80000;  //placeholder..  Need to fix
 
-
-  //BlastOff Constants
+  /**********************************************************************/
+  /************** BLASTOFF / CLIMBER SETTINGS ***************************/
+  /**********************************************************************/
   public static double BLASTOFF_FORWARD_SPEED = 0.7;  //volts
   public static double BLASTOFF_REVERSE_SPEED = 0.5;  //volts
   public static double BLASTOFF_STOP_SPEED = 0.0;  //volts
   public static double BLASTOFF_TIMEOUT = 1.0;  //seconds
+  public static double BLASTOFF_OK_TIME_TO_LAUNCH = 150;  //seconds
 
 
-  //BlackHole Constants
+   /****************************************************************************/
+   /************** BLACKHOLE / CARGO HOLDER SETTINGS ***************************/
+   /****************************************************************************/
   public static double BLACK_HOLE_SPIN_FORWARD_SPEED = -0.4; 
   public static double BLACK_HOLE_SPIN_REVERSE_SPEED = 0.4;
   public static double BLACK_HOLE_SPIN_STOP_SPEED = 0.0;
@@ -135,14 +153,19 @@ public class RobotMap {
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 0;  //degrees placeholder..  Need to fix
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 30;   //degrees placeholder..  Need to fix
 
-  //Event Horizon Constants
+
+   /************************************************************************************/
+   /************** EVENT HORIZON / CARGO INTAKE ARM SETTINGS ***************************/
+   /************************************************************************************/
   public static double EVENTHORIZON_INTAKE_SPEED = 0.4;  //Power to Spark Controller
   public static double EVENTHORIZON_EJECT_SPEED = -0.4;  //Power to Spark Controller
   //public static int EVENTHORIZON_LEFT_SOLENOID_CHANNEL = 0;  //Will change these later
   //public static int EVENTHORIZON_RIGHT_SOLENOID_CHANNEL = 1;  //placeholder..   while change later.
 
 
-  //Phaser Constants for Pretty colors
+  /**********************************************************************/
+  /************** PHASER / LED LIGHT SETTINGS ***************************/
+  /**********************************************************************/
   public static double PHASERS_RAINBOW_PALETTE = -0.99;
   public static double PHASERS_PARTY_PALETTE = -0.97;
   public static double PHASERS_OCEAN_PALETTE = -0.95;
