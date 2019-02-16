@@ -52,5 +52,9 @@ public class BlastOffSubsystem extends Subsystem {
     blastOffMotor.set(RobotMap.BLASTOFF_REVERSE_SPEED);
   }
 
+  public void stop(){
+    blastOffMotor.set(RobotMap.BLASTOFF_STOP_SPEED);
+  }
+
 
 }

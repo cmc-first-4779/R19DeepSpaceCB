@@ -62,28 +62,22 @@ public class RobotMap {
   //PCM (Pneumatics Control Module) Addresses 
   public static final int PCM_PORT_EVENTHORIZON_RAISE = 0;  //Placeholder for now..
   public static final int PCM_PORT_EVENTHORIZON_LOWER = 1;  //Placeholder for now..
-  public static final int PCM_PLUNGER_RETRACT_PORT = 2;
-  public static final int PCM_PLUNGER_PLUNGE_PORT = 3;
-  public static final int PCM_HATCHHANDLER_NOSECONE_EXPAND_PORT = 4; //Placeholder for now..
-  public static final int PCM_HATCHHANDLER_NOSECONE_RETRACT_PORT = 5;  //Placeholder for now..
+  public static final int PCM_PORT_PLUNGER_RETRACT = 2;
+  public static final int PCM_PORT_PLUNGER_PLUNGE = 3;
+  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 4; //Placeholder for now..
+  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 5;  //Placeholder for now..
   public static final int PCM_PORT_BLASTOFF_LAUNCH = 6;
   public static final int PCM_PORT_BLASTOFF_LAND = 7;
-
 
   //GYRO SPI PORT NUMBER
   public static final int SPI_PORT_AHRS = 0;
 
- 
+  
+  //Drivetrain aim constants
   public static double DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
   public static double DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
 
-  //Pneumatics Values
-  public static int SOLINOID_DOUBLE_PCM_PORT_A = 1;
-  public static int SOLINOID_DOUBLE_PCM_PORT_B = 2;
-  public static int SOLINOID_SINGLE_PCM_PORT = 3;
-
-
-  // limelight constants
+  // Limelight constants
   public static double LIMELIGHT_CAMMODE_VISION = 0; // Vision Mode = 0
   public static double LIMELIGHT_CAMMODE_DRIVER = 1; // Driver Mode = 1
   public static double LIMELIGHT_LEDMODE_ON = 3; // Force LED Mode On
@@ -107,25 +101,45 @@ public class RobotMap {
   public static double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
 
   //Arm Constants
-  public static double ARM_RAISE_SPEED = .4;
-  public static double ARM_LOWER_SPEED = -.4;
-  public static double ARM_RAISE_VOLTAGE = 7;
-  public static double ARM_LOWER_VOLTAGE = -3;
+  public static double ARM_RAISE_SPEED =  0.4;
+  public static double ARM_LOWER_SPEED = -0.4;
+  public static double ARM_RAISE_VOLTAGE = 7.0;  //volts
+  public static double ARM_LOWER_VOLTAGE = -3.0;  //volts
+  public static int ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH = 300000;
+  public static int ARM_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = 200000;
+  public static int ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH = 100000;
+  public static int ARM_ENCODER_POSITION_ROCKET_UPPER_CARGO = 300000;
+  public static int ARM_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = 200000;
+  public static int ARM_ENCODER_POSITION_ROCKET_LOWER_CARGO = 100000;
+  public static int ARM_ENCODER_POSITION_CARGO_SHIP_HATCH = 100000;
+  public static int ARM_ENCODER_POSITION_CARGO_SHIP_CARGO = 200000;
+  public static int ARM_ENCODER_POSITION_CARGO_FLOOR = 75000;
+  public static int ARM_ENCODER_POSITION_HATCH_FLOOR = 75000;
+  public static int ARM_ENCODER_POSITION_CARGO_HUMAN = 80000;
+  public static int ARM_ENCODER_POSITION_HATCH_HUMAN = 80000;
 
   //BlastOff Constants
-  public static double BLASTOFF_FORWARD_SPEED = 0.7;
-  public static double BLASTOFF_REVERSE_SPEED = 0.5;
+  public static double BLASTOFF_FORWARD_SPEED = 0.7;  //volts
+  public static double BLASTOFF_REVERSE_SPEED = 0.5;  //volts
+  public static double BLASTOFF_STOP_SPEED = 0.0;  //volts
+  public static double BLASTOFF_TIMEOUT = 1.0;  //seconds
 
 
   //BlackHole Constants
-  public static double BLACK_HOLE_SPIN_FORWARD_SPEED = -.4;
-  public static double BLACK_HOLE_SPIN_REVERSE_SPEED = .4;
+  public static double BLACK_HOLE_SPIN_FORWARD_SPEED = -0.4; 
+  public static double BLACK_HOLE_SPIN_REVERSE_SPEED = 0.4;
+  public static double BLACK_HOLE_SPIN_STOP_SPEED = 0.0;
+  public static int BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD = -10000;
+  public static int BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 10000;
+  public static int BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 13000;
+  public static int BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 12500; 
 
   //Event Horizon Constants
   public static double EVENTHORIZON_INTAKE_SPEED = 0.4;  //Power to Spark Controller
   public static double EVENTHORIZON_EJECT_SPEED = -0.4;  //Power to Spark Controller
-  public static int EVENTHORIZON_LEFT_SOLENOID_CHANNEL = 0;  //Will change these later
-  public static int EVENTHORIZON_RIGHT_SOLENOID_CHANNEL = 1;  //placeholder..   while change later.
+  //public static int EVENTHORIZON_LEFT_SOLENOID_CHANNEL = 0;  //Will change these later
+  //public static int EVENTHORIZON_RIGHT_SOLENOID_CHANNEL = 1;  //placeholder..   while change later.
+
 
   //Phaser Constants for Pretty colors
   public static double PHASERS_RAINBOW_PALETTE = -0.99;
