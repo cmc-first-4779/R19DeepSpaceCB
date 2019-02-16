@@ -5,37 +5,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.WarpDrive;
+package frc.robot.commands.BlackHole;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class DriveToSetPointCommand extends Command {
-
-  private int m_direction;  // 1 = forward, -1 = reverse
-  private int m_distance;
-  //private double m_speed;
-
-  public DriveToSetPointCommand(int distance, int direction) {
+public class SetBlackHoleRocketUpperHatchCommand extends Command {
+  public SetBlackHoleRocketUpperHatchCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.warpDriveSubsystem);
-    m_distance = distance;
+    requires(Robot.blackHoleSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    //Reset our Gyro and Encoders
-    Robot.warpDriveSubsystem.resetGyro();
-    Robot.warpDriveSubsystem.resetEncoders();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //multiple the distance by the direction to determine whether we are moving forward or reverse
-    Robot.warpDriveSubsystem.setSetPoint(m_distance*m_direction);
+    Robot.blackHoleSubsystem.rotateToSetPoint(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_HATCH);
+
   }
 
   // Make this return true when this Command no longer needs to run execute()

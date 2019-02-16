@@ -13,9 +13,9 @@ import frc.robot.RobotMap;
 
 public class LimeLightSetVisionPipelineCommand extends Command {
 
-  private int m_pipeline;
+  private double m_pipeline;
 
-  public LimeLightSetVisionPipelineCommand(int pipeline) {
+  public LimeLightSetVisionPipelineCommand(double pipeline) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.limeLightSubsystem);

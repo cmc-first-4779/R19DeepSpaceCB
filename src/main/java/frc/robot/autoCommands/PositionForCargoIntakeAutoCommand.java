@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.Arms.SetArmFloorCargoCommand;
+import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
 import frc.robot.commands.BlackHole.SetBlackHoleCargoLoadCommand;
 import frc.robot.commands.EventHorizon.EventHorizonLowerArmCommand;
 //import frc.robot.commands.EventHorizon.EventHorizonIntakeCargoCommand;
@@ -40,11 +41,14 @@ public class PositionForCargoIntakeAutoCommand extends CommandGroup {
 
        // Move the arm to the floor to get the Cargo
        addParallel(new PhasersSetPhaserCommand(RobotMap.PHASERS_STROBE_RED));
+       //Retract the plunger just in case...
+       addParallel(new BlackHoleRetractPlungerCommand());
+       //  Put the arm on the floor in the right position
        addParallel(new SetArmFloorCargoCommand());
        // Rotate the Blackhole into place to pick up the cargo
        addParallel(new SetBlackHoleCargoLoadCommand());
        // Wait for a little before swinging down the Event Horizon arm
-       addSequential(new TimerCommand(0.5)); 
+       addSequential(new TimerCommand(RobotMap.EVENTHORIZON_ARM_WAIT_TIME)); 
        // Lower the Event Horizon Arm to take in the cargo
        addSequential(new EventHorizonLowerArmCommand());
   }

@@ -5,37 +5,44 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.WarpDrive;
+package frc.robot.commands.Limelight;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class DriveToSetPointCommand extends Command {
+//  CHecks to see whether the Limelight has its target and flips the LEDs accordingly...
 
-  private int m_direction;  // 1 = forward, -1 = reverse
-  private int m_distance;
-  //private double m_speed;
+public class LimeLightHasTargetCommand extends Command {
 
-  public DriveToSetPointCommand(int distance, int direction) {
+  double m_hasTarget;
+
+  public LimeLightHasTargetCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.warpDriveSubsystem);
-    m_distance = distance;
+    requires(Robot.limeLightSubsystem);
+    requires(Robot.phasersSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    //Reset our Gyro and Encoders
-    Robot.warpDriveSubsystem.resetGyro();
-    Robot.warpDriveSubsystem.resetEncoders();
+    m_hasTarget = Robot.limeLightSubsystem.getTV();
+
+    if (m_hasTarget == 0){
+      //If..  NO TARGET
+      Robot.phasersSubsystem.setPhasers(RobotMap.PHASERS_RED);
+    }
+      // Else it has a target and set the lights to LIME GREEN
+    else{
+      Robot.phasersSubsystem.setPhasers(RobotMap.PHASERS_LIME);
+    }
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //multiple the distance by the direction to determine whether we are moving forward or reverse
-    Robot.warpDriveSubsystem.setSetPoint(m_distance*m_direction);
   }
 
   // Make this return true when this Command no longer needs to run execute()

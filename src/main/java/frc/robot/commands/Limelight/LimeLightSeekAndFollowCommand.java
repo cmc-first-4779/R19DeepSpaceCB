@@ -21,18 +21,21 @@ public class LimeLightSeekAndFollowCommand extends Command {
   double turn = 0;
   double move = 0;
 
-  public LimeLightSeekAndFollowCommand() {
+  double m_pipeline;
+
+  public LimeLightSeekAndFollowCommand(double pipeline) {
       // Use requires() here to declare subsystem dependencies
       // eg. requires(chassis);
       requires(Robot.warpDriveSubsystem);
       requires(Robot.limeLightSubsystem);
+      m_pipeline = pipeline;
     }
   
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
       // need to set the limelight pipeline
-      Robot.limeLightSubsystem.setPipeline(RobotMap.LIMELIGHT_PIPELINE_VEST);
+      Robot.limeLightSubsystem.setPipeline(m_pipeline);
     }
   
     // Called repeatedly when this Command is scheduled to run

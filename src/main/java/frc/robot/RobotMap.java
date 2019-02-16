@@ -77,7 +77,12 @@ public class RobotMap {
 /*********************************************************************************/
 /*********************************************************************************/
 
-
+/******************************************************************************* */
+/****************   WARP DRIVE / DRIVE TRAIN SETTINGS  ***************************/
+/******************************************************************************* */
+public static int WARPDRIVE_DIRECTION_FORWARD = 1;
+public static int WARPDRIVE_DIRECTION_REVERSE = -1;
+public static int WARPDRIVE_BACKUP_DISTANCE = 3000;  // placeholder, we need to adjust
 
   /************************************************************************/
   /***************LIMELIGHT / VISION SETTINGS *****************************/
@@ -161,7 +166,15 @@ public class RobotMap {
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 270;  //degrees placeholder..  Need to fix
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 0;  //degrees placeholder..  Need to fix
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 30;   //degrees placeholder..  Need to fix
-  public static double BLACK_HOLE_ENCODER_POSITION_HIGH_HAB_PLATFORM = 240;   //degrees placeholder..  Need to fix  
+  public static double BLACK_HOLE_ENCODER_POSITION_HIGH_HAB_PLATFORM = 240;   //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_HATCH = 200;  //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = 200;  //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_HATCH = 200;  //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_CARGO = 200;  //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = 200;  //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_CARGO = 200;  //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH = 200;  //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_CARGO = 200;  //degrees placeholder..  Need to fix 
 
 
    /************************************************************************************/
@@ -169,8 +182,8 @@ public class RobotMap {
    /************************************************************************************/
   public static double EVENTHORIZON_INTAKE_SPEED = 0.4;  //Power to Spark Controller
   public static double EVENTHORIZON_EJECT_SPEED = -0.4;  //Power to Spark Controller
-  //public static int EVENTHORIZON_LEFT_SOLENOID_CHANNEL = 0;  //Will change these later
-  //public static int EVENTHORIZON_RIGHT_SOLENOID_CHANNEL = 1;  //placeholder..   while change later.
+  public static double EVENTHORIZON_ARM_WAIT_TIME = 0.5; //seconds to wait for the Arm mechanism before moving the Event Horizon Arm
+
 
    /************************************************************************************/
    /******************** MISC SETTINGS *************************************************/
