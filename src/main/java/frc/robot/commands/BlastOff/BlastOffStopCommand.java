@@ -12,8 +12,8 @@ import frc.robot.Robot;
 
 //Stop the Blastoff Motor
 
-public class StopCommand extends Command {
-  public StopCommand() {
+public class BlastOffStopCommand extends Command {
+  public BlastOffStopCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blastOffSubsystem);

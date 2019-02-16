@@ -58,12 +58,12 @@ public class BlastOffAutoCommand extends CommandGroup {
     addSequential(new TimerCommand(1.25));
 
     //LET'S LAUNCH!!!!!!!!!!
-    addParallel(new LaunchCommand());
+    addParallel(new BlastOffLaunchCommand());
     addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_FIRE_LARGE));
     addSequential(new TimerCommand(2.25));
 
     //Move the BLASTOFF WHEELS FORWARD
-    addParallel(new MoveForwardCommand());
+    addParallel(new BlastOffMoveForwardCommand());
     addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_FIRE_MEDIUM));
     addSequential(new TimerCommand(1.25));
 

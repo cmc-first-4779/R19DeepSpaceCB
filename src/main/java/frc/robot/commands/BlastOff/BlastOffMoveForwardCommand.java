@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class MoveForwardCommand extends Command {
-  public MoveForwardCommand() {
+public class BlastOffMoveForwardCommand extends Command {
+  public BlastOffMoveForwardCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blastOffSubsystem);

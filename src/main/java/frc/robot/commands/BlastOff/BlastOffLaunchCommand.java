@@ -10,8 +10,8 @@ package frc.robot.commands.BlastOff;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class LaunchCommand extends Command {
-  public LaunchCommand() {
+public class BlastOffLaunchCommand extends Command {
+  public BlastOffLaunchCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blastOffSubsystem);
