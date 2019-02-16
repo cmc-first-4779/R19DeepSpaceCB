@@ -5,32 +5,36 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.Phasers;
+package frc.robot.commands.WarpDrive;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class PhasersSetPhaserCommand extends Command {
+public class DriveToSetPointCommand extends Command {
 
-  double m_pattern;
+  //private int m_direction;
+  private int m_distance;
+  //private double m_speed;
 
-  public PhasersSetPhaserCommand(double pattern) {
+  public DriveToSetPointCommand(int distance) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.phasersSubsystem);
-    m_pattern = pattern;
+    requires(Robot.warpDriveSubsystem);
+    m_distance = distance;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    //Reset our Gyro and Encoders
+    Robot.warpDriveSubsystem.resetGyro();
+    Robot.warpDriveSubsystem.resetEncoders();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.phasersSubsystem.setPhasers(m_pattern);
+    Robot.warpDriveSubsystem.setSetPoint(m_distance);
   }
 
   // Make this return true when this Command no longer needs to run execute()

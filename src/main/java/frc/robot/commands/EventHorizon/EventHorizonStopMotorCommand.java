@@ -10,8 +10,8 @@ package frc.robot.commands.EventHorizon;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class EventHorizonRaiseArm extends Command {
-  public EventHorizonRaiseArm() {
+public class EventHorizonStopMotorCommand extends Command {
+  public EventHorizonStopMotorCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.eventHorizonSubsystem);
@@ -20,12 +20,13 @@ public class EventHorizonRaiseArm extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.eventHorizonSubsystem.stopMotor();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.eventHorizonSubsystem.raiseEventHorizon();
+    Robot.eventHorizonSubsystem.stopMotor();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -37,11 +38,13 @@ public class EventHorizonRaiseArm extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.eventHorizonSubsystem.stopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.eventHorizonSubsystem.stopMotor();
   }
 }

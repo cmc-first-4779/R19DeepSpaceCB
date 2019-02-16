@@ -163,10 +163,38 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
   }
 
   public void setDistance(int dis) {
-
     // Gets called above.
     this.distance = dis;
   }
+
+  public void setSetPoint(double distance) {
+    // do the math to figure out what the encoder count should be
+    // Drive Robot to set point
+    leftMaster.set(ControlMode.Position, distance);
+    rightMaster.set(ControlMode.Position, distance);
+    //System.out.println("Left DT Encoder count: " + leftMaster.getSelectedSensorPosition());
+    //System.out.println("Right DT Encoder count: " + rightMaster.getSelectedSensorPosition());
+  }
+
+  //Reset the encoder on our Arm Master Talon.
+  public void resetEncoders() {
+    leftMaster.setSelectedSensorPosition(0);
+    rightMaster.setSelectedSensorPosition(0);
+  }
+
+  public double getEncoderPosition() {
+    if (Math.abs(leftMaster.getSelectedSensorPosition()) < 3) {
+      System.out.println("LEFT DRIVETRAIN ENCODER IS NOT WORKING!!!");
+      return rightMaster.getSelectedSensorPosition();
+    } else if (Math.abs(rightMaster.getSelectedSensorPosition()) < 3) {
+      System.out.println("RIGHT DRIVETRAIN ENCODER IS NOT WORKING!!!");
+      return -leftMaster.getSelectedSensorPosition() ;
+    } else {
+      // Average our two rotary encoders together to account for slippage and turning.
+      return (-leftMaster.getSelectedSensorPosition()  + rightMaster.getSelectedSensorPosition()) / 2;
+    }
+  }
+
 
 /*   public void resetDTEncoders() {
     // Reset both of our rotary encoders. We call this usually at the start of every

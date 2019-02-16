@@ -76,7 +76,7 @@ public class OI {
 		operStickXButton.whenPressed(new PhasersOceanCommand());
 		operStickYButton.whenPressed(new PhasersLavaCommand());
 		operStickLeftBumper.whenPressed(new PhasersLarsonScannerCommand());
-		operStickStartButton.whenPressed(new PhasersSetPhaserCommand());
+		//operStickStartButton.whenPressed(new PhasersSetPhaserCommand());
 		
 
 

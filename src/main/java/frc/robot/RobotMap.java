@@ -68,7 +68,6 @@ public class RobotMap {
   public static final int PCM_PORT_BLASTOFF_LAND = 7;
 
   /********************** GYRO SPI PORT **************************************************/
-  //GYRO SPI PORT NUMBER
   public static final int SPI_PORT_AHRS = 0;
 
   
@@ -131,6 +130,7 @@ public class RobotMap {
   public static double ARM_ENCODER_POSITION_FLOOR_HATCH = 75000;  //placeholder..  Need to fix
   public static double ARM_ENCODER_POSITION_HUMAN_CARGO = 80000;  //placeholder..  Need to fix
   public static double ARM_ENCODER_POSITION_HUMAN_HATCH = 80000;  //placeholder..  Need to fix
+  public static double ARM_ENCODER_POSITION_HIGH_HAB_PlATFORM = 250000;  //placeholder..  Need to fix
 
   /**********************************************************************/
   /************** BLASTOFF / CLIMBER SETTINGS ***************************/
@@ -152,6 +152,7 @@ public class RobotMap {
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 270;  //degrees placeholder..  Need to fix
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 0;  //degrees placeholder..  Need to fix
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 30;   //degrees placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_HIGH_HAB_PLATFORM = 240;   //degrees placeholder..  Need to fix  
 
 
    /************************************************************************************/

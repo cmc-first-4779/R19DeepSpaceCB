@@ -5,16 +5,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.EventHorizon;
+package frc.robot.commands.BlackHole;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class EventHorizonLowerArm extends Command {
-  public EventHorizonLowerArm() {
+public class SetBlackHoleHighHabitatPlatformCommand extends Command {
+  public SetBlackHoleHighHabitatPlatformCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.eventHorizonSubsystem);
+    requires(Robot.blackHoleSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +26,7 @@ public class EventHorizonLowerArm extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.eventHorizonSubsystem.lowerEventHorizon();
+    Robot.blackHoleSubsystem.rotateToSetPoint(RobotMap.BLACK_HOLE_ENCODER_POSITION_HIGH_HAB_PLATFORM);
   }
 
   // Make this return true when this Command no longer needs to run execute()

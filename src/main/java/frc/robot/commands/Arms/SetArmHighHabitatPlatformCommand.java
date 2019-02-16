@@ -5,21 +5,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.Phasers;
+package frc.robot.commands.Arms;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class PhasersSetPhaserCommand extends Command {
-
-  double m_pattern;
-
-  public PhasersSetPhaserCommand(double pattern) {
+public class SetArmHighHabitatPlatformCommand extends Command {
+  public SetArmHighHabitatPlatformCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.phasersSubsystem);
-    m_pattern = pattern;
+    requires(Robot.armsSubsytem);
   }
 
   // Called just before this Command runs the first time
@@ -30,7 +26,7 @@ public class PhasersSetPhaserCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.phasersSubsystem.setPhasers(m_pattern);
+    Robot.armsSubsytem.setSetPoint(RobotMap.ARM_ENCODER_POSITION_HIGH_HAB_PlATFORM);
   }
 
   // Make this return true when this Command no longer needs to run execute()
