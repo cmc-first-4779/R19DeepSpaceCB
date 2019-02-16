@@ -53,16 +53,16 @@ public class BlackHoleSubsystem extends Subsystem {
     // Set the default command for a subsystem here.
     //Default Command Causes the Black Hole to Chill Out...
     //setDefaultCommand(new BlackHoleChillCommand());
-    setDefaultCommand(new SpinBlackHoleCommand());
+    //setDefaultCommand(new SpinBlackHoleCommand());
   }
 
   //Spin the Black Hole Cargo Box around
   public void spin(double rate) {
     // spin the spinner forwards at a set speed
     if (rate > 0.25){
-      spinMotor.set(ControlMode.PercentOutput, RobotMap.ARM_RAISE_SPEED);
+      spinMotor.set(ControlMode.PercentOutput, RobotMap.BLACK_HOLE_SPIN_FORWARD_SPEED);
     } else if (rate < -0.25) {
-      spinMotor.set(ControlMode.PercentOutput, RobotMap.ARM_LOWER_SPEED);
+      spinMotor.set(ControlMode.PercentOutput, RobotMap.BLACK_HOLE_SPIN_REVERSE_SPEED);
     } else {
       spinMotor.set(ControlMode.PercentOutput, 0);
     }

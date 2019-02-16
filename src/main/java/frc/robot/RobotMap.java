@@ -117,6 +117,10 @@ public class RobotMap {
   public static double ARM_RAISE_VOLTAGE = 7;
   public static double ARM_LOWER_VOLTAGE = -3;
 
+    //BlackHole Constants
+    public static double BLACK_HOLE_SPIN_FORWARD_SPEED = -.4;
+    public static double BLACK_HOLE_SPIN_REVERSE_SPEED = .4;
+
   //Event Horizon Constants
   public static double EVENTHORIZON_INTAKE_SPEED = 0.4;  //Power to Spark Controller
   public static double EVENTHORIZON_EJECT_SPEED = -0.4;  //Power to Spark Controller
