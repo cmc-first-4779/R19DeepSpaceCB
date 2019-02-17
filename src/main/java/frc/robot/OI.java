@@ -51,39 +51,22 @@ public class OI {
 		JoystickButton driverStickBackButton = new JoystickButton(driverStick, RobotMap.BACK_BUTTON);
 		JoystickButton driverStickStartButton = new JoystickButton(driverStick, RobotMap.START_BUTTON);
 
-		// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
+	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		//driverStickYButton.whileHeld(new ClimberOn());
-
-		// Operator Stick
-		//operStickLeftBumper.whileHeld(new VacCubeIntake());
-
 		driverStickAButton.whenPressed(new SetArmEncoderPositionCommand(300000));
 		driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(50000));
-		driverStickYButton.whileHeld(new EventHorizonIntakeCargoCommand());
-		driverStickXButton.whenPressed(new NoseconeOpenCommand());
 		driverStickBackButton.whenPressed(new BlastOffAutoCommand());
 
+		// Operator Stick
 		operStickLeftBumper.whenPressed(new PositionForCargoIntakeAutoCommand());
 		operStickRightBumper.whenPressed(new PositionForCargoCarryAutoCommand());
-		operStickXButton.whenPressed(new PositionForHatchIntakeAutoCommand());
+		operStickBackButton.whenPressed(new PositionForHatchIntakeAutoCommand());
+		operStickStartButton.whenPressed(new PositionForHatchCarryAutoCommand());
+		operStickXButton.whenPressed(new TargetCargoShipCargoAutoCommand());
+		operStickBButton.whenPressed(new TargetCargoShipHatchCoverAutoCommand());
+	
 
 
-
-
-	//	driverStickXButton.whileHeld(new EventHorizonIntakeCargoCommand());
-	//	driverStickYButton.whileHeld(new EventHorizonEjectCargoCommand());
-		
-		//driverStickYButton.whenPressed(new TurnToAngle(120));
-		//driverStickXButton.whileHeld(new RaiseArmCommand());
-
-/*
-		operStickAButton.whenPressed(new PhasersShotCommand());
-		operStickBButton.whenPressed(new PhasersGlitterCommand());
-		operStickXButton.whenPressed(new PhasersOceanCommand());
-		operStickYButton.whenPressed(new PhasersLavaCommand());
-		operStickLeftBumper.whenPressed(new PhasersLarsonScannerCommand());
-*/	
 		
 
 

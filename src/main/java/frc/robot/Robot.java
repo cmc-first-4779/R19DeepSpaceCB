@@ -47,6 +47,9 @@ public class Robot extends TimedRobot {
   public static ArmsSubsytem armsSubsytem;
   public static BlackHoleSubsystem blackHoleSubsystem;
   public static BlastOffSubsystem blastOffSubsystem;
+
+  public static int carryMode;
+
   public static OI oi;
 
   Command m_autonomousCommand;
@@ -213,4 +216,6 @@ public class Robot extends TimedRobot {
     matchTime = DriverStation.getInstance().getMatchTime();
     return matchTime;
   }
+
+
 }

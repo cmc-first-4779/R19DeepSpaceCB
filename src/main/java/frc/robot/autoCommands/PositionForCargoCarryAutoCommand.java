@@ -49,10 +49,11 @@ public class PositionForCargoCarryAutoCommand extends CommandGroup {
     // Wait a little bit before lifting the farm..
     addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
     // Riase the Event Horizon Arm to get it out of the way
-    addSequential(new EventHorizonRaiseArmCommand());
-    addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
+    addParallel(new EventHorizonRaiseArmCommand());
+    addParallel(new EventHorizonStopMotorCommand());
     //  Lift the arm up for transporting the cargo..   Using the Rocket Ship Lower Cargo Height
-    addParallel(new SetArmRocketLowerCargoCommand());
+    addSequential(new TimerCommand(RobotMap.EVENTHORIZON_ARM_WAIT_TIME));
+    addSequential(new SetArmRocketLowerCargoCommand());
 
        
    

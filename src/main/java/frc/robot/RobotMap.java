@@ -190,6 +190,11 @@ public static int WARPDRIVE_BACKUP_DISTANCE = 3000;  // placeholder, we need to 
    /********************************************************************************** */
   public static double CARGO_LOAD_WAIT_TIME = 0.5;  // seconds.  Time to wait for the Cargo to settle before moving
   public static double DEPLOY_WAIT_TIME_BEFORE_MOVE = 0.5; //seoncds..  Time to wait after ejecting cargo or a hatch cover.
+  //  Carry Mode - So that we can tell the robot what it is carrying.   This helps with Black Hole Orientation as the Arm moves.
+  public static int CARRY_MODE_NONE = 0;   // You carry NOTHING!!   You LOSE!!
+  public static int CARRY_MODE_CARGO = 1;   //  Robot carries a cargo ball..
+  public static int CARRY_MODE_HATCH = 2;   //  Robot carries a hatch cover..
+
 
   /**********************************************************************/
   /************** PHASER / LED LIGHT SETTINGS ***************************/
@@ -294,6 +299,6 @@ public static int WARPDRIVE_BACKUP_DISTANCE = 3000;  // placeholder, we need to 
   public static double PHASERS_WHITE = 0.93;
   public static double PHASERS_BLACK = 0.99;
   //   Set a DEFAULT Phasers mode here so that way we only have to change it in one place..
-  public static double PHASERS_DEFAULT = PHASERS_COLOR1_2_BPM;
+  public static double PHASERS_DEFAULT = PHASERS_COLOR1_2_WAVES;
   
 }
