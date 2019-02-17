@@ -9,6 +9,7 @@ package frc.robot.commands.BlackHole;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class BlackHolePlungeCommand extends Command {
   public BlackHolePlungeCommand() {
@@ -26,6 +27,8 @@ public class BlackHolePlungeCommand extends Command {
   @Override
   protected void execute() {
     Robot.blackHoleSubsystem.plunge();
+    //Set the Carry Mode to NONE
+    Robot.carryMode = RobotMap.CARRY_MODE_NONE;
   }
 
   // Make this return true when this Command no longer needs to run execute()

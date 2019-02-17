@@ -9,6 +9,7 @@ package frc.robot.commands.HatchHander;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 //Close our nosecone when we want to deploy a Hatchcover
 
@@ -28,6 +29,8 @@ public class NoseconeOpenCommand extends Command {
   @Override
   protected void execute() {
     Robot.hatchHandlerSubsystem.openNoseCone();
+    //Set the Carry Mode to Hatch
+    Robot.carryMode = RobotMap.CARRY_MODE_HATCH;
   }
 
   // Make this return true when this Command no longer needs to run execute()

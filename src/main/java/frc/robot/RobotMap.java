@@ -58,14 +58,15 @@ public class RobotMap {
   public static final int PWM_PORT_PHASERS = 2;
 
   //************** PCM (PNEUMATICS CONTROL MODULE) PORTS *************************/
-  public static final int PCM_PORT_EVENTHORIZON_RAISE = 0;  //Placeholder for now..
-  public static final int PCM_PORT_EVENTHORIZON_LOWER = 1;  //Placeholder for now..
-  public static final int PCM_PORT_PLUNGER_RETRACT = 2;
-  public static final int PCM_PORT_PLUNGER_PLUNGE = 3;
-  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 4; //Placeholder for now..
-  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 5;  //Placeholder for now..
-  public static final int PCM_PORT_BLASTOFF_LAUNCH = 6;
-  public static final int PCM_PORT_BLASTOFF_LAND = 7;
+  public static final int PCM_PORT_EVENTHORIZON_RAISE = 0;   //Green Pneumatic Tubing
+  public static final int PCM_PORT_EVENTHORIZON_LOWER = 1;    //Green Pneumatic Tubing
+  public static final int PCM_PORT_PLUNGER_RETRACT = 2;  //Dark Blue Pneumatic Tubing
+  public static final int PCM_PORT_PLUNGER_PLUNGE = 3;   //Dark Blue Pneumatic Tubing
+  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 4;   //White Pneumatic tubing
+  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 5;   // White Pneumatic tubing
+  public static final int PCM_PORT_BLASTOFF_LAND = 6;      //  RED Pneumatic Tubing
+  public static final int PCM_PORT_BLASTOFF_LAUNCH = 7;   //   RED Pneumatic Tubing
+ 
 
   /********************** GYRO SPI PORT **************************************************/
   public static final int SPI_PORT_AHRS = 0;

@@ -48,6 +48,15 @@ public class Robot extends TimedRobot {
   public static BlackHoleSubsystem blackHoleSubsystem;
   public static BlastOffSubsystem blastOffSubsystem;
 
+  //CARRY MODE is a variable that we will use to determine what the Robot is carrying in
+  //   its BlackHole Cargo Container..
+  //   Whenever we intake a Cargo Ball (EventHorizonIntakeCommand) -> carryMode = CARGO
+  //   Whenever we use the plunger (BlackHolePlungeCommand) -> carryMode = NONE
+  //   Whenever we open the NoseCone (NoseconeOpenCommand) -> carryMode = HATCH
+  //   Whenever we close the NoseCone (NoseconeCloseCommand) -> carryMode = NONE
+  //
+  //   We will need this later when we are determining how to position the BlackHole Cargo Carrier when we 
+  //     are moving the Arm.
   public static int carryMode;
 
   public static OI oi;

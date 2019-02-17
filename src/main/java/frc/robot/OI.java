@@ -9,10 +9,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.Arms.RaiseArmCommand;
-import frc.robot.commands.Arms.SetArmEncoderPositionCommand;
-import frc.robot.commands.EventHorizon.EventHorizonEjectCargoCommand;
-import frc.robot.commands.EventHorizon.EventHorizonIntakeCargoCommand;
+import frc.robot.commands.Arms.*;
+import frc.robot.commands.BlackHole.*;
+import frc.robot.commands.BlastOff.*;
+import frc.robot.commands.EventHorizon.*;
 import frc.robot.commands.HatchHander.*;
 import frc.robot.autoCommands.*;
 
@@ -58,12 +58,23 @@ public class OI {
 		driverStickBackButton.whenPressed(new BlastOffAutoCommand());
 
 		// Operator Stick
-		operStickLeftBumper.whenPressed(new PositionForCargoIntakeAutoCommand());
+		operStickLeftBumper.whenPressed(new EventHorizonRaiseArmCommand());
+		operStickRightBumper.whenPressed(new EventHorizonLowerArmCommand());
+		operStickAButton.whenPressed(new BlackHolePlungeCommand());
+		operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
+		operStickXButton.whenPressed(new NoseconeOpenCommand());
+		operStickBButton.whenPressed(new NoseconeCloseCommand());
+		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
+		operStickStartButton.whenPressed(new BlastOffLandCommand());
+
+
+
+/* 		operStickLeftBumper.whenPressed(new PositionForCargoIntakeAutoCommand());
 		operStickRightBumper.whenPressed(new PositionForCargoCarryAutoCommand());
 		operStickBackButton.whenPressed(new PositionForHatchIntakeAutoCommand());
 		operStickStartButton.whenPressed(new PositionForHatchCarryAutoCommand());
 		operStickXButton.whenPressed(new TargetCargoShipCargoAutoCommand());
-		operStickBButton.whenPressed(new TargetCargoShipHatchCoverAutoCommand());
+		operStickBButton.whenPressed(new TargetCargoShipHatchCoverAutoCommand()); */
 	
 
 
