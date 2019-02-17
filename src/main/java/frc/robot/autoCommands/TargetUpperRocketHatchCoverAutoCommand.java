@@ -16,6 +16,7 @@ import frc.robot.commands.Arms.SetArmFloorHatchCommand;
 import frc.robot.commands.BlackHole.SetBlackHoleRocketUpperHatchCommand;
 import frc.robot.commands.HatchHander.*;
 import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
+import frc.robot.commands.Misc.TimerCommand;
 
 public class TargetUpperRocketHatchCoverAutoCommand extends CommandGroup {
   /**
@@ -55,6 +56,8 @@ public class TargetUpperRocketHatchCoverAutoCommand extends CommandGroup {
             //
             //  Close the Nosecone to release the Hatch Cover
             addSequential(new NoseconeCloseCommand());
+            //  Wait for some time..
+            addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
             //   Back up the robot
             addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE));
             //  Turn the Camera back to Driver Mode

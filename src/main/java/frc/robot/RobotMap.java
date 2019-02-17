@@ -188,7 +188,8 @@ public static int WARPDRIVE_BACKUP_DISTANCE = 3000;  // placeholder, we need to 
    /************************************************************************************/
    /******************** MISC SETTINGS *************************************************/
    /********************************************************************************** */
-   public static double CARGO_LOAD_WAIT_TIME = 0.5;  // seconds.  Time to wait for the Cargo to settle before moving
+  public static double CARGO_LOAD_WAIT_TIME = 0.5;  // seconds.  Time to wait for the Cargo to settle before moving
+  public static double DEPLOY_WAIT_TIME_BEFORE_MOVE = 0.5; //seoncds..  Time to wait after ejecting cargo or a hatch cover.
 
   /**********************************************************************/
   /************** PHASER / LED LIGHT SETTINGS ***************************/

@@ -8,21 +8,22 @@
 package frc.robot.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+
 import frc.robot.RobotMap;
 import frc.robot.commands.Limelight.*;
 import frc.robot.commands.WarpDrive.*;
-import frc.robot.commands.Arms.SetArmRocketMiddleHatchCommand;
-import frc.robot.commands.Arms.SetArmFloorHatchCommand;
-import frc.robot.commands.BlackHole.SetBlackHoleRocketMiddleHatchCommand;
-import frc.robot.commands.HatchHander.*;
+import frc.robot.commands.Arms.SetArmCargoShipCargoCommand;
+import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
+import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
+import frc.robot.commands.BlackHole.SetBlackHoleCargoShipCargoCommand;
 import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
-public class TargetMiddleRocketHatchCoverAutoCommand extends CommandGroup {
+public class TargetCargoShipCargoAutoCommand extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public TargetMiddleRocketHatchCoverAutoCommand() {
+  public TargetCargoShipCargoAutoCommand() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -43,29 +44,29 @@ public class TargetMiddleRocketHatchCoverAutoCommand extends CommandGroup {
         //  Set the Camera Mode to Vision
         addSequential(new LimelightSetCameraModeVisionCommand());
         //   Set the Vision Pipeline to the Rocket Hatch
-        addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_HATCH));
+        addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
         addSequential(new LimeLightHasTargetCommand());
         //  Position the ARM up to the Lower Rocket Hatch Height
-        addParallel(new SetArmRocketMiddleHatchCommand());
+        addParallel(new SetArmCargoShipCargoCommand());
         //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch
-        addSequential(new SetBlackHoleRocketMiddleHatchCommand());
-        addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_HATCH));
+        addSequential(new SetBlackHoleCargoShipCargoCommand());
+        addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //
         //  Not sure how far to drive forward YET!!!
         //
-        //  Close the Nosecone to release the Hatch Cover
-        addSequential(new NoseconeCloseCommand());
+     
+        //   Eject the ball with the plunger...
+        addSequential(new BlackHolePlungeCommand());        
         //  Wait for some time..
         addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
         //   Back up the robot
         addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE));
         //  Turn the Camera back to Driver Mode
         addParallel(new LimelightSetCameraModeDriverCommand());
-        //  Bring the arm back down
-        addParallel(new SetArmFloorHatchCommand());
         //  Flip the LEDs back to DEFAULT
-        addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_DEFAULT));
-      
+        addParallel(new PhasersSetPhaserCommand(RobotMap.PHASERS_DEFAULT));
+        //  Retract the Plunger
+        addParallel(new BlackHoleRetractPlungerCommand());    
   }
 }

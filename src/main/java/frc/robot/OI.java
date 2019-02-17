@@ -62,7 +62,7 @@ public class OI {
 		driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(50000));
 		driverStickYButton.whileHeld(new EventHorizonIntakeCargoCommand());
 		driverStickXButton.whenPressed(new NoseconeOpenCommand());
-		driverStickStartButton.whenPressed(new BlastOffAutoCommand());
+		driverStickBackButton.whenPressed(new BlastOffAutoCommand());
 
 		operStickLeftBumper.whenPressed(new PositionForCargoIntakeAutoCommand());
 		operStickRightBumper.whenPressed(new PositionForCargoCarryAutoCommand());

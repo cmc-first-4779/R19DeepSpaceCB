@@ -57,7 +57,7 @@ public class TargetMiddleRocketCargoAutoCommand extends CommandGroup {
         //   Eject the ball with the plunger...
         addSequential(new BlackHolePlungeCommand());
          //  Wait for some time..
-        addSequential(new TimerCommand(0.5));
+        addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
          //   Back up the robot
         addParallel(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE));
         //  Turn the Camera back to Driver Mode

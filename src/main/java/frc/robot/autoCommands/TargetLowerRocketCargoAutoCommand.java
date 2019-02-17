@@ -16,6 +16,7 @@ import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
 import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
 import frc.robot.commands.BlackHole.SetBlackHoleRocketLowerCargoCommand;
 import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
+import frc.robot.commands.Misc.TimerCommand;
 
 public class TargetLowerRocketCargoAutoCommand extends CommandGroup {
   /**
@@ -56,14 +57,16 @@ public class TargetLowerRocketCargoAutoCommand extends CommandGroup {
      
         //   Eject the ball with the plunger...
         addSequential(new BlackHolePlungeCommand());        
+        //  Wait for some time..
+        addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
         //   Back up the robot
         addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE));
         //  Turn the Camera back to Driver Mode
         addParallel(new LimelightSetCameraModeDriverCommand());
         //  Flip the LEDs back to DEFAULT
-        addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_DEFAULT));
+        addParallel(new PhasersSetPhaserCommand(RobotMap.PHASERS_DEFAULT));
         //  Retract the Plunger
-        addSequential(new BlackHoleRetractPlungerCommand());
+        addParallel(new BlackHoleRetractPlungerCommand());
 
 
   }

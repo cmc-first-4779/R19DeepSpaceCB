@@ -11,17 +11,17 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Limelight.*;
 import frc.robot.commands.WarpDrive.*;
-import frc.robot.commands.Arms.SetArmRocketLowerHatchCommand;
-import frc.robot.commands.BlackHole.SetBlackHoleRocketLowerHatchCommand;
+import frc.robot.commands.Arms.SetArmCargoShipHatchCommand;
+import frc.robot.commands.BlackHole.SetBlackHoleCargoShipHatchCommand;
 import frc.robot.commands.HatchHander.*;
 import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
-public class TargetLowerRocketHatchCoverAutoCommand extends CommandGroup {
+public class TargetCargoShipHatchCoverAutoCommand extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public TargetLowerRocketHatchCoverAutoCommand() {
+  public TargetCargoShipHatchCoverAutoCommand() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -42,14 +42,14 @@ public class TargetLowerRocketHatchCoverAutoCommand extends CommandGroup {
     //  Set the Camera Mode to Vision
     addSequential(new LimelightSetCameraModeVisionCommand());
     //   Set the Vision Pipeline to the Rocket Hatch
-    addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_HATCH));
+    addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELINE_PIPELINE_CARGOSHIP_HATCH));
     //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
     addSequential(new LimeLightHasTargetCommand());
     //  Position the ARM up to the Lower Rocket Hatch Height
-    addParallel(new SetArmRocketLowerHatchCommand());
+    addParallel(new SetArmCargoShipHatchCommand());
     //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch
-    addSequential(new SetBlackHoleRocketLowerHatchCommand());
-    addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_HATCH));
+    addSequential(new SetBlackHoleCargoShipHatchCommand());
+    addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELINE_PIPELINE_CARGOSHIP_HATCH));
     //
     //  Not sure how far to drive forward YET!!!
     //
@@ -63,6 +63,6 @@ public class TargetLowerRocketHatchCoverAutoCommand extends CommandGroup {
     addParallel(new LimelightSetCameraModeDriverCommand());
     //  Flip the LEDs back to DEFAULT
     addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_DEFAULT));
-  }
 
+  }
 }
