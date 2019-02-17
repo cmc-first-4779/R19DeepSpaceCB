@@ -38,12 +38,12 @@ public class HatchHandlerSubsystem extends Subsystem {
 
   //Open the noseCone
   public void openNoseCone() {
-    noseCone.set(DoubleSolenoid.Value.kForward);
+    noseCone.set(DoubleSolenoid.Value.kReverse);
   }
 
   //Close the noseCone
   public void closeNoseCone() {
-    noseCone.set(DoubleSolenoid.Value.kReverse);
+    noseCone.set(DoubleSolenoid.Value.kForward);
 
   }
 }
