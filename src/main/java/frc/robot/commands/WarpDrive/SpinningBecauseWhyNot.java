@@ -7,8 +7,6 @@
 
 package frc.robot.commands.WarpDrive;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -28,7 +26,6 @@ public class SpinningBecauseWhyNot extends Command {
   @Override
   protected void execute() {
      Robot.warpDriveSubsystem.arcadeDrive(0, 0.45);
-    //Robot.driveTrainSubsystem.set(ControlMode.PercentOutput, -0.45, 0.45);
   }
 
   // Make this return true when this Command no longer needs to run execute()
