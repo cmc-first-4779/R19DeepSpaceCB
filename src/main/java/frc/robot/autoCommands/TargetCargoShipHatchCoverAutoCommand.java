@@ -42,14 +42,14 @@ public class TargetCargoShipHatchCoverAutoCommand extends CommandGroup {
     //  Set the Camera Mode to Vision
     addSequential(new LimeLightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_VISION));
     //   Set the Vision Pipeline to the Rocket Hatch
-    addSequential(new LimelightSetVisionPipelineCommand(RobotMap.LIMELINE_PIPELINE_CARGOSHIP_HATCH));
+    addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELINE_PIPELINE_CARGOSHIP_HATCH));
     //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
-    addSequential(new LimelightHasTargetCommand());
+    addSequential(new LimeLightHasTargetCommand());
     //  Position the ARM up to the Lower Rocket Hatch Height
     addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_HATCH));
     //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch
     addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH));
-    addSequential(new LimelightSeekAndFollowCommand(RobotMap.LIMELINE_PIPELINE_CARGOSHIP_HATCH));
+    addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELINE_PIPELINE_CARGOSHIP_HATCH));
     //
     //  Not sure how far to drive forward YET!!!
     //

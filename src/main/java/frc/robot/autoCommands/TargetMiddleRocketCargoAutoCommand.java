@@ -42,14 +42,14 @@ public class TargetMiddleRocketCargoAutoCommand extends CommandGroup {
         //  Set the Camera Mode to Vision
         addSequential(new LimeLightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_VISION));
         //   Set the Vision Pipeline to the Rocket Hatch
-        addSequential(new LimelightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
+        addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
-        addSequential(new LimelightHasTargetCommand());
+        addSequential(new LimeLightHasTargetCommand());
         //  Position the ARM up to the Middle Cargo
         addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_MIDDLE_CARGO));
         //  Position the BlackHole / Cargo Handler to the right angle to be square on the Middle Cdargo
         addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_CARGO));
-        addSequential(new LimelightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
+        addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //
         //  Not sure how far to drive forward YET!!!
         //
