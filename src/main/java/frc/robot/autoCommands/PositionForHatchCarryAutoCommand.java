@@ -12,7 +12,7 @@ import frc.robot.RobotMap;
 import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
-import frc.robot.commands.HatchHander.NoseconeOpenCommand;
+import frc.robot.commands.NoseCone.NoseConeOpenCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
 
@@ -45,7 +45,7 @@ public class PositionForHatchCarryAutoCommand extends CommandGroup {
         addParallel(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_RED));
         // Rotate the Blackhole into place to pick up the hatchcover
         addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD));
-        addParallel(new NoseconeOpenCommand());
+        addParallel(new NoseConeOpenCommand());
         // Wait a little bit before lifting the arm..
         addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
         //  Lift the arm up for transporting the hatchcover..   Using the Rocket Ship Lower Hatch Height

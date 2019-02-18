@@ -10,27 +10,22 @@ package frc.robot.commands.BlackHole;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class BlackHoleRotateToAngleCommand extends Command {
-
-  double m_angle;
-
-  public BlackHoleRotateToAngleCommand(double angle) {
+public class BlackHoleStopMotorCommand extends Command {
+  public BlackHoleStopMotorCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blackHoleSubsystem);
-    m_angle = angle;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blackHoleSubsystem.rotateToSetPoint(m_angle);
+    Robot.blackHoleSubsystem.stop();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("BlackHole Encoder position: " + Robot.blackHoleSubsystem.getEncoderPosition());
   }
 
   // Make this return true when this Command no longer needs to run execute()

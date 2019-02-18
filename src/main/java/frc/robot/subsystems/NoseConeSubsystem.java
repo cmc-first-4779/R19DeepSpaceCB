@@ -11,19 +11,19 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.HatchHander.NoseconeCloseCommand;
+import frc.robot.commands.NoseCone.*;
 
 /**
  * Add your docs here.
  */
-public class HatchHandlerSubsystem extends Subsystem {
+public class NoseConeSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
   //Declare our noseCone as a Double Solenoid
   DoubleSolenoid noseCone;
 
-  public HatchHandlerSubsystem(){
+  public NoseConeSubsystem(){
     //Initiate the noseCone.
     noseCone = new DoubleSolenoid(RobotMap.PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND, RobotMap.PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT);
   }
@@ -33,7 +33,7 @@ public class HatchHandlerSubsystem extends Subsystem {
     // Set the default command for a subsystem here.
     //
     // DEFAULT COMMAND:  Close the noseCone!!
-    setDefaultCommand(new NoseconeCloseCommand());
+    setDefaultCommand(new NoseConeCloseCommand());
   }
 
   //Open the noseCone

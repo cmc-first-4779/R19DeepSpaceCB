@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
-import frc.robot.commands.HatchHander.*;
+import frc.robot.commands.NoseCone.*;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.EventHorizon.EventHorizonRaiseArmCommand;
 
@@ -47,7 +47,7 @@ public class PositionForHatchIntakeAutoCommand extends CommandGroup {
     // Rotate the Blackhole into place to pick up the Hatch
     addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD));
     //Close the NoseCone
-    addParallel(new NoseconeCloseCommand());
+    addParallel(new NoseConeCloseCommand());
     addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_RED));
   }
 }

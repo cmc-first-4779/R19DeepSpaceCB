@@ -13,7 +13,7 @@ import frc.robot.commands.Arms.*;
 import frc.robot.commands.BlackHole.*;
 import frc.robot.commands.BlastOff.*;
 import frc.robot.commands.EventHorizon.*;
-import frc.robot.commands.HatchHander.*;
+import frc.robot.commands.NoseCone.*;
 import frc.robot.autoCommands.*;
 
 public class OI {
@@ -62,8 +62,8 @@ public class OI {
 		operStickRightBumper.whenPressed(new EventHorizonLowerArmCommand());
 		operStickAButton.whenPressed(new BlackHolePlungeCommand());
 		operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
-		operStickXButton.whenPressed(new NoseconeOpenCommand());
-		operStickBButton.whenPressed(new NoseconeCloseCommand());
+		operStickXButton.whenPressed(new NoseConeOpenCommand());
+		operStickBButton.whenPressed(new NoseConeCloseCommand());
 		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
 		operStickStartButton.whenPressed(new BlastOffLandCommand());
 

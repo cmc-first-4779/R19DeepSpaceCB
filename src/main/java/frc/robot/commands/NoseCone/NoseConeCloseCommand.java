@@ -5,32 +5,32 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlackHole;
+package frc.robot.commands.NoseCone;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class BlackHoleRotateToAngleCommand extends Command {
+//Open our Nosecone for handling our Hatchcovers...
 
-  double m_angle;
-
-  public BlackHoleRotateToAngleCommand(double angle) {
+public class NoseConeCloseCommand extends Command {
+  public NoseConeCloseCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.blackHoleSubsystem);
-    m_angle = angle;
+    requires(Robot.noseConeSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blackHoleSubsystem.rotateToSetPoint(m_angle);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("BlackHole Encoder position: " + Robot.blackHoleSubsystem.getEncoderPosition());
+    Robot.noseConeSubsystem.closeNoseCone();
+    //Set the Carry Mode to None
+    Robot.carryMode = RobotMap.CARRY_MODE_NONE;
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -12,18 +12,19 @@ import frc.robot.Robot;
 
 public class ArmSetPositionCommand extends Command {
 
-  double setPostion;
+  double m_setPostion;
+
   public ArmSetPositionCommand(double position) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.armsSubsytem);
-    setPostion = position;
+    m_setPostion = position;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {    
-    Robot.armsSubsytem.setSetPoint(setPostion);
+    Robot.armsSubsytem.setSetPoint(m_setPostion);
   }
 
   // Called repeatedly when this Command is scheduled to run

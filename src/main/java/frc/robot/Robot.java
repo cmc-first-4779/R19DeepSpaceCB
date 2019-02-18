@@ -25,7 +25,7 @@ import frc.robot.subsystems.EventHorizonSubsystem;
 import frc.robot.subsystems.ArmsSubsytem;
 import frc.robot.subsystems.BlackHoleSubsystem;
 import frc.robot.subsystems.BlastOffSubsystem;
-import frc.robot.subsystems.HatchHandlerSubsystem;
+import frc.robot.subsystems.NoseConeSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.PhasersSubsystem;
 
@@ -41,7 +41,7 @@ public class Robot extends TimedRobot {
   //Declare our Subsystems
   public static WarpDriveSubsystem warpDriveSubsystem;
   public static LimelightSubsystem limeLightSubsystem;
-  public static HatchHandlerSubsystem hatchHandlerSubsystem;
+  public static NoseConeSubsystem noseConeSubsystem;
   public static EventHorizonSubsystem eventHorizonSubsystem;
   public static PhasersSubsystem phasersSubsystem;
   public static ArmsSubsytem armsSubsytem;
@@ -73,7 +73,7 @@ public class Robot extends TimedRobot {
     //Initiate our subystems
     warpDriveSubsystem = new WarpDriveSubsystem();
     limeLightSubsystem = new LimelightSubsystem();
-    hatchHandlerSubsystem = new HatchHandlerSubsystem();
+    noseConeSubsystem = new NoseConeSubsystem();
     blackHoleSubsystem = new BlackHoleSubsystem();
     eventHorizonSubsystem = new EventHorizonSubsystem();
     phasersSubsystem = new PhasersSubsystem();

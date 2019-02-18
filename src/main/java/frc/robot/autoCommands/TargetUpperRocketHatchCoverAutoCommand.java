@@ -13,7 +13,7 @@ import frc.robot.commands.Limelight.*;
 import frc.robot.commands.WarpDrive.*;
 import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
-import frc.robot.commands.HatchHander.*;
+import frc.robot.commands.NoseCone.*;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
@@ -54,7 +54,7 @@ public class TargetUpperRocketHatchCoverAutoCommand extends CommandGroup {
             //  Not sure how far to drive forward YET!!!
             //
             //  Close the Nosecone to release the Hatch Cover
-            addSequential(new NoseconeCloseCommand());
+            addSequential(new NoseConeCloseCommand());
             //  Wait for some time..
             addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
             //   Back up the robot

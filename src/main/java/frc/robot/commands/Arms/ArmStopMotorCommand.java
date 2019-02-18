@@ -5,32 +5,27 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.HatchHander;
+package frc.robot.commands.Arms;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-//Open our Nosecone for handling our Hatchcovers...
-
-public class NoseconeCloseCommand extends Command {
-  public NoseconeCloseCommand() {
+public class ArmStopMotorCommand extends Command {
+  public ArmStopMotorCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.hatchHandlerSubsystem);
+    requires(Robot.armsSubsytem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.armsSubsytem.stop();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.hatchHandlerSubsystem.closeNoseCone();
-    //Set the Carry Mode to None
-    Robot.carryMode = RobotMap.CARRY_MODE_NONE;
   }
 
   // Make this return true when this Command no longer needs to run execute()
