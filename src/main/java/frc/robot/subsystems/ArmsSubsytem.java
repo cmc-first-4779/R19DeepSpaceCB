@@ -47,6 +47,7 @@ public class ArmsSubsytem extends Subsystem {
     armMaster.configPeakCurrentLimit(10);
     armMaster.enableVoltageCompensation(true);
     armMaster.setSelectedSensorPosition(0, 0, 0);
+    armMaster.config_IntegralZone(0, 1000)
 
   }
 
