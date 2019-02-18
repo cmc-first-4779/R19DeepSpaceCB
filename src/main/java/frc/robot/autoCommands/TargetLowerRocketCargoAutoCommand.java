@@ -41,7 +41,7 @@ public class TargetLowerRocketCargoAutoCommand extends CommandGroup {
     // arm.
 
         //  Set the Camera Mode to Vision
-        addSequential(new LimelightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_VISION));
+        addSequential(new LimeLightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_VISION));
         //   Set the Vision Pipeline to the Rocket Hatch
         addSequential(new LimelightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
@@ -63,7 +63,7 @@ public class TargetLowerRocketCargoAutoCommand extends CommandGroup {
         addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE,
             RobotMap.WARPDRIVE_SPEED));
         //  Turn the Camera back to Driver Mode
-        addParallel(new LimelightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_DRIVER));
+        addParallel(new LimeLightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_DRIVER));
         //  Flip the LEDs back to DEFAULT
         addParallel(new PhasersSetPatternCommand(RobotMap.PHASERS_DEFAULT));
         //  Retract the Plunger

@@ -12,11 +12,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class LimelightSetCameraModeCommand extends Command {
+public class LimeLightSetCameraModeCommand extends Command {
 
   double m_cameraMode;
 
-  public LimelightSetCameraModeCommand(double cameraMode) {
+  public LimeLightSetCameraModeCommand(double cameraMode) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.limeLightSubsystem);

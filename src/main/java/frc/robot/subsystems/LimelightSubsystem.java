@@ -5,7 +5,7 @@ import frc.robot.RobotMap;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import frc.robot.commands.Limelight.LimelightSetCameraModeCommand;
+import frc.robot.commands.Limelight.LimeLightSetCameraModeCommand;
 
 /**
  *
@@ -35,7 +35,7 @@ public class LimelightSubsystem extends Subsystem {
 		//setDefaultCommand(new MySpecialCommand());
 		//
 		//By Default, put the Camera Mode into Driver Mode
-		setDefaultCommand(new LimelightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_DRIVER));
+		setDefaultCommand(new LimeLightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_DRIVER));
     }
     
 	//SET THE LIMELIGHT CAMERA MODE
