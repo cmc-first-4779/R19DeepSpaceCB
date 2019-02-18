@@ -130,8 +130,8 @@ public static double WARPDRIVE_SPEED = 0.8;
   /*********************************************************************/
   /*************** ARM SETTINGS ****************************************/
   /*********************************************************************/
-  public static double ARM_RAISE_SPEED =  0.4;
-  public static double ARM_LOWER_SPEED = -0.4;
+  public static double ARM_RAISE_SPEED =  0.6;
+  public static double ARM_LOWER_SPEED = -0.6;
   public static double ARM_RAISE_VOLTAGE = 7.0;  //volts
   public static double ARM_LOWER_VOLTAGE = -3.0;  //volts
   public static double ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH = 300000;  //placeholder..  Need to fix

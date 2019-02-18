@@ -23,7 +23,7 @@ public class MoveArmWithJoystickCommand extends Command {
   @Override
   protected void initialize() {
     // Put the Arm Control Mode into the Dashboard
-    SmartDashboard.putString("ARM Control Mode", "JOYSTICK");
+    SmartDashboard.putString("ARM Mode", "JOYSTICK");
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -33,7 +33,7 @@ public class MoveArmWithJoystickCommand extends Command {
     // Move the ARM with the OperStick
     Robot.armsSubsytem.moveArm(-Robot.oi.getOperStick().getY());
     // Put the Arm Encoder Position into the Dashboard
-    SmartDashboard.putNumber("ARM Encoder Position", Robot.armsSubsytem.getEncoderPosition());
+    SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
   }
 
   // Make this return true when this Command no longer needs to run execute()

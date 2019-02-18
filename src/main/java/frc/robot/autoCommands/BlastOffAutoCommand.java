@@ -69,6 +69,7 @@ public class BlastOffAutoCommand extends CommandGroup {
     addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_FLOOR_CARGO));
     // Rotate the BlackHole
     addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD));
+    addSequential(new BlastOffLandCommand());
 
     //PARTY PHASERS!!!!
     addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_PARTY_PALETTE));

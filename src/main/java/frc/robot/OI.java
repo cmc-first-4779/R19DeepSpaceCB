@@ -53,19 +53,21 @@ public class OI {
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		driverStickAButton.whenPressed(new ArmSetPositionCommand(300000));
-		driverStickBButton.whenPressed(new ArmSetPositionCommand(50000));
-		driverStickBackButton.whenPressed(new BlastOffAutoCommand());
+		//driverStickAButton.whenPressed(new ArmSetPositionCommand(10000));
+		//driverStickBButton.whenPressed(new ArmSetPositionCommand(50000));
+		//driverStickBackButton.whenPressed(new BlastOffAutoCommand());
 
 		// Operator Stick
-		operStickLeftBumper.whenPressed(new EventHorizonRaiseArmCommand());
-		operStickRightBumper.whenPressed(new EventHorizonLowerArmCommand());
+		operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
+		operStickRightBumper.whenPressed(new EventHorizonRetractCommand());
 		operStickAButton.whenPressed(new BlackHolePlungeCommand());
 		operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
-		operStickXButton.whenPressed(new NoseConeOpenCommand());
-		operStickBButton.whenPressed(new NoseConeCloseCommand());
-		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
-		operStickStartButton.whenPressed(new BlastOffLandCommand());
+		operStickXButton.whenPressed(new ArmSetPositionCommand(300000));
+		operStickBButton.whenPressed(new ArmSetPositionCommand(50000));
+		//operStickXButton.whenPressed(new NoseConeOpenCommand());
+		//operStickBButton.whenPressed(new NoseConeCloseCommand());
+		//operStickBackButton.whenPressed(new BlastOffLaunchCommand());
+		//operStickStartButton.whenPressed(new BlastOffLandCommand());
 
 
 

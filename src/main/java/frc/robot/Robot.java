@@ -221,9 +221,7 @@ public class Robot extends TimedRobot {
   //       TeleOp would be:  15 seconds - 149 seconds
   //       EndGame would be:  150 - 180 seconds
   public static double getMatchTime(){
-    double matchTime;
-    matchTime = DriverStation.getInstance().getMatchTime();
-    return matchTime;
+    return DriverStation.getInstance().getMatchTime();
   }
 
 

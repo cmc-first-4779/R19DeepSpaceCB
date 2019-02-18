@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.Arms.MoveArmWithJoystickCommand;
@@ -38,7 +39,7 @@ public class ArmsSubsytem extends Subsystem {
     armSlave.follow(armMaster);
     //Setup our PID values on the encoder
     armMaster.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-    armMaster.config_kP(0, .012, 0);
+    armMaster.config_kP(0, .016, 0);
     armMaster.config_kI(0, 0, 0);
     armMaster.config_kD(0, 2.5, 0);
     armMaster.config_kF(0, 0, 0);
@@ -61,12 +62,18 @@ public class ArmsSubsytem extends Subsystem {
     // Lift the arms up
     // System.out.println("Lifting my arms up!");
     if (move > .25) {
-      armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_RAISE_SPEED);;
+      armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_RAISE_SPEED);
       //System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
+      //Put the Arm Encoder Position into the Dashboard
+      SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
     } else if (move < -0.25) {
       armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_LOWER_SPEED);
+      //Put the Arm Encoder Position into the Dashboard
+      SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
     } else {
       armMaster.set(ControlMode.PercentOutput, 0);
+      //Put the Arm Encoder Position into the Dashboard
+      SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
     }
   }
 
@@ -80,7 +87,11 @@ public class ArmsSubsytem extends Subsystem {
     // do the math to figure out what the encoder count should be
     // Move arm to set point
     armMaster.set(ControlMode.Position, height);
+    // Put the Arm Subsystem SetPoint into the Dashboard
+    SmartDashboard.putNumber("ARM SetPoint", height);
     //System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
+    //Put the Arm Encoder Position into the Dashboard
+    SmartDashboard.putNumber("ARM Position", getEncoderPosition());
   }
 
   //Reset the encoder on our Arm Master Talon.
