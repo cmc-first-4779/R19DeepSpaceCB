@@ -59,7 +59,8 @@ public class TargetMiddleRocketCargoAutoCommand extends CommandGroup {
          //  Wait for some time..
         addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
          //   Back up the robot
-        addParallel(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE));
+        addParallel(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE,
+            RobotMap.WARPDRIVE_SPEED));
         //  Turn the Camera back to Driver Mode
         addParallel(new LimelightSetCameraModeDriverCommand());
         //  Flip the LEDs back to DEFAULT

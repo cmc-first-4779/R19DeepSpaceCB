@@ -172,6 +172,7 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     // Drive Robot to set point
     leftMaster.set(ControlMode.Position, distance);
     rightMaster.set(ControlMode.Position, distance);
+    
     //System.out.println("Left DT Encoder count: " + leftMaster.getSelectedSensorPosition());
     //System.out.println("Right DT Encoder count: " + rightMaster.getSelectedSensorPosition());
   }
@@ -182,7 +183,15 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     rightMaster.setSelectedSensorPosition(0);
   }
 
+  public double getGyroAngle(){
+    return Robot.warpDriveSubsystem.gyro.getAngle();
+  }
+  
   public double getEncoderPosition() {
+    // We needed to add this to error check just in case one of our encoders is out
+    // of service due to a bad connection or sliced wire. These if/else commands make sure that each
+    // encoder is giving positive values >= 3 before performing an average. If one of the encoders is
+    // < 3, then it will only return a reading from the working encoder.
     if (Math.abs(leftMaster.getSelectedSensorPosition()) < 3) {
       System.out.println("LEFT DRIVETRAIN ENCODER IS NOT WORKING!!!");
       return rightMaster.getSelectedSensorPosition();
@@ -191,48 +200,11 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
       return -leftMaster.getSelectedSensorPosition() ;
     } else {
       // Average our two rotary encoders together to account for slippage and turning.
-      return (-leftMaster.getSelectedSensorPosition()  + rightMaster.getSelectedSensorPosition()) / 2;
+      return (-leftMaster.getSelectedSensorPosition() + rightMaster.getSelectedSensorPosition()) / 2;
     }
   }
 
 
-/*   public void resetDTEncoders() {
-    // Reset both of our rotary encoders. We call this usually at the start of every
-    // drivetrain command.
-    System.out.println("Resetting DriveTrain Encoders");
-    driveTrainEncoderLeft.reset();
-    driveTrainEncoderRight.reset();
-  }
-
-  public double getAvgEncoderPosition() {
-    // We needed to add this to error check just in case one of our encoders is out
-    // of service due to
-    // a bad connection or sliced wire. These if/else commands make sure that each
-    // encoder is giving
-    // positive values >= 3 before performing an average. If one of the encoders is
-    // < 3, then it will
-    // only return a reading from the working encoder.
-    if (Math.abs(driveTrainEncoderLeft.getDistance()) < 3) {
-      System.out.println("LEFT DRIVETRAIN ENCODER IS NOT WORKING!!!");
-      return driveTrainEncoderRight.getDistance();
-    } else if (Math.abs(driveTrainEncoderRight.getDistance()) < 3) {
-      System.out.println("RIGHT DRIVETRAIN ENCODER IS NOT WORKING!!!");
-      return -driveTrainEncoderLeft.getDistance();
-    } else {
-      // Average our two rotary encoders together to account for slippage and turning.
-      return (-driveTrainEncoderLeft.getDistance() + driveTrainEncoderRight.getDistance()) / 2;
-    }
-  }
-
-  public double getLeftEncoderPosition() {
-    // Get the Position of the Left encoder
-    return driveTrainEncoderLeft.getDistance();
-  }
-
-  public double getRightEncoderPosition() {
-    // Get the Position of the Right encoder
-    return driveTrainEncoderRight.getDistance();
-  } */
 
   public void set(ControlMode mode, double leftValue, double rightValue) {
     leftMaster.set(mode, leftValue);

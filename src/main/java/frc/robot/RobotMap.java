@@ -84,6 +84,7 @@ public class RobotMap {
 public static int WARPDRIVE_DIRECTION_FORWARD = 1;
 public static int WARPDRIVE_DIRECTION_REVERSE = -1;
 public static int WARPDRIVE_BACKUP_DISTANCE = 3000;  // placeholder, we need to adjust
+public static double WARPDRIVE_SPEED = 0.8;
 
   /************************************************************************/
   /***************LIMELIGHT / VISION SETTINGS *****************************/

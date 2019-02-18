@@ -14,13 +14,16 @@ public class DriveToSetPointCommand extends Command {
 
   private int m_direction;  // 1 = forward, -1 = reverse
   private int m_distance;
-  //private double m_speed;
+  private double m_speed;
 
-  public DriveToSetPointCommand(int distance, int direction) {
+
+  public DriveToSetPointCommand(int distance, int direction, double speed) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.warpDriveSubsystem);
     m_distance = distance;
+    m_direction = direction;
+    m_speed = speed;
   }
 
   // Called just before this Command runs the first time
@@ -29,6 +32,8 @@ public class DriveToSetPointCommand extends Command {
     //Reset our Gyro and Encoders
     Robot.warpDriveSubsystem.resetGyro();
     Robot.warpDriveSubsystem.resetEncoders();
+    // Set the speed of the robot
+    Robot.warpDriveSubsystem.setSpeed(m_speed);
   }
 
   // Called repeatedly when this Command is scheduled to run

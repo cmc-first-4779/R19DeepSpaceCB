@@ -11,16 +11,20 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class SetCarryModeNoneCommand extends Command {
-  public SetCarryModeNoneCommand() {
+public class SetCarryModeCommand extends Command {
+
+  int m_carryMode;
+
+  public SetCarryModeCommand(int carryMode) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    m_carryMode = carryMode;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.carryMode = RobotMap.CARRY_MODE_NONE;
+    Robot.carryMode = m_carryMode;
   }
 
   // Called repeatedly when this Command is scheduled to run

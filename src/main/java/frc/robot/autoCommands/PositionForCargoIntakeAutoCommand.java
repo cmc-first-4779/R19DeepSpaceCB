@@ -16,7 +16,7 @@ import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.EventHorizon.EventHorizonLowerArmCommand;
 import frc.robot.commands.EventHorizon.EventHorizonIntakeCargoCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
-import frc.robot.commands.Misc.SetCarryModeCargoCommand;
+import frc.robot.commands.Misc.SetCarryModeCommand;
 
 public class PositionForCargoIntakeAutoCommand extends CommandGroup {
   /**
@@ -55,6 +55,6 @@ public class PositionForCargoIntakeAutoCommand extends CommandGroup {
        //  Run the Event Horizon Arm Motors
        addSequential(new EventHorizonIntakeCargoCommand());
        //  Set Carry Mode to Cargo 
-       addSequential(new SetCarryModeCargoCommand());
+       addSequential(new SetCarryModeCommand(RobotMap.CARRY_MODE_CARGO));
   }
 }
