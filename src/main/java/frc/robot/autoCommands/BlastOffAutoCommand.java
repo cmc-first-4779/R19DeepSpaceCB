@@ -14,8 +14,7 @@ import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.BlastOff.*;
 import frc.robot.commands.Arms.SetArmHighHabitatPlatformCommand;
 import frc.robot.commands.Arms.SetArmFloorCargoCommand;
-import frc.robot.commands.BlackHole.SetBlackHoleHighHabitatPlatformCommand;
-import frc.robot.commands.BlackHole.SetBlackHoleCargoLoadCommand;
+import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 
 
 public class BlastOffAutoCommand extends CommandGroup {
@@ -51,7 +50,7 @@ public class BlastOffAutoCommand extends CommandGroup {
     addSequential(new TimerCommand(0.25));
 
     //Rotate the Blackhole / Cargo handler around to the right angle
-    addParallel(new SetBlackHoleHighHabitatPlatformCommand());
+    addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_HIGH_HAB_PLATFORM));
     addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_ORANGE));
     addSequential(new TimerCommand(0.30));
     addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_FIRE_MEDIUM));
@@ -68,7 +67,7 @@ public class BlastOffAutoCommand extends CommandGroup {
     addSequential(new TimerCommand(1.25));
 
     addParallel(new SetArmFloorCargoCommand());
-    addParallel(new SetBlackHoleCargoLoadCommand());
+    addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD));
 
     //PARTY PHASERS!!!!
     addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_PARTY_PALETTE));

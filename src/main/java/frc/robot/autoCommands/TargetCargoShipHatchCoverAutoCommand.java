@@ -12,7 +12,7 @@ import frc.robot.RobotMap;
 import frc.robot.commands.Limelight.*;
 import frc.robot.commands.WarpDrive.*;
 import frc.robot.commands.Arms.SetArmCargoShipHatchCommand;
-import frc.robot.commands.BlackHole.SetBlackHoleCargoShipHatchCommand;
+import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.HatchHander.*;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.TimerCommand;
@@ -48,7 +48,7 @@ public class TargetCargoShipHatchCoverAutoCommand extends CommandGroup {
     //  Position the ARM up to the Lower Rocket Hatch Height
     addParallel(new SetArmCargoShipHatchCommand());
     //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch
-    addSequential(new SetBlackHoleCargoShipHatchCommand());
+    addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH));
     addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELINE_PIPELINE_CARGOSHIP_HATCH));
     //
     //  Not sure how far to drive forward YET!!!

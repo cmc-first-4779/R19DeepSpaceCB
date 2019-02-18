@@ -14,7 +14,7 @@ import frc.robot.commands.WarpDrive.*;
 import frc.robot.commands.Arms.SetArmRocketLowerCargoCommand;
 import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
 import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
-import frc.robot.commands.BlackHole.SetBlackHoleRocketLowerCargoCommand;
+import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
@@ -46,10 +46,10 @@ public class TargetLowerRocketCargoAutoCommand extends CommandGroup {
         addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
         addSequential(new LimeLightHasTargetCommand());
-        //  Position the ARM up to the Lower Rocket Hatch Height
+        //  Position the ARM up to the Lower Rocket cargo
         addParallel(new SetArmRocketLowerCargoCommand());
-        //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch
-        addSequential(new SetBlackHoleRocketLowerCargoCommand());
+        //  Position the BlackHole / Cargo Handler to the right angle to for the lower cargo
+        addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_CARGO));
         addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //
         //  Not sure how far to drive forward YET!!!

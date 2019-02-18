@@ -9,13 +9,16 @@ package frc.robot.commands.BlackHole;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class SetBlackHoleCargoShipHatchCommand extends Command {
-  public SetBlackHoleCargoShipHatchCommand() {
+public class BlackHoleRotateToAngleCommand extends Command {
+
+  double m_angle;
+
+  public BlackHoleRotateToAngleCommand(double angle) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blackHoleSubsystem);
+    m_angle = angle;
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +29,7 @@ public class SetBlackHoleCargoShipHatchCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blackHoleSubsystem.rotateToSetPoint(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH);
+    Robot.blackHoleSubsystem.rotateToSetPoint(m_angle);
   }
 
   // Make this return true when this Command no longer needs to run execute()

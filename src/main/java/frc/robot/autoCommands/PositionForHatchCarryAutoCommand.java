@@ -10,7 +10,7 @@ package frc.robot.autoCommands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Arms.SetArmCargoShipHatchCommand;
-import frc.robot.commands.BlackHole.SetBlackHoleHatchLoadCommand;
+import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.HatchHander.NoseconeOpenCommand;
 import frc.robot.commands.Misc.TimerCommand;
@@ -43,12 +43,12 @@ public class PositionForHatchCarryAutoCommand extends CommandGroup {
 
         // Set our Phasers...
         addParallel(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_RED));
-        // Rotate the Blackhole into place to pick up the cargo
-        addParallel(new SetBlackHoleHatchLoadCommand());
+        // Rotate the Blackhole into place to pick up the hatchcover
+        addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD));
         addParallel(new NoseconeOpenCommand());
         // Wait a little bit before lifting the arm..
         addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
-        //  Lift the arm up for transporting the cargo..   Using the Rocket Ship Lower Cargo Height
+        //  Lift the arm up for transporting the hatchcover..   Using the Rocket Ship Lower Hatch Height
         addSequential(new SetArmCargoShipHatchCommand());
   }
 }

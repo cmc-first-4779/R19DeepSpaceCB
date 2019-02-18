@@ -14,7 +14,7 @@ import frc.robot.commands.WarpDrive.*;
 import frc.robot.commands.Arms.SetArmRocketUpperCargoCommand;
 import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
 import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
-import frc.robot.commands.BlackHole.SetBlackHoleRocketUpperCargoCommand;
+import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
@@ -49,7 +49,7 @@ public class TargetUpperRocketCargoAutoCommand extends CommandGroup {
         //  Position the ARM up to the Lower Rocket Hatch Height
         addParallel(new SetArmRocketUpperCargoCommand());
         //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch
-        addSequential(new SetBlackHoleRocketUpperCargoCommand());
+        addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_CARGO));
         addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //
         //  Not sure how far to drive forward YET!!!

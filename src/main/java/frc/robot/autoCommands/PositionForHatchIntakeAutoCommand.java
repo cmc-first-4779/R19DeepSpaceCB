@@ -12,7 +12,7 @@ import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.Arms.SetArmFloorHatchCommand;
-import frc.robot.commands.BlackHole.SetBlackHoleHatchLoadCommand;
+import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.HatchHander.*;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.EventHorizon.EventHorizonRaiseArmCommand;
@@ -42,10 +42,10 @@ public class PositionForHatchIntakeAutoCommand extends CommandGroup {
 
     // Move the Event Horizon Arm out of the way, just in case...
     addParallel(new EventHorizonRaiseArmCommand());
-    // Move the arm to the floor to get the Cargo
+    // Move the arm to the floor to get the Hatch
     addParallel(new SetArmFloorHatchCommand());
-    // Rotate the Blackhole into place to pick up the cargo
-    addParallel(new SetBlackHoleHatchLoadCommand());
+    // Rotate the Blackhole into place to pick up the Hatch
+    addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD));
     //Close the NoseCone
     addParallel(new NoseconeCloseCommand());
     addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_RED));
