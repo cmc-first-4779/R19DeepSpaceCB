@@ -9,7 +9,7 @@ package frc.robot.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
-import frc.robot.commands.Arms.SetArmCargoShipHatchCommand;
+import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.HatchHander.NoseconeOpenCommand;
@@ -49,6 +49,6 @@ public class PositionForHatchCarryAutoCommand extends CommandGroup {
         // Wait a little bit before lifting the arm..
         addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
         //  Lift the arm up for transporting the hatchcover..   Using the Rocket Ship Lower Hatch Height
-        addSequential(new SetArmCargoShipHatchCommand());
+        addSequential(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_HATCH));
   }
 }

@@ -11,8 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Limelight.*;
 import frc.robot.commands.WarpDrive.*;
-import frc.robot.commands.Arms.SetArmRocketUpperHatchCommand;
-import frc.robot.commands.Arms.SetArmFloorHatchCommand;
+import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.HatchHander.*;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
@@ -46,8 +45,8 @@ public class TargetUpperRocketHatchCoverAutoCommand extends CommandGroup {
             addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_HATCH));
             //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
             addSequential(new LimeLightHasTargetCommand());
-            //  Position the ARM up to the Lower Rocket Hatch Height
-            addParallel(new SetArmRocketUpperHatchCommand());
+            //  Position the ARM up to the Upper Rocket Hatch Height
+            addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH));
             //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch
             addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_HATCH));
             addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_HATCH));
@@ -63,7 +62,7 @@ public class TargetUpperRocketHatchCoverAutoCommand extends CommandGroup {
             //  Turn the Camera back to Driver Mode
             addParallel(new LimelightSetCameraModeDriverCommand());
             //  Bring the arm back down
-            addParallel(new SetArmFloorHatchCommand());
+            addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_FLOOR_HATCH));
             //  Flip the LEDs back to DEFAULT
             addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_DEFAULT));
   }

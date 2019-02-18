@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
-import frc.robot.commands.Arms.SetArmRocketLowerCargoCommand;
+import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.EventHorizon.EventHorizonRaiseArmCommand;
 import frc.robot.commands.EventHorizon.EventHorizonStopMotorCommand;
@@ -53,7 +53,7 @@ public class PositionForCargoCarryAutoCommand extends CommandGroup {
     addParallel(new EventHorizonStopMotorCommand());
     //  Lift the arm up for transporting the cargo..   Using the Rocket Ship Lower Cargo Height
     addSequential(new TimerCommand(RobotMap.EVENTHORIZON_ARM_WAIT_TIME));
-    addSequential(new SetArmRocketLowerCargoCommand());
+    addSequential(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_LOWER_CARGO));
 
        
    

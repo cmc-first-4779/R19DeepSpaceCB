@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Limelight.*;
 import frc.robot.commands.WarpDrive.*;
-import frc.robot.commands.Arms.SetArmCargoShipCargoCommand;
+import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
 import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
@@ -47,8 +47,8 @@ public class TargetCargoShipCargoAutoCommand extends CommandGroup {
         addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
         addSequential(new LimeLightHasTargetCommand());
-        //  Position the ARM up to the Lower Rocket Hatch Height
-        addParallel(new SetArmCargoShipCargoCommand());
+        //  Position the ARM up to the Cargo Ship Cargo Height..
+        addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_CARGO));
         //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch
         addSequential(new BlackHoleRotateToAngleCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_CARGO));
         addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));

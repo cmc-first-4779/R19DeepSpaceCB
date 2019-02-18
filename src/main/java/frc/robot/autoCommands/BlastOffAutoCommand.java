@@ -12,8 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.BlastOff.*;
-import frc.robot.commands.Arms.SetArmHighHabitatPlatformCommand;
-import frc.robot.commands.Arms.SetArmFloorCargoCommand;
+import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 
 
@@ -41,7 +40,7 @@ public class BlastOffAutoCommand extends CommandGroup {
     // arm.
 
     //Move the Arm into position
-    addParallel(new SetArmHighHabitatPlatformCommand());
+    addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_HIGH_HAB_PlATFORM));
 
     //Kick off the blastoff LEDs
     addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_GOLD));
@@ -66,7 +65,9 @@ public class BlastOffAutoCommand extends CommandGroup {
     addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_FIRE_MEDIUM));
     addSequential(new TimerCommand(1.25));
 
-    addParallel(new SetArmFloorCargoCommand());
+    //Move the ARM back down...
+    addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_FLOOR_CARGO));
+    // Rotate the BlackHole
     addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD));
 
     //PARTY PHASERS!!!!

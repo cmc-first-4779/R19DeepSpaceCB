@@ -9,24 +9,27 @@ package frc.robot.commands.Arms;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class SetArmHumanHatchCommand extends Command {
-  public SetArmHumanHatchCommand() {
+public class ArmSetPositionCommand extends Command {
+
+  double setPostion;
+  public ArmSetPositionCommand(double position) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.armsSubsytem);
+    setPostion = position;
   }
 
   // Called just before this Command runs the first time
   @Override
-  protected void initialize() {
+  protected void initialize() {    
+    Robot.armsSubsytem.setSetPoint(setPostion);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.armsSubsytem.setSetPoint(RobotMap.ARM_ENCODER_POSITION_HUMAN_HATCH);
+    System.out.println("Arm Encoder position: " + Robot.armsSubsytem.getEncoderPosition());
   }
 
   // Make this return true when this Command no longer needs to run execute()

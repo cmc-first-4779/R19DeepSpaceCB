@@ -53,8 +53,8 @@ public class OI {
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		driverStickAButton.whenPressed(new SetArmEncoderPositionCommand(300000));
-		driverStickBButton.whenPressed(new SetArmEncoderPositionCommand(50000));
+		driverStickAButton.whenPressed(new ArmSetPositionCommand(300000));
+		driverStickBButton.whenPressed(new ArmSetPositionCommand(50000));
 		driverStickBackButton.whenPressed(new BlastOffAutoCommand());
 
 		// Operator Stick

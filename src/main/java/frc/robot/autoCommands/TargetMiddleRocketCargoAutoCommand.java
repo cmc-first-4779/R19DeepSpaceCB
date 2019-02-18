@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Limelight.*;
 import frc.robot.commands.WarpDrive.*;
-import frc.robot.commands.Arms.SetArmRocketMiddleCargoCommand;
+import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
 import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
@@ -46,7 +46,7 @@ public class TargetMiddleRocketCargoAutoCommand extends CommandGroup {
         //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
         addSequential(new LimeLightHasTargetCommand());
         //  Position the ARM up to the Middle Cargo
-        addParallel(new SetArmRocketMiddleCargoCommand());
+        addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_MIDDLE_CARGO));
         //  Position the BlackHole / Cargo Handler to the right angle to be square on the Middle Cdargo
         addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_CARGO));
         addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
