@@ -14,11 +14,11 @@ import frc.robot.RobotMap;
 
 //  CHecks to see whether the Limelight has its target and flips the LEDs accordingly...
 
-public class LimelightHasTargetCommand extends Command {
+public class LimeLightHasTargetCommand extends Command {
 
   double m_hasTarget;
 
-  public LimelightHasTargetCommand() {
+  public LimeLightHasTargetCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.limeLightSubsystem);
