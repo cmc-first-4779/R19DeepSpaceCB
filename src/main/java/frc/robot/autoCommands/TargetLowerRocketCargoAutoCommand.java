@@ -43,14 +43,14 @@ public class TargetLowerRocketCargoAutoCommand extends CommandGroup {
         //  Set the Camera Mode to Vision
         addSequential(new LimelightSetCameraModeVisionCommand());
         //   Set the Vision Pipeline to the Rocket Hatch
-        addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
+        addSequential(new LimelightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
-        addSequential(new LimeLightHasTargetCommand());
+        addSequential(new LimelightHasTargetCommand());
         //  Position the ARM up to the Lower Rocket cargo
         addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_LOWER_CARGO));
         //  Position the BlackHole / Cargo Handler to the right angle to for the lower cargo
         addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_CARGO));
-        addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
+        addSequential(new LimelightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //
         //  Not sure how far to drive forward YET!!!
         //

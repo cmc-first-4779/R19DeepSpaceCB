@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class LimeLightSeekAndFollowCommand extends Command {
+public class LimelightSeekAndFollowCommand extends Command {
   double pAim = .025;
   double pDistance = .05;
   double minimalAimCommand = .15; // This is the minimal amount that it would take to start turning the bot
@@ -23,7 +23,7 @@ public class LimeLightSeekAndFollowCommand extends Command {
 
   double m_pipeline;
 
-  public LimeLightSeekAndFollowCommand(double pipeline) {
+  public LimelightSeekAndFollowCommand(double pipeline) {
       // Use requires() here to declare subsystem dependencies
       // eg. requires(chassis);
       requires(Robot.warpDriveSubsystem);

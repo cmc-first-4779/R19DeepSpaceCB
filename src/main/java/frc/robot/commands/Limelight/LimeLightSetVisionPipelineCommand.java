@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class LimeLightSetVisionPipelineCommand extends Command {
+public class LimelightSetVisionPipelineCommand extends Command {
 
   private double m_pipeline;
 
-  public LimeLightSetVisionPipelineCommand(double pipeline) {
+  public LimelightSetVisionPipelineCommand(double pipeline) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.limeLightSubsystem);
