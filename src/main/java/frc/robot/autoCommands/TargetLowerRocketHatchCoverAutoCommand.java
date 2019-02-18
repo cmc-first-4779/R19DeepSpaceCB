@@ -14,7 +14,7 @@ import frc.robot.commands.WarpDrive.*;
 import frc.robot.commands.Arms.SetArmRocketLowerHatchCommand;
 import frc.robot.commands.BlackHole.SetBlackHoleRocketLowerHatchCommand;
 import frc.robot.commands.HatchHander.*;
-import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
+import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
 public class TargetLowerRocketHatchCoverAutoCommand extends CommandGroup {
@@ -62,7 +62,7 @@ public class TargetLowerRocketHatchCoverAutoCommand extends CommandGroup {
     //  Turn the Camera back to Driver Mode
     addParallel(new LimelightSetCameraModeDriverCommand());
     //  Flip the LEDs back to DEFAULT
-    addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_DEFAULT));
+    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_DEFAULT));
   }
 
 }

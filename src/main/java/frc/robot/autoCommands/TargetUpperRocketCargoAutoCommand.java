@@ -15,7 +15,7 @@ import frc.robot.commands.Arms.SetArmRocketUpperCargoCommand;
 import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
 import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
 import frc.robot.commands.BlackHole.SetBlackHoleRocketUpperCargoCommand;
-import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
+import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
 public class TargetUpperRocketCargoAutoCommand extends CommandGroup {
@@ -64,7 +64,7 @@ public class TargetUpperRocketCargoAutoCommand extends CommandGroup {
         //  Turn the Camera back to Driver Mode
         addParallel(new LimelightSetCameraModeDriverCommand());
         //  Flip the LEDs back to DEFAULT
-        addParallel(new PhasersSetPhaserCommand(RobotMap.PHASERS_DEFAULT));
+        addParallel(new PhasersSetPatternCommand(RobotMap.PHASERS_DEFAULT));
         //  Retract the Plunger
         addSequential(new BlackHoleRetractPlungerCommand());
   }

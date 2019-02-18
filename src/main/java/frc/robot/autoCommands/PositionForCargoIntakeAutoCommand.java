@@ -15,7 +15,7 @@ import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
 import frc.robot.commands.BlackHole.SetBlackHoleCargoLoadCommand;
 import frc.robot.commands.EventHorizon.EventHorizonLowerArmCommand;
 import frc.robot.commands.EventHorizon.EventHorizonIntakeCargoCommand;
-import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
+import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.SetCarryModeCargoCommand;
 
 public class PositionForCargoIntakeAutoCommand extends CommandGroup {
@@ -41,7 +41,7 @@ public class PositionForCargoIntakeAutoCommand extends CommandGroup {
     // arm.
 
        // Move the arm to the floor to get the Cargo
-       addParallel(new PhasersSetPhaserCommand(RobotMap.PHASERS_STROBE_RED));
+       addParallel(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_RED));
        //Retract the plunger just in case...
        addParallel(new BlackHoleRetractPlungerCommand());
        //  Put the arm on the floor in the right position

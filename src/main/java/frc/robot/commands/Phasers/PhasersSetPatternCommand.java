@@ -9,13 +9,17 @@ package frc.robot.commands.Phasers;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class PhasersColor1_2_WavesCommand extends Command {
-  public PhasersColor1_2_WavesCommand() {
+
+public class PhasersSetPatternCommand extends Command {
+
+  double m_pattern;
+
+  public PhasersSetPatternCommand(double pattern) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.phasersSubsystem);
+    m_pattern = pattern;
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +30,7 @@ public class PhasersColor1_2_WavesCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.phasersSubsystem.setPhasers(RobotMap.PHASERS_COLOR1_2_WAVES);
+    Robot.phasersSubsystem.setPhasers(m_pattern);
   }
 
   // Make this return true when this Command no longer needs to run execute()

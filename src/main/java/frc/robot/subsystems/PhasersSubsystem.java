@@ -12,7 +12,8 @@ import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import frc.robot.commands.Phasers.PhasersGlitterCommand;
+import frc.robot.commands.Phasers.PhasersSetPatternCommand;
+
 
 /**
  * Add your docs here.
@@ -34,7 +35,7 @@ public class PhasersSubsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // Because we like the phasers looking like "Glitter"..  
-    setDefaultCommand(new PhasersGlitterCommand());
+    setDefaultCommand(new PhasersSetPatternCommand(RobotMap.PHASERS_DEFAULT));
   }
 
   //Set the Phasers to a certain pattern
@@ -42,59 +43,4 @@ public class PhasersSubsystem extends Subsystem {
     phasers.set(pattern);
   }
 
-  //Change the phasers to white
-  public void setPhasersWhite(){
-    phasers.set(RobotMap.PHASERS_WHITE);
-  }
-
-  //Change the phasers to Lawn Green
-  public void setPhasersLawnGreen(){
-    phasers.set(RobotMap.PHASERS_LAWN_GREEN);
-  }
-
-  //Set the Phasers to black..   IE..  OFF!!!
-  public void setPhasersBlack(){
-    phasers.set(RobotMap.PHASERS_BLACK);
-  }
-
-  //Set the Phasers to the Ocean Pallette
-  public void setPhasersOcean(){
-    phasers.set(RobotMap.PHASERS_OCEAN_PALETTE);
-  }
-  
-  //Set the Phasers to the Forest Pallette
-  public void setPhasersForest(){
-    phasers.set(RobotMap.PHASERS_FOREST_PALETTE);
-  }
-
-  //WE LIKE GLITTER!!!!
-  public void setPhasersGlitter(){
-    phasers.set(RobotMap.PHASERS_GLITTER_PALETTE);
-  }
-
-  //Set the phasers to Confetti
-  public void setPhasersConfetti(){
-    phasers.set(RobotMap.PHASERS_CONFETTI_PALETTE);
-  }
-
-  //Change the phasers to Lava
-  public void setPhasersLava(){
-    phasers.set(RobotMap.PHASERS_LAVA_PALETTE);
-  }
-
-  //Set the Phasers to Fire
-  public void setPhasersFire(){
-    phasers.set(RobotMap.PHASERS_FIRE_LARGE);
-  }
-
-  //Set the Phasers to Larson Scanner
-  public void setPhasersLarsonScanner(){
-    phasers.set(RobotMap.PHASERS_LARSON_SCANNER_RED);
-  }
-
-  //Set the phasers to Shot
-  public void setPhasersShot(){
-    phasers.set(RobotMap.PHASERS_COLOR2_SHOT);
-   // DriverStation.getInstance().getMatchTime()
-  }
 }

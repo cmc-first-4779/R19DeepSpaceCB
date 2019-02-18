@@ -10,7 +10,7 @@ package frc.robot.autoCommands;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.Misc.TimerCommand;
-import frc.robot.commands.Phasers.*;
+import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.BlastOff.*;
 import frc.robot.commands.Arms.SetArmHighHabitatPlatformCommand;
 import frc.robot.commands.Arms.SetArmFloorCargoCommand;
@@ -45,33 +45,33 @@ public class BlastOffAutoCommand extends CommandGroup {
     addParallel(new SetArmHighHabitatPlatformCommand());
 
     //Kick off the blastoff LEDs
-    addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_STROBE_GOLD));
+    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_GOLD));
     addSequential(new TimerCommand(0.20));
-    addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_YELLOW));
+    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_YELLOW));
     addSequential(new TimerCommand(0.25));
 
     //Rotate the Blackhole / Cargo handler around to the right angle
     addParallel(new SetBlackHoleHighHabitatPlatformCommand());
-    addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_ORANGE));
+    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_ORANGE));
     addSequential(new TimerCommand(0.30));
-    addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_FIRE_MEDIUM));
+    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_FIRE_MEDIUM));
     addSequential(new TimerCommand(1.25));
 
     //LET'S LAUNCH!!!!!!!!!!
     addParallel(new BlastOffLaunchCommand());
-    addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_FIRE_LARGE));
+    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_FIRE_LARGE));
     addSequential(new TimerCommand(2.25));
 
     //Move the BLASTOFF WHEELS FORWARD
     addParallel(new BlastOffMoveForwardCommand());
-    addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_FIRE_MEDIUM));
+    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_FIRE_MEDIUM));
     addSequential(new TimerCommand(1.25));
 
     addParallel(new SetArmFloorCargoCommand());
     addParallel(new SetBlackHoleCargoLoadCommand());
 
     //PARTY PHASERS!!!!
-    addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_PARTY_PALETTE));
+    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_PARTY_PALETTE));
 
 
 

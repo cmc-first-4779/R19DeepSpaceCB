@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Arms.SetArmCargoShipHatchCommand;
 import frc.robot.commands.BlackHole.SetBlackHoleHatchLoadCommand;
-import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
+import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.HatchHander.NoseconeOpenCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
@@ -42,7 +42,7 @@ public class PositionForHatchCarryAutoCommand extends CommandGroup {
     // arm.
 
         // Set our Phasers...
-        addParallel(new PhasersSetPhaserCommand(RobotMap.PHASERS_STROBE_RED));
+        addParallel(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_RED));
         // Rotate the Blackhole into place to pick up the cargo
         addParallel(new SetBlackHoleHatchLoadCommand());
         addParallel(new NoseconeOpenCommand());

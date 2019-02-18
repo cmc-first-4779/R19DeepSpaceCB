@@ -15,7 +15,7 @@ import frc.robot.commands.Arms.SetArmRocketMiddleHatchCommand;
 import frc.robot.commands.Arms.SetArmFloorHatchCommand;
 import frc.robot.commands.BlackHole.SetBlackHoleRocketMiddleHatchCommand;
 import frc.robot.commands.HatchHander.*;
-import frc.robot.commands.Phasers.PhasersSetPhaserCommand;
+import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
 public class TargetMiddleRocketHatchCoverAutoCommand extends CommandGroup {
@@ -65,7 +65,7 @@ public class TargetMiddleRocketHatchCoverAutoCommand extends CommandGroup {
         //  Bring the arm back down
         addParallel(new SetArmFloorHatchCommand());
         //  Flip the LEDs back to DEFAULT
-        addSequential(new PhasersSetPhaserCommand(RobotMap.PHASERS_DEFAULT));
+        addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_DEFAULT));
       
   }
 }
