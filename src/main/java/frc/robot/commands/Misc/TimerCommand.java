@@ -8,6 +8,7 @@
 package frc.robot.commands.Misc;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
@@ -27,11 +28,14 @@ public class TimerCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	timer.reset();  //Reset the timer.
-    	timer.start();  //Start the timer.
+        timer.start();  //Start the timer.
+        SmartDashboard.putNumber("Timer Length", m_time);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        //Put the timer value to the Dashboard
+        SmartDashboard.putNumber("Timer Value", timer.get());
     }
 
     // Make this return true when this Command no longer needs to run execute()

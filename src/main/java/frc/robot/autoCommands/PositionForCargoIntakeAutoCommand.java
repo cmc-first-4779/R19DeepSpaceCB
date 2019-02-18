@@ -13,8 +13,7 @@ import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
-import frc.robot.commands.EventHorizon.EventHorizonLowerArmCommand;
-import frc.robot.commands.EventHorizon.EventHorizonIntakeCargoCommand;
+import frc.robot.commands.EventHorizon.EventHorizonCaptureCargoCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.SetCarryModeCommand;
 
@@ -51,9 +50,7 @@ public class PositionForCargoIntakeAutoCommand extends CommandGroup {
        // Wait for a little before swinging down the Event Horizon arm
        addSequential(new TimerCommand(RobotMap.EVENTHORIZON_ARM_WAIT_TIME)); 
        // Lower the Event Horizon Arm to take in the cargo
-       addSequential(new EventHorizonLowerArmCommand());
-       //  Run the Event Horizon Arm Motors
-       addSequential(new EventHorizonIntakeCargoCommand());
+       addSequential(new EventHorizonCaptureCargoCommand());
        //  Set Carry Mode to Cargo 
        addSequential(new SetCarryModeCommand(RobotMap.CARRY_MODE_CARGO));
   }

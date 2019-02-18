@@ -8,6 +8,7 @@
 package frc.robot.commands.EventHorizon;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class EventHorizonLowerArmCommand extends Command {
@@ -20,12 +21,15 @@ public class EventHorizonLowerArmCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    //  Put the EVENT HORIZON ARM MODE into the SmartDashboard
+    SmartDashboard.putString("EVENT HORIZON ARM MODE", "Lowered");
+    //  Lower the Event Horizon Arm
+    Robot.eventHorizonSubsystem.lowerEventHorizonArm();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.eventHorizonSubsystem.lowerEventHorizon();
   }
 
   // Make this return true when this Command no longer needs to run execute()

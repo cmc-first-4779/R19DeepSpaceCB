@@ -8,6 +8,7 @@
 package frc.robot.commands.Misc;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
@@ -24,7 +25,10 @@ public class SetCarryModeCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    //  Change the CarryMode 
     Robot.carryMode = m_carryMode;
+    //  Put the CarryMode into the Dashboard
+    SmartDashboard.putNumber("Carry Mode", Robot.carryMode);
   }
 
   // Called repeatedly when this Command is scheduled to run

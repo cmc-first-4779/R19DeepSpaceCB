@@ -10,9 +10,11 @@ package frc.robot.commands.EventHorizon;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
+import frc.robot.subsystems.EventHorizonSubsystem;
 
-public class EventHorizonRaiseArmCommand extends Command {
-  public EventHorizonRaiseArmCommand() {
+public class EventHorizonCaptureCargoCommand extends Command {
+  public EventHorizonCaptureCargoCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.eventHorizonSubsystem);
@@ -21,10 +23,13 @@ public class EventHorizonRaiseArmCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    //Raise Event Horizon Arm
-    Robot.eventHorizonSubsystem.raiseEventHorizonArm();
     //  Put the EVENT HORIZON ARM MODE into the SmartDashboard
-    SmartDashboard.putString("EVENT HORIZON ARM MODE", "Raised");
+    SmartDashboard.putString("EVENT HORIZON ARM MODE", "Lowered");
+    //  Lower the Event Horizon Arm...
+    Robot.eventHorizonSubsystem.lowerEventHorizonArm();    
+    //  Put the EVENT HORIZON MOTOR MODE into the SmartDashboard
+    SmartDashboard.putString("EVENT HORIZON MOTOR MODE", "Started");
+    Robot.eventHorizonSubsystem.startWheelMotor();
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -41,11 +46,28 @@ public class EventHorizonRaiseArmCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    // Stop the Motor
+    Robot.eventHorizonSubsystem.stopWheelMotor();
+    //  Put the EVENT HORIZON MOTOR MODE into the SmartDashboard
+    SmartDashboard.putString("EVENT HORIZON MOTOR MODE", "Stop");
+    //Set the Carry Mode to CARGO
+    Robot.carryMode = RobotMap.CARRY_MODE_CARGO;
+    //  Put the CarryMode into the Dashboard
+    SmartDashboard.putNumber("Carry Mode", Robot.carryMode);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    // Stop the Motor
+    Robot.eventHorizonSubsystem.stopWheelMotor();
+    //  Put the EVENT HORIZON MOTOR MODE into the SmartDashboard
+    SmartDashboard.putString("EVENT HORIZON MOTOR MODE", "Stop");
+    //  Raise the Event Horizon Arm and get it out of the way if there is an INTERRUPT!
+    Robot.eventHorizonSubsystem.raiseEventHorizonArm();
+    //  Put the EVENT HORIZON ARM MODE into the SmartDashboard
+    SmartDashboard.putString("EVENT HORIZON ARM MODE", "Raised");
+
   }
 }

@@ -5,31 +5,53 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.EventHorizon;
+package frc.robot.commands.Limelight;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.subsystems.EventHorizonSubsystem;
 
-public class EventHorizonIntakeCargoCommand extends Command {
-  public EventHorizonIntakeCargoCommand() {
+public class LimelightSetCameraModeCommand extends Command {
+
+  double m_cameraMode;
+
+  public LimelightSetCameraModeCommand(double cameraMode) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.eventHorizonSubsystem);
+    requires(Robot.limeLightSubsystem);
+    m_cameraMode = cameraMode;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    //   Set the Camera Mode on the Limelight so that the Driver can use it
+    Robot.limeLightSubsystem.setCameraMode(m_cameraMode);
+    //   Set the LED Mode to OFF since the driver is driving...
+    if (m_cameraMode == RobotMap.LIMELIGHT_CAMMODE_DRIVER) {
+      //Turn the LEDs Off
+      Robot.limeLightSubsystem.setLEDMode(RobotMap.LIMELIGHT_LEDMODE_OFF);
+      //  Put the Camera Mode in the Dashboard
+      SmartDashboard.putString("LIMELIGHT CAMERA MODE", "Driver");
+      //  Put the LED Mode in the Dashboard
+      SmartDashboard.putString("LIMELIGHT LED MODE", "Off");
+    }
+    else {
+      // Turn the LEDs On
+      Robot.limeLightSubsystem.setLEDMode(RobotMap.LIMELIGHT_LEDMODE_ON);
+      //  Put the Camera Mode in the Dashboard
+      SmartDashboard.putString("LIMELIGHT CAMERA MODE", "Vision");
+      //  Put the LED Mode in the Dashboard
+      SmartDashboard.putString("LIMELIGHT LED MODE", "On");
+    }
+    
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.eventHorizonSubsystem.intakeCargo();
-    //Set the Carry Mode to CARGO
-    Robot.carryMode = RobotMap.CARRY_MODE_CARGO;
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -41,13 +63,11 @@ public class EventHorizonIntakeCargoCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.eventHorizonSubsystem.stopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.eventHorizonSubsystem.stopMotor();
   }
 }

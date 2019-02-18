@@ -8,7 +8,9 @@
 package frc.robot.commands.Arms;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+
 
 public class MoveArmWithJoystickCommand extends Command {
   public MoveArmWithJoystickCommand() {
@@ -20,14 +22,18 @@ public class MoveArmWithJoystickCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    // Put the Arm Control Mode into the Dashboard
+    SmartDashboard.putString("ARM Control Mode", "JOYSTICK");
   }
 
   // Called repeatedly when this Command is scheduled to run
   //Move the ARM using the Oper Joystick Y-axis
   @Override
   protected void execute() {
+    // Move the ARM with the OperStick
     Robot.armsSubsytem.moveArm(-Robot.oi.getOperStick().getY());
-    //Robot.armsSubsytem.moveArm(-Robot.oi.getDriverStick().getY());
+    // Put the Arm Encoder Position into the Dashboard
+    SmartDashboard.putNumber("ARM Encoder Position", Robot.armsSubsytem.getEncoderPosition());
   }
 
   // Make this return true when this Command no longer needs to run execute()

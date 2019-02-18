@@ -40,7 +40,7 @@ public class TargetCargoShipHatchCoverAutoCommand extends CommandGroup {
     // arm.
 
     //  Set the Camera Mode to Vision
-    addSequential(new LimelightSetCameraModeVisionCommand());
+    addSequential(new LimelightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_VISION));
     //   Set the Vision Pipeline to the Rocket Hatch
     addSequential(new LimelightSetVisionPipelineCommand(RobotMap.LIMELINE_PIPELINE_CARGOSHIP_HATCH));
     //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
@@ -61,7 +61,7 @@ public class TargetCargoShipHatchCoverAutoCommand extends CommandGroup {
     addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE,
         RobotMap.WARPDRIVE_SPEED));
     //  Turn the Camera back to Driver Mode
-    addParallel(new LimelightSetCameraModeDriverCommand());
+    addParallel(new LimelightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_DRIVER));
     //  Flip the LEDs back to DEFAULT
     addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_DEFAULT));
 

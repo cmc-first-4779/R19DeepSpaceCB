@@ -50,30 +50,44 @@ public class EventHorizonSubsystem extends Subsystem {
   }
 
   // Spin the Event Horizon Wheels to suck in a ball into the "BLACK HOLE" cargo
-  // holder.
-  public void intakeCargo() {
-    eventHorizonMotor.set(RobotMap.EVENTHORIZON_INTAKE_SPEED);
+  //     holder.
+  public void startWheelMotor() {
+    eventHorizonMotor.set(RobotMap.EVENTHORIZON_INTAKE_MOTOR_SPEED);
   }
 
   // Not sure if we will need this, but it will spin the Event Horizon wheels
-  // backwards
-  public void ejectCargo() {
-    eventHorizonMotor.set(RobotMap.EVENTHORIZON_EJECT_SPEED);
+  //     backwards
+  public void reverseWheelMotor() {
+    eventHorizonMotor.set(RobotMap.EVENTHORIZON_REVERSE_MOTOR_SPEED);
   }
 
   // Stop the Event Horizon Wheels
-  public void stopMotor() {
+  public void stopWheelMotor() {
     eventHorizonMotor.stopMotor();
   }
 
   // Raise Event Horizon Arms using pneumatics
-  public void raiseEventHorizon() {
+  public void raiseEventHorizonArm() {
     eventHorizonSolenoid.set(DoubleSolenoid.Value.kForward);
   }
 
   // Lower Event Horizon Arms using pneumatics
-  public void lowerEventHorizon() {
+  public void lowerEventHorizonArm() {
     eventHorizonSolenoid.set(DoubleSolenoid.Value.kReverse);
+  }
+
+  public void suckInCargo()  {
+    //  Lower the Event Horizon Arm...
+    lowerEventHorizonArm();
+     //  Start the wheel motors when lowering the Event Horizon Arm
+    startWheelMotor();
+  }
+
+  public void retractEventHorizon()  {
+    //  Stop the Wheel Motors
+    stopWheelMotor();
+    //  Raise the Event Horizon Arm
+    raiseEventHorizonArm();
   }
 
 }

@@ -7,6 +7,7 @@
 
 package frc.robot.commands.BlackHole;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -25,12 +26,16 @@ public class BlackHoleRotateToAngleCommand extends Command {
   @Override
   protected void initialize() {
     Robot.blackHoleSubsystem.rotateToSetPoint(m_angle);
+    SmartDashboard.putNumber("BLACKHOLE SetPoint", m_angle);
+    // Put the BLACKHOLE Control Mode into the Dashboard
+    SmartDashboard.putString("BLACKHOLE Control Mode", "AUTO");
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("BlackHole Encoder position: " + Robot.blackHoleSubsystem.getEncoderPosition());
+    // Put the BLACKHOLE Encoder Position into the Dashboard
+    SmartDashboard.putNumber("BLACKHOLE Encoder Position", Robot.blackHoleSubsystem.getEncoderPosition());
   }
 
   // Make this return true when this Command no longer needs to run execute()

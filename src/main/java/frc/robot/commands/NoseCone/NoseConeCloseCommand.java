@@ -8,6 +8,7 @@
 package frc.robot.commands.NoseCone;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
@@ -23,14 +24,19 @@ public class NoseConeCloseCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    // Close the NOSECONE..
+    Robot.noseConeSubsystem.closeNoseCone();
+    //Set the Carry Mode to None
+    Robot.carryMode = RobotMap.CARRY_MODE_NONE;
+    //  Put the NOSECONE Mode into the SmartDashboard
+    SmartDashboard.putString("NOSECONE MODE", "Closed");
+    //  Put the CarryMode into the Dashboard
+    SmartDashboard.putNumber("Carry Mode", Robot.carryMode);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.noseConeSubsystem.closeNoseCone();
-    //Set the Carry Mode to None
-    Robot.carryMode = RobotMap.CARRY_MODE_NONE;
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -5,29 +5,27 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.Limelight;
+package frc.robot.commands.EventHorizon;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+import frc.robot.subsystems.EventHorizonSubsystem;
 
-public class LimelightSetCameraModeDriverCommand extends Command {
-  public LimelightSetCameraModeDriverCommand() {
+public class EventHorizonStartMotorCommand extends Command {
+  public EventHorizonStartMotorCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.limeLightSubsystem);
-    requires(Robot.phasersSubsystem);
+    requires(Robot.eventHorizonSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    //   Set the Camera Mode on the Limelight so that the Driver can use it
-    Robot.limeLightSubsystem.setCameraMode(RobotMap.LIMELIGHT_CAMMODE_DRIVER);
-    //   Set the LED Mode to OFF since the driver is driving...
-    Robot.limeLightSubsystem.setLEDMode(RobotMap.LIMELIGHT_LEDMODE_OFF);
-    //   Since the Vision Mode is not on, set the Phasers to our Defualt
-    Robot.phasersSubsystem.setPhasers(RobotMap.PHASERS_DEFAULT);
+    SmartDashboard.putString("EVENT HORIZON MOTOR MODE", "Start");
+    //  Start the wheel motors
+    Robot.eventHorizonSubsystem.startWheelMotor();
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -44,11 +42,22 @@ public class LimelightSetCameraModeDriverCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    // Stop the Motor
+    Robot.eventHorizonSubsystem.stopWheelMotor();
+    //  Put the EVENT HORIZON MOTOR MODE into the SmartDashboard
+    SmartDashboard.putString("EVENT HORIZON MOTOR MODE", "Stop");
+    //Set the Carry Mode to CARGO
+    Robot.carryMode = RobotMap.CARRY_MODE_CARGO;
+    
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    // Stop the Motor
+    Robot.eventHorizonSubsystem.stopWheelMotor();
+    //  Put the EVENT HORIZON MOTOR MODE into the SmartDashboard
+    SmartDashboard.putString("EVENT HORIZON MOTOR MODE", "Stop");   
   }
 }

@@ -8,6 +8,7 @@
 package frc.robot.commands.BlastOff;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class BlastOffLaunchCommand extends Command {
@@ -20,12 +21,17 @@ public class BlastOffLaunchCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    //  Put the BLASTOFF MODE into the SmartDashboard
+    SmartDashboard.putString("BLASTOFF SOLENOID MODE", "LAUNCH!!!");
+    //  Make sure the Wheel Motors are STOPPED  before moving the Solenoid Foot
+    Robot.blastOffSubsystem.stopMotor();
+    //  Launch the Robot..   You must be close to the Platform and in Position!!!!!!!!
+    Robot.blastOffSubsystem.launch();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blastOffSubsystem.launch();
   }
 
   // Make this return true when this Command no longer needs to run execute()

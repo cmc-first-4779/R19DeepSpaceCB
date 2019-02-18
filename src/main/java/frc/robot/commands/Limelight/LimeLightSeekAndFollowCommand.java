@@ -8,6 +8,7 @@
 package frc.robot.commands.Limelight;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
@@ -28,6 +29,7 @@ public class LimelightSeekAndFollowCommand extends Command {
       // eg. requires(chassis);
       requires(Robot.warpDriveSubsystem);
       requires(Robot.limeLightSubsystem);
+      requires(Robot.phasersSubsystem);
       m_pipeline = pipeline;
     }
   
@@ -36,6 +38,8 @@ public class LimelightSeekAndFollowCommand extends Command {
     protected void initialize() {
       // need to set the limelight pipeline
       Robot.limeLightSubsystem.setPipeline(m_pipeline);
+      //  Put the LIMELIGHT PIPELINE VALUE ON THE DASHBOARD
+      SmartDashboard.putNumber("LIMELIGHT PIPELINE", m_pipeline);
     }
   
     // Called repeatedly when this Command is scheduled to run
@@ -49,6 +53,8 @@ public class LimelightSeekAndFollowCommand extends Command {
       boolean hasTarget = Robot.limeLightSubsystem.hasTarget();
   
       if (hasTarget) {
+        // Output to the Dashboard whether the LimeLight has a target
+        SmartDashboard.putString("LimeLight Has Target", "TARGET ACQUIRED");
         turn = calculateTurn();
         if (aimAndMove) {
           move = calculateMove();
@@ -57,7 +63,10 @@ public class LimelightSeekAndFollowCommand extends Command {
             move = calculateMove();
           }
         }
-      } else {
+      } 
+      else {
+        //Output to the Dashboard whether the LimeLight has a target
+        SmartDashboard.putString("LimeLight Has Target", "NO TARGET");        
         move = 0;
         turn = RobotMap.LIMELIGHT_SEEK_TURN_POWER;
       }

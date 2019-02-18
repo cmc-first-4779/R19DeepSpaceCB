@@ -8,6 +8,7 @@
 package frc.robot.commands.Limelight;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
@@ -30,12 +31,21 @@ public class LimelightHasTargetCommand extends Command {
     m_hasTarget = Robot.limeLightSubsystem.getTV();
 
     if (m_hasTarget == 0){
-      //If..  NO TARGET
+      // If..  NO TARGET
       Robot.phasersSubsystem.setPhasers(RobotMap.PHASERS_RED);
+      // Put the Phasers Pattern Value to the Dashboard
+      SmartDashboard.putNumber("Phasers Pattern", RobotMap.PHASERS_RED);
+      //Output to the Dashboard whether the LimeLight has a target
+      SmartDashboard.putString("LimeLight Has Target", "NO TARGET");
     }
       // Else it has a target and set the lights to LIME GREEN
     else{
+      // Set the Phasers to Green
       Robot.phasersSubsystem.setPhasers(RobotMap.PHASERS_LIME);
+      // Put the Phasers Pattern Value to the Dashboard
+      SmartDashboard.putNumber("Phasers Pattern", RobotMap.PHASERS_LIME);
+      // Output to the Dashboard whether the LimeLight has a target
+      SmartDashboard.putString("LimeLight Has Target", "TARGET ACQUIRED");
     }
 
   }

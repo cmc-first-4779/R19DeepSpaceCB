@@ -5,29 +5,28 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.Limelight;
+package frc.robot.commands.EventHorizon;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class LimelightSetCameraModeVisionCommand extends Command {
-  public LimelightSetCameraModeVisionCommand() {
+public class EventHorizonRetractCommand extends Command {
+  public EventHorizonRetractCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.limeLightSubsystem);
-    requires(Robot.phasersSubsystem);
+    requires(Robot.eventHorizonSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-        //   Set the Camera Mode on the Limelight so that the Driver can use it
-        Robot.limeLightSubsystem.setCameraMode(RobotMap.LIMELIGHT_CAMMODE_VISION);
-        //   Set the LED MODE to ON so that we can see the reflective tape.
-        Robot.limeLightSubsystem.setLEDMode(RobotMap.LIMELIGHT_LEDMODE_ON);
-        //   Since the Vision Mode is not on, set the Phasers to our Defualt
-        Robot.phasersSubsystem.setPhasers(RobotMap.PHASERS_LIME);
+    //  Retract the Event Horizon System
+    Robot.eventHorizonSubsystem.retractEventHorizon();
+    //  Put the EVENT HORIZON MOTOR MODE into the SmartDashboard
+    SmartDashboard.putString("EVENT HORIZON MOTOR MODE", "Stop");
+    //  Put the EVENT HORIZON ARM MODE into the SmartDashboard
+    SmartDashboard.putString("EVENT HORIZON ARM MODE", "Raised");
   }
 
   // Called repeatedly when this Command is scheduled to run

@@ -8,10 +8,11 @@
 package frc.robot.commands.EventHorizon;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
-public class EventHorizonEjectCargoCommand extends Command {
-  public EventHorizonEjectCargoCommand() {
+public class EventHorizonReverseMotorCommand extends Command {
+  public EventHorizonReverseMotorCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.eventHorizonSubsystem);
@@ -20,12 +21,16 @@ public class EventHorizonEjectCargoCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    // Reverse the Wheel Motor
+    Robot.eventHorizonSubsystem.reverseWheelMotor();
+    //  Put the EVENT HORIZON MOTOR MODE into the SmartDashboard
+    SmartDashboard.putString("EVENT HORIZON MOTOR MODE", "Reverse");
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.eventHorizonSubsystem.ejectCargo();
+  
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -37,13 +42,13 @@ public class EventHorizonEjectCargoCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.eventHorizonSubsystem.stopMotor();
+    Robot.eventHorizonSubsystem.stopWheelMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.eventHorizonSubsystem.stopMotor();
+    Robot.eventHorizonSubsystem.stopWheelMotor();
   }
 }

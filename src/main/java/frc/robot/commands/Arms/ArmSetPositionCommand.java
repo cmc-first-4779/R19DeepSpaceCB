@@ -8,6 +8,7 @@
 package frc.robot.commands.Arms;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class ArmSetPositionCommand extends Command {
@@ -25,12 +26,18 @@ public class ArmSetPositionCommand extends Command {
   @Override
   protected void initialize() {    
     Robot.armsSubsytem.setSetPoint(m_setPostion);
+    // Put the Arm Subsystem SetPoint into the Dashboard
+    SmartDashboard.putNumber("ARM SetPoint", m_setPostion);
+    // Put the Arm Control Mode into the Dashboard
+    SmartDashboard.putString("ARM Control Mode", "AUTO");
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("Arm Encoder position: " + Robot.armsSubsytem.getEncoderPosition());
+    //System.out.println("Arm Encoder position: " + Robot.armsSubsytem.getEncoderPosition());
+    //Put the Arm Encoder Position into the Dashboard
+    SmartDashboard.putNumber("ARM Encoder Position", Robot.armsSubsytem.getEncoderPosition());
   }
 
   // Make this return true when this Command no longer needs to run execute()

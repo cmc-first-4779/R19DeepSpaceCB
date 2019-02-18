@@ -8,6 +8,7 @@
 package frc.robot.commands.BlackHole;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class BlackHoleRetractPlungerCommand extends Command {
@@ -20,12 +21,15 @@ public class BlackHoleRetractPlungerCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+  // Put the BLACKHOLE PLUNGER STATUS into the Dashboard
+  SmartDashboard.putString("BLACKHOLE PLUNGER Status", "RETRACT");
+  // RETRACT the PLUNGER!!
+  Robot.blackHoleSubsystem.retractPlunger();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blackHoleSubsystem.retractPlunger();
   }
 
   // Make this return true when this Command no longer needs to run execute()

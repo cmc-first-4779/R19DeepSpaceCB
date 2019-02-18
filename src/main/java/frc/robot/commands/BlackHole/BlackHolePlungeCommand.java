@@ -7,7 +7,9 @@
 
 package frc.robot.commands.BlackHole;
 
+
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
@@ -21,14 +23,17 @@ public class BlackHolePlungeCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+  // Put the BLACKHOLE PLUNGER STATUS into the Dashboard
+  SmartDashboard.putString("BLACKHOLE PLUNGER Status", "PLUNGE");
+  //  Activate the Plunger to eject the ball!!
+  Robot.blackHoleSubsystem.plunge();
+  //Set the Carry Mode to NONE
+  Robot.carryMode = RobotMap.CARRY_MODE_NONE;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blackHoleSubsystem.plunge();
-    //Set the Carry Mode to NONE
-    Robot.carryMode = RobotMap.CARRY_MODE_NONE;
   }
 
   // Make this return true when this Command no longer needs to run execute()
