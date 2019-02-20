@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.EventHorizon.EventHorizonRaiseArmCommand;
+import frc.robot.commands.EventHorizon.EventHorizonRetractCommand;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
@@ -46,7 +46,7 @@ public class EventHorizonSubsystem extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
     //
     //  DEFAULT COMMAND:  KEEP THE EVENT HORIZON ARMS RAISED UP
-     setDefaultCommand(new EventHorizonRaiseArmCommand());
+     setDefaultCommand(new EventHorizonRetractCommand());
   }
 
   // Spin the Event Horizon Wheels to suck in a ball into the "BLACK HOLE" cargo

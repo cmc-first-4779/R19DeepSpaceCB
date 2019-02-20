@@ -228,4 +228,10 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     arcadeDrive(0, output);
   }
 
+  public void setAutoSpeed(double speed){
+    double m_speed = speed;
+    Robot.warpDriveSubsystem.leftMaster.set(m_speed);
+    Robot.warpDriveSubsystem.rightMaster.set(m_speed);
+  }
+
 }
