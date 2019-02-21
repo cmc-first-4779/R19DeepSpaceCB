@@ -31,6 +31,9 @@ public class BlackHoleSubsystem extends Subsystem {
   //Declare our Plunger as a Double Solenoid
   DoubleSolenoid plunger;
 
+  //Angle the box should be at
+  double boxAngle = 0;
+
   public BlackHoleSubsystem() {
     //Initiate our plunger and our spinMotor
     plunger = new DoubleSolenoid(RobotMap.PCM_PORT_PLUNGER_PLUNGE, RobotMap.PCM_PORT_PLUNGER_RETRACT);
@@ -39,13 +42,23 @@ public class BlackHoleSubsystem extends Subsystem {
     Robot.initMotorController(spinMotor);
     //Config the encoder on the spinMotor
     spinMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+    spinMotor.setSelectedSensorPosition(0, 0, 0);
     //Set our PID values for our spinMotor
-    spinMotor.config_kP(0, 0, 0);
+    spinMotor.config_kP(0, 0.01, 0);
     spinMotor.config_kI(0, 0, 0);
     spinMotor.config_kD(0, 0, 0);
     spinMotor.config_kF(0, 0, 0);
     spinMotor.setSensorPhase(true);
     spinMotor.configPeakCurrentLimit(10);
+    spinMotor.configVoltageCompSaturation(12, 0);
+    spinMotor.enableVoltageCompensation(true);
+    spinMotor.config_IntegralZone(0, 50);
+    spinMotor.configMotionCruiseVelocity(500, 0);
+    spinMotor.configMotionAcceleration(500, 0);
+    spinMotor.configNominalOutputForward(0, 0);
+    spinMotor.configNominalOutputReverse(0, 0);
+    spinMotor.configPeakOutputForward(1, 0);
+    spinMotor.configPeakOutputReverse(-1, 0);
   }
 
   @Override
@@ -75,14 +88,24 @@ public class BlackHoleSubsystem extends Subsystem {
     //System.out.println("Encoder count: " + spinMotor.getSelectedSensorPosition());
   }
 
+  //Spin the Black Hole to a certain setpoint.
+  public void rotateToSetPoint() {
+    // do the math to figure out what the encoder count should be
+    // Move arm to set point
+  //  spinMotor.set(ControlMode.MotionMagic, boxAngle);
+    spinMotor.set(ControlMode.Position, boxAngle);
+    //System.out.println("Encoder count: " + spinMotor.getSelectedSensorPosition());
+  }
+
+
   //Eject the ball using the Plunger..  (Move the Plunger forward)
   public void plunge() {
-    plunger.set(DoubleSolenoid.Value.kForward);
+    plunger.set(DoubleSolenoid.Value.kReverse);
   }
 
   //Retract the plunger after ejecting the ball...
   public void retractPlunger() {
-    plunger.set(DoubleSolenoid.Value.kReverse);
+    plunger.set(DoubleSolenoid.Value.kForward);
   }
 
   //Stop the motor from spinning!!
@@ -99,4 +122,13 @@ public class BlackHoleSubsystem extends Subsystem {
     return spinMotor.getSelectedSensorPosition();
   }
 
+  public void setBoxAngle(double angle) {
+    System.out.println("Setting BoxAngle to " + angle);
+    boxAngle = angle;
+  }
+
+
+  public double getBoxAngle( ){
+    return boxAngle;
+  }
 }

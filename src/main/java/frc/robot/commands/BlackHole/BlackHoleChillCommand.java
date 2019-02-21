@@ -11,6 +11,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class BlackHoleChillCommand extends Command {
+  double rightStickYDeadZone = .25;
+  double boxAngleIncrement = 100;
+
+
   public BlackHoleChillCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -25,7 +29,20 @@ public class BlackHoleChillCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blackHoleSubsystem.stop();
+    double rightStickYAxis = -Robot.oi.getOperStick().getRawAxis(5);
+    System.out.println("Right Stick: " + rightStickYAxis);
+    if (rightStickYAxis > rightStickYDeadZone ) {
+      System.out.println("Increasing Angle");
+      Robot.blackHoleSubsystem.setBoxAngle(Robot.blackHoleSubsystem.getBoxAngle() + boxAngleIncrement);
+    } else if (rightStickYAxis < -rightStickYDeadZone) {
+      System.out.println("Decreasing Angle");
+      Robot.blackHoleSubsystem.setBoxAngle(Robot.blackHoleSubsystem.getBoxAngle() - boxAngleIncrement);
+    } else {
+      // do nothing, leave the box angle where it's at
+    }
+
+    Robot.blackHoleSubsystem.rotateToSetPoint();
+//    Robot.blackHoleSubsystem.stop();
     Robot.blackHoleSubsystem.retractPlunger();
   }
 

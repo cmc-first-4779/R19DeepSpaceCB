@@ -58,12 +58,14 @@ public class OI {
 		//driverStickBackButton.whenPressed(new BlastOffAutoCommand());
 
 		// Operator Stick
-		operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
-		operStickRightBumper.whenPressed(new EventHorizonRetractCommand());
-		operStickAButton.whenPressed(new BlackHolePlungeCommand());
-		operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
-		operStickXButton.whenPressed(new ArmSetPositionCommand(300000));
-		operStickBButton.whenPressed(new ArmSetPositionCommand(50000));
+		//operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
+		//operStickRightBumper.whenPressed(new EventHorizonRetractCommand());
+		//operStickAButton.whenPressed(new BlackHolePlungeCommand());
+		//operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
+		//operStickXButton.whenPressed(new EventHorizonLowerArmCommand());
+		//operStickBButton.whenPressed(new EventHorizonRaiseArmCommand());
+		//operStickXButton.whenPressed(new ArmSetPositionCommand(300000));
+		//operStickBButton.whenPressed(new ArmSetPositionCommand(50000));
 		//operStickXButton.whenPressed(new NoseConeOpenCommand());
 		//operStickBButton.whenPressed(new NoseConeCloseCommand());
 		//operStickBackButton.whenPressed(new BlastOffLaunchCommand());
@@ -71,7 +73,7 @@ public class OI {
 
 
 
-/* 		operStickLeftBumper.whenPressed(new PositionForCargoIntakeAutoCommand());
+/*		operStickLeftBumper.whenPressed(new PositionForCargoIntakeAutoCommand());
 		operStickRightBumper.whenPressed(new PositionForCargoCarryAutoCommand());
 		operStickBackButton.whenPressed(new PositionForHatchIntakeAutoCommand());
 		operStickStartButton.whenPressed(new PositionForHatchCarryAutoCommand());

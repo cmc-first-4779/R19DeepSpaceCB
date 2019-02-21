@@ -45,9 +45,17 @@ public class ArmsSubsytem extends Subsystem {
     armMaster.config_kF(0, 0, 0);
     armMaster.setSensorPhase(false);
     armMaster.configPeakCurrentLimit(10);
+    armMaster.configVoltageCompSaturation(12, 0);
     armMaster.enableVoltageCompensation(true);
     armMaster.setSelectedSensorPosition(0, 0, 0);
     armMaster.config_IntegralZone(0, 1000);
+    armMaster.configMotionCruiseVelocity(500, 0);
+    armMaster.configMotionAcceleration(500, 0);
+    armMaster.configNominalOutputForward(0, 0);
+    armMaster.configNominalOutputReverse(0, 0);
+    armMaster.configPeakOutputForward(1, 0);
+    armMaster.configPeakOutputReverse(-1, 0);
+
 
   }
 
@@ -56,7 +64,7 @@ public class ArmsSubsytem extends Subsystem {
 
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new MoveArmWithJoystickCommand());
+    //setDefaultCommand(new MoveArmWithJoystickCommand());
   }
 
   public void moveArm(double move) {
@@ -84,10 +92,15 @@ public class ArmsSubsytem extends Subsystem {
     armMaster.stopMotor();
   }
 
+  /**
+   * Sets the arm to a particular setpoint using motion magic control mode to make the movement smooth.
+   * @param height
+   */
   public void setSetPoint(double height) {
     // do the math to figure out what the encoder count should be
     // Move arm to set point
-    armMaster.set(ControlMode.Position, height);
+   // armMaster.set(ControlMode.Position, height);
+    armMaster.set(ControlMode.MotionMagic, height);
     // Put the Arm Subsystem SetPoint into the Dashboard
     SmartDashboard.putNumber("ARM SetPoint", height);
     //System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
