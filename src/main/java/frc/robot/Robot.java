@@ -14,6 +14,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
@@ -61,13 +62,20 @@ public class Robot extends TimedRobot {
 
   public static OI oi;
 
+  private int whatCarry;
+
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
+  SendableChooser<Double> phaserChooser = new SendableChooser<>();
+  SendableChooser<Integer> carryChooser = new SendableChooser<>();
+  SendableChooser<Integer> habitatChooser = new SendableChooser<>();
+
 
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
    */
+
   @Override
   public void robotInit() {
     //Initiate our subystems
@@ -79,6 +87,7 @@ public class Robot extends TimedRobot {
     phasersSubsystem = new PhasersSubsystem();
     armsSubsytem = new ArmsSubsytem();
     blastOffSubsystem = new BlastOffSubsystem();
+    
 
     //Initiate the OI LAST!!!!
     oi = new OI();
@@ -97,9 +106,38 @@ public class Robot extends TimedRobot {
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-    
-  }
 
+      //   Put the Phaser Choosers colors into the Subsystem
+    phaserChooser.setDefaultOption("Default", RobotMap.PHASERS_DEFAULT);
+    phaserChooser.addOption("Glitter", RobotMap.PHASERS_GLITTER_PALETTE);
+    phaserChooser.addOption("Ocean", RobotMap.PHASERS_OCEAN_PALETTE);
+    phaserChooser.addOption("Hot Pink!!!!!", RobotMap.PHASERS_HOT_PINK);
+    phaserChooser.addOption("Fire Large", RobotMap.PHASERS_FIRE_LARGE);
+    phaserChooser.addOption("Red", RobotMap.PHASERS_CHASE_RED);
+    phaserChooser.addOption("Blue", RobotMap.PHASERS_CHASE_BLUE);
+    
+    //starting position of NoseCone
+    carryChooser.setDefaultOption("Hatch", 0);
+    carryChooser.addOption("Cargo", 1);
+
+    //habitat we are starting from
+    habitatChooser.setDefaultOption("Low", 0);
+    habitatChooser.addOption("Medium", 1);
+    
+    //  Put all of the Subsystem Objects into the Smart Dashboard
+    SmartDashboard.putData(warpDriveSubsystem);
+    SmartDashboard.putData(armsSubsytem);
+    SmartDashboard.putData(eventHorizonSubsystem);
+    SmartDashboard.putData(blackHoleSubsystem);
+    SmartDashboard.putData(blastOffSubsystem);
+    SmartDashboard.putData(noseConeSubsystem);
+    SmartDashboard.putData(Robot.warpDriveSubsystem.gyro);
+
+
+
+    }
+
+  
   /**
    * This function is called every robot packet, no matter the mode. Use
    * this for items like diagnostics that you want ran during disabled,
@@ -140,6 +178,8 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     m_autonomousCommand = m_chooser.getSelected();
+    //Get what we are carrying..   Hatch or Cargo Ball
+    setWhatCarry(carryChooser.getSelected());
 
     /*
      * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -152,6 +192,18 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.start();
     }
+
+    //  Set the nose cone based off of the CarryChooser
+      //  If we are carrying a hatch
+    if (whatCarry == 0){
+      //Robot Opens the NoseCone for the first few swconds of the match to make sure a preloaded hatch stays
+      Robot.noseConeSubsystem.openNoseCone();
+    }
+    else {  //Else we are carrying a cargo ball
+      Robot.noseConeSubsystem.closeNoseCone();
+    }
+    
+    
 
   }
 
@@ -224,5 +276,9 @@ public class Robot extends TimedRobot {
     return DriverStation.getInstance().getMatchTime();
   }
 
+  // Define what we carry...   Hatch = 0, Cargo Ball = 1
+  private void setWhatCarry(int selected){
+    whatCarry = selected;
+  }
 
 }

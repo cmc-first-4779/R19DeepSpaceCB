@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
@@ -36,7 +37,8 @@ public class BlastOffSubsystem extends Subsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     //
-    //  NO DEFAULT COMMAND HERE!!!   WE CAN"T USE BLACKHOLE UNTIL THE VERY END
+    //  NO DEFAULT COMMAND HERE!!!   WE CAN"T USE BLASTOFF UNTIL THE VERY END
+    setDefaultCommand(new BlastOffLandCommand());
   }
 
   //Launches the Robot onto the top habitat platform

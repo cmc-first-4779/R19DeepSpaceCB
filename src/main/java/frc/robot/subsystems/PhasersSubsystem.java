@@ -41,6 +41,7 @@ public class PhasersSubsystem extends Subsystem {
   //Set the Phasers to a certain pattern
   public void setPhasers(double pattern){
     phasers.set(pattern);
+
   }
 
 }
