@@ -84,6 +84,7 @@ public class BlackHoleSubsystem extends Subsystem {
   public void rotateToSetPoint(double angle) {
     // do the math to figure out what the encoder count should be
     // Move arm to set point
+    boxAngle = angle;
     spinMotor.set(ControlMode.Position, angle);
     //System.out.println("Encoder count: " + spinMotor.getSelectedSensorPosition());
   }
