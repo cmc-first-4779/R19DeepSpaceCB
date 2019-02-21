@@ -13,6 +13,7 @@ import frc.robot.RobotMap;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Encoder;
 
 /**
  * Add your docs here.
@@ -23,6 +24,7 @@ public class BlastOffSubsystem extends Subsystem {
 
   Spark blastOffMotor;
   DoubleSolenoid blastOffSolenoid;
+  public Encoder encoder;
 
   public BlastOffSubsystem(){
     
@@ -30,6 +32,8 @@ public class BlastOffSubsystem extends Subsystem {
     blastOffMotor = new Spark(RobotMap.PWM_PORT_BLASTOFF);
     //Init our Double Solenoid
     blastOffSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_BLASTOFF_LAUNCH, RobotMap.PCM_PORT_BLASTOFF_LAND);
+    //Init the encoder
+    encoder = new Encoder(0,1);
   }
 
   @Override

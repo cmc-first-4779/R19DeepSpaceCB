@@ -32,6 +32,7 @@ public class BlastOffMoveReverseCommand extends Command {
   @Override
   protected void execute() {
     Robot.blastOffSubsystem.reverse();
+    SmartDashboard.putNumber("Blastoff Encoder", Robot.blastOffSubsystem.encoder.getRaw());
   }
 
   // Make this return true when this Command no longer needs to run execute()

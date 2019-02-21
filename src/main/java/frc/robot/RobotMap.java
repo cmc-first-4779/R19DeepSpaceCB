@@ -157,7 +157,7 @@ public static int WARPDRIVE_DISTANCE_LOW_HAB = 400; //placeholder
   /************** BLASTOFF / CLIMBER SETTINGS ***************************/
   /**********************************************************************/
   public static double BLASTOFF_FORWARD_SPEED = 0.7;  //volts
-  public static double BLASTOFF_REVERSE_SPEED = 0.5;  //volts
+  public static double BLASTOFF_REVERSE_SPEED = -0.5;  //volts
   public static double BLASTOFF_STOP_SPEED = 0.0;  //volts
   public static double BLASTOFF_TIMEOUT = 1.0;  //seconds
   public static double BLASTOFF_OK_TIME_TO_LAUNCH = 150;  //seconds
