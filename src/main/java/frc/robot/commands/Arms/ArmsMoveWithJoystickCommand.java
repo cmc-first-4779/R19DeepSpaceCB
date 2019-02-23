@@ -5,39 +5,55 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlackHole;
+package frc.robot.commands.Arms;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
-public class SpinBlackHoleCommand extends Command {
-private double angle;
 
-  public SpinBlackHoleCommand(double angle) {
+public class ArmsMoveWithJoystickCommand extends Command {
+  double leftStickYDeadZone = .25;
+  double armHeightIncrement = 50;
+
+  public ArmsMoveWithJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    this.angle = angle;
+    requires(Robot.armsSubsytem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-  // Put the BLACKHOLE Control Mode into the Dashboard
-  SmartDashboard.putString("BLACKHOLE Control Mode", "SpinBlackHole");
+    // Put the Arm Control Mode into the Dashboard
+    SmartDashboard.putString("ARM Mode", "JOYSTICK");
   }
 
   // Called repeatedly when this Command is scheduled to run
+  //Move the ARM using the Oper Joystick Y-axis
   @Override
   protected void execute() {
-    Robot.blackHoleSubsystem.setBoxAngle(angle * 4096 / 360);
-    SmartDashboard.putNumber("BLACKHOLE Encoder Position", Robot.blackHoleSubsystem.getEncoderPosition());    
+    // Move the ARM with the OperStick
+    double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(1);
+    if (leftStickYAxis > armHeightIncrement ) {
+      System.out.println("Increasing Height");
+      Robot.armsSubsytem.setArmHeight(Robot.armsSubsytem.getArmHeight() + armHeightIncrement);
+    } else if (leftStickYAxis < -leftStickYDeadZone) {
+      System.out.println("Decreasing Height");
+      Robot.armsSubsytem.setArmHeight(Robot.armsSubsytem.getArmHeight() - armHeightIncrement);
+    } else {
+      // do nothing, leave the arm height where it's at
+    }
+
+    Robot.armsSubsytem.setSetPoint();
+    // Put the Arm Encoder Position into the Dashboard
+    SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true

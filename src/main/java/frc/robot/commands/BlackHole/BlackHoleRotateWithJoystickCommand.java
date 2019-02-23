@@ -10,12 +10,12 @@ package frc.robot.commands.BlackHole;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class BlackHoleChillCommand extends Command {
+public class BlackHoleRotateWithJoystickCommand extends Command {
   double rightStickYDeadZone = .25;
   double boxAngleIncrement = 50;
 
 
-  public BlackHoleChillCommand() {
+  public BlackHoleRotateWithJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blackHoleSubsystem);

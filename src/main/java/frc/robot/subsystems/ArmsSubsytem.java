@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.commands.Arms.MoveArmWithJoystickCommand;
+import frc.robot.commands.Arms.ArmsMoveWithJoystickCommand;
 
 /**
  * Add your docs here.
@@ -65,7 +65,7 @@ public class ArmsSubsytem extends Subsystem {
 
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new MoveArmWithJoystickCommand());
+    setDefaultCommand(new ArmsMoveWithJoystickCommand());
   }
 
 /*   public void moveArm(double move) {
