@@ -58,8 +58,8 @@ public class OI {
 		//driverStickBackButton.whenPressed(new BlastOffAutoCommand());
 
 		// Operator Stick
-		//operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
-		//operStickRightBumper.whenPressed(new EventHorizonRetractCommand());
+		operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
+		operStickRightBumper.whenPressed(new EventHorizonRetractCommand());
 		//operStickAButton.whenPressed(new BlackHolePlungeCommand());
 		//operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
 		//operStickXButton.whenPressed(new EventHorizonLowerArmCommand());

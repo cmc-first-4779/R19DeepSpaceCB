@@ -12,6 +12,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.BlackHole.BlackHoleRotateWithJoystickCommand;
@@ -93,14 +94,26 @@ public class BlackHoleSubsystem extends Subsystem {
   //Spin the Black Hole to a certain setpoint.
   public void rotateToSetPoint() {
     // do the math to figure out what the encoder count should be
-    // Move arm to set point
+    // Move arm to set point if valid
+    if (validAngleSet()){
     spinMotor.set(ControlMode.MotionMagic, boxAngle);
+    } else {
+      SmartDashboard.putString("BlackHoleSubsystem", "Angle: " + boxAngle + " Out of valid Range");
+    }
     //spinMotor.set(ControlMode.Position, boxAngle);
     //System.out.println("Encoder count: " + spinMotor.getSelectedSensorPosition());
   }
 
 
-  //Eject the ball using the Plunger..  (Move the Plunger forward)
+  private boolean validAngleSet() {
+    if (boxAngle > RobotMap.BLACK_HOLE_MAX_NEGATIVE_ANGLE && boxAngle < RobotMap.BLACK_HOLE_MAX_POSITIVE_ANGLE) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Eject the ball using the Plunger.. (Move the Plunger forward)
   public void plunge() {
     plunger.set(DoubleSolenoid.Value.kReverse);
   }
