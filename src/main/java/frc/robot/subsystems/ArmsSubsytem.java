@@ -101,9 +101,17 @@ public class ArmsSubsytem extends Subsystem {
     // do the math to figure out what the encoder count should be
     // Move arm to set point
    // armMaster.set(ControlMode.Position, height);
-    armMaster.set(ControlMode.MotionMagic, armHeight);
-    // Put the Arm Subsystem SetPoint into the Dashboard
-    SmartDashboard.putNumber("ARM SetPoint", armHeight);
+    //CHECK TO MAKE SURE WE ARE NOT GOING ABOVE OUR MAX HEIGHT!!!
+    if (armHeight < RobotMap.ARM_MAX_HEIGHT){
+      armMaster.set(ControlMode.MotionMagic, armHeight);
+          // Put the Arm Subsystem SetPoint into the Dashboard
+      SmartDashboard.putNumber("ARM SetPoint", armHeight);
+    }
+    else {
+      System.out.println("ARM AT MAX HEIGHT!  I REFUSE TO TIP THIS ROBOT!!");
+    }
+    
+
     //System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
     //Put the Arm Encoder Position into the Dashboard
     SmartDashboard.putNumber("ARM Position", getEncoderPosition());
