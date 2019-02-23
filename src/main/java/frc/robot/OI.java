@@ -19,8 +19,8 @@ import frc.robot.autoCommands.*;
 public class OI {
 	// Declare the two joysticks and initate them on the two appropriate USB ports
 	// recognized by the Drivers Station.
-	Joystick driverStick = new Joystick(RobotMap.DRIVERSTICK_USB_PORT);
-	Joystick operStick = new Joystick(RobotMap.OPERSTICK_USB_PORT);
+	Joystick driverStick = new Joystick(XBoxJoystickMap.DRIVERSTICK_USB_PORT);
+	Joystick operStick = new Joystick(XBoxJoystickMap.OPERSTICK_USB_PORT);
 
 	public OI() {
 		//// CREATING BUTTONS
@@ -32,24 +32,24 @@ public class OI {
 		// Button button = new JoystickButton(stick, buttonNumber);
 
 		// Declare and Initiate all of the Buttons on the OperStick
-		JoystickButton operStickYButton = new JoystickButton(operStick, RobotMap.Y_BUTTON);
-		JoystickButton operStickXButton = new JoystickButton(operStick, RobotMap.X_BUTTON);
-		JoystickButton operStickAButton = new JoystickButton(operStick, RobotMap.A_BUTTON);
-		JoystickButton operStickBButton = new JoystickButton(operStick, RobotMap.B_BUTTON);
-		JoystickButton operStickLeftBumper = new JoystickButton(operStick, RobotMap.LEFT_BUMPER_BUTTON);
-		JoystickButton operStickRightBumper = new JoystickButton(operStick, RobotMap.RIGHT_BUMPER_BUTTON);
-		JoystickButton operStickBackButton = new JoystickButton(operStick, RobotMap.BACK_BUTTON);
-		JoystickButton operStickStartButton = new JoystickButton(operStick, RobotMap.START_BUTTON);
+		JoystickButton operStickYButton = new JoystickButton(operStick, XBoxJoystickMap.Y_BUTTON);
+		JoystickButton operStickXButton = new JoystickButton(operStick, XBoxJoystickMap.X_BUTTON);
+		JoystickButton operStickAButton = new JoystickButton(operStick, XBoxJoystickMap.A_BUTTON);
+		JoystickButton operStickBButton = new JoystickButton(operStick, XBoxJoystickMap.B_BUTTON);
+		JoystickButton operStickLeftBumper = new JoystickButton(operStick, XBoxJoystickMap.LEFT_BUMPER_BUTTON);
+		JoystickButton operStickRightBumper = new JoystickButton(operStick, XBoxJoystickMap.RIGHT_BUMPER_BUTTON);
+		JoystickButton operStickBackButton = new JoystickButton(operStick, XBoxJoystickMap.BACK_BUTTON);
+		JoystickButton operStickStartButton = new JoystickButton(operStick, XBoxJoystickMap.START_BUTTON);
 
 		// Declare and Initiate all of the Buttons on the Driver Stick
-		JoystickButton driverStickYButton = new JoystickButton(driverStick, RobotMap.Y_BUTTON);
-		JoystickButton driverStickXButton = new JoystickButton(driverStick, RobotMap.X_BUTTON);
-		JoystickButton driverStickAButton = new JoystickButton(driverStick, RobotMap.A_BUTTON);
-		JoystickButton driverStickBButton = new JoystickButton(driverStick, RobotMap.B_BUTTON);
-		JoystickButton driverStickLeftBumper = new JoystickButton(driverStick, RobotMap.LEFT_BUMPER_BUTTON);
-		JoystickButton driverStickRightBumper = new JoystickButton(driverStick, RobotMap.RIGHT_BUMPER_BUTTON);
-		JoystickButton driverStickBackButton = new JoystickButton(driverStick, RobotMap.BACK_BUTTON);
-		JoystickButton driverStickStartButton = new JoystickButton(driverStick, RobotMap.START_BUTTON);
+		JoystickButton driverStickYButton = new JoystickButton(driverStick, XBoxJoystickMap.Y_BUTTON);
+		JoystickButton driverStickXButton = new JoystickButton(driverStick, XBoxJoystickMap.X_BUTTON);
+		JoystickButton driverStickAButton = new JoystickButton(driverStick, XBoxJoystickMap.A_BUTTON);
+		JoystickButton driverStickBButton = new JoystickButton(driverStick, XBoxJoystickMap.B_BUTTON);
+		JoystickButton driverStickLeftBumper = new JoystickButton(driverStick, XBoxJoystickMap.LEFT_BUMPER_BUTTON);
+		JoystickButton driverStickRightBumper = new JoystickButton(driverStick, XBoxJoystickMap.RIGHT_BUMPER_BUTTON);
+		JoystickButton driverStickBackButton = new JoystickButton(driverStick, XBoxJoystickMap.BACK_BUTTON);
+		JoystickButton driverStickStartButton = new JoystickButton(driverStick, XBoxJoystickMap.START_BUTTON);
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick

@@ -17,45 +17,26 @@ public class RobotMap {
 
 /*********************************************************************************/
 /*********************************************************************************/
-/** SETTINGS THAT DEFINE JOYSTICKS, RIO PORTS AND CONTROL MODULES  ***************/
+/** SETTINGS THAT DEFINE PCM, PWM, DIO PORTS AND CONTROL MODULES  ***************/
 /***(Do NOT Change these unless we have to rewire something on the Robot)*********/
 /*********************************************************************************/
 /*********************************************************************************/
 
-//***************** JOYSTICK USB PORTS *******************************************/
-	//Map out the Joystick #'s in the DriverStation USB Ports
-	public static final int DRIVERSTICK_USB_PORT = 0;
-	public static final int OPERSTICK_USB_PORT = 1;
-  
-  //***************** JOYSTICK BUTTONS *******************************************/
-	//These are the buttons on the Joysticks as recognized by the Drivers Station. You can call in other subsystems.
-	public static final int A_BUTTON = 1;
-	public static final int B_BUTTON = 2;
-	public static final int X_BUTTON = 3;
-	public static final int Y_BUTTON = 4;
-	public static final int LEFT_BUMPER_BUTTON = 5;
-	public static final int RIGHT_BUMPER_BUTTON = 6;
-	public static final int BACK_BUTTON = 7;
-	public static final int START_BUTTON = 8;
-	public static final int X_AXIS_STICK = 0;
-	public static final int Y_AXIS_STICK = 1;
-	public static final int LEFT_TRIGGER = 2;
-	public static final int RIGHT_TRIGGER = 3;
 
 
    //***************** CAN ADDRESSES *******************************************/
-  public static final int CAN_ADDRESS_LEFT_FRONT_DRIVE = 1;
-  public static final int CAN_ADDRESS_LEFT_REAR_DRIVE  = 11;
-  public static final int CAN_ADDRESS_RIGHT_FRONT_DRIVE = 2;
-  public static final int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;
-  public static final int CAN_ADDRESS_ARM_MASTER = 5;
-  public static final int CAN_ADDRESS_ARM_SLAVE = 15;  //Change back to 14 once we have access to the board
-  public static final int CAN_ADDRESS_BLACKHOLE = 3;
+  public static final int CAN_ADDRESS_LEFT_FRONT_DRIVE = 1;  // Front Left Drive Motor  (TALON)
+  public static final int CAN_ADDRESS_LEFT_REAR_DRIVE  = 11;  //  Rear Left Drive Motor  (VICTOR)
+  public static final int CAN_ADDRESS_RIGHT_FRONT_DRIVE = 2;  /// Front Right Drive Motor  (TALON)
+  public static final int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;  //  Rear Right Drive Motor  (VICTOR)
+  public static final int CAN_ADDRESS_ARM_MASTER = 5;  //  ARM Master Motor (TALON)
+  public static final int CAN_ADDRESS_ARM_SLAVE = 15;  //  ARM Slave Motor (TALON)
+  public static final int CAN_ADDRESS_BLACKHOLE = 3;  //  BLACKHOLE Spin Motor (Talon)
 
   //***************** PWM PORTS ON THE ROBORIO **********************************/
-  public static final int PWM_PORT_EVENTHORIZON_WHEELS = 0;
-  public static final int PWM_PORT_BLASTOFF = 1;
-  public static final int PWM_PORT_PHASERS = 2;
+  public static final int PWM_PORT_EVENTHORIZON_WHEELS = 0;  // PWM for Cargo Intake Wheel Motor (SPARK)
+  public static final int PWM_PORT_BLASTOFF = 1;  //  PWM for BLASTOFF Motor Wheels (SPARK)
+  public static final int PWM_PORT_PHASERS = 2;  //  PWM for BLINKIN LED Driver (Looks like a SPARK, but not)
 
   //************** PCM (PNEUMATICS CONTROL MODULE) PORTS *************************/
   public static final int PCM_PORT_EVENTHORIZON_RAISE = 0;   //Green Pneumatic Tubing
@@ -69,12 +50,12 @@ public class RobotMap {
  
 
   /********************** GYRO SPI PORT **************************************************/
-  public static final int SPI_PORT_AHRS = 0;
+  public static final int SPI_PORT_AHRS = 0;  //Using Nav-X GYRO THIS YEAR
 
   /*************************DIO PORTS ************************************************* */
-  public static final int DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A = 0;
-  public static final int DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B = 1;
-  public static final int DIO_PORT_BLACKHOLE_LIMITSWITCH= 2;
+  public static final int DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A = 0;  //Blastoff Spark Motor Encoder Channel A
+  public static final int DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B = 1;  //Blastoff Spark Motor Encoder Channel B
+  public static final int DIO_PORT_EVENTHORIZON_LIMITSWITCH = 2;  // Limit Switch for detecting if a ball is in the box
 
   
 /*********************************************************************************/

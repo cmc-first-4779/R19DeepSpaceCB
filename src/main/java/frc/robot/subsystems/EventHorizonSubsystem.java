@@ -46,7 +46,7 @@ public class EventHorizonSubsystem extends Subsystem {
       RobotMap.PCM_PORT_EVENTHORIZON_LOWER);
 
     // Initiate our Limit Switch and Limit Counter
-    limitSwitch = new DigitalInput(RobotMap.DIO_PORT_BLACKHOLE_LIMITSWITCH);
+    limitSwitch = new DigitalInput(RobotMap.DIO_PORT_EVENTHORIZON_LIMITSWITCH);
     limitCounter = new Counter(limitSwitch);
   }
 
