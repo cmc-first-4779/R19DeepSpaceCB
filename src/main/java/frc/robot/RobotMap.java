@@ -22,8 +22,6 @@ public class RobotMap {
 /*********************************************************************************/
 /*********************************************************************************/
 
-
-
    //***************** CAN ADDRESSES *******************************************/
   public static final int CAN_ADDRESS_LEFT_FRONT_DRIVE = 1;  // Front Left Drive Motor  (TALON)
   public static final int CAN_ADDRESS_LEFT_REAR_DRIVE  = 11;  //  Rear Left Drive Motor  (VICTOR)

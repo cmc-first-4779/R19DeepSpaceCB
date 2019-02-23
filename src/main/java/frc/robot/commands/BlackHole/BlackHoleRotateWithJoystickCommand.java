@@ -7,8 +7,10 @@
 
 package frc.robot.commands.BlackHole;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.XBoxJoystickMap;
 
 public class BlackHoleRotateWithJoystickCommand extends Command {
   double rightStickYDeadZone = .25;
@@ -31,7 +33,7 @@ public class BlackHoleRotateWithJoystickCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double rightStickYAxis = -Robot.oi.getOperStick().getRawAxis(5);
+    double rightStickYAxis = -Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS);
     if (rightStickYAxis > rightStickYDeadZone ) {
       System.out.println("Increasing Angle");
       Robot.blackHoleSubsystem.setBoxAngle(Robot.blackHoleSubsystem.getBoxAngle() + boxAngleIncrement);
