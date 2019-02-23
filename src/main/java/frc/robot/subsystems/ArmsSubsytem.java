@@ -17,7 +17,7 @@ import frc.robot.RobotMap;
 import frc.robot.commands.Arms.ArmsMoveWithJoystickCommand;
 
 /**
- * Add your docs here.
+ *   ARM Subsystem - We use this to move our Robot's Arms up and down..
  */
 public class ArmsSubsytem extends Subsystem {
   // Put methods for controlling this subsystem
@@ -26,6 +26,8 @@ public class ArmsSubsytem extends Subsystem {
   //Declare our two Talons to drive our Arm Motors.
   public WPI_TalonSRX armMaster;
   public WPI_TalonSRX armSlave;
+
+  //   Set the starting armHeight to ZERO.
   public double armHeight = 0;
 
 
@@ -63,8 +65,7 @@ public class ArmsSubsytem extends Subsystem {
   @Override
   public void initDefaultCommand() {
 
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    // Default Command for the armSubystem is to move the Arm with the Joystick
     setDefaultCommand(new ArmsMoveWithJoystickCommand());
   }
 
@@ -122,14 +123,17 @@ public class ArmsSubsytem extends Subsystem {
     armMaster.setSelectedSensorPosition(0);
   }
 
+  //  Get the ARM Encoder position
   public double getEncoderPosition() {
     return armMaster.getSelectedSensorPosition();
   }
 
+  //   Set the ARM Height
   public void setArmHeight(double height) {
     this.armHeight = height;
   }
 
+  //  Return the ARM height..
   public double getArmHeight() {
     return armHeight;
   }

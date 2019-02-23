@@ -55,7 +55,7 @@ public class EventHorizonSubsystem extends Subsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     //
-    //  DEFAULT COMMAND:  KEEP THE EVENT HORIZON ARMS RAISED UP
+    //  DEFAULT COMMAND:  KEEP THE EVENT HORIZON ARMS RAISED UP AND THE MOTORS STOPPED
      setDefaultCommand(new EventHorizonRetractCommand());
   }
 
@@ -86,6 +86,7 @@ public class EventHorizonSubsystem extends Subsystem {
     eventHorizonSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
+  //  This command lowers the Event Horizon Arm and then starts the wheels..
   public void suckInCargo()  {
     //  Lower the Event Horizon Arm...
     lowerEventHorizonArm();
@@ -93,6 +94,7 @@ public class EventHorizonSubsystem extends Subsystem {
     startWheelMotor();
   }
 
+  //   Stops the wheel motors and then raises the Event Horizon Arm
   public void retractEventHorizon()  {
     //  Stop the Wheel Motors
     stopWheelMotor();

@@ -50,12 +50,15 @@ public class RobotMap {
   /********************** GYRO SPI PORT **************************************************/
   public static final int SPI_PORT_AHRS = 0;  //Using Nav-X GYRO THIS YEAR
 
-  /*************************DIO PORTS ************************************************* */
+  /************************* DIO PORTS ************************************************* */
   public static final int DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A = 0;  //Blastoff Spark Motor Encoder Channel A
   public static final int DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B = 1;  //Blastoff Spark Motor Encoder Channel B
   public static final int DIO_PORT_EVENTHORIZON_LIMITSWITCH = 2;  // Limit Switch for detecting if a ball is in the box
 
-  
+  /**************************  ANALOG PORTS  ****************************************** */
+  public static final int ANALOG_PORT_BLASTOFF_PROXIMITY_SENSOR = 0;
+
+
 /*********************************************************************************/
 /*********************************************************************************/
 /*************** SETTINGS WE CAN CHANGE TO TUNE THE ROBOT  ***********************/
@@ -111,6 +114,8 @@ public static int WARPDRIVE_DISTANCE_LOW_HAB = 400; //placeholder
   public static double ARM_RAISE_VOLTAGE = 7.0;  //volts
   public static double ARM_LOWER_VOLTAGE = -3.0;  //volts
   public static double ARM_MAX_HEIGHT = 2929292;   //placeholder..   Need to fix..
+  public static double ARM_LEFTSTICK_Y_DEAD_ZONE = 0.25;  // Deadzone for moving the arm
+  public static double ARM_HEIGHT_INCREMENT = 50;  //  Increment the arm by 50 when moving by Joystick
   public static double ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH = 300000;  //placeholder..  Need to fix
   public static double ARM_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = 200000;  //placeholder..  Need to fix
   public static double ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH = 100000;  //placeholder..  Need to fix
@@ -132,7 +137,12 @@ public static int WARPDRIVE_DISTANCE_LOW_HAB = 400; //placeholder
   public static double BLASTOFF_REVERSE_SPEED = -0.5;  //volts
   public static double BLASTOFF_STOP_SPEED = 0.0;  //volts
   public static double BLASTOFF_TIMEOUT = 1.0;  //seconds
-  public static double BLASTOFF_OK_TIME_TO_LAUNCH = 150;  //seconds
+  public static double BLASTOFF_OK_TIME_TO_LAUNCH = 29;  //seconds remaining in the game
+  //  Proxmity Sensor Math..
+  //    5V Power Supply yields to a 4.88mv per 5mm
+  //    Output Voltage Range: (with 5V):  293mV per 300mm and 4885mV for 5000mm
+  //      0.295 volts should get us within 30.5cm
+  public static double BLASTOFF_PROXIMITY_SENSOR_THRESHOLD_VOLTAGE = 0.295;  //volts   
 
 
    /****************************************************************************/

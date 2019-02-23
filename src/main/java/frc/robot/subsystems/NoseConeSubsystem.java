@@ -14,12 +14,12 @@ import frc.robot.RobotMap;
 import frc.robot.commands.NoseCone.*;
 
 /**
- * Add your docs here.
+ *   NOSE CONE Subsytem - This is what carries the Hatch..
  */
 public class NoseConeSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-
+  //
   //Declare our noseCone as a Double Solenoid
   DoubleSolenoid noseCone;
 
@@ -30,9 +30,7 @@ public class NoseConeSubsystem extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    //
-    // DEFAULT COMMAND:  Close the noseCone!!
+     // DEFAULT COMMAND:  Close the noseCone!!
     setDefaultCommand(new NoseConeCloseCommand());
   }
 

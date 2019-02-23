@@ -105,6 +105,9 @@ public class BlackHoleSubsystem extends Subsystem {
   }
 
 
+  //   Return TRUE if we are rotating the Blackhole Box with valid angles..
+  //    Return FALSE if we are rotating it out of range...
+  //    Don't want to break the box...   
   private boolean validAngleSet() {
     if (boxAngle > RobotMap.BLACK_HOLE_MAX_NEGATIVE_ANGLE && boxAngle < RobotMap.BLACK_HOLE_MAX_POSITIVE_ANGLE) {
       return true;

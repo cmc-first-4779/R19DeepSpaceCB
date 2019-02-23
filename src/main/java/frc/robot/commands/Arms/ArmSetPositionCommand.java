@@ -19,12 +19,14 @@ public class ArmSetPositionCommand extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.armsSubsytem);
+    //   Set the Arm Position to the position we told it..
     m_setPostion = position;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {    
+    //   Set the Arm Height to the position we want
     Robot.armsSubsytem.setArmHeight(m_setPostion);
     // Put the Arm Subsystem SetPoint into the Dashboard
     SmartDashboard.putNumber("ARM SetPoint", m_setPostion);

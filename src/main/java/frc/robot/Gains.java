@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+//  This class is to simplify the entering of PID settings into our Talons and Victors..
+
 public class Gains {
 	public final double kP;
 	public final double kI;

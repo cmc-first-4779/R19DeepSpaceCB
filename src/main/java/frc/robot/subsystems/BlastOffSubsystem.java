@@ -8,12 +8,17 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
+
+import javax.swing.text.StyleContext.SmallAttributeSet;
+
+import edu.wpi.first.wpilibj.AnalogInput;
 
 /**
  * Add your docs here.
@@ -22,26 +27,29 @@ public class BlastOffSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
+  //  Declare the BlastOff Motor
   Spark blastOffMotor;
+  //  Decare the BlastOff Solenoid
   DoubleSolenoid blastOffSolenoid;
+  //  Declare the Blastoff Wheel Encoder
   public Encoder encoder;
+  //  Declare the Proximity Sensor as an Analog Sensor
+  AnalogInput proximitySensor;
 
   public BlastOffSubsystem(){
-    
     //Init our Spark Motor Controller
     blastOffMotor = new Spark(RobotMap.PWM_PORT_BLASTOFF);
     //Init our Double Solenoid
     blastOffSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_BLASTOFF_LAUNCH, RobotMap.PCM_PORT_BLASTOFF_LAND);
     //Init the encoder
     encoder = new Encoder(RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A, RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B);
+    //  Init the Proximity Sensor
+    proximitySensor = new AnalogInput(RobotMap.ANALOG_PORT_BLASTOFF_PROXIMITY_SENSOR);
   }
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    //
-    //  NO DEFAULT COMMAND HERE!!!   WE CAN"T USE BLASTOFF UNTIL THE VERY END
+    // Default Command for the Blastoff subsystem is the retract / "land" the pneumatics
     setDefaultCommand(new BlastOffLandCommand());
   }
 
@@ -51,29 +59,52 @@ public class BlastOffSubsystem extends Subsystem {
     double matchTime;
     matchTime = Robot.getMatchTime();
     //LAUNCH ON TO THE PLATFORM IF AND ONLY IF, WE ARE IN THE ENDGAME AND READY TO USE THE BIG SOLENOID!!!!
-    if (matchTime > RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH){
-      blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
+    //  Check to see if we are NOT in Auton...
+    if (!Robot.inAutonmousMode()){
+      //   We have have less than or equal to "OK TIME TO LAUNCH" seconds remaining in the match..
+      if (matchTime <= RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH){
+        //  If the Proximity Sensor voltage is less than our threshold and we are close to the high hab platform
+        if (getProximityVoltage() <= RobotMap.BLASTOFF_PROXIMITY_SENSOR_THRESHOLD_VOLTAGE){
+          blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
+          SmartDashboard.putNumber("Proximity Sensor", getProximityVoltage());
+        }  
+        else{
+          System.out.println("Too far from the platform.  Voltage:  " + getProximityVoltage());  
+          SmartDashboard.putNumber("Proximity Sensor", getProximityVoltage());
+        }
+      } 
+      else {
+        System.out.println("Match time does not equal:  " + RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH);
+      }
     }
-    else {
-      System.out.println("Match time does not equal:  " + RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH);
+    else{
+      System.out.println("We are in Auton.  No Blastoff for you!!");
     }
   }
 
+
+  //   Pull the pneumatic back up
   public void land(){
     blastOffSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
+  //  Move the robot forward with the blastoff wheels onto the high Habitat Platform
   public void forward(){
     blastOffMotor.set(RobotMap.BLASTOFF_FORWARD_SPEED);
   }
 
+  //  Reverse the motors on the Blastoff Foot
   public void reverse(){
     blastOffMotor.set(RobotMap.BLASTOFF_REVERSE_SPEED);
   }
 
+  //  Stop the motors on the Blastoff foot
   public void stopMotor(){
     blastOffMotor.stopMotor();
   }
 
+  public double getProximityVoltage() {
+    return proximitySensor.getVoltage();
+  }
 
 }

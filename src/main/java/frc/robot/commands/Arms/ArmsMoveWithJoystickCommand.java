@@ -10,11 +10,13 @@ package frc.robot.commands.Arms;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 
 public class ArmsMoveWithJoystickCommand extends Command {
-  double leftStickYDeadZone = .25;
-  double armHeightIncrement = 50;
+
+  double leftStickYDeadZone = RobotMap.ARM_LEFTSTICK_Y_DEAD_ZONE;
+  double armHeightIncrement = RobotMap.ARM_HEIGHT_INCREMENT;
 
   public ArmsMoveWithJoystickCommand() {
     // Use requires() here to declare subsystem dependencies

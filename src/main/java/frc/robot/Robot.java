@@ -278,6 +278,13 @@ public class Robot extends TimedRobot {
     return DriverStation.getInstance().getMatchTime();
   }
 
+  //  Returns the mode of the match we are in..    
+  //    *   Auto, Telop, etc.
+  public static boolean inAutonmousMode(){
+    return DriverStation.getInstance().isAutonomous();
+
+  }
+
   // Define what we carry...   Hatch = 0, Cargo Ball = 1
   private void setWhatCarry(int selected){
     whatCarry = selected;

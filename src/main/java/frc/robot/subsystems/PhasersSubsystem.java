@@ -17,12 +17,12 @@ import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 
 
 /**
- * Add your docs here.
+ *   Phasers Subsystem - Our LED Drivers to make our robot look cool
  */
 public class PhasersSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-
+  //
   //Declare our Blinkin LED Driver 'phasers' as a SPARK!
   Spark phasers;
   
