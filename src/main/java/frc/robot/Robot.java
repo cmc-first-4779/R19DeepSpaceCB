@@ -32,6 +32,7 @@ import frc.robot.subsystems.BlastOffSubsystem;
 import frc.robot.subsystems.NoseConeSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.PhasersSubsystem;
+import frc.robot.PhaserConstants;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -295,6 +296,16 @@ public class Robot extends TimedRobot {
     DriverStation.Alliance color;
     color = DriverStation.getInstance().getAlliance();
     return color;
+  }
+
+  //  If we want to use this..   Set our LED Color to our Alliance color..
+  public void setPhaserColorToAllianceColor(){
+    if (getAllianceColor() == DriverStation.Alliance.Blue){
+      Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_CHASE_BLUE);
+    }
+    else{
+      Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_CHASE_RED);
+    }
   }
 
 }
