@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -288,6 +289,12 @@ public class Robot extends TimedRobot {
   // Define what we carry...   Hatch = 0, Cargo Ball = 1
   private void setWhatCarry(int selected){
     whatCarry = selected;
+  }
+
+  public static Alliance getAllianceColor(){
+    DriverStation.Alliance color;
+    color = DriverStation.getInstance().getAlliance();
+    return color;
   }
 
 }
