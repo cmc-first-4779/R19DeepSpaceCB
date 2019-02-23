@@ -16,8 +16,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.DigitalInput;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.commands.BlackHole.BlackHoleChillCommand;
-import frc.robot.commands.BlackHole.SpinBlackHoleCommand;
+import frc.robot.commands.BlackHole.BlackHoleRotateWithJoystickCommand;
 
 
 /**
@@ -73,7 +72,7 @@ public class BlackHoleSubsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     //Default Command:   BLACK HOLE STAYS WHERE IT IS AT!!
-    setDefaultCommand(new BlackHoleChillCommand());
+    setDefaultCommand(new BlackHoleRotateWithJoystickCommand());
   }
 
   //Spin the Black Hole Cargo Box around

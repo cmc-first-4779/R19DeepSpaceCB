@@ -12,11 +12,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 
-public class MoveArmWithJoystickCommand extends Command {
+public class ArmsMoveWithJoystickCommand extends Command {
   double leftStickYDeadZone = .25;
   double armHeightIncrement = 50;
 
-  public MoveArmWithJoystickCommand() {
+  public ArmsMoveWithJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.armsSubsytem);
