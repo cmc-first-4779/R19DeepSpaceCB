@@ -10,6 +10,7 @@ package frc.robot.autoCommands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Misc.TimerCommand;
+import frc.robot.PhaserConstants;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
@@ -41,7 +42,7 @@ public class PositionForCargoCarryAutoCommand extends CommandGroup {
        
     
     // Set our Phasers...
-    addParallel(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_RED));
+    addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_STROBE_RED));
     // Rotate the Blackhole into place to pick up the cargo
     addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY));
     //  Make sure the Event Horizon motors are not spinning

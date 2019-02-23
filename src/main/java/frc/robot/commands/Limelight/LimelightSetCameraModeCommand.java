@@ -9,6 +9,7 @@ package frc.robot.commands.Limelight;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.LimeLightConstants;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
@@ -29,9 +30,9 @@ public class LimeLightSetCameraModeCommand extends Command {
     //   Set the Camera Mode on the Limelight so that the Driver can use it
     Robot.limeLightSubsystem.setCameraMode(m_cameraMode);
     //   Set the LED Mode to OFF since the driver is driving...
-    if (m_cameraMode == RobotMap.LIMELIGHT_CAMMODE_DRIVER) {
+    if (m_cameraMode == LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER) {
       //Turn the LEDs Off
-      Robot.limeLightSubsystem.setLEDMode(RobotMap.LIMELIGHT_LEDMODE_OFF);
+      Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_OFF);
       //  Put the Camera Mode in the Dashboard
       SmartDashboard.putString("LIMELIGHT CAMERA MODE", "Driver");
       //  Put the LED Mode in the Dashboard
@@ -39,7 +40,7 @@ public class LimeLightSetCameraModeCommand extends Command {
     }
     else {
       // Turn the LEDs On
-      Robot.limeLightSubsystem.setLEDMode(RobotMap.LIMELIGHT_LEDMODE_ON);
+      Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_ON);
       //  Put the Camera Mode in the Dashboard
       SmartDashboard.putString("LIMELIGHT CAMERA MODE", "Vision");
       //  Put the LED Mode in the Dashboard

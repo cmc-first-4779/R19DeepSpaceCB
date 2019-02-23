@@ -14,6 +14,7 @@ import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.NoseCone.*;
+import frc.robot.PhaserConstants;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.EventHorizon.EventHorizonRaiseArmCommand;
 
@@ -48,6 +49,6 @@ public class PositionForHatchIntakeAutoCommand extends CommandGroup {
     addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD));
     //Close the NoseCone
     addParallel(new NoseConeCloseCommand());
-    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_RED));
+    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_STROBE_RED));
   }
 }

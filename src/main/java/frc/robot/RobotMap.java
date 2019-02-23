@@ -98,17 +98,10 @@ public static int WARPDRIVE_DISTANCE_LOW_HAB = 400; //placeholder
 
   /************************************************************************/
   /***************LIMELIGHT / VISION SETTINGS *****************************/
+  /**********These variables can change to be tuned..******************** */
+  /********** Non-tunable variables are in LimelightConstants.java  ***** */
   /************************************************************************/
   //
-  //  LIMELIGHT Camera Modes
-  public static final double LIMELIGHT_CAMMODE_VISION = 0; // Vision Processing Mode = 0
-  public static final double LIMELIGHT_CAMMODE_DRIVER = 1; // Driver Mode = 1
-  //  LIMELIGHT LED Modes
-  public static final double LIMELIGHT_LEDMODE_PIPELINE_DEFAULT = 0;  // Uses the Default LED Mode for the Pipeline
-  public static final double LIMELIGHT_LEDMODE_OFF = 1; // Force LED Mode Off
-  public static final double LIMELIGHT_LEDMODE_BLINK = 2; // Force LED Mode Blink
-  public static final double LIMELIGHT_LEDMODE_ON = 3; // Force LED Mode On
-  //  LIMELIGHT Vision Pipelines
   public static final double LIMELIGHT_PIPELINE_ROCKET_HATCH = 0; // Use the Rocket Hatch Pipeline
   public static final double LIMELIGHT_PIPELINE_ROCKET_CARGO = 1;  //Use the Rocket CARGO Pipeline
   public static final double LIMELINE_PIPELINE_CARGOSHIP_HATCH = 2;  // Use the Cargo Ship Hatch Pipeline
@@ -116,18 +109,11 @@ public static int WARPDRIVE_DISTANCE_LOW_HAB = 400; //placeholder
   public static final double LIMELIGHT_PIPELINE_HATCHCOVER = 4;  // Use the Hatch Cover Pipeline
   public static final double LIMELIGHT_PIPELINE_CARGO_BALL = 5;   //  Use the Cargo Ball Pipeline
   public static final double LIMELIGHT_PIPELINE_VEST = 9; // Use the VEST Pipeline..    We use this for Testing...
-  // LIMELIGHT TV Value when there is no target
-  public static final double LIMELIGHT_NO_TARGET = 0.0; // TV Value when the Limelight doesn't see its target
-  public static final double LIMELIGHT_HAS_TARGET = 1.0;  //TV Value when the Limelight has a target
-  //  LIMELIGHT SEEK MODE - How much power do we give the motors when it is turning to scan and driving...
+   //  LIMELIGHT SEEK MODE - How much power do we give the motors when it is turning to scan and driving...
   public static final double LIMELIGHT_SEEK_TURN_POWER = 0.4; // Power when we are turning
   public static final double LIMELIGHT_SEEK_DRIVE_POWER = 0.7; // Power when we are driving toward the target
   // public static double LIMELIGHT_SEEK_AREA = 0.9;
   //  LIMELIGHT Details about where the camera is mounted, and target details...
-  public static final double LIMELIGHT_X_PIXEL_COUNT = 320; // pixels
-  public static final double LIMELIGHT_Y_PIXEL_COUNT = 240; // pixels
-  public static final double LIMELIGHT_X_FOV = 59.6; // degrees
-  public static final double LIMELIGHT_Y_FOV = 45.7; // degrees
   public static final double LIMELIGHT_CAMERAMOUNT_ANGLE = 0.0; // degrees
   public static final double LIMELIGHT_CAMERA_HEIGHT = 26.25; // inches
   public static final double LIMELIGHT_DISTANCE_FROM_TARGET = 24.0; // inches
@@ -210,110 +196,5 @@ public static int WARPDRIVE_DISTANCE_LOW_HAB = 400; //placeholder
   public static int CARRY_MODE_CARGO = 1;   //  Robot carries a cargo ball..
   public static int CARRY_MODE_HATCH = 2;   //  Robot carries a hatch cover..
 
-
-  /**********************************************************************/
-  /************** PHASER / LED LIGHT SETTINGS ***************************/
-  /**********************************************************************/
-  public static double PHASERS_RAINBOW_PALETTE = -0.99;
-  public static double PHASERS_PARTY_PALETTE = -0.97;
-  public static double PHASERS_OCEAN_PALETTE = -0.95;
-  public static double PHASERS_LAVA_PALETTE = -0.93;
-  public static double PHASERS_FOREST_PALETTE = -0.91;
-  public static double PHASERS_GLITTER_PALETTE = -0.89;
-  public static double PHASERS_CONFETTI_PALETTE = -0.87;
-  public static double PHASERS_SHOT_RED = -0.85;
-  public static double PHASERS_SHOT_BLUE = -0.83;
-  public static double PHASERS_SHOT_WHITE = -0.81;
-  public static double PHASERS_SINELON_RAINBOW_PALETTE = -0.79;
-  public static double PHASERS_SINELON_PARTY_PALETTE = -0.77;
-  public static double PHASERS_SINELON_OCEAN_PALETTE = -0.75;
-  public static double PHASERS_SINELON_LAVA_PALETTE = -0.73;
-  public static double PHASERS_SINELON_FOREST_PALETTE = -0.71;
-  public static double PHASERS_BPM_RAINBOW_PALETTE = -0.69;
-  public static double PHASERS_BPM_PARTY_PALETTE = -0.67;
-  public static double PHASERS_BPM_OCEAN_PALETTE = -0.65;
-  public static double PHASERS_BPM_LAVA_PALETTE = -0.63;
-  public static double PHASERS_BPM_FOREST_PALETTE = -0.61;
-  public static double PHASERS_FIRE_MEDIUM = -0.59;
-  public static double PHASERS_FIRE_LARGE = -0.57;
-  public static double PHASERS_TWINKLES_RAINBOW_PALETTE = -0.55;
-  public static double PHASERS_TWINKLES_PARTY_PALETTE = -0.53;
-  public static double PHASERS_TWINKLES_OCEAN_PALETTE = -0.51;
-  public static double PHASERS_TWINKLES_LAVA_PALETTE = -0.49;
-  public static double PHASERS_TWINKLES_FOREST_PALETTE = -0.47;
-  public static double PHASERS_WAVES_RAINBOW_PALETTE = -0.45;
-  public static double PHASERS_WAVES_PARTY_PALETTE = -0.43;
-  public static double PHASERS_WAVES_OCEAN_PALETTE = -0.41;
-  public static double PHASERS_WAVES_LAVA_PALETTE = -0.39;
-  public static double PHASERS_WAVES_FOREST_PALETTE = -0.37;
-  public static double PHASERS_LARSON_SCANNER_RED = -0.35;
-  public static double PHASERS_LARSON_SCANNER_GRAY = -0.33;
-  public static double PHASERS_CHASE_RED = -0.31;
-  public static double PHASERS_CHASE_BLUE = -0.29;
-  public static double PHASERS_CHASE_GRAY = -0.27;
-  public static double PHASERS_HEARTBEAT_RED = -0.25;
-  public static double PHASERS_HEARTBEAT_BLUE = -0.23;
-  public static double PHASERS_HEARTBEAT_WHITE = -0.21;
-  public static double PHASERS_HEARTBEAT_GRAY = -0.19;
-  public static double PHASERS_BREATH_RED = -0.17;
-  public static double PHASERS_BREATH_BLUE = -0.15;
-  public static double PHASERS_BREATH_GRAY = -0.13;
-  public static double PHASERS_STROBE_RED = -0.11;
-  public static double PHASERS_STROBE_BLUE = -0.09;
-  public static double PHASERS_STROBE_GOLD = -0.07;
-  public static double PHASERS_STROBE_WHITE = -0.05;
-  public static double PHASERS_COLOR1_BLEND_TO_BLACK = -0.03;
-  public static double PHASERS_COLOR1_LARSON_SCANNER = -0.01;
-  public static double PHASERS_COLOR1_LIGHT_CHASE = 0.01;
-  public static double PHASERS_COLOR1_HEARTBEAT_SLOW = 0.03;
-  public static double PHASERS_COLOR1_HEARTBEAT_MEDIUM = 0.05;
-  public static double PHASERS_COLOR1_HEARTBEAT_FAST = 0.07;
-  public static double PHASERS_COLOR1_BREATH_SLOW = 0.09;
-  public static double PHASERS_COLOR1_BREATH_FAST = 0.11;
-  public static double PHASERS_COLOR1_SHOT = 0.13;
-  public static double PHASERS_COLOR1_STROBE = 0.15;
-  public static double PHASERS_COLOR2_BLEND_TO_BLACK = 0.17;
-  public static double PHASERS_COLOR2_LARSON_SCANNER = 0.19;
-  public static double PHASERS_COLOR2_LIGHT_CHASE = 0.21;
-  public static double PHASERS_COLOR2_HEARTBEAT_SLOW = 0.23;
-  public static double PHASERS_COLOR2_HEARTBEAT_MEDIUM = 0.25;
-  public static double PHASERS_COLOR2_HEARTBEAT_FAST = 0.27;
-  public static double PHASERS_COLOR2_BREATH_SLOW = 0.29;
-  public static double PHASERS_COLOR2_BREATH_FAST = 0.31;
-  public static double PHASERS_COLOR2_SHOT = 0.33;
-  public static double PHASERS_COLOR2_STROBE = 0.35;
-  public static double PHASERS_COLOR1_2_SPARKLE = 0.37;
-  public static double PHASERS_COLOR2_1_SPARKLE = 0.39;
-  public static double PHASERS_COLOR1_2_GRADIENT = 0.41;
-  public static double PHASERS_COLOR1_2_BPM = 0.43;
-  public static double PHASERS_COLOR1_2_BLEND = 0.45;
-  public static double PHASERS_COLOR2_1_BLEND = 0.47;
-  public static double PHASERS_COLOR1_2_TWINKLES = 0.51;
-  public static double PHASERS_COLOR1_2_WAVES = 0.53;
-  public static double PHASERS_COLOR1_2_SINELON = 0.55;
-  public static double PHASERS_HOT_PINK = 0.57;
-  public static double PHASERS_DARK_RED = 0.59;
-  public static double PHASERS_RED = 0.61;
-  public static double PHASERS_RED_ORANGE = 0.63;
-  public static double PHASERS_ORANGE = 0.65;
-  public static double PHASERS_GOLD = 0.67;
-  public static double PHASERS_YELLOW = 0.69;
-  public static double PHASERS_LAWN_GREEN = 0.71;
-  public static double PHASERS_LIME = 0.73;
-  public static double PHASERS_DARK_GREEN = 0.75;
-  public static double PHASERS_GREEN = 0.77;
-  public static double PHASERS_BLUE_GREEN = 0.79;
-  public static double PHASERS_AQUA = 0.81;
-  public static double PHASERS_SKY_BLUE = 0.83;
-  public static double PHASERS_DARK_BLUE = 0.85;
-  public static double PHASERS_BLUE = 0.87;
-  public static double PHASERS_BLUE_VIOLET = 0.89;
-  public static double PHASERS_VIOLET = 0.91;
-  public static double PHASERS_GRAY = 0.95;
-  public static double PHASERS_DARK_GRAY = 0.97;
-  public static double PHASERS_WHITE = 0.93;
-  public static double PHASERS_BLACK = 0.99;
-  //   Set a DEFAULT Phasers mode here so that way we only have to change it in one place..
-  public static double PHASERS_DEFAULT = PHASERS_COLOR1_2_WAVES;
   
 }

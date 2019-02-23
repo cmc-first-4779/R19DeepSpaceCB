@@ -9,6 +9,7 @@ package frc.robot.autoCommands;
 
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.PhaserConstants;
 import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.BlastOff.*;
@@ -43,26 +44,26 @@ public class BlastOffAutoCommand extends CommandGroup {
     addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_HIGH_HAB_PlATFORM));
 
     //Kick off the blastoff LEDs
-    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_GOLD));
+    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_STROBE_GOLD));
     addSequential(new TimerCommand(0.20));
-    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_YELLOW));
+    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_YELLOW));
     addSequential(new TimerCommand(0.25));
 
     //Rotate the Blackhole / Cargo handler around to the right angle
     addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_HIGH_HAB_PLATFORM));
-    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_ORANGE));
+    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_ORANGE));
     addSequential(new TimerCommand(0.30));
-    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_FIRE_MEDIUM));
+    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_FIRE_MEDIUM));
     addSequential(new TimerCommand(1.25));
 
     //LET'S LAUNCH!!!!!!!!!!
     addParallel(new BlastOffLaunchCommand());
-    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_FIRE_LARGE));
+    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_FIRE_LARGE));
     addSequential(new TimerCommand(2.25));
 
     //Move the BLASTOFF WHEELS FORWARD
     addParallel(new BlastOffMoveForwardCommand());
-    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_FIRE_MEDIUM));
+    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_FIRE_MEDIUM));
     addSequential(new TimerCommand(1.25));
 
     //Move the ARM back down...
@@ -72,7 +73,7 @@ public class BlastOffAutoCommand extends CommandGroup {
     addSequential(new BlastOffLandCommand());
 
     //PARTY PHASERS!!!!
-    addSequential(new PhasersSetPatternCommand(RobotMap.PHASERS_PARTY_PALETTE));
+    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_PARTY_PALETTE));
 
 
 

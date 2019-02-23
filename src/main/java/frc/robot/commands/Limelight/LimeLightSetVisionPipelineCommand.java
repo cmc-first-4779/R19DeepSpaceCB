@@ -8,6 +8,7 @@
 package frc.robot.commands.Limelight;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.LimeLightConstants;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
@@ -28,7 +29,7 @@ public class LimeLightSetVisionPipelineCommand extends Command {
     //  Set our pipeline...
     Robot.limeLightSubsystem.setPipeline(m_pipeline);
     //  Set the LED modes to the Pipeline default, just in case we have them forced one way or the other.
-    Robot.limeLightSubsystem.setLEDMode(RobotMap.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
+    Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
   }
 
   // Called repeatedly when this Command is scheduled to run

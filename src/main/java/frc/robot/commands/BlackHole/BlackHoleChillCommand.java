@@ -24,6 +24,8 @@ public class BlackHoleChillCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    //   Retract the plunger when the BlackHole Chill Command is initialized..
+    Robot.blackHoleSubsystem.retractPlunger();
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -42,7 +44,7 @@ public class BlackHoleChillCommand extends Command {
 
     Robot.blackHoleSubsystem.rotateToSetPoint();
 //    Robot.blackHoleSubsystem.stop();
-    Robot.blackHoleSubsystem.retractPlunger();
+
   }
 
   // Make this return true when this Command no longer needs to run execute()

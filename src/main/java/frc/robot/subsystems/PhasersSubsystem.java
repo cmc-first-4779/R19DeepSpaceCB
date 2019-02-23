@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.PhaserConstants;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Spark;
@@ -35,7 +36,7 @@ public class PhasersSubsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // Because we like the phasers looking like "Glitter"..  
-    setDefaultCommand(new PhasersSetPatternCommand(RobotMap.PHASERS_DEFAULT));
+    setDefaultCommand(new PhasersSetPatternCommand(PhaserConstants.PHASERS_DEFAULT));
   }
 
   //Set the Phasers to a certain pattern

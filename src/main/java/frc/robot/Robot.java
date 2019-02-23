@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import java.util.concurrent.Phaser;
+
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -108,13 +110,13 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Auto mode", m_chooser);
 
       //   Put the Phaser Choosers colors into the Subsystem
-    phaserChooser.setDefaultOption("Default", RobotMap.PHASERS_DEFAULT);
-    phaserChooser.addOption("Glitter", RobotMap.PHASERS_GLITTER_PALETTE);
-    phaserChooser.addOption("Ocean", RobotMap.PHASERS_OCEAN_PALETTE);
-    phaserChooser.addOption("Hot Pink!!!!!", RobotMap.PHASERS_HOT_PINK);
-    phaserChooser.addOption("Fire Large", RobotMap.PHASERS_FIRE_LARGE);
-    phaserChooser.addOption("Red", RobotMap.PHASERS_CHASE_RED);
-    phaserChooser.addOption("Blue", RobotMap.PHASERS_CHASE_BLUE);
+    phaserChooser.setDefaultOption("Default", PhaserConstants.PHASERS_DEFAULT);
+    phaserChooser.addOption("Glitter", PhaserConstants.PHASERS_GLITTER_PALETTE);
+    phaserChooser.addOption("Ocean", PhaserConstants.PHASERS_OCEAN_PALETTE);
+    phaserChooser.addOption("Hot Pink!!!!!", PhaserConstants.PHASERS_HOT_PINK);
+    phaserChooser.addOption("Fire Large", PhaserConstants.PHASERS_FIRE_LARGE);
+    phaserChooser.addOption("Red", PhaserConstants.PHASERS_CHASE_RED);
+    phaserChooser.addOption("Blue", PhaserConstants.PHASERS_CHASE_BLUE);
     
     //starting position of NoseCone
     carryChooser.setDefaultOption("Hatch", 0);

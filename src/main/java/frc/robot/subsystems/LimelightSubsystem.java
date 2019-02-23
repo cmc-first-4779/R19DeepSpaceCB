@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.LimeLightConstants;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
@@ -35,7 +36,7 @@ public class LimelightSubsystem extends Subsystem {
 		//setDefaultCommand(new MySpecialCommand());
 		//
 		//By Default, put the Camera Mode into Driver Mode
-		setDefaultCommand(new LimeLightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_DRIVER));
+		setDefaultCommand(new LimeLightSetCameraModeCommand(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER));
     }
     
 	//SET THE LIMELIGHT CAMERA MODE
@@ -90,22 +91,22 @@ public class LimelightSubsystem extends Subsystem {
 	}
 		
 	public double getNX()  {
-		double NX = (1/(RobotMap.LIMELIGHT_X_PIXEL_COUNT/2))*(getTX() - ((RobotMap.LIMELIGHT_X_PIXEL_COUNT/2)+0.5));
+		double NX = (1/(LimeLightConstants.LIMELIGHT_X_PIXEL_COUNT/2))*(getTX() - ((LimeLightConstants.LIMELIGHT_X_PIXEL_COUNT/2)+0.5));
 		return NX;
 	}
 	
 	public double getNY()  {
-		double NY = (1/(RobotMap.LIMELIGHT_Y_PIXEL_COUNT/2))*(((RobotMap.LIMELIGHT_Y_PIXEL_COUNT/2)+0.5)- getTY());
+		double NY = (1/(LimeLightConstants.LIMELIGHT_Y_PIXEL_COUNT/2))*(((LimeLightConstants.LIMELIGHT_Y_PIXEL_COUNT/2)+0.5)- getTY());
 		return NY;
 	}
 	
 	public double getViewPlaneWidth()  {
-		double ViewPlaneWidth = 2.0 * Math.tan(RobotMap.LIMELIGHT_X_PIXEL_COUNT/2);
+		double ViewPlaneWidth = 2.0 * Math.tan(LimeLightConstants.LIMELIGHT_X_PIXEL_COUNT/2);
 		return ViewPlaneWidth;
 	}
 	
 	public double getViewPlaneHeight()  {
-		double ViewPlaneHeight = 2.0 * Math.tan(RobotMap.LIMELIGHT_Y_PIXEL_COUNT/2);
+		double ViewPlaneHeight = 2.0 * Math.tan(LimeLightConstants.LIMELIGHT_Y_PIXEL_COUNT/2);
 		return ViewPlaneHeight;
 	}
 	
@@ -140,7 +141,7 @@ public class LimelightSubsystem extends Subsystem {
 	//  Returns whether or not the Limelight has a target...
 	public boolean hasTarget() {
 		double tv = getTV();
-		if (tv == RobotMap.LIMELIGHT_NO_TARGET) {
+		if (tv == LimeLightConstants.LIMELIGHT_NO_TARGET) {
 			return false;
 		}
 		else {

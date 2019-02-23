@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
+import frc.robot.PhaserConstants;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.NoseCone.NoseConeOpenCommand;
 import frc.robot.commands.Misc.TimerCommand;
@@ -42,7 +43,7 @@ public class PositionForHatchCarryAutoCommand extends CommandGroup {
     // arm.
 
         // Set our Phasers...
-        addParallel(new PhasersSetPatternCommand(RobotMap.PHASERS_STROBE_RED));
+        addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_STROBE_RED));
         // Rotate the Blackhole into place to pick up the hatchcover
         addParallel(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD));
         addParallel(new NoseConeOpenCommand());

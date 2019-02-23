@@ -12,10 +12,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.Limelight.*;
 import frc.robot.commands.WarpDrive.*;
+import frc.robot.LimeLightConstants;
 import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
 import frc.robot.commands.BlackHole.BlackHoleRetractPlungerCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
+import frc.robot.PhaserConstants;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
@@ -42,7 +44,7 @@ public class TargetCargoShipCargoAutoCommand extends CommandGroup {
     // arm.
 
         //  Set the Camera Mode to Vision
-        addSequential(new LimeLightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_VISION));
+        addSequential(new LimeLightSetCameraModeCommand(LimeLightConstants.LIMELIGHT_CAMMODE_VISION));
         //   Set the Vision Pipeline to the Rocket Hatch
         addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_CARGO));
         //   Change the LEDS to LIME GREEN if the Limelight has a Target, RED if it doesn't
@@ -64,9 +66,9 @@ public class TargetCargoShipCargoAutoCommand extends CommandGroup {
         addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE,
                         RobotMap.WARPDRIVE_SPEED));
         //  Turn the Camera back to Driver Mode
-        addParallel(new LimeLightSetCameraModeCommand(RobotMap.LIMELIGHT_CAMMODE_DRIVER));
+        addParallel(new LimeLightSetCameraModeCommand(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER));
         //  Flip the LEDs back to DEFAULT
-        addParallel(new PhasersSetPatternCommand(RobotMap.PHASERS_DEFAULT));
+        addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_DEFAULT));
         //  Retract the Plunger
         addParallel(new BlackHoleRetractPlungerCommand());    
   }
