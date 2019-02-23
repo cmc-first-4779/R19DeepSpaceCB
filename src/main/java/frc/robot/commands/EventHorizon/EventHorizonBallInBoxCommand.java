@@ -5,23 +5,22 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlackHole;
+package frc.robot.commands.EventHorizon;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.BlackHoleSubsystem;
 
-public class BallInBoxCommand extends Command {
-  public BallInBoxCommand() {
+public class EventHorizonBallInBoxCommand extends Command {
+  public EventHorizonBallInBoxCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.blackHoleSubsystem);  
+    requires(Robot.eventHorizonSubsystem);  
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blackHoleSubsystem.initializeCounter();
+    Robot.eventHorizonSubsystem.initializeCounter();
   }
 
 
@@ -33,7 +32,7 @@ public class BallInBoxCommand extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.blackHoleSubsystem.isBallInBox();
+    return Robot.eventHorizonSubsystem.isBallInBox();
   }
 
   // Called once after isFinished returns true
