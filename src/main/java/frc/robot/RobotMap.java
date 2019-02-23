@@ -71,6 +71,11 @@ public class RobotMap {
   /********************** GYRO SPI PORT **************************************************/
   public static final int SPI_PORT_AHRS = 0;
 
+  /*************************DIO PORTS ************************************************* */
+  public static final int DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A = 0;
+  public static final int DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B = 1;
+  public static final int DIO_PORT_BLACKHOLE_LIMITSWITCH= 2;
+
   
 /*********************************************************************************/
 /*********************************************************************************/

@@ -10,9 +10,10 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
+import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.DigitalInput;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.BlackHole.BlackHoleChillCommand;
@@ -30,14 +31,21 @@ public class BlackHoleSubsystem extends Subsystem {
   WPI_TalonSRX spinMotor;
   //Declare our Plunger as a Double Solenoid
   DoubleSolenoid plunger;
+  //Declare our limit switch in the box that detects if we have a ball..
+  DigitalInput limitSwitch;
+  //  Declare our counter for the limit switch
+  Counter limitCounter;
 
   //Angle the box should be at
   double boxAngle = 0;
 
   public BlackHoleSubsystem() {
-    //Initiate our plunger and our spinMotor
+    //Initiate our plunger and our spinMotor and our limit switch and our counter for the limit switch
     plunger = new DoubleSolenoid(RobotMap.PCM_PORT_PLUNGER_PLUNGE, RobotMap.PCM_PORT_PLUNGER_RETRACT);
     spinMotor = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_BLACKHOLE);
+    limitSwitch = new DigitalInput(RobotMap.DIO_PORT_BLACKHOLE_LIMITSWITCH);
+    limitCounter = new Counter(limitSwitch);
+
     //Initialize the Talon settings on the spinMotor
     Robot.initMotorController(spinMotor);
     //Config the encoder on the spinMotor
@@ -119,17 +127,30 @@ public class BlackHoleSubsystem extends Subsystem {
     spinMotor.setSelectedSensorPosition(0);
   }
 
+  //  Return the Encoder Position for the box..
   public double getEncoderPosition() {
     return spinMotor.getSelectedSensorPosition();
   }
 
+  //  Set our Box Angle 
   public void setBoxAngle(double angle) {
     System.out.println("Setting BoxAngle to " + angle);
     boxAngle = angle;
   }
 
-
-  public double getBoxAngle( ){
+//   Return our Box angle
+  public double getBoxAngle(){
     return boxAngle;
   }
+
+  //  Check our limit switch and return whether the switch is set..    
+  public boolean isBallInBox() {
+    //  If there is a ball in the box, it will return "TRUE"
+    return limitCounter.get() > 0;
+  }
+
+  public void initializeCounter() {
+    limitCounter.reset();
+  }
+
 }

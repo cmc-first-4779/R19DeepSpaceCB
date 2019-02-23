@@ -33,7 +33,7 @@ public class BlastOffSubsystem extends Subsystem {
     //Init our Double Solenoid
     blastOffSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_BLASTOFF_LAUNCH, RobotMap.PCM_PORT_BLASTOFF_LAND);
     //Init the encoder
-    encoder = new Encoder(0,1);
+    encoder = new Encoder(RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A, RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B);
   }
 
   @Override
@@ -52,7 +52,10 @@ public class BlastOffSubsystem extends Subsystem {
     matchTime = Robot.getMatchTime();
     //LAUNCH ON TO THE PLATFORM IF AND ONLY IF, WE ARE IN THE ENDGAME AND READY TO USE THE BIG SOLENOID!!!!
     if (matchTime > RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH){
-        blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
+      blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
+    }
+    else {
+      System.out.println("Match time does not equal:  " + RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH);
     }
   }
 

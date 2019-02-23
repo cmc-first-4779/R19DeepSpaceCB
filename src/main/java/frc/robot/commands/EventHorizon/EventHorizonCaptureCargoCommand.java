@@ -18,29 +18,39 @@ public class EventHorizonCaptureCargoCommand extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.eventHorizonSubsystem);
+    requires(Robot.blackHoleSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    //  Reset the Limit switch Counter
+    Robot.blackHoleSubsystem.initializeCounter();
+    //   Put the Ball in the Box Boolean in the Smart Dashboard
+    SmartDashboard.putBoolean("BALL IN BOX", Robot.blackHoleSubsystem.isBallInBox());
     //  Put the EVENT HORIZON ARM MODE into the SmartDashboard
     SmartDashboard.putString("EVENT HORIZON ARM MODE", "Lowered");
     //  Lower the Event Horizon Arm...
     Robot.eventHorizonSubsystem.lowerEventHorizonArm();    
     //  Put the EVENT HORIZON MOTOR MODE into the SmartDashboard
     SmartDashboard.putString("EVENT HORIZON MOTOR MODE", "Started");
+    //  Start our Event Horizon wheel motors
     Robot.eventHorizonSubsystem.startWheelMotor();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    //   Put the Ball in the Box Boolean in the Smart Dashboard
+    SmartDashboard.putBoolean("BALL IN BOX", Robot.blackHoleSubsystem.isBallInBox());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    //   The Command is finished when there is a ball in the box...  
+    //      Detected by the Limit Switch in the Black Hole
+    return Robot.blackHoleSubsystem.isBallInBox();
   }
 
   // Called once after isFinished returns true
