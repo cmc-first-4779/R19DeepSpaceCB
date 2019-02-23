@@ -13,27 +13,25 @@ import frc.robot.Robot;
 
 public class BlackHoleRotateToAngleCommand extends Command {
 
-  double m_angle;
+  private double angle;
 
   public BlackHoleRotateToAngleCommand(double angle) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.blackHoleSubsystem);
-    m_angle = angle;
+    this.angle = angle;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blackHoleSubsystem.rotateToSetPoint(m_angle);
-    SmartDashboard.putNumber("BLACKHOLE SetPoint", m_angle);
     // Put the BLACKHOLE Control Mode into the Dashboard
-    SmartDashboard.putString("BLACKHOLE Control Mode", "AUTO");
+    SmartDashboard.putString("BLACKHOLE Control Mode", "BlackHoleRotateToAngle");
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.blackHoleSubsystem.setBoxAngle(angle * 4096 / 360);
     // Put the BLACKHOLE Encoder Position into the Dashboard
     SmartDashboard.putNumber("BLACKHOLE Encoder Position", Robot.blackHoleSubsystem.getEncoderPosition());
   }
@@ -41,7 +39,7 @@ public class BlackHoleRotateToAngleCommand extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

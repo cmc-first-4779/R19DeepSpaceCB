@@ -72,8 +72,8 @@ public class OI {
 		//operStickStartButton.whenPressed(new BlastOffLandCommand());
 		//operStickAButton.whileHeld(new BlastOffMoveForwardCommand());
 		//operStickBButton.whileHeld(new BlastOffMoveReverseCommand());
-		operStickAButton.whenPressed(new SpinBlackHoleCommand(45));
-		operStickBButton.whenPressed(new SpinBlackHoleCommand(-45));
+		operStickAButton.whenPressed(new BlackHoleRotateToAngleCommand(45));
+		operStickBButton.whenPressed(new BlackHoleRotateToAngleCommand(-45));
 		
 
 
