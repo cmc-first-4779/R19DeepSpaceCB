@@ -9,6 +9,8 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.Counter;
+import edu.wpi.first.wpilibj.DigitalInput;
 import frc.robot.commands.EventHorizon.EventHorizonRetractCommand;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -27,6 +29,11 @@ public class EventHorizonSubsystem extends Subsystem {
   // Declare our double solenoids
   DoubleSolenoid eventHorizonSolenoid;
 
+  //Declare our limit switch in the box that detects if we have a ball..
+  DigitalInput limitSwitch;
+  //  Declare our counter for the limit switch
+  Counter limitCounter;
+
 
   public EventHorizonSubsystem() {
 
@@ -37,7 +44,9 @@ public class EventHorizonSubsystem extends Subsystem {
     eventHorizonSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_EVENTHORIZON_RAISE,
       RobotMap.PCM_PORT_EVENTHORIZON_LOWER);
 
-
+    // Initiate our Limit Switch and Limit Counter
+    limitSwitch = new DigitalInput(RobotMap.DIO_PORT_BLACKHOLE_LIMITSWITCH);
+    limitCounter = new Counter(limitSwitch);
   }
 
   @Override
@@ -89,5 +98,16 @@ public class EventHorizonSubsystem extends Subsystem {
     //  Raise the Event Horizon Arm
     raiseEventHorizonArm();
   }
+
+  //  Check our limit switch and return whether the switch is set..    
+  public boolean isBallInBox() {
+    //  If there is a ball in the box, it will return "TRUE"
+    return limitCounter.get() > 0;
+  }
+
+    //  Reset our Limit Switch Counter to ZERO
+  public void initializeCounter() {
+    limitCounter.reset();
+  }  
 
 }
