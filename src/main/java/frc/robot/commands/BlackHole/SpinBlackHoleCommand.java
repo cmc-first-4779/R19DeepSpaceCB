@@ -12,32 +12,32 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class SpinBlackHoleCommand extends Command {
-  public SpinBlackHoleCommand() {
+private double angle;
+
+  public SpinBlackHoleCommand(double angle) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.blackHoleSubsystem);
+    this.angle = angle;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
   // Put the BLACKHOLE Control Mode into the Dashboard
-  SmartDashboard.putString("BLACKHOLE Control Mode", "JOYSTICK");
+  SmartDashboard.putString("BLACKHOLE Control Mode", "SpinBlackHole");
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //  Move the Black Hole using the Joystick
-    Robot.blackHoleSubsystem.spin(-Robot.oi.getDriverStick().getY());
-    // Put the BLACKHOLE Encoder Position into the Dashboard
+    Robot.blackHoleSubsystem.setBoxAngle(angle * 4096 / 360);
     SmartDashboard.putNumber("BLACKHOLE Encoder Position", Robot.blackHoleSubsystem.getEncoderPosition());    
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

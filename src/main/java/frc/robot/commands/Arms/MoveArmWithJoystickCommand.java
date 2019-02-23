@@ -13,6 +13,9 @@ import frc.robot.Robot;
 
 
 public class MoveArmWithJoystickCommand extends Command {
+  double leftStickYDeadZone = .25;
+  double armHeightIncrement = 50;
+
   public MoveArmWithJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -31,7 +34,18 @@ public class MoveArmWithJoystickCommand extends Command {
   @Override
   protected void execute() {
     // Move the ARM with the OperStick
-    Robot.armsSubsytem.moveArm(-Robot.oi.getOperStick().getY());
+    double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(1);
+    if (leftStickYAxis > armHeightIncrement ) {
+      System.out.println("Increasing Height");
+      Robot.armsSubsytem.setArmHeight(Robot.armsSubsytem.getArmHeight() + armHeightIncrement);
+    } else if (leftStickYAxis < -leftStickYDeadZone) {
+      System.out.println("Decreasing Height");
+      Robot.armsSubsytem.setArmHeight(Robot.armsSubsytem.getArmHeight() - armHeightIncrement);
+    } else {
+      // do nothing, leave the arm height where it's at
+    }
+
+    Robot.armsSubsytem.setSetPoint();
     // Put the Arm Encoder Position into the Dashboard
     SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
   }

@@ -44,17 +44,17 @@ public class BlackHoleSubsystem extends Subsystem {
     spinMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
     spinMotor.setSelectedSensorPosition(0, 0, 0);
     //Set our PID values for our spinMotor
-    spinMotor.config_kP(0, 0.01, 0);
+    spinMotor.config_kP(0, 1, 0);
     spinMotor.config_kI(0, 0, 0);
     spinMotor.config_kD(0, 0, 0);
     spinMotor.config_kF(0, 0, 0);
-    spinMotor.setSensorPhase(true);
+    spinMotor.setSensorPhase(false);
     spinMotor.configPeakCurrentLimit(10);
     spinMotor.configVoltageCompSaturation(12, 0);
     spinMotor.enableVoltageCompensation(true);
     spinMotor.config_IntegralZone(0, 50);
-    spinMotor.configMotionCruiseVelocity(500, 0);
-    spinMotor.configMotionAcceleration(500, 0);
+    spinMotor.configMotionCruiseVelocity(1000, 0);
+    spinMotor.configMotionAcceleration(1000, 0);
     spinMotor.configNominalOutputForward(0, 0);
     spinMotor.configNominalOutputReverse(0, 0);
     spinMotor.configPeakOutputForward(1, 0);
@@ -69,7 +69,7 @@ public class BlackHoleSubsystem extends Subsystem {
   }
 
   //Spin the Black Hole Cargo Box around
-  public void spin(double rate) {
+/*   public void spin(double rate) {
     // spin the spinner forwards at a set speed
     if (rate > 0.25){
       spinMotor.set(ControlMode.PercentOutput, RobotMap.BLACK_HOLE_SPIN_FORWARD_SPEED);
@@ -78,7 +78,7 @@ public class BlackHoleSubsystem extends Subsystem {
     } else {
       spinMotor.set(ControlMode.PercentOutput, 0);
     }
-  }
+  } */
 
   //Spin the Black Hole to a certain setpoint.
   public void rotateToSetPoint(double angle) {
@@ -93,8 +93,8 @@ public class BlackHoleSubsystem extends Subsystem {
   public void rotateToSetPoint() {
     // do the math to figure out what the encoder count should be
     // Move arm to set point
-  //  spinMotor.set(ControlMode.MotionMagic, boxAngle);
-    spinMotor.set(ControlMode.Position, boxAngle);
+    spinMotor.set(ControlMode.MotionMagic, boxAngle);
+    //spinMotor.set(ControlMode.Position, boxAngle);
     //System.out.println("Encoder count: " + spinMotor.getSelectedSensorPosition());
   }
 

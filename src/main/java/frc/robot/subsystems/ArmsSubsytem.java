@@ -26,6 +26,7 @@ public class ArmsSubsytem extends Subsystem {
   //Declare our two Talons to drive our Arm Motors.
   public WPI_TalonSRX armMaster;
   public WPI_TalonSRX armSlave;
+  public double armHeight = 0;
 
 
   public ArmsSubsytem() {
@@ -64,10 +65,10 @@ public class ArmsSubsytem extends Subsystem {
 
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    //setDefaultCommand(new MoveArmWithJoystickCommand());
+    setDefaultCommand(new MoveArmWithJoystickCommand());
   }
 
-  public void moveArm(double move) {
+/*   public void moveArm(double move) {
     // Lift the arms up
     // System.out.println("Lifting my arms up!");
     if (move > .25) {
@@ -84,7 +85,7 @@ public class ArmsSubsytem extends Subsystem {
       //Put the Arm Encoder Position into the Dashboard
       SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
     }
-  }
+  } */
 
   //Stop the Arm Motors
   public void stop() {
@@ -96,13 +97,13 @@ public class ArmsSubsytem extends Subsystem {
    * Sets the arm to a particular setpoint using motion magic control mode to make the movement smooth.
    * @param height
    */
-  public void setSetPoint(double height) {
+  public void setSetPoint() {
     // do the math to figure out what the encoder count should be
     // Move arm to set point
    // armMaster.set(ControlMode.Position, height);
-    armMaster.set(ControlMode.MotionMagic, height);
+    armMaster.set(ControlMode.MotionMagic, armHeight);
     // Put the Arm Subsystem SetPoint into the Dashboard
-    SmartDashboard.putNumber("ARM SetPoint", height);
+    SmartDashboard.putNumber("ARM SetPoint", armHeight);
     //System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
     //Put the Arm Encoder Position into the Dashboard
     SmartDashboard.putNumber("ARM Position", getEncoderPosition());
@@ -115,5 +116,13 @@ public class ArmsSubsytem extends Subsystem {
 
   public double getEncoderPosition() {
     return armMaster.getSelectedSensorPosition();
+  }
+
+  public void setArmHeight(double height) {
+    this.armHeight = height;
+  }
+
+  public double getArmHeight() {
+    return armHeight;
   }
 }

@@ -12,7 +12,7 @@ import frc.robot.Robot;
 
 public class BlackHoleChillCommand extends Command {
   double rightStickYDeadZone = .25;
-  double boxAngleIncrement = 100;
+  double boxAngleIncrement = 50;
 
 
   public BlackHoleChillCommand() {
@@ -30,7 +30,6 @@ public class BlackHoleChillCommand extends Command {
   @Override
   protected void execute() {
     double rightStickYAxis = -Robot.oi.getOperStick().getRawAxis(5);
-    System.out.println("Right Stick: " + rightStickYAxis);
     if (rightStickYAxis > rightStickYDeadZone ) {
       System.out.println("Increasing Angle");
       Robot.blackHoleSubsystem.setBoxAngle(Robot.blackHoleSubsystem.getBoxAngle() + boxAngleIncrement);
