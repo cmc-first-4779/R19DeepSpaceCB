@@ -25,7 +25,7 @@ public class ArmSetPositionCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {    
-    Robot.armsSubsytem.setSetPoint(m_setPostion);
+    Robot.armsSubsytem.setArmHeight(m_setPostion);
     // Put the Arm Subsystem SetPoint into the Dashboard
     SmartDashboard.putNumber("ARM SetPoint", m_setPostion);
     // Put the Arm Control Mode into the Dashboard
