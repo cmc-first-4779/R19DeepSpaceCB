@@ -8,6 +8,7 @@
 package frc.robot.commands.EventHorizon;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class EventHorizonBallInBoxCommand extends Command {
@@ -27,11 +28,13 @@ public class EventHorizonBallInBoxCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    SmartDashboard.putBoolean("Do we have Cargo? ", Robot.eventHorizonSubsystem.isBallInBox());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+    SmartDashboard.putBoolean("Do we have Cargo? ", Robot.eventHorizonSubsystem.isBallInBox());
     return Robot.eventHorizonSubsystem.isBallInBox();
   }
 

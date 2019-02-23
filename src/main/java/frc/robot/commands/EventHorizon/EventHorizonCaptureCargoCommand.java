@@ -26,7 +26,7 @@ public class EventHorizonCaptureCargoCommand extends Command {
     //  Reset the Limit switch Counter
     Robot.eventHorizonSubsystem.initializeCounter();
     //   Put the Ball in the Box Boolean in the Smart Dashboard
-    SmartDashboard.putBoolean("BALL IN BOX", Robot.eventHorizonSubsystem.isBallInBox());
+    SmartDashboard.putBoolean("Do we have Cargo? ", Robot.eventHorizonSubsystem.isBallInBox());
     //  Put the EVENT HORIZON ARM MODE into the SmartDashboard
     SmartDashboard.putString("EVENT HORIZON ARM MODE", "Lowered");
     //  Lower the Event Horizon Arm...
@@ -41,7 +41,7 @@ public class EventHorizonCaptureCargoCommand extends Command {
   @Override
   protected void execute() {
     //   Put the Ball in the Box Boolean in the Smart Dashboard
-    SmartDashboard.putBoolean("BALL IN BOX", Robot.eventHorizonSubsystem.isBallInBox());
+    SmartDashboard.putBoolean("Do we have Cargo? ", Robot.eventHorizonSubsystem.isBallInBox());
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -49,6 +49,7 @@ public class EventHorizonCaptureCargoCommand extends Command {
   protected boolean isFinished() {
     //   The Command is finished when there is a ball in the box...  
     //      Detected by the Limit Switch in the Black Hole
+    SmartDashboard.putBoolean("Do we have Cargo? ", Robot.eventHorizonSubsystem.isBallInBox());
     return Robot.eventHorizonSubsystem.isBallInBox();
   }
 

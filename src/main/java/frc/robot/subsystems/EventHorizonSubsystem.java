@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -102,6 +103,7 @@ public class EventHorizonSubsystem extends Subsystem {
   //  Check our limit switch and return whether the switch is set..    
   public boolean isBallInBox() {
     //  If there is a ball in the box, it will return "TRUE"
+        //  Put the Boolean of whether we have cargo into the Dashboard
     return limitCounter.get() > 0;
   }
 
