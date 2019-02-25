@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+import frc.robot.XBoxJoystickMap;
 
 
 public class ArmsMoveWithJoystickCommand extends Command {
@@ -36,8 +37,8 @@ public class ArmsMoveWithJoystickCommand extends Command {
   @Override
   protected void execute() {
     // Move the ARM with the OperStick
-    double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(1);
-    if (leftStickYAxis > armHeightIncrement ) {
+    double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS);
+    if (leftStickYAxis > leftStickYDeadZone ) {
       System.out.println("Increasing Height");
       Robot.armsSubsytem.setArmHeight(Robot.armsSubsytem.getArmHeight() + armHeightIncrement);
     } else if (leftStickYAxis < -leftStickYDeadZone) {

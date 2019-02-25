@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
+import frc.robot.commands.BlastOff.BlastOffStopMotorCommand;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
@@ -50,7 +51,7 @@ public class BlastOffSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Default Command for the Blastoff subsystem is the retract / "land" the pneumatics
-    setDefaultCommand(new BlastOffLandCommand());
+    setDefaultCommand(new BlastOffStopMotorCommand());
   }
 
   //Launches the Robot onto the top habitat platform

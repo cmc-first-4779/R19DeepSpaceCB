@@ -47,13 +47,14 @@ public class ArmsSubsytem extends Subsystem {
     armMaster.config_kD(0, 2.5, 0);
     armMaster.config_kF(0, 0, 0);
     armMaster.setSensorPhase(false);
-    armMaster.configPeakCurrentLimit(10);
+    armMaster.enableCurrentLimit(true);
+    armMaster.configPeakCurrentLimit(40);
     armMaster.configVoltageCompSaturation(12, 0);
     armMaster.enableVoltageCompensation(true);
     armMaster.setSelectedSensorPosition(0, 0, 0);
     armMaster.config_IntegralZone(0, 1000);
-    armMaster.configMotionCruiseVelocity(500, 0);
-    armMaster.configMotionAcceleration(500, 0);
+    armMaster.configMotionCruiseVelocity(10000, 0);
+    armMaster.configMotionAcceleration(7000, 0);
     armMaster.configNominalOutputForward(0, 0);
     armMaster.configNominalOutputReverse(0, 0);
     armMaster.configPeakOutputForward(1, 0);
@@ -105,6 +106,7 @@ public class ArmsSubsytem extends Subsystem {
     //CHECK TO MAKE SURE WE ARE NOT GOING ABOVE OUR MAX HEIGHT!!!
     if (armHeight < RobotMap.ARM_MAX_HEIGHT){
       armMaster.set(ControlMode.MotionMagic, armHeight);
+      //armMaster.set(ControlMode.Position, armHeight);
           // Put the Arm Subsystem SetPoint into the Dashboard
       SmartDashboard.putNumber("ARM SetPoint", armHeight);
     }

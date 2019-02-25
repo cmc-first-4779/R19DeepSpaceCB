@@ -18,7 +18,7 @@ public class ArmSetPositionCommand extends Command {
   public ArmSetPositionCommand(double position) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.armsSubsytem);
+    //requires(Robot.armsSubsytem);
     //   Set the Arm Position to the position we told it..
     m_setPostion = position;
   }
@@ -45,7 +45,7 @@ public class ArmSetPositionCommand extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
