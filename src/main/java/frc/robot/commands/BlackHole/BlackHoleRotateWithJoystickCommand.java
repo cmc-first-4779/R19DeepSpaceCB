@@ -14,7 +14,7 @@ import frc.robot.XBoxJoystickMap;
 
 public class BlackHoleRotateWithJoystickCommand extends Command {
   double rightStickYDeadZone = .25;
-  double boxAngleIncrement = 50;
+  double boxAngleIncrement = 5;
 
 
   public BlackHoleRotateWithJoystickCommand() {

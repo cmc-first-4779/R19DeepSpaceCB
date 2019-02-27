@@ -93,7 +93,7 @@ public class BlackHoleSubsystem extends Subsystem {
     // do the math to figure out what the encoder count should be
     // Move arm to set point if valid
     if (validAngleSet()) {
-      spinMotor.set(ControlMode.MotionMagic, boxAngle);
+      spinMotor.set(ControlMode.MotionMagic, boxAngle*4096/360);
     } else {
       SmartDashboard.putString("BlackHoleSubsystem", "Angle: " + boxAngle + " Out of valid Range");
     }
@@ -106,7 +106,7 @@ public class BlackHoleSubsystem extends Subsystem {
   // Return FALSE if we are rotating it out of range...
   // Don't want to break the box...
   private boolean validAngleSet() {
-    if (boxAngle > RobotMap.BLACK_HOLE_MAX_NEGATIVE_ANGLE * 4096/360 && boxAngle < RobotMap.BLACK_HOLE_MAX_POSITIVE_ANGLE * 4096/360) {
+    if (boxAngle > RobotMap.BLACK_HOLE_MAX_NEGATIVE_ANGLE && boxAngle < RobotMap.BLACK_HOLE_MAX_POSITIVE_ANGLE ) {
       return true;
     } else {
       return false;
@@ -142,6 +142,7 @@ public class BlackHoleSubsystem extends Subsystem {
   public void setBoxAngle(double angle) {
     System.out.println("Setting BoxAngle to " + angle);
     boxAngle = angle;
+    //Robot.blackHoleSubsystem.rotateToSetPoint(boxAngle);
   }
 
   // Return our Box angle

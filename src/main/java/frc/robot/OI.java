@@ -56,19 +56,19 @@ public class OI {
 		//driverStickAButton.whenPressed(new ArmSetPositionCommand(10000));
 		//driverStickBButton.whenPressed(new ArmSetPositionCommand(50000));
 		//driverStickBackButton.whenPressed(new BlastOffAutoCommand());
-		driverStickAButton.whenPressed(new BlackHoleRotateToAngleCommand(45));
-		driverStickBButton.whenPressed(new BlackHoleRotateToAngleCommand(-45));
-
+		//operStickAButton.whenPressed(new BlackHoleRotateToAngleCommand(10));
+		//operStickBButton.whenPressed(new BlackHoleRotateToAngleCommand(-10));
+		//operStickYButton.whenPressed(new BlackHoleRotateToAngleCommand(0));
 
 		// Operator Stick
-		//operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
-		//operStickRightBumper.whenPressed(new EventHorizonRetractCommand());
-		//operStickAButton.whenPressed(new BlackHolePlungeCommand());
-		//operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
+		operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
+		operStickRightBumper.whenPressed(new EventHorizonRetractCommand());
+		operStickAButton.whenPressed(new BlackHolePlungeCommand());
+		operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
 		//operStickXButton.whenPressed(new ArmSetPositionCommand(175000));
-		operStickBButton.whenPressed(new ArmSetPositionCommand(75000));
-		//operStickXButton.whenPressed(new NoseConeOpenCommand());
-		//operStickBButton.whenPressed(new NoseConeCloseCommand());
+		//operStickBButton.whenPressed(new ArmSetPositionCommand(75000));
+		operStickXButton.whenPressed(new NoseConeOpenCommand());
+		operStickBButton.whenPressed(new NoseConeCloseCommand());
 		//operStickBackButton.whenPressed(new BlastOffLaunchCommand());
 		//operStickStartButton.whenPressed(new BlastOffLandCommand());
 		//operStickAButton.whileHeld(new BlastOffMoveForwardCommand());

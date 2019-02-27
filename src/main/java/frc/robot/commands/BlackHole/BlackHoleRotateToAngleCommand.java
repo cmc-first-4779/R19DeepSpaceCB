@@ -31,7 +31,7 @@ public class BlackHoleRotateToAngleCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blackHoleSubsystem.setBoxAngle(angle * 4096 / 360);
+    Robot.blackHoleSubsystem.setBoxAngle(angle);
     // Put the BLACKHOLE Encoder Position into the Dashboard
     SmartDashboard.putNumber("BLACKHOLE Encoder Position", Robot.blackHoleSubsystem.getEncoderPosition());
   }
