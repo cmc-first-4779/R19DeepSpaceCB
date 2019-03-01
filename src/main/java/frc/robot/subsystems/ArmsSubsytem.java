@@ -42,9 +42,11 @@ public class ArmsSubsytem extends Subsystem {
     armSlave.follow(armMaster);
     //Setup our PID values on the encoder
     armMaster.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-    armMaster.config_kP(0, .016, 0);
+//    armMaster.config_kP(0, .016, 0);
+    armMaster.config_kP(0, .03, 0);
     armMaster.config_kI(0, 0, 0);
-    armMaster.config_kD(0, 2.5, 0);
+//    armMaster.config_kD(0, 2.5, 0);
+armMaster.config_kD(0, 2.5, 0);
     armMaster.config_kF(0, 0, 0);
     armMaster.setSensorPhase(false);
     armMaster.enableCurrentLimit(true);
@@ -53,8 +55,8 @@ public class ArmsSubsytem extends Subsystem {
     armMaster.enableVoltageCompensation(true);
     armMaster.setSelectedSensorPosition(0, 0, 0);
     armMaster.config_IntegralZone(0, 1000);
-    armMaster.configMotionCruiseVelocity(10000, 0);
-    armMaster.configMotionAcceleration(7000, 0);
+    armMaster.configMotionCruiseVelocity(50000, 0);
+    armMaster.configMotionAcceleration(50000, 0);
     armMaster.configNominalOutputForward(0, 0);
     armMaster.configNominalOutputReverse(0, 0);
     armMaster.configPeakOutputForward(1, 0);
@@ -68,31 +70,6 @@ public class ArmsSubsytem extends Subsystem {
 
     // Default Command for the armSubystem is to move the Arm with the Joystick
     setDefaultCommand(new ArmsMoveWithJoystickCommand());
-  }
-
-/*   public void moveArm(double move) {
-    // Lift the arms up
-    // System.out.println("Lifting my arms up!");
-    if (move > .25) {
-      armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_RAISE_SPEED);
-      //System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
-      //Put the Arm Encoder Position into the Dashboard
-      SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
-    } else if (move < -0.25) {
-      armMaster.set(ControlMode.PercentOutput, RobotMap.ARM_LOWER_SPEED);
-      //Put the Arm Encoder Position into the Dashboard
-      SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
-    } else {
-      armMaster.set(ControlMode.PercentOutput, 0);
-      //Put the Arm Encoder Position into the Dashboard
-      SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
-    }
-  } */
-
-  //Stop the Arm Motors
-  public void stop() {
-    //System.out.println("I should be stopping now");
-    armMaster.stopMotor();
   }
 
   /**
@@ -132,11 +109,21 @@ public class ArmsSubsytem extends Subsystem {
 
   //   Set the ARM Height
   public void setArmHeight(double height) {
-    this.armHeight = height;
+    if (height >= 0 && height <= RobotMap.ARM_MAX_HEIGHT) {
+      this.armHeight = height;
+    }
   }
 
   //  Return the ARM height..
   public double getArmHeight() {
     return armHeight;
+  }
+
+  //Set Talon target to 0
+  public void zeroSetPoint(){
+    armMaster.set(ControlMode.MotionMagic, 0);
+    armMaster.set(ControlMode.PercentOutput, 0 );
+    System.out.println("Trying to zero arm Talon");
+    System.out.println("Arm Motor setpoint should be 0: " + armMaster.getSelectedSensorPosition());
   }
 }

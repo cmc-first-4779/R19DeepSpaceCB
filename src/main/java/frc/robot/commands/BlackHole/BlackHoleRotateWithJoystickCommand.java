@@ -10,11 +10,12 @@ package frc.robot.commands.BlackHole;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 import frc.robot.XBoxJoystickMap;
 
 public class BlackHoleRotateWithJoystickCommand extends Command {
   double rightStickYDeadZone = .25;
-  double boxAngleIncrement = 5;
+  double boxAngleIncrement = RobotMap.BLACK_HOLE_ANGLE_INCREMENT;
 
 
   public BlackHoleRotateWithJoystickCommand() {

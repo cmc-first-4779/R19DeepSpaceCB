@@ -163,7 +163,11 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
-  }
+    Robot.armsSubsytem.setArmHeight(0);
+    Robot.blackHoleSubsystem.setBoxAngle(0);
+    Robot.armsSubsytem.zeroSetPoint();
+    Robot.blackHoleSubsystem.zeroSetPoint(); 
+   }
 
   @Override
   public void disabledPeriodic() {
@@ -230,8 +234,12 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    Robot.armsSubsytem.zeroSetPoint();
+    Robot.blackHoleSubsystem.zeroSetPoint();
     Robot.armsSubsytem.setArmHeight(0);  //Reset Arm Height to 0.
     Robot.blackHoleSubsystem.setBoxAngle(0);
+    Robot.armsSubsytem.resetEncoder();
+    Robot.blackHoleSubsystem.resetEncoder();
   }
 
   /**
@@ -271,7 +279,7 @@ public class Robot extends TimedRobot {
     victor.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
     victor.configNominalOutputForward(0.0, 0);
     victor.configNominalOutputReverse(0.0, 0);
-    victor.configClosedloopRamp(0.5, 0);    
+    victor.configClosedloopRamp(0.1, 0);    
   }
 
   //Get the amount of time left in the Match from the DriverStation.

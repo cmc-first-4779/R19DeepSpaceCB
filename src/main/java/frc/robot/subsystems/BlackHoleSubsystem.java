@@ -150,4 +150,12 @@ public class BlackHoleSubsystem extends Subsystem {
     return boxAngle;
   }
 
+    //Set Talon target to 0
+    public void zeroSetPoint(){
+      spinMotor.set(ControlMode.MotionMagic, 0);
+      spinMotor.set(ControlMode.PercentOutput, 0 );
+      System.out.println("Trying to zero arm Talon");
+      System.out.println("Arm Motor setpoint should be 0: " + spinMotor.getSelectedSensorPosition());
+    }
+
 }

@@ -39,10 +39,10 @@ public class ArmsMoveWithJoystickCommand extends Command {
     // Move the ARM with the OperStick
     double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS);
     if (leftStickYAxis > leftStickYDeadZone ) {
-      System.out.println("Increasing Height");
+    //  System.out.println("Increasing Height");
       Robot.armsSubsytem.setArmHeight(Robot.armsSubsytem.getArmHeight() + armHeightIncrement);
     } else if (leftStickYAxis < -leftStickYDeadZone) {
-      System.out.println("Decreasing Height");
+    //  System.out.println("Decreasing Height");
       Robot.armsSubsytem.setArmHeight(Robot.armsSubsytem.getArmHeight() - armHeightIncrement);
     } else {
       // do nothing, leave the arm height where it's at
