@@ -14,6 +14,8 @@ import frc.robot.commands.BlackHole.*;
 import frc.robot.commands.BlastOff.*;
 import frc.robot.commands.EventHorizon.*;
 import frc.robot.commands.NoseCone.*;
+import frc.robot.commands.WarpDrive.WarpDriveAdjustLeftTurnCommand;
+import frc.robot.commands.WarpDrive.WarpDriveAdjustRightTurnCommand;
 import frc.robot.autoCommands.*;
 
 public class OI {
@@ -49,7 +51,6 @@ public class OI {
 		JoystickButton driverStickLeftBumper = new JoystickButton(driverStick, XBoxJoystickMap.LEFT_BUMPER_BUTTON);
 		JoystickButton driverStickRightBumper = new JoystickButton(driverStick, XBoxJoystickMap.RIGHT_BUMPER_BUTTON);
 		JoystickButton driverStickBackButton = new JoystickButton(driverStick, XBoxJoystickMap.BACK_BUTTON);
-
 		JoystickButton driverStickStartButton = new JoystickButton(driverStick, XBoxJoystickMap.START_BUTTON);
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
@@ -60,6 +61,8 @@ public class OI {
 		//operStickAButton.whenPressed(new BlackHoleRotateToAngleCommand(10));
 		//operStickBButton.whenPressed(new BlackHoleRotateToAngleCommand(-10));
 		//operStickYButton.whenPressed(new BlackHoleRotateToAngleCommand(0));
+		driverStickLeftBumper.whenPressed(new WarpDriveAdjustLeftTurnCommand());
+		driverStickRightBumper.whenPressed(new WarpDriveAdjustRightTurnCommand());
 
 		// Operator Stick
 		operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());

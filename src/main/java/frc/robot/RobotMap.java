@@ -76,6 +76,7 @@ public static double WARPDRIVE_LOW_HAB_SPEED = 0.8; //placeholder
 public static double WARPDRIVE_MEDIUM_HAB_SPEED = 0.4; //placeholder
 public static int WARPDRIVE_DISTANCE_MEDIUM_HAB = 600; //placeholder
 public static int WARPDRIVE_DISTANCE_LOW_HAB = 400; //placeholder
+public static double WARPDRIVE_BUMPER_TURN_INCREMENT = 10;  //degrees.. placeholder.  Used to do minor turn corrections via the bumpers.
 
 
   /************************************************************************/

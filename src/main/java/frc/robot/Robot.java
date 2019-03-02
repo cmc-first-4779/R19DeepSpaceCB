@@ -240,6 +240,7 @@ public class Robot extends TimedRobot {
     Robot.blackHoleSubsystem.setBoxAngle(0);
     Robot.armsSubsytem.resetEncoder();
     Robot.blackHoleSubsystem.resetEncoder();
+    Robot.blastOffSubsystem.resetEncoder();
   }
 
   /**

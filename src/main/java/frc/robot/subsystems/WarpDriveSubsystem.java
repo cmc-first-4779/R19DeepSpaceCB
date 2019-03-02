@@ -392,6 +392,15 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
 		leftMaster.getSensorCollection().setQuadraturePosition(0, kTimeoutMs);
 		rightMaster.getSensorCollection().setQuadraturePosition(0, kTimeoutMs);
 		System.out.println("[Quadrature Encoders] All sensors are zeroed.\n");
-	}
+  }
+  
+  //  Turn left just a little using the bumper button
+  public void adjustLeftTurn(){
+    rotateDegrees(-RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT);
+  }
 
+  //  Turn right just a little using the bumper button
+  public void adjustRightTurn(){
+    rotateDegrees(RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT);
+  }
 }

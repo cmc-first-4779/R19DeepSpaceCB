@@ -104,8 +104,14 @@ public class BlastOffSubsystem extends Subsystem {
     blastOffMotor.stopMotor();
   }
 
+  //  Return the voltage off of the Proximity Sensor
   public double getProximityVoltage() {
     return proximitySensor.getVoltage();
+  }
+
+  //  Reset the BlastOff Encoder
+  public void resetEncoder() {
+    encoder.reset();
   }
 
 }
