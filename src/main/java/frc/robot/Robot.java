@@ -205,13 +205,13 @@ public class Robot extends TimedRobot {
 
     //  Set the nose cone based off of the CarryChooser
       //  If we are carrying a hatch
-    if (whatCarry == 0){
+    //if (whatCarry == 0){
       //Robot Opens the NoseCone for the first few swconds of the match to make sure a preloaded hatch stays
       Robot.noseConeSubsystem.openNoseCone();
-    }
-    else {  //Else we are carrying a cargo ball
-      Robot.noseConeSubsystem.closeNoseCone();
-    }
+    //}
+    //else {  //Else we are carrying a cargo ball
+      //Robot.noseConeSubsystem.closeNoseCone();
+    //}
     
     
 

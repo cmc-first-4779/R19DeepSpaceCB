@@ -84,6 +84,7 @@ public class BlackHoleSubsystem extends Subsystem {
     // Move arm to set point
     boxAngle = angle;
     spinMotor.set(ControlMode.Position, angle);
+    SmartDashboard.putNumber("BlackHole Angle", boxAngle);
     // System.out.println("Encoder count: " +
     // spinMotor.getSelectedSensorPosition());
   }
@@ -94,6 +95,7 @@ public class BlackHoleSubsystem extends Subsystem {
     // Move arm to set point if valid
     if (validAngleSet()) {
       spinMotor.set(ControlMode.MotionMagic, boxAngle*4096/360);
+      SmartDashboard.putNumber("BlackHole Angle", boxAngle);
     } else {
       SmartDashboard.putString("BlackHoleSubsystem", "Angle: " + boxAngle + " Out of valid Range");
     }
