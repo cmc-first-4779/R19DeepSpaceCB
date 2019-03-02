@@ -63,6 +63,7 @@ public class OI {
 		//operStickYButton.whenPressed(new BlackHoleRotateToAngleCommand(0));
 		driverStickLeftBumper.whenPressed(new WarpDriveAdjustLeftTurnCommand());
 		driverStickRightBumper.whenPressed(new WarpDriveAdjustRightTurnCommand());
+		driverStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
 
 		// Operator Stick
 		operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());

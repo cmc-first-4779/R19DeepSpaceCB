@@ -106,6 +106,7 @@ public class BlastOffSubsystem extends Subsystem {
 
   //  Return the voltage off of the Proximity Sensor
   public double getProximityVoltage() {
+    SmartDashboard.putNumber("Proximity Sensor Voltage", proximitySensor.getVoltage());
     return proximitySensor.getVoltage();
   }
 
