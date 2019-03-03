@@ -16,6 +16,7 @@ import frc.robot.commands.EventHorizon.*;
 import frc.robot.commands.NoseCone.*;
 import frc.robot.commands.WarpDrive.WarpDriveAdjustLeftTurnCommand;
 import frc.robot.commands.WarpDrive.WarpDriveAdjustRightTurnCommand;
+import frc.robot.commands.WarpDrive.WarpDriveTurnSome;
 import frc.robot.autoCommands.*;
 
 public class OI {
@@ -61,8 +62,8 @@ public class OI {
 		//operStickAButton.whenPressed(new BlackHoleRotateToAngleCommand(10));
 		//operStickBButton.whenPressed(new BlackHoleRotateToAngleCommand(-10));
 		//operStickYButton.whenPressed(new BlackHoleRotateToAngleCommand(0));
-		//driverStickLeftBumper.whenPressed(new WarpDriveAdjustLeftTurnCommand());
-		//driverStickRightBumper.whenPressed(new WarpDriveAdjustRightTurnCommand());
+		driverStickLeftBumper.whenPressed(new WarpDriveTurnSome(-RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
+		driverStickRightBumper.whenPressed(new WarpDriveTurnSome(RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
 		driverStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
 
 		// Operator Stick

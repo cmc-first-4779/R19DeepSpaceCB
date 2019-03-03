@@ -9,34 +9,37 @@ package frc.robot.commands.WarpDrive;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class TurnToAngle extends Command {
-  double angle;
-  boolean isFinished = false;
-  boolean inErrorZone = false;
-  int count = 0;
-  int printCount = 0;
+public class WarpDriveTurnSome extends Command {
+  double degreesToTurn;
+  boolean isFinished;
+  boolean inErrorZone;
+  int count;
+  int printCount;
 
-  public TurnToAngle(double angle) {
+  public WarpDriveTurnSome(double degreesToTurn) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    System.out.println("In Constructor");
     requires(Robot.warpDriveSubsystem);
-    this.angle = angle;
+    this.degreesToTurn = degreesToTurn;
+    isFinished = false;
+    inErrorZone = false;
+    count = 0;
+    printCount = 0;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.warpDriveSubsystem.rotateDegrees(angle);
+    Robot.warpDriveSubsystem.rotateDegrees(degreesToTurn);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     double error = Robot.warpDriveSubsystem.turnController.getError();
-    inErrorZone = Math.abs(error) < 5;
-    System.out.println("Count: " + count);
+    inErrorZone = Math.abs(error) < RobotMap.WARPDRIVE_TURN_TOLERANCE;
     if(inErrorZone) {
       count++;
       if (count > 5 ){
@@ -46,9 +49,8 @@ public class TurnToAngle extends Command {
     } else {
       count = 0;
     }
-
-  
-    if(printCount++ > 0 ) {
+      //Only print out every 10 interrations
+    if(printCount++ > 10 ) {
       System.out.println("Error: " + error);
       printCount = 0;
     }

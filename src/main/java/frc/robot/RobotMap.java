@@ -77,7 +77,7 @@ public static double WARPDRIVE_MEDIUM_HAB_SPEED = 0.4; //placeholder
 public static int WARPDRIVE_DISTANCE_MEDIUM_HAB = 600; //placeholder
 public static int WARPDRIVE_DISTANCE_LOW_HAB = 400; //placeholder
 public static double WARPDRIVE_BUMPER_TURN_INCREMENT = 10;  //degrees.. placeholder.  Used to do minor turn corrections via the bumpers.
-
+public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we can be off when turning a set number of degrees
 
   /************************************************************************/
   /***************LIMELIGHT / VISION SETTINGS *****************************/
@@ -104,6 +104,7 @@ public static double WARPDRIVE_BUMPER_TURN_INCREMENT = 10;  //degrees.. placehol
   public static final double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
   public static final double LIMELIGHT_DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
   public static final double LIMELIGHT_DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
+
 
 
 

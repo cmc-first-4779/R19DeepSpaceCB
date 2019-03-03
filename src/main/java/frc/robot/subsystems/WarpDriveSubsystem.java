@@ -47,10 +47,6 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
   // DECLARE OUR DIFFERENTAL DRIVE
   DifferentialDrive myDrive;
 
-  // Declare our DriveTrain Encoders
-//  private Encoder driveTrainEncoderLeft;
- // private Encoder driveTrainEncoderRight;
-
   // DECLARE OUR NAV-X GYRO
   public AHRS gyro;
 
@@ -103,12 +99,6 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
 
     myDrive = new DifferentialDrive(leftMaster, rightMaster);
 
-    // INITIATE OUR DRIVETRAIN ROTARY ENCODERS
-    //driveTrainEncoderLeft = new Encoder(RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_A,
-      //  RobotMap.DIO_PORT_DTENCODER_LEFT_CHANNEL_B);
-    //driveTrainEncoderRight = new Encoder(RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_A,
-      //  RobotMap.DIO_PORT_DTENCODER_RIGHT_CHANNEL_B);
-
     // Initiate NAV-X GYRO
     /* Communicate w/navX-MXP via the MXP SPI Bus. */
     /* Alternatively: I2C.Port.kMXP, SerialPort.Port.kMXP or SerialPort.Port.kUSB */
@@ -138,7 +128,6 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
   public void arcadeDrive(double move, double turn) {
     // System.out.println("move: " + move + " turn: " + turn);
     myDrive.arcadeDrive(-move, turn);
-
   }
 
   // RETURN THE GYRO OBJECT
@@ -186,7 +175,7 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     //System.out.println("Right DT Encoder count: " + rightMaster.getSelectedSensorPosition());
   }
 
-  //Reset the encoder on our Arm Master Talon.
+  //Reset the encoders on our drive Talon.
   public void resetEncoders() {
     leftMaster.setSelectedSensorPosition(0);
     rightMaster.setSelectedSensorPosition(0);
@@ -211,13 +200,6 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
       // Average our two rotary encoders together to account for slippage and turning.
       return (-leftMaster.getSelectedSensorPosition() + rightMaster.getSelectedSensorPosition()) / 2;
     }
-  }
-
-
-
-  public void set(ControlMode mode, double leftValue, double rightValue) {
-    leftMaster.set(mode, leftValue);
-    rightMaster.set(mode, rightValue);
   }
 
   public void rotateDegrees(double angle) {
