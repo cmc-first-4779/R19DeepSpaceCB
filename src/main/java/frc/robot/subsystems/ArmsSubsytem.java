@@ -129,4 +129,13 @@ public class ArmsSubsytem extends Subsystem {
     System.out.println("Trying to zero arm Talon");
     System.out.println("Arm Motor setpoint should be 0: " + armMaster.getSelectedSensorPosition());
   }
+
+  //   We call this method when we Launch so that the arms get more power to balance out the robot.
+  public void configArmForBlastOff(){
+    //  Adjust kP on the ARM for Blastoff...
+    armMaster.config_kP(0, .06, 0);
+    //  Change the Talon Control Mode from Motion Magic to PercentOutput and change the value output..
+    armMaster.set(ControlMode.PercentOutput, 0.5);
+  }
+
 }

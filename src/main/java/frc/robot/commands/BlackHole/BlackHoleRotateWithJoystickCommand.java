@@ -9,6 +9,7 @@ package frc.robot.commands.BlackHole;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.XBoxJoystickMap;
@@ -38,6 +39,7 @@ public class BlackHoleRotateWithJoystickCommand extends Command {
     if (rightStickYAxis > rightStickYDeadZone ) {
       System.out.println("Increasing Angle");
       Robot.blackHoleSubsystem.setBoxAngle(Robot.blackHoleSubsystem.getBoxAngle() + boxAngleIncrement);
+      //SmartDashboard.putNumber("BlackHole Setpoint", Robot.blackHoleSubsystem.spinMotor.getSelectedSensorPosition());
     } else if (rightStickYAxis < -rightStickYDeadZone) {
       System.out.println("Decreasing Angle");
       Robot.blackHoleSubsystem.setBoxAngle(Robot.blackHoleSubsystem.getBoxAngle() - boxAngleIncrement);

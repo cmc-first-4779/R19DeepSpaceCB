@@ -53,7 +53,7 @@ public class BlastOffSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Default Command for the Blastoff subsystem is the retract / "land" the pneumatics
-    setDefaultCommand(new BlastOffStopMotorCommand());
+    setDefaultCommand(new BlastOffLandCommand());
   }
 
   //Launches the Robot onto the top habitat platform

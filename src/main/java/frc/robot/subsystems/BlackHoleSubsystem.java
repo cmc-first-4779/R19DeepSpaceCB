@@ -59,6 +59,8 @@ public class BlackHoleSubsystem extends Subsystem {
     spinMotor.configNominalOutputReverse(0, 0);
     spinMotor.configPeakOutputForward(1, 0);
     spinMotor.configPeakOutputReverse(-1, 0);
+    //Setup the Izone so that the accumulated error is ignored unless it's under this number
+    spinMotor.config_IntegralZone(0, 50);
   }
 
   @Override
@@ -85,6 +87,7 @@ public class BlackHoleSubsystem extends Subsystem {
     boxAngle = angle;
     spinMotor.set(ControlMode.Position, angle);
     SmartDashboard.putNumber("BlackHole Angle", boxAngle);
+    SmartDashboard.putNumber("BlackHole Setpoint", spinMotor.getSelectedSensorPosition());
     // System.out.println("Encoder count: " +
     // spinMotor.getSelectedSensorPosition());
   }
@@ -96,6 +99,7 @@ public class BlackHoleSubsystem extends Subsystem {
     if (validAngleSet()) {
       spinMotor.set(ControlMode.MotionMagic, boxAngle*4096/360);
       SmartDashboard.putNumber("BlackHole Angle", boxAngle);
+      SmartDashboard.putNumber("BlackHole Setpoint", spinMotor.getSelectedSensorPosition());
     } else {
       SmartDashboard.putString("BlackHoleSubsystem", "Angle: " + boxAngle + " Out of valid Range");
     }

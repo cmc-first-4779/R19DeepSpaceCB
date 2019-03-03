@@ -81,7 +81,7 @@ public class OI {
 		operStickStartButton.whenPressed(new BlastOffLandCommand());
 		operStickXButton.whileHeld(new BlastOffMoveForwardCommand());
 		operStickBButton.whileHeld(new BlastOffMoveReverseCommand());
-
+		operStickLeftBumper.whenPressed(new BlastOffStopMotorCommand());
 		
 
 

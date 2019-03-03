@@ -17,7 +17,7 @@ public class BlastOffStopMotorCommand extends Command {
   public BlastOffStopMotorCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.blastOffSubsystem);
+    //requires(Robot.blastOffSubsystem);
   }
 
   // Called just before this Command runs the first time

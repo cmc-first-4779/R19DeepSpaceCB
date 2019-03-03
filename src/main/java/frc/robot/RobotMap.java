@@ -87,8 +87,8 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   //
   public static final double LIMELIGHT_PIPELINE_ROCKET_HATCH = 0; // Use the Rocket Hatch Pipeline
   public static final double LIMELIGHT_PIPELINE_ROCKET_CARGO = 1;  //Use the Rocket CARGO Pipeline
-  public static final double LIMELINE_PIPELINE_CARGOSHIP_HATCH = 2;  // Use the Cargo Ship Hatch Pipeline
-  public static final double LIMELINE_PIPELINE_CARGOSHIP_CARGO = 3;  // Use the Cargo Ship Hatch Pipeline
+  public static final double LIMELIGHT_PIPELINE_CARGOSHIP_HATCH = 2;  // Use the Cargo Ship Hatch Pipeline
+  public static final double LIMELIGHT_PIPELINE_CARGOSHIP_CARGO = 3;  // Use the Cargo Ship Hatch Pipeline
   public static final double LIMELIGHT_PIPELINE_HATCHCOVER = 4;  // Use the Hatch Cover Pipeline
   public static final double LIMELIGHT_PIPELINE_CARGO_BALL = 5;   //  Use the Cargo Ball Pipeline
   public static final double LIMELIGHT_PIPELINE_VEST = 9; // Use the VEST Pipeline..    We use this for Testing...
@@ -115,7 +115,7 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static double ARM_LOWER_SPEED = -0.6;
   public static double ARM_RAISE_VOLTAGE = 7.0;  //volts
   public static double ARM_LOWER_VOLTAGE = -3.0;  //volts
-  public static int ARM_MAX_HEIGHT = 700000;   //placeholder..   Need to fix..
+  public static int ARM_MAX_HEIGHT = 695000;   
   public static double ARM_LEFTSTICK_Y_DEAD_ZONE = 0.25;  // Deadzone for moving the arm
   public static int ARM_HEIGHT_INCREMENT = 7000;  //  Increment the arm by 7500 when moving by Joystick
   public static int ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH = 632509;  //
@@ -130,15 +130,15 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static int ARM_ENCODER_POSITION_FLOOR_HATCH = 75000;  //placeholder..  Need to fix
   public static int ARM_ENCODER_POSITION_HUMAN_CARGO = 80000;  //placeholder..  Need to fix
   public static int ARM_ENCODER_POSITION_HUMAN_HATCH = 80000;  //placeholder..  Need to fix
-  public static int ARM_ENCODER_POSITION_HIGH_HAB_PlATFORM = 250000;  //placeholder..  Need to fix
+  public static int ARM_ENCODER_POSITION_HIGH_HAB_PlATFORM = 234600; 
 
   /**********************************************************************/
   /************** BLASTOFF / CLIMBER SETTINGS ***************************/
   /**********************************************************************/
-  public static double BLASTOFF_FORWARD_SPEED = 0.7;  //volts
-  public static double BLASTOFF_REVERSE_SPEED = -0.5;  //volts
+  public static double BLASTOFF_FORWARD_SPEED = 1.0;  //volts
+  public static double BLASTOFF_REVERSE_SPEED = -1.0;  //volts
   public static double BLASTOFF_STOP_SPEED = 0.0;  //volts
-  public static double BLASTOFF_TIMEOUT = 1.0;  //seconds
+  public static double BLASTOFF_TIMEOUT = 4.0;  //seconds
   public static double BLASTOFF_OK_TIME_TO_LAUNCH = 29;  //seconds remaining in the game
   //  Proxmity Sensor Math..
   //    5V Power Supply yields to a 4.88mv per 5mm
@@ -156,25 +156,25 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
    /****************************************************************************/
    /************** BLACKHOLE / CARGO HOLDER SETTINGS ***************************/
    /****************************************************************************/
-  public static double BLACK_HOLE_SPIN_FORWARD_SPEED = -0.4; 
-  public static double BLACK_HOLE_SPIN_REVERSE_SPEED = 0.4;
+  public static double BLACK_HOLE_SPIN_FORWARD_SPEED = -0.5; 
+  public static double BLACK_HOLE_SPIN_REVERSE_SPEED = 0.5;
   public static double BLACK_HOLE_SPIN_STOP_SPEED = 0.0;
   public static double BLACK_HOLE_MAX_POSITIVE_ANGLE = 20;  //degrees   Need to test
   public static double BLACK_HOLE_MAX_NEGATIVE_ANGLE = -96;  //degrees   Need to test
   public static double BLACK_HOLE_ANGLE_INCREMENT = 2;  //  Increment the arm by 3550 when moving by Joystick
-  public static double BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD = 180;  //degrees placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD = 0;  //degrees placeholder..  Need to fix
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 0 ;  //degrees placeholder..  Need to fix
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 10;  //degrees placeholder..  Need to fix
-  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 30;   //degrees placeholder..  Need to fix
-  public static double BLACK_HOLE_ENCODER_POSITION_HIGH_HAB_PLATFORM = 0 ;   //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 20;   //degrees placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_HIGH_HAB_PLATFORM = -30.5 ;   //degrees placeholder..  Need to fix 
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_HATCH = -4;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = -60;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_HATCH = -96;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_CARGO = -34;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = -76;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_CARGO = -90;  //degrees  
-  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH = 200;  //degrees placeholder..  Need to fix 
-  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_CARGO = 200;  //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH = -4;  //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_CARGO = 20;  //degrees placeholder..  Need to fix 
 
 
    /************************************************************************************/
