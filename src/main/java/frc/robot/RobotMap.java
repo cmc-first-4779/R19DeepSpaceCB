@@ -115,22 +115,22 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static double ARM_LOWER_SPEED = -0.6;
   public static double ARM_RAISE_VOLTAGE = 7.0;  //volts
   public static double ARM_LOWER_VOLTAGE = -3.0;  //volts
-  public static double ARM_MAX_HEIGHT = 700000;   //placeholder..   Need to fix..
+  public static int ARM_MAX_HEIGHT = 700000;   //placeholder..   Need to fix..
   public static double ARM_LEFTSTICK_Y_DEAD_ZONE = 0.25;  // Deadzone for moving the arm
-  public static double ARM_HEIGHT_INCREMENT = 7000;  //  Increment the arm by 7500 when moving by Joystick
-  public static double ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH = 632509;  //
-  public static double ARM_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = 406382;  
-  public static double ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH = 35611;  
-  public static double ARM_ENCODER_POSITION_ROCKET_UPPER_CARGO = 693108;  
-  public static double ARM_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = 527060;    
-  public static double ARM_ENCODER_POSITION_ROCKET_LOWER_CARGO = 301750;  
-  public static double ARM_ENCODER_POSITION_CARGO_SHIP_HATCH = 100000;  //placeholder..  Need to fix
-  public static double ARM_ENCODER_POSITION_CARGO_SHIP_CARGO = 200000;  //placeholder..  Need to fix
-  public static double ARM_ENCODER_POSITION_FLOOR_CARGO = 75000;  //placeholder..  Need to fix
-  public static double ARM_ENCODER_POSITION_FLOOR_HATCH = 75000;  //placeholder..  Need to fix
-  public static double ARM_ENCODER_POSITION_HUMAN_CARGO = 80000;  //placeholder..  Need to fix
-  public static double ARM_ENCODER_POSITION_HUMAN_HATCH = 80000;  //placeholder..  Need to fix
-  public static double ARM_ENCODER_POSITION_HIGH_HAB_PlATFORM = 250000;  //placeholder..  Need to fix
+  public static int ARM_HEIGHT_INCREMENT = 7000;  //  Increment the arm by 7500 when moving by Joystick
+  public static int ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH = 632509;  //
+  public static int ARM_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = 406382;  
+  public static int ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH = 35611;  
+  public static int ARM_ENCODER_POSITION_ROCKET_UPPER_CARGO = 693108;  
+  public static int ARM_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = 527060;    
+  public static int ARM_ENCODER_POSITION_ROCKET_LOWER_CARGO = 301750;  
+  public static int ARM_ENCODER_POSITION_CARGO_SHIP_HATCH = 100000;  //placeholder..  Need to fix
+  public static int ARM_ENCODER_POSITION_CARGO_SHIP_CARGO = 200000;  //placeholder..  Need to fix
+  public static int ARM_ENCODER_POSITION_FLOOR_CARGO = 75000;  //placeholder..  Need to fix
+  public static int ARM_ENCODER_POSITION_FLOOR_HATCH = 75000;  //placeholder..  Need to fix
+  public static int ARM_ENCODER_POSITION_HUMAN_CARGO = 80000;  //placeholder..  Need to fix
+  public static int ARM_ENCODER_POSITION_HUMAN_HATCH = 80000;  //placeholder..  Need to fix
+  public static int ARM_ENCODER_POSITION_HIGH_HAB_PlATFORM = 250000;  //placeholder..  Need to fix
 
   /**********************************************************************/
   /************** BLASTOFF / CLIMBER SETTINGS ***************************/

@@ -65,6 +65,9 @@ public class ArmsSubsytem extends Subsystem {
     armMaster.configNominalOutputReverse(0, 0); //th minimal amount of voltage the motors output in reverse
     armMaster.configPeakOutputForward(1, 0);
     armMaster.configPeakOutputReverse(-1, 0);
+    //Configure the soft limits of the arms
+    armMaster.configForwardSoftLimitThreshold(RobotMap.ARM_MAX_HEIGHT);
+    armMaster.configForwardSoftLimitEnable(true);
   }
 
   @Override
