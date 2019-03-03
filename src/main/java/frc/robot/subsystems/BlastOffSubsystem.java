@@ -44,6 +44,8 @@ public class BlastOffSubsystem extends Subsystem {
     blastOffSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_BLASTOFF_LAUNCH, RobotMap.PCM_PORT_BLASTOFF_LAND);
     //Init the encoder
     encoder = new Encoder(RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A, RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B);
+    //Set the Encoder Distance per Pulse
+    encoder.setDistancePerPulse(RobotMap.BLASTOFF_DISTANCE_PER_PULSE);
     //  Init the Proximity Sensor
     proximitySensor = new AnalogInput(RobotMap.ANALOG_PORT_BLASTOFF_PROXIMITY_SENSOR);
   }
@@ -61,9 +63,9 @@ public class BlastOffSubsystem extends Subsystem {
     matchTime = Robot.getMatchTime();
     //LAUNCH ON TO THE PLATFORM IF AND ONLY IF, WE ARE IN THE ENDGAME AND READY TO USE THE BIG SOLENOID!!!!
     //  Check to see if we are NOT in Auton...
-    if (!Robot.inAutonmousMode()){
+    //if (!Robot.inAutonmousMode()){
       //   We have have less than or equal to "OK TIME TO LAUNCH" seconds remaining in the match..
-      if (matchTime <= RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH){
+     // if (matchTime <= RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH){
         //  If the Proximity Sensor voltage is less than our threshold and we are close to the high hab platform
         if (getProximityVoltage() <= RobotMap.BLASTOFF_PROXIMITY_SENSOR_THRESHOLD_VOLTAGE){
           blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
@@ -73,14 +75,14 @@ public class BlastOffSubsystem extends Subsystem {
           System.out.println("Too far from the platform.  Voltage:  " + getProximityVoltage());  
           SmartDashboard.putNumber("Proximity Sensor", getProximityVoltage());
         }
-      } 
-      else {
-        System.out.println("Match time does not equal:  " + RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH);
-      }
-    }
-    else{
-      System.out.println("We are in Auton.  No Blastoff for you!!");
-    }
+      //} 
+      //else {
+       // System.out.println("Match time does not equal:  " + RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH);
+     // }
+    //}
+    //else{
+     // System.out.println("We are in Auton.  No Blastoff for you!!");
+    //}
   }
 
 
@@ -92,16 +94,19 @@ public class BlastOffSubsystem extends Subsystem {
   //  Move the robot forward with the blastoff wheels onto the high Habitat Platform
   public void forward(){
     blastOffMotor.set(RobotMap.BLASTOFF_FORWARD_SPEED);
+    SmartDashboard.putNumber("BlastOff Encoder", encoder.getDistance());
   }
 
   //  Reverse the motors on the Blastoff Foot
   public void reverse(){
     blastOffMotor.set(RobotMap.BLASTOFF_REVERSE_SPEED);
+    SmartDashboard.putNumber("BlastOff Encoder", encoder.getDistance() );
   }
 
   //  Stop the motors on the Blastoff foot
   public void stopMotor(){
     blastOffMotor.stopMotor();
+    SmartDashboard.putNumber("BlastOff Encoder", encoder.getDistance() );
   }
 
   //  Return the voltage off of the Proximity Sensor

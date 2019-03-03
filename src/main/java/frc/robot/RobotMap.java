@@ -145,6 +145,12 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   //    Output Voltage Range: (with 5V):  293mV per 300mm and 4885mV for 5000mm
   //      0.295 volts should get us within 30.5cm
   public static double BLASTOFF_PROXIMITY_SENSOR_THRESHOLD_VOLTAGE = 0.295;  //volts   
+  public static double BLASTOFF_ENCODER_PULSES_PER_REVOLUTION = 12;
+  //  Distance per axle revolution.    2" diameter wheels =>  2 *pi = Circumference = 6.28"  
+  //     Motor is geared on a 10:1 ratio, so we should be seeing 6.28" / 10 distance each rotation
+  public static double BLASTOFF_DISTANCE_PER_REVOLUTION = 0.628; // inches..   
+  public static double BLASTOFF_DISTANCE_PER_PULSE = BLASTOFF_DISTANCE_PER_REVOLUTION / BLASTOFF_ENCODER_PULSES_PER_REVOLUTION;
+
 
 
    /****************************************************************************/
@@ -157,13 +163,13 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static double BLACK_HOLE_MAX_NEGATIVE_ANGLE = -96;  //degrees   Need to test
   public static double BLACK_HOLE_ANGLE_INCREMENT = 2;  //  Increment the arm by 3550 when moving by Joystick
   public static double BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD = 180;  //degrees placeholder..  Need to fix
-  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 270;  //degrees placeholder..  Need to fix
-  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 0;  //degrees placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 0 ;  //degrees placeholder..  Need to fix
+  public static double BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY = 10;  //degrees placeholder..  Need to fix
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_EJECT = 30;   //degrees placeholder..  Need to fix
-  public static double BLACK_HOLE_ENCODER_POSITION_HIGH_HAB_PLATFORM = 240;   //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_HIGH_HAB_PLATFORM = 0 ;   //degrees placeholder..  Need to fix 
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_HATCH = -4;  //degrees  
-  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = -60;  //degrees placeholder..  Need to fix 
-  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_HATCH = -96;  //degrees placeholder..  Need to fix 
+  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = -60;  //degrees  
+  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_HATCH = -96;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_CARGO = -34;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = -76;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_CARGO = -90;  //degrees  

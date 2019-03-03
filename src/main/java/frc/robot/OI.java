@@ -64,21 +64,23 @@ public class OI {
 		//operStickYButton.whenPressed(new BlackHoleRotateToAngleCommand(0));
 		driverStickLeftBumper.whenPressed(new WarpDriveTurnSome(-RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
 		driverStickRightBumper.whenPressed(new WarpDriveTurnSome(RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
-		driverStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
+		//driverStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
+		driverStickAButton.whenPressed(new EventHorizonRaiseArmCommand());
 
 		// Operator Stick
-		operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
-		operStickRightBumper.whenPressed(new EventHorizonRetractCommand());
-		operStickAButton.whenPressed(new BlackHolePlungeCommand());
-		operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
+		//operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
+		//operStickRightBumper.whenPressed(new EventHorizonRetractCommand());
+		//operStickAButton.whenPressed(new BlackHolePlungeCommand());
+		//operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
 		//operStickXButton.whenPressed(new ArmSetPositionCommand(175000));
 		//operStickBButton.whenPressed(new ArmSetPositionCommand(75000));
-		operStickXButton.whenPressed(new NoseConeOpenCommand());
-		operStickBButton.whenPressed(new NoseConeCloseCommand());
-		//operStickBackButton.whenPressed(new BlastOffLaunchCommand());
-		//operStickStartButton.whenPressed(new BlastOffLandCommand());
-		//operStickAButton.whileHeld(new BlastOffMoveForwardCommand());
-		//operStickBButton.whileHeld(new BlastOffMoveReverseCommand());
+		//operStickXButton.whenPressed(new NoseConeOpenCommand());
+		//operStickBButton.whenPressed(new NoseConeCloseCommand());
+		operStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
+		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
+		operStickStartButton.whenPressed(new BlastOffLandCommand());
+		operStickXButton.whileHeld(new BlastOffMoveForwardCommand());
+		operStickBButton.whileHeld(new BlastOffMoveReverseCommand());
 
 		
 

@@ -10,6 +10,8 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
@@ -29,6 +31,9 @@ public class ArmsSubsytem extends Subsystem {
 
   //   Set the starting armHeight to ZERO.
   public double armHeight = 0;
+
+  //Declare our limit switch that determines if the Arm is up too high..
+  //DigitalInput limitSwitch;
 
 
   public ArmsSubsytem() {
@@ -59,7 +64,7 @@ public class ArmsSubsytem extends Subsystem {
     //Setup the Izone so that the accumulated error is ignored unless it's under this number
     armMaster.config_IntegralZone(0, 1000);
     //Setup the cruise and acceleration rates for MotionMagic.
-    armMaster.configMotionCruiseVelocity(50000, 0); //Just guessing at theses numbers.  I don't think motor ever spin this quickly with our setup
+    armMaster.configMotionCruiseVelocity(51000, 0); //Just guessing at theses numbers.  I don't think motor ever spin this quickly with our setup
     armMaster.configMotionAcceleration(50000, 0);
     armMaster.configNominalOutputForward(0, 0); //the minimal amount of voltage the motors output in forward
     armMaster.configNominalOutputReverse(0, 0); //th minimal amount of voltage the motors output in reverse
