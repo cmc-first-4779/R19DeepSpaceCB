@@ -18,6 +18,7 @@ public class ArmsMoveWithJoystickCommand extends Command {
 
   double leftStickYDeadZone = RobotMap.ARM_LEFTSTICK_Y_DEAD_ZONE;
   double armHeightIncrement = RobotMap.ARM_HEIGHT_INCREMENT;
+  double newArmHeight = 0;
 
   public ArmsMoveWithJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
@@ -40,10 +41,14 @@ public class ArmsMoveWithJoystickCommand extends Command {
     double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS);
     if (leftStickYAxis > leftStickYDeadZone ) {
     //  System.out.println("Increasing Height");
-      Robot.armsSubsytem.setArmHeight(Robot.armsSubsytem.getArmHeight() + armHeightIncrement);
+     newArmHeight = Robot.armsSubsytem.getArmHeight() + armHeightIncrement;
+      Robot.armsSubsytem.setArmHeight(newArmHeight);
+      Robot.blackHoleSubsystem.setBoxAngle(newArmHeight/RobotMap.ARM_MAX_HEIGHT * RobotMap.BLACK_HOLE_MAX_NEGATIVE_ANGLE);
     } else if (leftStickYAxis < -leftStickYDeadZone) {
     //  System.out.println("Decreasing Height");
-      Robot.armsSubsytem.setArmHeight(Robot.armsSubsytem.getArmHeight() - armHeightIncrement);
+    newArmHeight = Robot.armsSubsytem.getArmHeight() - armHeightIncrement;
+      Robot.armsSubsytem.setArmHeight(newArmHeight);
+      Robot.blackHoleSubsystem.setBoxAngle(newArmHeight/RobotMap.ARM_MAX_HEIGHT * RobotMap.BLACK_HOLE_MAX_NEGATIVE_ANGLE);
     } else {
       // do nothing, leave the arm height where it's at
     }
