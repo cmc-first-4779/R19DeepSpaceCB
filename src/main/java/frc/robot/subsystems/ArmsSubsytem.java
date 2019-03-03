@@ -42,32 +42,33 @@ public class ArmsSubsytem extends Subsystem {
     armSlave.follow(armMaster);
     //Setup our PID values on the encoder
     armMaster.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-//    armMaster.config_kP(0, .016, 0);
     armMaster.config_kP(0, .03, 0);
     armMaster.config_kI(0, 0, 0);
-//    armMaster.config_kD(0, 2.5, 0);
-armMaster.config_kD(0, 2.5, 0);
+    armMaster.config_kD(0, 2.5, 0);
     armMaster.config_kF(0, 0, 0);
+    armMaster.configAllowableClosedloopError(0, 5000, 0);
+    
     armMaster.setSensorPhase(false);
     armMaster.enableCurrentLimit(true);
     armMaster.configPeakCurrentLimit(40);
+    //Set the normal max voltage so that if you set percent out to .5 you get 6 volts always no matter what level the battery is
     armMaster.configVoltageCompSaturation(12, 0);
     armMaster.enableVoltageCompensation(true);
+    //Reset the encoder to 0
     armMaster.setSelectedSensorPosition(0, 0, 0);
+    //Setup the Izone so that the accumulated error is ignored unless it's under this number
     armMaster.config_IntegralZone(0, 1000);
-    armMaster.configMotionCruiseVelocity(50000, 0);
+    //Setup the cruise and acceleration rates for MotionMagic.
+    armMaster.configMotionCruiseVelocity(50000, 0); //Just guessing at theses numbers.  I don't think motor ever spin this quickly with our setup
     armMaster.configMotionAcceleration(50000, 0);
-    armMaster.configNominalOutputForward(0, 0);
-    armMaster.configNominalOutputReverse(0, 0);
+    armMaster.configNominalOutputForward(0, 0); //the minimal amount of voltage the motors output in forward
+    armMaster.configNominalOutputReverse(0, 0); //th minimal amount of voltage the motors output in reverse
     armMaster.configPeakOutputForward(1, 0);
     armMaster.configPeakOutputReverse(-1, 0);
-
-
   }
 
   @Override
   public void initDefaultCommand() {
-
     // Default Command for the armSubystem is to move the Arm with the Joystick
     setDefaultCommand(new ArmsMoveWithJoystickCommand());
   }
@@ -76,23 +77,17 @@ armMaster.config_kD(0, 2.5, 0);
    * Sets the arm to a particular setpoint using motion magic control mode to make the movement smooth.
    * @param height
    */
-  public void setSetPoint() {
-    // do the math to figure out what the encoder count should be
-    // Move arm to set point
-   // armMaster.set(ControlMode.Position, height);
+   public void setSetPoint() {
     //CHECK TO MAKE SURE WE ARE NOT GOING ABOVE OUR MAX HEIGHT!!!
     if (armHeight < RobotMap.ARM_MAX_HEIGHT){
       armMaster.set(ControlMode.MotionMagic, armHeight);
-      //armMaster.set(ControlMode.Position, armHeight);
           // Put the Arm Subsystem SetPoint into the Dashboard
       SmartDashboard.putNumber("ARM SetPoint", armHeight);
     }
     else {
       System.out.println("ARM AT MAX HEIGHT!  I REFUSE TO TIP THIS ROBOT!!");
     }
-    
 
-    //System.out.println("Encoder count: " + armMaster.getSelectedSensorPosition());
     //Put the Arm Encoder Position into the Dashboard
     SmartDashboard.putNumber("ARM Position", getEncoderPosition());
   }
