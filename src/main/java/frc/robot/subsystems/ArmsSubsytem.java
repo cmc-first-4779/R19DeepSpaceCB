@@ -138,4 +138,8 @@ public class ArmsSubsytem extends Subsystem {
     armMaster.set(ControlMode.PercentOutput, 0.5);
   }
 
+  public void moveArm(double movement) {
+    armMaster.set(ControlMode.PercentOutput, movement);
+  }
+
 }

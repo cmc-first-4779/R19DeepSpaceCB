@@ -10,12 +10,18 @@ package frc.robot.commands.BlastOff;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.XBoxJoystickMap;
 
 public class BlastOffLaunchCommand extends Command {
+
+  double leftStickYDeadZone = .25;
+
   public BlastOffLaunchCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blastOffSubsystem);
+    requires(Robot.armsSubsytem);
+    setTimeout(60);
   }
 
   // Called just before this Command runs the first time
@@ -34,6 +40,17 @@ public class BlastOffLaunchCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+        // Move the ARM with the OperStick
+        double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS);
+        if (leftStickYAxis > leftStickYDeadZone ) {
+        //  System.out.println("Increasing Height");
+          Robot.armsSubsytem.moveArm(leftStickYAxis);
+        } else if (leftStickYAxis < -leftStickYDeadZone) {
+        //  System.out.println("Decreasing Height");
+          Robot.armsSubsytem.moveArm(leftStickYAxis);
+        } else {
+          // do nothing, leave the arm height where it's at
+        }
   }
 
   // Make this return true when this Command no longer needs to run execute()
