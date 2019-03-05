@@ -148,7 +148,8 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static double BLASTOFF_ENCODER_PULSES_PER_REVOLUTION = 12;
   //  Distance per axle revolution.    2" diameter wheels =>  2 *pi = Circumference = 6.28"  
   //     Motor is geared on a 10:1 ratio, so we should be seeing 6.28" / 10 distance each rotation
-  public static double BLASTOFF_DISTANCE_PER_REVOLUTION = 0.628; // inches..   
+ // public static double BLASTOFF_DISTANCE_PER_REVOLUTION = 0.628; // inches..   
+  public static double BLASTOFF_DISTANCE_PER_REVOLUTION = 4; // inches..   
   public static double BLASTOFF_DISTANCE_PER_PULSE = BLASTOFF_DISTANCE_PER_REVOLUTION / BLASTOFF_ENCODER_PULSES_PER_REVOLUTION;
 
 
@@ -160,7 +161,7 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static double BLACK_HOLE_SPIN_REVERSE_SPEED = 0.5;
   public static double BLACK_HOLE_SPIN_STOP_SPEED = 0.0;
   public static double BLACK_HOLE_MAX_POSITIVE_ANGLE = 20;  //degrees   Need to test
-  public static double BLACK_HOLE_MAX_NEGATIVE_ANGLE = -96;  //degrees   Need to test
+  public static double BLACK_HOLE_MAX_NEGATIVE_ANGLE = -150;  //degrees   Need to test
   public static double BLACK_HOLE_ANGLE_INCREMENT = 2;  //  Increment the arm by 3550 when moving by Joystick
   public static double BLACK_HOLE_ENCODER_POSITION_HATCH_LOAD = 0;  //degrees placeholder..  Need to fix
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_LOAD = 0 ;  //degrees placeholder..  Need to fix

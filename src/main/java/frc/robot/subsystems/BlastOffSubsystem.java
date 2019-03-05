@@ -67,14 +67,14 @@ public class BlastOffSubsystem extends Subsystem {
       //   We have have less than or equal to "OK TIME TO LAUNCH" seconds remaining in the match..
      // if (matchTime <= RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH){
         //  If the Proximity Sensor voltage is less than our threshold and we are close to the high hab platform
-        if (getProximityVoltage() <= RobotMap.BLASTOFF_PROXIMITY_SENSOR_THRESHOLD_VOLTAGE){
+  //      if (getProximityVoltage() <= RobotMap.BLASTOFF_PROXIMITY_SENSOR_THRESHOLD_VOLTAGE){
           blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
           SmartDashboard.putNumber("Proximity Sensor", getProximityVoltage());
-        }  
-        else{
-          System.out.println("Too far from the platform.  Voltage:  " + getProximityVoltage());  
-          SmartDashboard.putNumber("Proximity Sensor", getProximityVoltage());
-        }
+  //      }  
+  //      else{
+   //       System.out.println("Too far from the platform.  Voltage:  " + getProximityVoltage());  
+   //       SmartDashboard.putNumber("Proximity Sensor", getProximityVoltage());
+    //    }
       //} 
       //else {
        // System.out.println("Match time does not equal:  " + RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH);

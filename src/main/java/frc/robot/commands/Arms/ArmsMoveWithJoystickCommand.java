@@ -43,12 +43,12 @@ public class ArmsMoveWithJoystickCommand extends Command {
     //  System.out.println("Increasing Height");
      newArmHeight = Robot.armsSubsytem.getArmHeight() + armHeightIncrement;
       Robot.armsSubsytem.setArmHeight(newArmHeight);
-      Robot.blackHoleSubsystem.setBoxAngle(newArmHeight/RobotMap.ARM_MAX_HEIGHT * RobotMap.BLACK_HOLE_MAX_NEGATIVE_ANGLE);
+      //Robot.blackHoleSubsystem.setBoxAngle((newArmHeight/RobotMap.ARM_MAX_HEIGHT * RobotMap.BLACK_HOLE_MAX_NEGATIVE_ANGLE)+15);
     } else if (leftStickYAxis < -leftStickYDeadZone) {
     //  System.out.println("Decreasing Height");
     newArmHeight = Robot.armsSubsytem.getArmHeight() - armHeightIncrement;
       Robot.armsSubsytem.setArmHeight(newArmHeight);
-      Robot.blackHoleSubsystem.setBoxAngle(newArmHeight/RobotMap.ARM_MAX_HEIGHT * RobotMap.BLACK_HOLE_MAX_NEGATIVE_ANGLE);
+      //Robot.blackHoleSubsystem.setBoxAngle((newArmHeight/RobotMap.ARM_MAX_HEIGHT * RobotMap.BLACK_HOLE_MAX_NEGATIVE_ANGLE)+15);
     } else {
       // do nothing, leave the arm height where it's at
     }

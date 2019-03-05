@@ -9,6 +9,8 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
+import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -47,11 +49,11 @@ public class ArmsSubsytem extends Subsystem {
     armSlave.follow(armMaster);
     //Setup our PID values on the encoder
     armMaster.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-    armMaster.config_kP(0, .03, 0);
+    armMaster.config_kP(0, .02, 0);
     armMaster.config_kI(0, 0, 0);
     armMaster.config_kD(0, 2.5, 0);
     armMaster.config_kF(0, 0, 0);
-    armMaster.configAllowableClosedloopError(0, 5000, 0);
+    armMaster.configAllowableClosedloopError(0, 0, 0);
     
     armMaster.setSensorPhase(false);
     armMaster.enableCurrentLimit(true);
@@ -73,6 +75,9 @@ public class ArmsSubsytem extends Subsystem {
     //Configure the soft limits of the arms
     armMaster.configForwardSoftLimitThreshold(RobotMap.ARM_MAX_HEIGHT);
     armMaster.configForwardSoftLimitEnable(true);
+
+    armMaster.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen);
+
   }
 
   @Override
@@ -135,8 +140,7 @@ public class ArmsSubsytem extends Subsystem {
     //  Adjust kP on the ARM for Blastoff...
     armMaster.config_kP(0, .06, 0);
     //  Change the Talon Control Mode from Motion Magic to PercentOutput and change the value output..
-    armMaster.set(ControlMode.PercentOutput, 0.5);
-  }
+   }
 
   public void moveArm(double movement) {
     armMaster.set(ControlMode.PercentOutput, movement);
