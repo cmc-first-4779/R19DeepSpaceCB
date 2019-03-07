@@ -99,7 +99,9 @@ public class EventHorizonSubsystem extends Subsystem {
     //  Stop the Wheel Motors
     stopWheelMotor();
     //  Raise the Event Horizon Arm
+    //if(!isBallInBox()){
     raiseEventHorizonArm();
+   // }
   }
 
   //  Check our limit switch and return whether the switch is set..    
