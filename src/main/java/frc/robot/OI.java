@@ -64,12 +64,11 @@ public class OI {
 		//operStickYButton.whenPressed(new BlackHoleRotateToAngleCommand(0));
 		//driverStickLeftBumper.whenPressed(new WarpDriveTurnSome(-RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
 		//driverStickRightBumper.whenPressed(new WarpDriveTurnSome(RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
-		driverStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
-		//driverStickAButton.whenPressed(new EventHorizonRaiseArmCommand());
+		//driverStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
+		driverStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
+		driverStickRightBumper.whenPressed(new EventHorizonRetractCommand());
 
 		// Operator Stick
-		//operStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
-		//operStickRightBumper.whenPressed(new EventHorizonRetractCommand());
 		operStickAButton.whenPressed(new BlackHolePlungeCommand());
 		operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
 		//operStickXButton.whenPressed(new ArmSetPositionCommand(175000));
@@ -79,8 +78,6 @@ public class OI {
 		//operStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
 		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
 		operStickStartButton.whenPressed(new BlastOffLandCommand());
-		driverStickXButton.whileHeld(new BlastOffMoveForwardCommand());
-		driverStickBButton.whileHeld(new BlastOffMoveReverseCommand());
 		operStickLeftBumper.whenPressed(new BlastOffStopMotorCommand());
 		operStickRightBumper.whenPressed(new ArmConfigForBlastOff());
 		

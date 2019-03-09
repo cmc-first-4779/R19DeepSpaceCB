@@ -8,6 +8,13 @@
 package frc.robot.positionCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.Robot;
+import frc.robot.RobotMap;
+import frc.robot.commands.Arms.ArmSetPositionCommand;
+import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
+import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
+import frc.robot.commands.NoseCone.NoseConeCloseCommand;
+import frc.robot.commands.Misc.*;
 
 public class DeployMiddleAutoCommand extends CommandGroup {
   /**
@@ -30,5 +37,23 @@ public class DeployMiddleAutoCommand extends CommandGroup {
     // e.g. if Command1 requires chassis, and Command2 requires arm,
     // a CommandGroup containing them would require both the chassis and the
     // arm.
+
+    if (Robot.eventHorizonSubsystem.isBallInBox()){
+      //  Do this loop if a cargo ball is in the box....
+      addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_MIDDLE_CARGO));
+      addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_CARGO));
+      addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
+      addSequential(new BlackHolePlungeCommand());
+      addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
+      addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_FLOOR_CARGO));
+      addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY));
+    }
+    else {
+      addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_MIDDLE_HATCH));
+      addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_HATCH));
+      addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
+      addSequential(new NoseConeCloseCommand());
+    }
+
   }
 }

@@ -190,8 +190,9 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
    /************************************************************************************/
    /******************** MISC SETTINGS *************************************************/
    /********************************************************************************** */
-  public static double CARGO_LOAD_WAIT_TIME = 0.5;  // seconds.  Time to wait for the Cargo to settle before moving
-  public static double DEPLOY_WAIT_TIME_BEFORE_MOVE = 0.5; //seoncds..  Time to wait after ejecting cargo or a hatch cover.
+  public static double CARGO_LOAD_WAIT_TIME = 1.0;  // seconds.  Time to wait for the Cargo to settle before moving
+  public static double HATCH_LOAD_WAIT_TIME = 1.0; // seconds Time to wait for the Hatch cargo to settle
+  public static double DEPLOY_WAIT_TIME_BEFORE_MOVE = 1.0; //seoncds..  Time to wait after ejecting cargo or a hatch cover.
   //  Carry Mode - So that we can tell the robot what it is carrying.   This helps with Black Hole Orientation as the Arm moves.
   public static int CARRY_MODE_NONE = 0;   // You carry NOTHING!!   You LOSE!!
   public static int CARRY_MODE_CARGO = 1;   //  Robot carries a cargo ball..
