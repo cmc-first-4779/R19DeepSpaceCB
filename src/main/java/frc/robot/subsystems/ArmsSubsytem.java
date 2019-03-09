@@ -146,4 +146,8 @@ public class ArmsSubsytem extends Subsystem {
     armMaster.set(ControlMode.PercentOutput, movement);
   }
 
+public boolean isLimitSwitchTriggered() {
+	return armMaster.getSensorCollection().isFwdLimitSwitchClosed();
+}
+
 }
