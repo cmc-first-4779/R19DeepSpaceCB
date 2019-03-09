@@ -57,53 +57,29 @@ public class OI {
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		//driverStickAButton.whenPressed(new ArmSetPositionCommand(10000));
-		//driverStickBButton.whenPressed(new ArmSetPositionCommand(50000));
-		//driverStickBackButton.whenPressed(new BlastOffAutoCommand());
-		//operStickAButton.whenPressed(new BlackHoleRotateToAngleCommand(10));
-		//operStickBButton.whenPressed(new BlackHoleRotateToAngleCommand(-10));
-		//operStickYButton.whenPressed(new BlackHoleRotateToAngleCommand(0));
+
 		//driverStickLeftBumper.whenPressed(new WarpDriveTurnSome(-RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
 		//driverStickRightBumper.whenPressed(new WarpDriveTurnSome(RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
-		//driverStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
 		driverStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
 		driverStickRightBumper.whenPressed(new EventHorizonRetractCommand());
 		driverStickXButton.whenPressed(new NoseConeOpenCommand());
 		driverStickBButton.whenPressed(new NoseConeCloseCommand());
-		driverStickBackButton.whenPressed(new BlastOffLaunchCommand());
-		driverStickStartButton.whenPressed(new BlastOffLandCommand());
+		driverStickYButton.whenPressed(new EventHorizonRaiseArmCommand());
+		driverStickAButton.whenPressed(new EventHorizonLowerArmCommand());
+		//driverStickBackButton.whenPressed(new BlastOffLaunchCommand());
+		//driverStickStartButton.whenPressed(new BlastOffLandCommand());
 
 		// Operator Stick
-		operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
 		operStickYButton.whenPressed(new DeployUpperAutoCommand());
 		operStickXButton.whenPressed(new DeployMiddleAutoCommand());
 		operStickAButton.whenPressed(new DeployLowerAutoCommand());
 		operStickBButton.whenPressed(new DeployCargoShipCommand());
 		operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
-		//operStickXButton.whenPressed(new ArmSetPositionCommand(175000));
-		//operStickBButton.whenPressed(new ArmSetPositionCommand(75000));
-		//operStickXButton.whenPressed(new NoseConeOpenCommand());
-		//operStickBButton.whenPressed(new NoseConeCloseCommand());
-		//operStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
+		operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
 
 		//operStickLeftBumper.whenPressed(new BlastOffStopMotorCommand());
 		//operStickRightBumper.whenPressed(new ArmConfigForBlastOff());
 		
-
-
-
-/*		operStickLeftBumper.whenPressed(new PositionForCargoIntakeAutoCommand());
-		operStickRightBumper.whenPressed(new PositionForCargoCarryAutoCommand());
-		operStickBackButton.whenPressed(new PositionForHatchIntakeAutoCommand());
-		operStickStartButton.whenPressed(new PositionForHatchCarryAutoCommand());
-		operStickXButton.whenPressed(new TargetCargoShipCargoAutoCommand());
-		operStickBButton.whenPressed(new TargetCargoShipHatchCoverAutoCommand()); */
-	
-
-
-		
-
-
 }
 
 	// This method is used later to return the the driverStick when called.
