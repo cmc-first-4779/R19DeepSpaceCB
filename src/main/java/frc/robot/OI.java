@@ -18,6 +18,7 @@ import frc.robot.commands.WarpDrive.WarpDriveAdjustLeftTurnCommand;
 import frc.robot.commands.WarpDrive.WarpDriveAdjustRightTurnCommand;
 import frc.robot.commands.WarpDrive.WarpDriveTurnSome;
 import frc.robot.autoCommands.*;
+import frc.robot.positionCommands.*;
 
 public class OI {
 	// Declare the two joysticks and initate them on the two appropriate USB ports
@@ -67,19 +68,24 @@ public class OI {
 		//driverStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
 		driverStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
 		driverStickRightBumper.whenPressed(new EventHorizonRetractCommand());
+		driverStickXButton.whenPressed(new NoseConeOpenCommand());
+		driverStickBButton.whenPressed(new NoseConeCloseCommand());
+		driverStickBackButton.whenPressed(new BlastOffLaunchCommand());
+		driverStickStartButton.whenPressed(new BlastOffLandCommand());
 
 		// Operator Stick
-		operStickAButton.whenPressed(new BlackHolePlungeCommand());
-		operStickYButton.whenPressed(new BlackHoleRetractPlungerCommand());
+		operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
+		operStickYButton.whenPressed(new DeployUpperAutoCommand());
+		operStickXButton.whenPressed(new DeployMiddleAutoCommand());
+		operStickAButton.whenPressed(new DeployLowerAutoCommand());
 		//operStickXButton.whenPressed(new ArmSetPositionCommand(175000));
 		//operStickBButton.whenPressed(new ArmSetPositionCommand(75000));
 		//operStickXButton.whenPressed(new NoseConeOpenCommand());
 		//operStickBButton.whenPressed(new NoseConeCloseCommand());
 		//operStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
-		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
-		operStickStartButton.whenPressed(new BlastOffLandCommand());
+
 		operStickLeftBumper.whenPressed(new BlastOffStopMotorCommand());
-		operStickRightBumper.whenPressed(new ArmConfigForBlastOff());
+		//operStickRightBumper.whenPressed(new ArmConfigForBlastOff());
 		
 
 
