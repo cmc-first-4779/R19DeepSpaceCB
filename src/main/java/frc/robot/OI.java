@@ -78,13 +78,15 @@ public class OI {
 		operStickYButton.whenPressed(new DeployUpperAutoCommand());
 		operStickXButton.whenPressed(new DeployMiddleAutoCommand());
 		operStickAButton.whenPressed(new DeployLowerAutoCommand());
+		operStickBButton.whenPressed(new DeployCargoShipCommand());
+		operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
 		//operStickXButton.whenPressed(new ArmSetPositionCommand(175000));
 		//operStickBButton.whenPressed(new ArmSetPositionCommand(75000));
 		//operStickXButton.whenPressed(new NoseConeOpenCommand());
 		//operStickBButton.whenPressed(new NoseConeCloseCommand());
 		//operStickAButton.whenPressed(new BlastOffGetProximityVoltageCommand());
 
-		operStickLeftBumper.whenPressed(new BlastOffStopMotorCommand());
+		//operStickLeftBumper.whenPressed(new BlastOffStopMotorCommand());
 		//operStickRightBumper.whenPressed(new ArmConfigForBlastOff());
 		
 

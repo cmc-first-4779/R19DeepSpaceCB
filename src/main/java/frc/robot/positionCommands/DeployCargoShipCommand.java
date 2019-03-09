@@ -16,11 +16,11 @@ import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.Misc.*;
 
-public class DeployUpperAutoCommand extends CommandGroup {
+public class DeployCargoShipCommand extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public DeployUpperAutoCommand() {
+  public DeployCargoShipCommand() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -40,8 +40,8 @@ public class DeployUpperAutoCommand extends CommandGroup {
 
     if (Robot.eventHorizonSubsystem.isBallInBox()){
       //  Do this loop if a cargo ball is in the box....
-      addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_UPPER_CARGO  ));
-      addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_CARGO));
+      addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_CARGO));
+      addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_CARGO));
       //addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
       //addSequential(new BlackHolePlungeCommand());
       //addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
@@ -49,8 +49,8 @@ public class DeployUpperAutoCommand extends CommandGroup {
       //addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY));
     }
     else {
-      addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH));
-      addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_HATCH));
+      addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_HATCH));
+      addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH));
       addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
       addSequential(new NoseConeCloseCommand());
     }
