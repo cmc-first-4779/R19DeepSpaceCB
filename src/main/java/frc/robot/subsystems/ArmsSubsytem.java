@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+import frc.robot.commands.Arms.ArmsEnterDefenseModeCommand;
 import frc.robot.commands.Arms.ArmsMoveWithJoystickCommand;
 
 /**
@@ -148,6 +149,17 @@ public class ArmsSubsytem extends Subsystem {
 
 public boolean isLimitSwitchTriggered() {
 	return armMaster.getSensorCollection().isFwdLimitSwitchClosed();
+}
+
+/**
+ * Will force the arms to stay low and inside our perimeiter. Will be used when we lose sensor
+ */
+public void switchToDefenseMode() {
+  setDefaultCommand(new ArmsEnterDefenseModeCommand());
+  }
+
+public void exitDefenseMode() {
+  setDefaultCommand(new ArmsMoveWithJoystickCommand());
 }
 
 }

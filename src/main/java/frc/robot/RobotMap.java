@@ -133,7 +133,9 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static int ARM_ENCODER_POSITION_HUMAN_CARGO = 80000;  //placeholder..  Need to fix
   public static int ARM_ENCODER_POSITION_HUMAN_HATCH = 80000;  //placeholder..  Need to fix
   public static int ARM_ENCODER_POSITION_HIGH_HAB_PlATFORM = 234600; 
-  public static final double ARM_FWD_LIMIT_EMERGENCY_POSITION = -100; //The height we want to set the PID to so it doesn't try to keep going up if sensor lost.
+  public static final int ARM_FWD_LIMIT_EMERGENCY_POSITION = -100; //The height we want to set the PID to so it doesn't try to keep going up if sensor lost.
+  public static final int ARM_ENCODER_POSITION_SAFTY_LIMIT = 500000;  //Minimal encoder height that we want to have when limit switch is pressed.  
+public static final double ARM_DEFENSE_POWER = -.1; // The power needed to keep the box in the perimeter
 
   /**********************************************************************/
   /************** BLASTOFF / CLIMBER SETTINGS ***************************/
