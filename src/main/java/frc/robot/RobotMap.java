@@ -108,11 +108,12 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
 
 
 
+
   /*********************************************************************/
   /*************** ARM SETTINGS ****************************************/
   /*********************************************************************/
   public static double ARM_RAISE_SPEED =  0.6;
-  public static double ARM_LOWER_SPEED = -0.6;
+  public static double ARM_LOWER_SPEED = -0.2; //Currently only used with limit switch is hit and need to lower arm.
   public static double ARM_RAISE_VOLTAGE = 7.0;  //volts
   public static double ARM_LOWER_VOLTAGE = -3.0;  //volts
   public static int ARM_MAX_HEIGHT = 700000;   
@@ -132,6 +133,7 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static int ARM_ENCODER_POSITION_HUMAN_CARGO = 80000;  //placeholder..  Need to fix
   public static int ARM_ENCODER_POSITION_HUMAN_HATCH = 80000;  //placeholder..  Need to fix
   public static int ARM_ENCODER_POSITION_HIGH_HAB_PlATFORM = 234600; 
+  public static final double ARM_FWD_LIMIT_EMERGENCY_POSITION = -100; //The height we want to set the PID to so it doesn't try to keep going up if sensor lost.
 
   /**********************************************************************/
   /************** BLASTOFF / CLIMBER SETTINGS ***************************/
