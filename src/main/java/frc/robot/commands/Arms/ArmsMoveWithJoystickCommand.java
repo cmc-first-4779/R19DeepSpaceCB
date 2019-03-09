@@ -61,7 +61,7 @@ public class ArmsMoveWithJoystickCommand extends Command {
     } else {
       // Limit switch is triggered, so we are going to set a lower setpoint and reverse
       // the motors.
-      Robot.armsSubsytem.setArmHeight(.5 * RobotMap.ARM_MAX_HEIGHT);
+      Robot.armsSubsytem.setArmHeight(RobotMap.ARM_FWD_LIMIT_EMERGENCY_POSITION);
       Robot.armsSubsytem.moveArm(RobotMap.ARM_LOWER_SPEED);
     }
   }
