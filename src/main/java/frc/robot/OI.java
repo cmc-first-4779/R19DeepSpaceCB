@@ -78,6 +78,7 @@ public class OI {
 		operStickYButton.whenPressed(new DeployUpperAutoCommand());
 		operStickXButton.whenPressed(new DeployMiddleAutoCommand());
 		operStickAButton.whenPressed(new DeployLowerAutoCommand());
+		operStickBButton.whenPressed(new DeployCargoShipCommand());
 		operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
 		//operStickXButton.whenPressed(new ArmSetPositionCommand(175000));
 		//operStickBButton.whenPressed(new ArmSetPositionCommand(75000));
