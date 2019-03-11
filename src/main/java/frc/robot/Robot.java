@@ -234,13 +234,13 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-    Robot.armsSubsytem.zeroSetPoint();
-    Robot.blackHoleSubsystem.zeroSetPoint();
-    Robot.armsSubsytem.setArmHeight(0);  //Reset Arm Height to 0.
-    Robot.blackHoleSubsystem.setBoxAngle(0);
-    Robot.armsSubsytem.resetEncoder();
-    Robot.blackHoleSubsystem.resetEncoder();
-    Robot.blastOffSubsystem.resetEncoder();
+    //Robot.armsSubsytem.zeroSetPoint();
+    //Robot.blackHoleSubsystem.zeroSetPoint();
+    //Robot.armsSubsytem.setArmHeight(0);  //Reset Arm Height to 0.
+    //Robot.blackHoleSubsystem.setBoxAngle(0);
+    //Robot.armsSubsytem.resetEncoder();
+    //%Robot.blackHoleSubsystem.resetEncoder();
+    //Robot.blastOffSubsystem.resetEncoder();
   }
 
   /**

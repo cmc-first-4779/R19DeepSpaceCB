@@ -60,20 +60,22 @@ public class OI {
 
 		//driverStickLeftBumper.whenPressed(new WarpDriveTurnSome(-RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
 		//driverStickRightBumper.whenPressed(new WarpDriveTurnSome(RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
-		driverStickLeftBumper.whenPressed(new EventHorizonCaptureCargoCommand());
-		driverStickRightBumper.whenPressed(new EventHorizonRetractCommand());
-		driverStickXButton.whenPressed(new NoseConeOpenCommand());
-		driverStickBButton.whenPressed(new NoseConeCloseCommand());
-		driverStickYButton.whenPressed(new EventHorizonRaiseArmCommand());
-		driverStickAButton.whenPressed(new EventHorizonLowerArmCommand());
-		//driverStickBackButton.whenPressed(new BlastOffLaunchCommand());
-		//driverStickStartButton.whenPressed(new BlastOffLandCommand());
+		driverStickXButton.whenPressed(new EventHorizonCaptureCargoCommand());
+		driverStickBButton.whenPressed(new EventHorizonRetractCommand());
+		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
+		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
+		driverStickYButton.whileHeld(new BlastOffMoveForwardCommand());
+		driverStickAButton.whileHeld(new BlastOffMoveReverseCommand());
+		driverStickBackButton.whenPressed(new BlastOffLaunchCommand());
+		driverStickStartButton.whenPressed(new BlastOffLandCommand());
 
 		// Operator Stick
 		operStickYButton.whenPressed(new DeployUpperAutoCommand());
 		operStickXButton.whenPressed(new DeployMiddleAutoCommand());
 		operStickAButton.whenPressed(new DeployLowerAutoCommand());
 		operStickBButton.whenPressed(new DeployCargoShipCommand());
+		operStickLeftBumper.whenPressed(new MoveToLowerAutoCommand());
+
 		operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
 		operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
 

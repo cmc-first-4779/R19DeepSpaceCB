@@ -40,6 +40,7 @@ public class DeployUpperAutoCommand extends CommandGroup {
 
     if (Robot.eventHorizonSubsystem.isBallInBox()){
       //  Do this loop if a cargo ball is in the box....
+      System.out.println("Putting Cargo in Upper Rocket");
       addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_UPPER_CARGO  ));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_CARGO));
       //addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
@@ -49,6 +50,7 @@ public class DeployUpperAutoCommand extends CommandGroup {
       //addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY));
     }
     else {
+      System.out.println("Putting Hatch in Upper Rocket");
       addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_HATCH));
       addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));

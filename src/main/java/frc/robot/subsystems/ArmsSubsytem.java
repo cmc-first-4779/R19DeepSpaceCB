@@ -138,7 +138,7 @@ public class ArmsSubsytem extends Subsystem {
   //   We call this method when we Launch so that the arms get more power to balance out the robot.
   public void configArmForBlastOff(){
     //  Adjust kP on the ARM for Blastoff...
-    armMaster.config_kP(0, .06, 0);
+    armMaster.config_kP(0, .02, 0);
     //  Change the Talon Control Mode from Motion Magic to PercentOutput and change the value output..
    }
 
