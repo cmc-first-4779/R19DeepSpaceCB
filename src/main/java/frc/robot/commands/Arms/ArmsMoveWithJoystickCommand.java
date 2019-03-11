@@ -60,9 +60,17 @@ public class ArmsMoveWithJoystickCommand extends Command {
       SmartDashboard.putNumber("ARM Position", Robot.armsSubsytem.getEncoderPosition());
     } else {
       // Limit switch is triggered, so we are going to set a lower setpoint and reverse
-      // the motors.
+      // the motors. If our encoder is lower, then we probably lost the sensor feed
+      // and will need to go into defense mode.
+      if (Robot.armsSubsytem.getEncoderPosition() > RobotMap.ARM_ENCODER_POSITION_SAFTY_LIMIT) {
+        //Assume that we still have good sensor feed.  
       Robot.armsSubsytem.setArmHeight(RobotMap.ARM_FWD_LIMIT_EMERGENCY_POSITION);
       Robot.armsSubsytem.moveArm(RobotMap.ARM_LOWER_SPEED);
+      } else {
+        //Probably lost sensor feed and need to disable being able to raise arms.
+        Robot.armsSubsytem.switchToDefenseMode();
+        
+      }
     }
   }
 
