@@ -156,7 +156,7 @@ public boolean isLimitSwitchTriggered() {
  */
 public void switchToDefenseMode() {
   setDefaultCommand(new ArmsEnterDefenseModeCommand());
-  }
+}
 
 public void exitDefenseMode() {
   setDefaultCommand(new ArmsMoveWithJoystickCommand());
