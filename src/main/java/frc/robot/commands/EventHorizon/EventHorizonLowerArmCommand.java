@@ -23,6 +23,8 @@ public class EventHorizonLowerArmCommand extends Command {
   protected void initialize() {
     //  Put the EVENT HORIZON ARM MODE into the SmartDashboard
     SmartDashboard.putString("EVENT HORIZON ARM MODE", "Lowered");
+    Robot.blackHoleSubsystem.setBoxAngle(0);  //Set Box Angle to zero before lowering arm.
+    
     //  Lower the Event Horizon Arm
     Robot.eventHorizonSubsystem.lowerEventHorizonArm();
   }

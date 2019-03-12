@@ -14,7 +14,7 @@ import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -104,6 +104,11 @@ public class Robot extends TimedRobot {
     Robot.armsSubsytem.resetEncoder();
     //Reset the Blackhole / Cargo Handler Encoder
     Robot.blackHoleSubsystem.resetEncoder();
+
+    //Turn on the Camera Server for the Dashboard
+		System.out.println("Starting the camera server.");
+		CameraServer.getInstance().startAutomaticCapture();
+		System.out.println("Camera Server started.");
 
 
 
@@ -234,13 +239,14 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-    //Robot.armsSubsytem.zeroSetPoint();
-    //Robot.blackHoleSubsystem.zeroSetPoint();
-    //Robot.armsSubsytem.setArmHeight(0);  //Reset Arm Height to 0.
-    //Robot.blackHoleSubsystem.setBoxAngle(0);
-    //Robot.armsSubsytem.resetEncoder();
-    //%Robot.blackHoleSubsystem.resetEncoder();
-    //Robot.blastOffSubsystem.resetEncoder();
+    
+    Robot.armsSubsytem.zeroSetPoint();
+    Robot.blackHoleSubsystem.zeroSetPoint();
+    Robot.armsSubsytem.setArmHeight(0);  //Reset Arm Height to 0.
+    Robot.blackHoleSubsystem.setBoxAngle(0);
+    Robot.armsSubsytem.resetEncoder();
+    Robot.blackHoleSubsystem.resetEncoder();
+    Robot.blastOffSubsystem.resetEncoder();
   }
 
   /**

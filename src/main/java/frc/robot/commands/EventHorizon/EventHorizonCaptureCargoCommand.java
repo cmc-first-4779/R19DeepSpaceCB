@@ -25,6 +25,8 @@ public class EventHorizonCaptureCargoCommand extends Command {
   protected void initialize() {
     //  Reset the Limit switch Counter
     Robot.eventHorizonSubsystem.initializeCounter();
+    //  Positoin the box in the right position for the arm to come down..
+    Robot.blackHoleSubsystem.setBoxAngle(0);  //Set Box Angle to zero before lowering arm.
     //   Put the Ball in the Box Boolean in the Smart Dashboard
     SmartDashboard.putBoolean("Do we have Cargo? ", Robot.eventHorizonSubsystem.isBallInBox());
     //  Put the EVENT HORIZON ARM MODE into the SmartDashboard

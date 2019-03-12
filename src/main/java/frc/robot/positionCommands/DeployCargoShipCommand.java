@@ -51,8 +51,8 @@ public class DeployCargoShipCommand extends CommandGroup {
     else {
       addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_HATCH));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH));
-      addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
-      addSequential(new NoseConeCloseCommand());
+      //addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
+      //addSequential(new NoseConeCloseCommand());
     }
 
   }

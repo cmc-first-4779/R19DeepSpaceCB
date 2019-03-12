@@ -53,8 +53,8 @@ public class DeployUpperAutoCommand extends CommandGroup {
       System.out.println("Putting Hatch in Upper Rocket");
       addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_HATCH));
-      addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
-      addSequential(new NoseConeCloseCommand());
+      //addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
+      //addSequential(new NoseConeCloseCommand());
     }
 
   }

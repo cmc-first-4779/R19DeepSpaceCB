@@ -53,8 +53,8 @@ public class DeployMiddleAutoCommand extends CommandGroup {
       System.out.println("Putting Hatch in Middle Rocket");
       addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_MIDDLE_HATCH));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_HATCH));
-      addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
-      addSequential(new NoseConeCloseCommand());
+      //addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
+      //addSequential(new NoseConeCloseCommand());
     }
 
   }

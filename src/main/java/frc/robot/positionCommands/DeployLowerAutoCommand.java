@@ -52,8 +52,8 @@ public class DeployLowerAutoCommand extends CommandGroup {
       System.out.println("Putting Hatch in Lower Rocket");
       addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_HATCH));
-      addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
-      addSequential(new NoseConeCloseCommand());
+      //addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
+      //addSequential(new NoseConeCloseCommand());
     }
   }
 }
