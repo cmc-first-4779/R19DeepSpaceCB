@@ -108,7 +108,9 @@ public class EventHorizonSubsystem extends Subsystem {
   public boolean isBallInBox() {
     //  If there is a ball in the box, it will return "TRUE"
         //  Put the Boolean of whether we have cargo into the Dashboard
-    return limitCounter.get() > 0;
+        SmartDashboard.putBoolean("IsBallInBox", !limitSwitch.get() );
+       //return limitCounter.get() > 0;
+       return !limitSwitch.get();
   }
 
     //  Reset our Limit Switch Counter to ZERO

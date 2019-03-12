@@ -32,6 +32,7 @@ public class EventHorizonRetractCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    SmartDashboard.putBoolean("IsBallInBox", Robot.eventHorizonSubsystem.isBallInBox());
   }
 
   // Make this return true when this Command no longer needs to run execute()

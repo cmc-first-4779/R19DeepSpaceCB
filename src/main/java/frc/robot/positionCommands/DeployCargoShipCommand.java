@@ -40,7 +40,8 @@ public class DeployCargoShipCommand extends CommandGroup {
 
     if (Robot.eventHorizonSubsystem.isBallInBox()){
       //  Do this loop if a cargo ball is in the box....
-      addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_CARGO));
+      addSequential(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_CARGO));
+      addSequential(new TimerCommand(0.5));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_CARGO));
       //addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
       //addSequential(new BlackHolePlungeCommand());

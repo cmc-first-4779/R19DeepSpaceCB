@@ -123,9 +123,9 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static int ARM_ENCODER_POSITION_ROCKET_UPPER_HATCH = 629509;  //
   public static int ARM_ENCODER_POSITION_ROCKET_MIDDLE_HATCH = 360382;  
   public static int ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH = 37611;  
-  public static int ARM_ENCODER_POSITION_ROCKET_UPPER_CARGO = 725000;  //700108  
-  public static int ARM_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = 550000;  //527060;    
-  public static int ARM_ENCODER_POSITION_ROCKET_LOWER_CARGO = 355000;  //328762;  //301750;  
+  public static int ARM_ENCODER_POSITION_ROCKET_UPPER_CARGO = 717000;  //700108  
+  public static int ARM_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = 471000;  //527060;    
+  public static int ARM_ENCODER_POSITION_ROCKET_LOWER_CARGO = 250000;  //328762;  //301750;  
   public static int ARM_ENCODER_POSITION_CARGO_SHIP_HATCH = 35611;  
   public static int ARM_ENCODER_POSITION_CARGO_SHIP_CARGO = 200000;  //placeholder..  Need to fix
   public static int ARM_ENCODER_POSITION_FLOOR_CARGO = 25000;  //placeholder..  Need to fix
@@ -178,10 +178,10 @@ public static final double ARM_DEFENSE_POWER = -.1; // The power needed to keep 
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_HATCH = -114;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_CARGO = -34;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_MIDDLE_CARGO = -76;  //degrees  
-  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_CARGO = -90;  //degrees  
+  public static double BLACK_HOLE_ENCODER_POSITION_ROCKET_UPPER_CARGO = -92;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH = -4;  //degrees  
   public static double BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_CARGO = 20;  //degrees placeholder..  Need to fix 
-
+  public static double BLACK_HOLE_WAIT_TIME_CARGO = 1.5; //seconds.  wait time before rotating box
 
    /************************************************************************************/
    /************** EVENT HORIZON / CARGO INTAKE ARM SETTINGS ***************************/
