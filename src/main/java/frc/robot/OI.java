@@ -76,9 +76,9 @@ public class OI {
 		operStickYButton.whenPressed(new DeployUpperAutoCommand());
 		operStickXButton.whenPressed(new DeployMiddleAutoCommand());
 		operStickAButton.whenPressed(new DeployLowerAutoCommand());
-		//operStickBButton.whenPressed(new DeployCargoShipCommand());
+		operStickBButton.whenPressed(new MoveArmBoxHomeAutoCommand());
 		operStickLeftBumper.whenPressed(new MoveToLowerAutoCommand());
-		operStickBButton.whenPressed(new LimeLightSetDriverLEDModeOnCommand());
+		//operStickBButton.whenPressed(new LimeLightSetDriverLEDModeOnCommand());
 
 		operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
 		//operStickBackButton.whenPressed(new ArmsResetEncoderCommand());

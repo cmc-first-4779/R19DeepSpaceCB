@@ -186,8 +186,8 @@ public static final double ARM_DEFENSE_POWER = -.1; // The power needed to keep 
    /************************************************************************************/
    /************** EVENT HORIZON / CARGO INTAKE ARM SETTINGS ***************************/
    /************************************************************************************/
-  public static double EVENTHORIZON_INTAKE_MOTOR_SPEED = 0.4;  //Power to Spark Controller
-  public static double EVENTHORIZON_REVERSE_MOTOR_SPEED = -0.4;  //Power to Spark Controller
+  public static double EVENTHORIZON_INTAKE_MOTOR_SPEED = 0.55;  //Power to Spark Controller
+  public static double EVENTHORIZON_REVERSE_MOTOR_SPEED = -0.55;  //Power to Spark Controller
   public static double EVENTHORIZON_ARM_WAIT_TIME = 0.5; //seconds to wait for the Arm mechanism before moving the Event Horizon Arm
 
 
