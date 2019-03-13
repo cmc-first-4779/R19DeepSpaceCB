@@ -35,4 +35,10 @@ public class LimeLightConstants {
    public static final double LIMELIGHT_Y_PIXEL_COUNT = 240; // pixels
    public static final double LIMELIGHT_X_FOV = 59.6; // degrees
    public static final double LIMELIGHT_Y_FOV = 45.7; // degrees
+
+   //  Limelight Streaming Modes
+   public static final double LIMELIGHT_STREAMING_STANDARD_MODE = 0;  //  Side-by-side streams if a webcam is attached
+   public static final double LIMELIGHT_PiP_MAIN_MODE = 1;  //Secondary camera stream is placed in the lower right camera
+   public static final double LIMELIGHT_PiP_SECONDARY_MODE = 2;  //primary camera is placed in lower right of secondary
+   
 }

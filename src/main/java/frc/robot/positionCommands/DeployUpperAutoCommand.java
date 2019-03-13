@@ -38,8 +38,10 @@ public class DeployUpperAutoCommand extends CommandGroup {
     // a CommandGroup containing them would require both the chassis and the
     // arm.
 
+    System.out.println("Is there a ball in the box?:  " + Robot.eventHorizonSubsystem.isBallInBox());
+
     if (Robot.eventHorizonSubsystem.isBallInBox()){
-      //  Do this loop if a cargo ball is in the box....
+      //  Do this loop if a cargo ball is in the box....  
       System.out.println("Putting Cargo in Upper Rocket");
       addSequential(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_UPPER_CARGO  ));
       addSequential(new TimerCommand(RobotMap.BLACK_HOLE_WAIT_TIME_CARGO));

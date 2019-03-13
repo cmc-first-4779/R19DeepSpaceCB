@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-import java.util.concurrent.Phaser;
+//import java.util.concurrent.Phaser;
 
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
@@ -83,35 +83,52 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     //Initiate our subystems
+    System.out.println("Initiating the Warp Drive Subsystem.");
     warpDriveSubsystem = new WarpDriveSubsystem();
+    System.out.println("Initiating the Limelight Subsystem.");
     limeLightSubsystem = new LimelightSubsystem();
+    System.out.println("Initiating the NoseCone Subsystem.");
     noseConeSubsystem = new NoseConeSubsystem();
+    System.out.println("Initiating the BlackHole Subsystem.");
     blackHoleSubsystem = new BlackHoleSubsystem();
+    System.out.println("Initiating the Event Horizon Subsystem.");
     eventHorizonSubsystem = new EventHorizonSubsystem();
+    System.out.println("Initiating the Phasers Subsystem.");
     phasersSubsystem = new PhasersSubsystem();
+    System.out.println("Initiating the Arm Subsystem.");
     armsSubsytem = new ArmsSubsytem();
+    System.out.println("Initiating the BlastOff Subsystem.");
     blastOffSubsystem = new BlastOffSubsystem();
     
 
     //Initiate the OI LAST!!!!
+    System.out.println("Initiating the OI Subsystem.");
     oi = new OI();
 
     //RESET OUR GYRO 
+    System.out.println("Resetting the Gyro.");
     Robot.warpDriveSubsystem.resetGyro();
     //RESET OUR DRIVETRAIN ROTARY ENCODERS
+    System.out.println("Resetting Warp Drive Encoders.");
     Robot.warpDriveSubsystem.resetEncoders(); 
     //Reset the Arm encoder
+    System.out.println("Resetting Arm Encoders.");
     Robot.armsSubsytem.resetEncoder();
     //Reset the Blackhole / Cargo Handler Encoder
+    System.out.println("Resetting Blackhole Encoders.");
     Robot.blackHoleSubsystem.resetEncoder();
 
     //Turn on the Camera Server for the Dashboard
-		System.out.println("Starting the camera server.");
-		CameraServer.getInstance().startAutomaticCapture();
-		System.out.println("Camera Server started.");
+		//System.out.println("Starting the camera server.");
+		//CameraServer.getInstance().startAutomaticCapture();
+		//System.out.println("Camera Server started.");
 
 
-
+    //Set up the Limelight Camera to Camera Mode with LED's on..
+   // System.out.println("Configuring Limelight...");
+    //Robot.limeLightSubsystem.setCameraMode(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER);
+    //Robot.limeLightSubsystem.setStreamingMode(LimeLightConstants.LIMELIGHT_STREAMING_STANDARD_MODE);
+    Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
 
 
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
@@ -168,7 +185,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
+    System.out.println("Disabling PIDs.");
+    System.out.println("Arm PID Setpoint to 0.");
     Robot.armsSubsytem.setArmHeight(0);
+    System.out.println("Box Angle PID Setpoint to 0.");
     Robot.blackHoleSubsystem.setBoxAngle(0);
     Robot.armsSubsytem.zeroSetPoint();
     Robot.blackHoleSubsystem.zeroSetPoint(); 
@@ -212,13 +232,15 @@ public class Robot extends TimedRobot {
       //  If we are carrying a hatch
     //if (whatCarry == 0){
       //Robot Opens the NoseCone for the first few swconds of the match to make sure a preloaded hatch stays
+      System.out.println("Opening NoseCone...");
       Robot.noseConeSubsystem.openNoseCone();
     //}
     //else {  //Else we are carrying a cargo ball
       //Robot.noseConeSubsystem.closeNoseCone();
     //}
     
-    
+    //  Turning Limelight LEDs on
+    Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
 
   }
 
@@ -247,6 +269,10 @@ public class Robot extends TimedRobot {
     Robot.armsSubsytem.resetEncoder();
     Robot.blackHoleSubsystem.resetEncoder();
     Robot.blastOffSubsystem.resetEncoder(); */
+
+    //Turning Limelight LEDs on.
+    Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
+
   }
 
   /**
@@ -266,6 +292,7 @@ public class Robot extends TimedRobot {
   
 //Initialize a TalonSRX Motor controller and set our default settings.
   public static void initMotorController(WPI_TalonSRX talon) {
+    System.out.println("Initializing Talon SRX: " + talon);
     talon.configFactoryDefault();
     talon.setNeutralMode(NeutralMode.Brake);
     talon.neutralOutput();
@@ -279,6 +306,7 @@ public class Robot extends TimedRobot {
 
   //Initialize a VictorSPX Motor controller and set our default settings.
   public static void initMotorController (WPI_VictorSPX victor) {
+    System.out.println("Initializing Victor SPX: " + victor);
     victor.configFactoryDefault();
     victor.setNeutralMode(NeutralMode.Brake);
     victor.neutralOutput();
@@ -314,15 +342,18 @@ public class Robot extends TimedRobot {
   public static Alliance getAllianceColor(){
     DriverStation.Alliance color;
     color = DriverStation.getInstance().getAlliance();
+    System.out.println("Our Alliance Color is:  " + color);
     return color;
   }
 
   //  If we want to use this..   Set our LED Color to our Alliance color..
   public void setPhaserColorToAllianceColor(){
     if (getAllianceColor() == DriverStation.Alliance.Blue){
+      System.out.println("Phasers set to:  BLUE");
       Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_CHASE_BLUE);
     }
     else{
+      System.out.println("Phasers set to:  RED");
       Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_CHASE_RED);
     }
   }

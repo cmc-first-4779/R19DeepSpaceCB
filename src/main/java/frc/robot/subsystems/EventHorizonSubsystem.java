@@ -108,7 +108,11 @@ public class EventHorizonSubsystem extends Subsystem {
   public boolean isBallInBox() {
     //  If there is a ball in the box, it will return "TRUE"
         //  Put the Boolean of whether we have cargo into the Dashboard
+        //
+        //  NEDED TO NEGATE THIS BECAUSE THE SWITCH ON THE MULE IS HOOKED UP BACKWARDS!!!
+        //
         SmartDashboard.putBoolean("IsBallInBox", !limitSwitch.get() );
+        System.out.println("Is there a ball in the box?:  "  + !limitSwitch.get());
        //return limitCounter.get() > 0;
        return !limitSwitch.get();
   }

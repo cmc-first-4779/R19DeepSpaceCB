@@ -38,6 +38,8 @@ public class DeployCargoShipCommand extends CommandGroup {
     // a CommandGroup containing them would require both the chassis and the
     // arm.
 
+    System.out.println("Is there a ball in the box?:  " + Robot.eventHorizonSubsystem.isBallInBox());
+
     if (Robot.eventHorizonSubsystem.isBallInBox()){
       //  Do this loop if a cargo ball is in the box....
       addSequential(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_CARGO));

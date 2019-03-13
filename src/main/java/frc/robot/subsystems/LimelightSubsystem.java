@@ -7,6 +7,7 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import frc.robot.commands.Limelight.LimeLightSetCameraModeCommand;
+import frc.robot.commands.Limelight.LimeLightSetDriverLEDModeOnCommand;
 
 /**
  *
@@ -35,8 +36,8 @@ public class LimelightSubsystem extends Subsystem {
         // Set the default command for a subsystem here.
 		//setDefaultCommand(new MySpecialCommand());
 		//
-		//By Default, put the Camera Mode into Driver Mode
-		setDefaultCommand(new LimeLightSetCameraModeCommand(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER));
+		//By Default, put the Camera Mode into Driver Mode and turn the LEDs on
+		setDefaultCommand(new LimeLightSetDriverLEDModeOnCommand());
     }
     
 	//SET THE LIMELIGHT CAMERA MODE
@@ -148,7 +149,12 @@ public class LimelightSubsystem extends Subsystem {
 			return true;
 		}
 	}
-    
+	
+	public void setStreamingMode(double streamingMode){
+		double m_streaming_mode = streamingMode;
+		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(m_streaming_mode);
+		setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_ON);
+	}
     
 }
 

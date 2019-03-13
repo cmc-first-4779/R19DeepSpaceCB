@@ -13,6 +13,9 @@ import frc.robot.commands.Arms.*;
 import frc.robot.commands.BlackHole.*;
 import frc.robot.commands.BlastOff.*;
 import frc.robot.commands.EventHorizon.*;
+import frc.robot.commands.Limelight.LimeLightSetDriverLEDModeOnCommand;
+import frc.robot.commands.Limelight.LimeLightSetLEDModeOnCommand;
+import frc.robot.commands.Limelight.LimeLightSetStreamingModeCommand;
 import frc.robot.commands.NoseCone.*;
 import frc.robot.commands.WarpDrive.WarpDriveAdjustLeftTurnCommand;
 import frc.robot.commands.WarpDrive.WarpDriveAdjustRightTurnCommand;
@@ -73,11 +76,12 @@ public class OI {
 		operStickYButton.whenPressed(new DeployUpperAutoCommand());
 		operStickXButton.whenPressed(new DeployMiddleAutoCommand());
 		operStickAButton.whenPressed(new DeployLowerAutoCommand());
-		operStickBButton.whenPressed(new DeployCargoShipCommand());
+		//operStickBButton.whenPressed(new DeployCargoShipCommand());
 		operStickLeftBumper.whenPressed(new MoveToLowerAutoCommand());
+		operStickBButton.whenPressed(new LimeLightSetDriverLEDModeOnCommand());
 
 		operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
-		operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
+		//operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
 
 		//operStickLeftBumper.whenPressed(new BlastOffStopMotorCommand());
 		//operStickRightBumper.whenPressed(new ArmConfigForBlastOff());
