@@ -8,14 +8,16 @@
 package frc.robot.positionCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.RobotMap;
 import frc.robot.commands.Arms.ArmSetPositionCommand;
 import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
+import frc.robot.commands.Misc.*;
 
-public class MoveArmBoxHomeAutoCommand extends CommandGroup {
+public class MoveToLowerAutoCommandGroup extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public MoveArmBoxHomeAutoCommand() {
+  public MoveToLowerAutoCommandGroup() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -32,10 +34,9 @@ public class MoveArmBoxHomeAutoCommand extends CommandGroup {
     // e.g. if Command1 requires chassis, and Command2 requires arm,
     // a CommandGroup containing them would require both the chassis and the
     // arm.
-      
-      addParallel(new ArmSetPositionCommand(0));
-      addSequential(new BlackHoleRotateToAngleCommand(-4));
-
-
+    addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY));
+    addSequential(new TimerCommand(0.75));
+    addSequential(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_FLOOR_CARGO));
+    
   }
 }

@@ -16,11 +16,11 @@ import frc.robot.commands.BlackHole.BlackHolePlungeCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.Misc.*;
 
-public class DeployUpperAutoCommand extends CommandGroup {
+public class DeployUpperAutoCommandGroup extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public DeployUpperAutoCommand() {
+  public DeployUpperAutoCommandGroup() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());

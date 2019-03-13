@@ -73,11 +73,11 @@ public class OI {
 		driverStickStartButton.whenPressed(new BlastOffLandCommand());
 
 		// Operator Stick
-		operStickYButton.whenPressed(new DeployUpperAutoCommand());
-		operStickXButton.whenPressed(new DeployMiddleAutoCommand());
-		operStickAButton.whenPressed(new DeployLowerAutoCommand());
-		operStickBButton.whenPressed(new MoveArmBoxHomeAutoCommand());
-		operStickLeftBumper.whenPressed(new MoveToLowerAutoCommand());
+		operStickYButton.whenPressed(new DeployUpperAutoCommandGroup());
+		operStickXButton.whenPressed(new DeployMiddleAutoCommandGroup());
+		operStickAButton.whenPressed(new DeployLowerAutoCommandGroup());
+		operStickBButton.whenPressed(new MoveArmBoxHomeAutoCommandGroup());
+		operStickLeftBumper.whenPressed(new MoveToLowerAutoCommandGroup());
 		//operStickBButton.whenPressed(new LimeLightSetDriverLEDModeOnCommand());
 
 		operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
