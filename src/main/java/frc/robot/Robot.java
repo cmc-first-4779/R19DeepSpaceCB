@@ -242,6 +242,15 @@ public class Robot extends TimedRobot {
     //  Turning Limelight LEDs on
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
 
+    //  Zero out and reset all of our encoders...
+    Robot.armsSubsytem.zeroSetPoint();
+    Robot.blackHoleSubsystem.zeroSetPoint();
+    Robot.armsSubsytem.setArmHeight(0);  //Reset Arm Height to 0.
+    Robot.blackHoleSubsystem.setBoxAngle(0);
+    Robot.armsSubsytem.resetEncoder();
+    Robot.blackHoleSubsystem.resetEncoder();
+    Robot.blastOffSubsystem.resetEncoder(); 
+
   }
 
   /**
@@ -262,13 +271,6 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
     
-/*     Robot.armsSubsytem.zeroSetPoint();
-    Robot.blackHoleSubsystem.zeroSetPoint();
-    Robot.armsSubsytem.setArmHeight(0);  //Reset Arm Height to 0.
-    Robot.blackHoleSubsystem.setBoxAngle(0);
-    Robot.armsSubsytem.resetEncoder();
-    Robot.blackHoleSubsystem.resetEncoder();
-    Robot.blastOffSubsystem.resetEncoder(); */
 
     //Turning Limelight LEDs on.
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
@@ -339,6 +341,7 @@ public class Robot extends TimedRobot {
     whatCarry = selected;
   }
 
+  // Get our Alliance color from the DriverStation..   We may use this later to determine our LED Colors..
   public static Alliance getAllianceColor(){
     DriverStation.Alliance color;
     color = DriverStation.getInstance().getAlliance();

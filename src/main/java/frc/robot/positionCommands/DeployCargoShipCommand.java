@@ -45,17 +45,12 @@ public class DeployCargoShipCommand extends CommandGroup {
       addSequential(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_CARGO));
       addSequential(new TimerCommand(0.5));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_CARGO));
-      //addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
-      //addSequential(new BlackHolePlungeCommand());
-      //addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
-      //addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_FLOOR_CARGO));
-      //addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY));
+
     }
     else {
+      //  There is a hatch in the Nose Cone...   
       addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_HATCH));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH));
-      //addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
-      //addSequential(new NoseConeCloseCommand());
     }
 
   }

@@ -45,18 +45,12 @@ public class DeployLowerAutoCommandGroup extends CommandGroup {
       addSequential(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_LOWER_CARGO));
       addSequential(new TimerCommand(RobotMap.BLACK_HOLE_WAIT_TIME_CARGO));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_CARGO));
-      //addSequential(new TimerCommand(RobotMap.CARGO_LOAD_WAIT_TIME));
-      //addSequential(new BlackHolePlungeCommand());
-      //addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
-      //addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_FLOOR_CARGO));
-      //addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_CARRY));
     }
     else {
+      //  Else..  A hatch is in the Nose cone..   Go to the right arm position and box angle...
       System.out.println("Putting Hatch in Lower Rocket");
       addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH));
       addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_HATCH));
-      //addSequential(new TimerCommand(RobotMap.HATCH_LOAD_WAIT_TIME));
-      //addSequential(new NoseConeCloseCommand());
     }
   }
 }

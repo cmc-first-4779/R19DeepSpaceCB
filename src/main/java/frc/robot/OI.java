@@ -60,9 +60,6 @@ public class OI {
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-
-		//driverStickLeftBumper.whenPressed(new WarpDriveTurnSome(-RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
-		//driverStickRightBumper.whenPressed(new WarpDriveTurnSome(RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT));
 		driverStickXButton.whenPressed(new EventHorizonCaptureCargoCommand());
 		driverStickBButton.whenPressed(new EventHorizonRetractCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
@@ -78,12 +75,9 @@ public class OI {
 		operStickAButton.whenPressed(new DeployLowerAutoCommandGroup());
 		operStickBButton.whenPressed(new MoveArmBoxHomeAutoCommandGroup());
 		operStickLeftBumper.whenPressed(new MoveToLowerAutoCommandGroup());
-		//operStickBButton.whenPressed(new LimeLightSetDriverLEDModeOnCommand());
-
 		operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
-		//operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
+		operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
 
-		//operStickLeftBumper.whenPressed(new BlastOffStopMotorCommand());
 		//operStickRightBumper.whenPressed(new ArmConfigForBlastOff());
 		
 }

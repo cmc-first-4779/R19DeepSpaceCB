@@ -33,6 +33,7 @@ public class MoveArmBoxHomeAutoCommandGroup extends CommandGroup {
     // a CommandGroup containing them would require both the chassis and the
     // arm.
       
+    //  THIS IS THE COMMAND GROUP WE RUN TO MOVE THE ARM AND BOX BACK TO THEIR "HOME" POSITIONS
       addParallel(new ArmSetPositionCommand(0));
       addSequential(new BlackHoleRotateToAngleCommand(-4));
 
