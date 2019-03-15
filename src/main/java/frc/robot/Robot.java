@@ -120,8 +120,8 @@ public class Robot extends TimedRobot {
 
     //Turn on the Camera Server for the Dashboard
 		//System.out.println("Starting the camera server.");
-		//CameraServer.getInstance().startAutomaticCapture();
-		//System.out.println("Camera Server started.");
+		CameraServer.getInstance().startAutomaticCapture();
+		System.out.println("Camera Server started.");
 
 
     //Set up the Limelight Camera to Camera Mode with LED's on..
@@ -232,7 +232,7 @@ public class Robot extends TimedRobot {
       //  If we are carrying a hatch
     //if (whatCarry == 0){
       //Robot Opens the NoseCone for the first few swconds of the match to make sure a preloaded hatch stays
-      System.out.println("Opening NoseCone...");
+     // System.out.println("Opening NoseCone...");
       Robot.noseConeSubsystem.openNoseCone();
     //}
     //else {  //Else we are carrying a cargo ball

@@ -35,7 +35,7 @@ public class BlackHoleRotateWithJoystickCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double rightStickYAxis = Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS);
+    double rightStickYAxis = -Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS);
     if (rightStickYAxis > rightStickYDeadZone ) {
       System.out.println("Increasing Angle");
       Robot.blackHoleSubsystem.setBoxAngle(Robot.blackHoleSubsystem.getBoxAngle() + boxAngleIncrement);

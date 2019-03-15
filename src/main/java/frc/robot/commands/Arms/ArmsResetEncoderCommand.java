@@ -22,6 +22,7 @@ public class ArmsResetEncoderCommand extends Command {
   @Override
   protected void initialize() {
     Robot.armsSubsytem.resetEncoder();
+    Robot.blackHoleSubsystem.resetEncoder();
   }
 
   // Called repeatedly when this Command is scheduled to run
