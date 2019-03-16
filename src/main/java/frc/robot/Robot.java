@@ -121,7 +121,9 @@ public class Robot extends TimedRobot {
     //Turn on the Camera Server for the Dashboard
 		//System.out.println("Starting the camera server.");
 		CameraServer.getInstance().startAutomaticCapture();
-		System.out.println("Camera Server started.");
+    System.out.println("Camera Server started.");
+    
+    noseConeSubsystem.openNoseCone();
 
 
     //Set up the Limelight Camera to Camera Mode with LED's on..

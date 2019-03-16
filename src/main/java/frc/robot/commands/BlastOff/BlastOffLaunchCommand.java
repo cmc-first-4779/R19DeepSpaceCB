@@ -49,6 +49,7 @@ public class BlastOffLaunchCommand extends Command {
         //  System.out.println("Decreasing Height");
           Robot.blastOffSubsystem.setMotor(leftStickYAxis);
         } else {
+          Robot.blastOffSubsystem.setMotor(0);
           // do nothing, leave the arm height where it's at
         }
   }
@@ -62,11 +63,13 @@ public class BlastOffLaunchCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.blastOffSubsystem.stopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }

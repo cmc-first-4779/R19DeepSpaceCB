@@ -73,7 +73,7 @@ public class OI {
 		driverStickStartButton.whenPressed(new BlastOffLandCommand());
 
 		// Operator Stick
-		operStickStartButton.whenPressed(new LaunchFront());
+		//operStickStartButton.whenPressed(new LaunchFront());
 		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
 		operStickAButton.whenPressed(new BlastOffLandCommand());
 		operStickXButton.whenPressed(new BlastOffFrontLandCommand());
