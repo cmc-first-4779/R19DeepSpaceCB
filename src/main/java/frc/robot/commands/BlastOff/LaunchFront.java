@@ -10,28 +10,28 @@ package frc.robot.commands.BlastOff;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class BlastOffFrontLandCommand extends Command {
-  public BlastOffFrontLandCommand() {
+public class LaunchFront extends Command {
+  public LaunchFront() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    //requires(Robot.blastOffSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blastOffSubsystem.landFront();
+    Robot.blastOffSubsystem.launchFront();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-  }
+
+    }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

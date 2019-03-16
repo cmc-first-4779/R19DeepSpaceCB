@@ -71,7 +71,7 @@ public class BlastOffSubsystem extends Subsystem {
         //  If the Proximity Sensor voltage is less than our threshold and we are close to the high hab platform
   //      if (getProximityVoltage() <= RobotMap.BLASTOFF_PROXIMITY_SENSOR_THRESHOLD_VOLTAGE){
           blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
-          blastoffFrontSolenoid.set(DoubleSolenoid.Value.kForward);
+          
           SmartDashboard.putNumber("Proximity Sensor", getProximityVoltage());
   //      }  
   //      else{
@@ -131,5 +131,9 @@ public class BlastOffSubsystem extends Subsystem {
   public void resetEncoder() {
     encoder.reset();
   }
+
+public void launchFront() {
+  blastoffFrontSolenoid.set(DoubleSolenoid.Value.kForward);
+}
 
 }

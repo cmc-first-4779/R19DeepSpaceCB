@@ -44,10 +44,10 @@ public class BlastOffLaunchCommand extends Command {
         double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS);
         if (leftStickYAxis > leftStickYDeadZone ) {
         //  System.out.println("Increasing Height");
-          Robot.armsSubsytem.moveArm(leftStickYAxis);
+          Robot.blastOffSubsystem.setMotor(leftStickYAxis);
         } else if (leftStickYAxis < -leftStickYDeadZone) {
         //  System.out.println("Decreasing Height");
-          Robot.armsSubsytem.moveArm(leftStickYAxis);
+          Robot.blastOffSubsystem.setMotor(leftStickYAxis);
         } else {
           // do nothing, leave the arm height where it's at
         }
