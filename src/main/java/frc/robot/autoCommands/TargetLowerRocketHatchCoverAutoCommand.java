@@ -46,7 +46,7 @@ public class TargetLowerRocketHatchCoverAutoCommand extends CommandGroup {
     //   Set the Vision Pipeline to the Rocket Hatch
     addSequential(new LimeLightSetVisionPipelineCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_HATCH));
     //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
-    addSequential(new LimeLightHasTargetCommand());
+    //addSequential(new LimeLightHasTargetCommand());
     //  Position the ARM up to the Lower Rocket Hatch Height
     //addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH));
     //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch

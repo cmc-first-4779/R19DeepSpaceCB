@@ -75,8 +75,7 @@ public class LimeLightSeekAndFollowCommand extends Command {
       }
   
       Robot.warpDriveSubsystem.arcadeDrive(move, turn);
-  
-    }
+      }
   
     /**
      * Calculates how much to turn. Get's how far off in the x-axis we are from limelight.  If we are within acceptable range, then it
