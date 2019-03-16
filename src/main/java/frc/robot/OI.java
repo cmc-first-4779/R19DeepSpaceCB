@@ -12,11 +12,12 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.Arms.*;
 import frc.robot.commands.BlackHole.*;
 import frc.robot.commands.BlastOff.*;
-import frc.robot.commands.EventHorizon.*;
+//import frc.robot.commands.EventHorizon.*;
 import frc.robot.commands.Limelight.LimeLightSetDriverLEDModeOnCommand;
 import frc.robot.commands.Limelight.LimeLightSetLEDModeOnCommand;
 import frc.robot.commands.Limelight.LimeLightSetStreamingModeCommand;
 import frc.robot.commands.NoseCone.*;
+import frc.robot.commands.WarpDrive.DriveJoystickCommand;
 import frc.robot.commands.WarpDrive.WarpDriveAdjustLeftTurnCommand;
 import frc.robot.commands.WarpDrive.WarpDriveAdjustRightTurnCommand;
 import frc.robot.commands.WarpDrive.WarpDriveTurnSome;
@@ -60,8 +61,10 @@ public class OI {
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		driverStickXButton.whenPressed(new EventHorizonCaptureCargoCommand());
-		driverStickBButton.whenPressed(new EventHorizonRetractCommand());
+		//driverStickXButton.whenPressed(new EventHorizonCaptureCargoCommand());
+		//driverStickBButton.whenPressed(new EventHorizonRetractCommand());
+		driverStickXButton.whenPressed(new TargetLowerRocketHatchCoverAutoCommand());
+		driverStickBButton.whenPressed(new DriveJoystickCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
 		driverStickYButton.whileHeld(new BlastOffMoveForwardCommand());
@@ -70,13 +73,13 @@ public class OI {
 		driverStickStartButton.whenPressed(new BlastOffLandCommand());
 
 		// Operator Stick
-		operStickYButton.whenPressed(new DeployUpperAutoCommandGroup());
-		operStickXButton.whenPressed(new DeployMiddleAutoCommandGroup());
-		operStickAButton.whenPressed(new DeployLowerAutoCommandGroup());
-		operStickBButton.whenPressed(new MoveArmBoxHomeAutoCommandGroup());
-		operStickLeftBumper.whenPressed(new MoveToLowerAutoCommandGroup());
-		operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
-		operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
+		//operStickYButton.whenPressed(new DeployUpperAutoCommandGroup());
+		//operStickXButton.whenPressed(new DeployMiddleAutoCommandGroup());
+		//operStickAButton.whenPressed(new DeployLowerAutoCommandGroup());
+		//operStickBButton.whenPressed(new MoveArmBoxHomeAutoCommandGroup());
+		//operStickLeftBumper.whenPressed(new MoveToLowerAutoCommandGroup());
+		//operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
+		//operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
 
 		//operStickRightBumper.whenPressed(new ArmConfigForBlastOff());
 		

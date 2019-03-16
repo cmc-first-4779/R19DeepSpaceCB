@@ -32,6 +32,7 @@ public class BlastOffSubsystem extends Subsystem {
   Spark blastOffMotor;
   //  Decare the BlastOff Solenoid
   DoubleSolenoid blastOffSolenoid;
+  DoubleSolenoid blastoffFrontSolenoid;
   //  Declare the Blastoff Wheel Encoder
   public Encoder encoder;
   //  Declare the Proximity Sensor as an Analog Sensor
@@ -42,6 +43,7 @@ public class BlastOffSubsystem extends Subsystem {
     blastOffMotor = new Spark(RobotMap.PWM_PORT_BLASTOFF);
     //Init our Double Solenoid
     blastOffSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_BLASTOFF_LAUNCH, RobotMap.PCM_PORT_BLASTOFF_LAND);
+    blastoffFrontSolenoid = new DoubleSolenoid(4, 5);
     //Init the encoder
     encoder = new Encoder(RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A, RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B);
     //Set the Encoder Distance per Pulse
@@ -69,6 +71,7 @@ public class BlastOffSubsystem extends Subsystem {
         //  If the Proximity Sensor voltage is less than our threshold and we are close to the high hab platform
   //      if (getProximityVoltage() <= RobotMap.BLASTOFF_PROXIMITY_SENSOR_THRESHOLD_VOLTAGE){
           blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
+          blastoffFrontSolenoid.set(DoubleSolenoid.Value.kForward);
           SmartDashboard.putNumber("Proximity Sensor", getProximityVoltage());
   //      }  
   //      else{
@@ -89,6 +92,7 @@ public class BlastOffSubsystem extends Subsystem {
   //   Pull the pneumatic back up
   public void land(){
     blastOffSolenoid.set(DoubleSolenoid.Value.kReverse);
+    blastoffFrontSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
   //  Move the robot forward with the blastoff wheels onto the high Habitat Platform

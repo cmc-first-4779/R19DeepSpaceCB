@@ -48,24 +48,24 @@ public class TargetLowerRocketHatchCoverAutoCommand extends CommandGroup {
     //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
     addSequential(new LimeLightHasTargetCommand());
     //  Position the ARM up to the Lower Rocket Hatch Height
-    addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH));
+    //addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_ROCKET_LOWER_HATCH));
     //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch
-    addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_HATCH));
+    //addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_ROCKET_LOWER_HATCH));
     addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_ROCKET_HATCH));
     //
     //  Not sure how far to drive forward YET!!!
     //
     //  Close the Nosecone to release the Hatch Cover
-    addSequential(new NoseConeCloseCommand());
+    //addSequential(new NoseConeCloseCommand());
     //  Wait for some time..
-    addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
+    //addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
     //   Back up the robot
-    addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE,
-        RobotMap.WARPDRIVE_SPEED));
+    //addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE,
+    //    RobotMap.WARPDRIVE_SPEED));
     //  Turn the Camera back to Driver Mode
-    addParallel(new LimeLightSetCameraModeCommand(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER));
+    //addParallel(new LimeLightSetCameraModeCommand(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER));
     //  Flip the LEDs back to DEFAULT
-    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_DEFAULT));
+    //addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_DEFAULT));
   }
 
 }

@@ -25,7 +25,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.WarpDriveSubsystem;
-import frc.robot.subsystems.EventHorizonSubsystem;
+//import frc.robot.subsystems.EventHorizonSubsystem;
 import frc.robot.subsystems.ArmsSubsytem;
 import frc.robot.subsystems.BlackHoleSubsystem;
 import frc.robot.subsystems.BlastOffSubsystem;
@@ -47,7 +47,7 @@ public class Robot extends TimedRobot {
   public static WarpDriveSubsystem warpDriveSubsystem;
   public static LimelightSubsystem limeLightSubsystem;
   public static NoseConeSubsystem noseConeSubsystem;
-  public static EventHorizonSubsystem eventHorizonSubsystem;
+  //public static EventHorizonSubsystem eventHorizonSubsystem;
   public static PhasersSubsystem phasersSubsystem;
   public static ArmsSubsytem armsSubsytem;
   public static BlackHoleSubsystem blackHoleSubsystem;
@@ -92,7 +92,7 @@ public class Robot extends TimedRobot {
     System.out.println("Initiating the BlackHole Subsystem.");
     blackHoleSubsystem = new BlackHoleSubsystem();
     System.out.println("Initiating the Event Horizon Subsystem.");
-    eventHorizonSubsystem = new EventHorizonSubsystem();
+    //eventHorizonSubsystem = new EventHorizonSubsystem();
     System.out.println("Initiating the Phasers Subsystem.");
     phasersSubsystem = new PhasersSubsystem();
     System.out.println("Initiating the Arm Subsystem.");
@@ -155,7 +155,7 @@ public class Robot extends TimedRobot {
     //  Put all of the Subsystem Objects into the Smart Dashboard
     SmartDashboard.putData(warpDriveSubsystem);
     SmartDashboard.putData(armsSubsytem);
-    SmartDashboard.putData(eventHorizonSubsystem);
+    //SmartDashboard.putData(eventHorizonSubsystem);
     SmartDashboard.putData(blackHoleSubsystem);
     SmartDashboard.putData(blastOffSubsystem);
     SmartDashboard.putData(noseConeSubsystem);

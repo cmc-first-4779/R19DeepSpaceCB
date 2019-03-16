@@ -37,12 +37,14 @@ public class RobotMap {
   public static final int PWM_PORT_PHASERS = 2;  //  PWM for BLINKIN LED Driver (Looks like a SPARK, but not)
 
   //************** PCM (PNEUMATICS CONTROL MODULE) PORTS *************************/
-  public static final int PCM_PORT_EVENTHORIZON_RAISE = 0;   //Green Pneumatic Tubing
-  public static final int PCM_PORT_EVENTHORIZON_LOWER = 1;    //Green Pneumatic Tubing
+  public static final int PCM_PORT_EVENTHORIZON_RAISE = 8;   //Green Pneumatic Tubing
+  public static final int PCM_PORT_EVENTHORIZON_LOWER = 9;    //Green Pneumatic Tubing
+  public static final int PCM_PORT_BLASTOFF_FRONT_LAND = 5;  // Black 
+  public static final int PCM_PORT_BLASTOFF_FRONT_LAUNCH = 4;  //Black
   public static final int PCM_PORT_PLUNGER_RETRACT = 2;  //Dark Blue Pneumatic Tubing
   public static final int PCM_PORT_PLUNGER_PLUNGE = 3;   //Dark Blue Pneumatic Tubing
-  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 4;   //White Pneumatic tubing
-  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 5;   // White Pneumatic tubing
+  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 0;   //White Pneumatic tubing
+  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 1;   // White Pneumatic tubing
   public static final int PCM_PORT_BLASTOFF_LAND = 6;      //  RED Pneumatic Tubing
   public static final int PCM_PORT_BLASTOFF_LAUNCH = 7;   //   RED Pneumatic Tubing
  
