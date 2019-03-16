@@ -92,6 +92,10 @@ public class BlastOffSubsystem extends Subsystem {
   //   Pull the pneumatic back up
   public void land(){
     blastOffSolenoid.set(DoubleSolenoid.Value.kReverse);
+  }
+
+    //Pull the front pneumatics back up..
+  public void landFront(){
     blastoffFrontSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
@@ -105,6 +109,10 @@ public class BlastOffSubsystem extends Subsystem {
   public void reverse(){
     blastOffMotor.set(RobotMap.BLASTOFF_REVERSE_SPEED);
     SmartDashboard.putNumber("BlastOff Encoder", encoder.getDistance() );
+  }
+
+  public void setMotor(double move){
+    blastOffMotor.set(move);
   }
 
   //  Stop the motors on the Blastoff foot
