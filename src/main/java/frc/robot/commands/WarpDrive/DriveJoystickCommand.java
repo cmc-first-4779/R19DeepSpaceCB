@@ -9,6 +9,7 @@ package frc.robot.commands.WarpDrive;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.PhaserConstants;
 
 public class DriveJoystickCommand extends Command {
   public DriveJoystickCommand() {
@@ -21,6 +22,8 @@ public class DriveJoystickCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    //  Set Phasers to Default
+    Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_DEFAULT);
   }
 
   // Called repeatedly when this Command is scheduled to run

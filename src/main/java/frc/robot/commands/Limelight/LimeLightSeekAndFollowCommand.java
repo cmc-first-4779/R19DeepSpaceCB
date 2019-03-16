@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+import frc.robot.PhaserConstants;
 
 public class LimeLightSeekAndFollowCommand extends Command {
   double pAim = .025;
@@ -40,6 +41,8 @@ public class LimeLightSeekAndFollowCommand extends Command {
       Robot.limeLightSubsystem.setPipeline(m_pipeline);
       //  Put the LIMELIGHT PIPELINE VALUE ON THE DASHBOARD
       SmartDashboard.putNumber("LIMELIGHT PIPELINE", m_pipeline);
+      //Set Phasers to Lime green to tell the driver that the Limelight is driving.
+      Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_LIME);
     }
   
     // Called repeatedly when this Command is scheduled to run
