@@ -31,7 +31,7 @@ public class NoseConeSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
      // DEFAULT COMMAND:  Close the noseCone!!
-    setDefaultCommand(new NoseConeCloseCommand());
+    //setDefaultCommand(new NoseConeCloseCommand());
   }
 
   //Open the noseCone

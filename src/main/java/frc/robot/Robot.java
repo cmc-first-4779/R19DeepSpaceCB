@@ -123,7 +123,7 @@ public class Robot extends TimedRobot {
 		CameraServer.getInstance().startAutomaticCapture();
     System.out.println("Camera Server started.");
     
-    noseConeSubsystem.openNoseCone();
+    //noseConeSubsystem.openNoseCone();
 
 
     //Set up the Limelight Camera to Camera Mode with LED's on..
