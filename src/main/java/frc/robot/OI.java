@@ -10,6 +10,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
+import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
+import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import frc.robot.commands.BlastOff.BlastOffLaunchCommand;
 
@@ -54,33 +56,16 @@ public class OI {
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		//driverStickXButton.whenPressed(new EventHorizonCaptureCargoCommand());
-		//driverStickBButton.whenPressed(new EventHorizonRetractCommand());
 		driverStickXButton.whenPressed(new TargetLowerRocketHatchCoverAutoCommand());
 		driverStickBButton.whenPressed(new DriveJoystickCommand());
+		driverStickYButton.whenPressed(new BlackHoleBoomCommand());
+		driverStickAButton.whenPressed(new BlackHoleUnBoomCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
 
-		driverStickBackButton.whenPressed(new BlastOffLaunchCommand());
-		driverStickStartButton.whenPressed(new BlastOffLandCommand());
-
 		// Operator Stick
-		//operStickStartButton.whenPressed(new LaunchFront());
 		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
-		operStickAButton.whenPressed(new BlastOffLandCommand());
-		//operStickXButton.whenPressed(new BlastOffMoveForwardCommand());
-		//operStickBButton.whenPressed(new BlastOffMoveReverseCommand());
-
-		//operStickYButton.whenPressed(new DeployUpperAutoCommandGroup());
-		//operStickXButton.whenPressed(new DeployMiddleAutoCommandGroup());
-		//operStickAButton.whenPressed(new DeployLowerAutoCommandGroup());
-		//operStickBButton.whenPressed(new MoveArmBoxHomeAutoCommandGroup());
-		//operStickLeftBumper.whenPressed(new MoveToLowerAutoCommandGroup());
-		//operStickRightBumper.whenPressed(new BlackHolePlungeCommand()); 
-		//operStickBackButton.whenPressed(new ArmsResetEncoderCommand());
-
-		//operStickRightBumper.whenPressed(new ArmConfigForBlastOff());
-		
+		operStickStartButton.whenPressed(new BlastOffLandCommand());		
 }
 
 	// This method is used later to return the the driverStick when called.

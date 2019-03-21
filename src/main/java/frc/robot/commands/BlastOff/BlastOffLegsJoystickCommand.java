@@ -9,6 +9,7 @@ package frc.robot.commands.BlastOff;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.XBoxJoystickMap;
 
 public class BlastOffLegsJoystickCommand extends Command {
   public BlastOffLegsJoystickCommand() {
@@ -24,7 +25,8 @@ public class BlastOffLegsJoystickCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blastOffSubsystem.legsSetMotor(Robot.oi.getOperStick().getY());
+    //Move the legs up and down using the OperStick Right Joystick Y axis
+    Robot.blastOffSubsystem.legsSetMotor(Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS));
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -36,11 +38,13 @@ public class BlastOffLegsJoystickCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.blastOffSubsystem.stopLegs();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.blastOffSubsystem.stopLegs();
   }
 }
