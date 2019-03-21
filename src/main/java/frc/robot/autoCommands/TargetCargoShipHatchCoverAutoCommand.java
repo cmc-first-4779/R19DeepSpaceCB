@@ -12,8 +12,6 @@ import frc.robot.RobotMap;
 import frc.robot.LimeLightConstants;
 import frc.robot.commands.Limelight.*;
 import frc.robot.commands.WarpDrive.*;
-import frc.robot.commands.Arms.ArmSetPositionCommand;
-import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
 import frc.robot.commands.NoseCone.*;
 import frc.robot.PhaserConstants;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
@@ -48,17 +46,13 @@ public class TargetCargoShipHatchCoverAutoCommand extends CommandGroup {
     //   Change the LEDS to LIME GREEN if the LIMELIGHT has a Target, RED if it doesn't
     addSequential(new LimeLightHasTargetCommand());
     //  Position the ARM up to the Lower Rocket Hatch Height
-    addParallel(new ArmSetPositionCommand(RobotMap.ARM_ENCODER_POSITION_CARGO_SHIP_HATCH));
     //  Position the BlackHole / Cargo Handler to the right angle to be square on the Hatch
-    addSequential(new BlackHoleRotateToAngleCommand(RobotMap.BLACK_HOLE_ENCODER_POSITION_CARGO_SHIP_HATCH));
     addSequential(new LimeLightSeekAndFollowCommand(RobotMap.LIMELIGHT_PIPELINE_CARGOSHIP_HATCH));
     //
     //  Not sure how far to drive forward YET!!!
     //
     //  Close the Nosecone to release the Hatch Cover
     addSequential(new NoseConeCloseCommand());
-    //  Wait for some time..
-    addSequential(new TimerCommand(RobotMap.DEPLOY_WAIT_TIME_BEFORE_MOVE));
     //   Back up the robot
     addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE,
         RobotMap.WARPDRIVE_SPEED));

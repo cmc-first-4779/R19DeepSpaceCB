@@ -20,7 +20,6 @@ public class BlastOffLaunchCommand extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blastOffSubsystem);
-    requires(Robot.armsSubsytem);
     setTimeout(60);
   }
 
@@ -31,8 +30,6 @@ public class BlastOffLaunchCommand extends Command {
     SmartDashboard.putString("BLASTOFF SOLENOID MODE", "LAUNCH!!!");
     //  Make sure the Wheel Motors are STOPPED  before moving the Solenoid Foot
     Robot.blastOffSubsystem.stopMotor();
-    //  Configure the Arm so that it can bear the weight of the Robot and keep it balanced..
-    Robot.armsSubsytem.configArmForBlastOff();
     //  Launch the Robot..   You must be close to the Platform and in Position!!!!!!!!
     Robot.blastOffSubsystem.launch();
   }

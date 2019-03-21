@@ -9,20 +9,14 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.Arms.*;
-import frc.robot.commands.BlackHole.*;
-import frc.robot.commands.BlastOff.*;
-//import frc.robot.commands.EventHorizon.*;
-import frc.robot.commands.Limelight.LimeLightSetDriverLEDModeOnCommand;
-import frc.robot.commands.Limelight.LimeLightSetLEDModeOnCommand;
-import frc.robot.commands.Limelight.LimeLightSetStreamingModeCommand;
-import frc.robot.commands.NoseCone.*;
+import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
+import frc.robot.commands.BlastOff.BlastOffLandCommand;
+import frc.robot.commands.BlastOff.BlastOffLaunchCommand;
+import frc.robot.commands.BlastOff.BlastOffMoveForwardCommand;
+import frc.robot.commands.BlastOff.BlastOffMoveReverseCommand;
+import frc.robot.commands.NoseCone.NoseConeCloseCommand;
+import frc.robot.commands.NoseCone.NoseConeOpenCommand;
 import frc.robot.commands.WarpDrive.DriveJoystickCommand;
-import frc.robot.commands.WarpDrive.WarpDriveAdjustLeftTurnCommand;
-import frc.robot.commands.WarpDrive.WarpDriveAdjustRightTurnCommand;
-import frc.robot.commands.WarpDrive.WarpDriveTurnSome;
-import frc.robot.autoCommands.*;
-import frc.robot.positionCommands.*;
 
 public class OI {
 	// Declare the two joysticks and initate them on the two appropriate USB ports
@@ -76,7 +70,6 @@ public class OI {
 		//operStickStartButton.whenPressed(new LaunchFront());
 		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
 		operStickAButton.whenPressed(new BlastOffLandCommand());
-		operStickXButton.whenPressed(new BlastOffFrontLandCommand());
 		//operStickXButton.whenPressed(new BlastOffMoveForwardCommand());
 		//operStickBButton.whenPressed(new BlastOffMoveReverseCommand());
 

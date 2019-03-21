@@ -7,8 +7,6 @@
 
 package frc.robot.commands.Limelight;
 
-import javax.lang.model.util.ElementScanner6;
-
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.LimeLightConstants;

@@ -30,26 +30,21 @@ public class BlastOffSubsystem extends Subsystem {
 
   //  Declare the BlastOff Motor
   Spark blastOffMotor;
+  Spark blastOffWheels;
   //  Decare the BlastOff Solenoid
-  DoubleSolenoid blastOffSolenoid;
-  DoubleSolenoid blastoffFrontSolenoid;
+  DoubleSolenoid dinoArmsSolenoid;
   //  Declare the Blastoff Wheel Encoder
   public Encoder encoder;
-  //  Declare the Proximity Sensor as an Analog Sensor
-  AnalogInput proximitySensor;
 
   public BlastOffSubsystem(){
     //Init our Spark Motor Controller
-    blastOffMotor = new Spark(RobotMap.PWM_PORT_BLASTOFF);
+    blastOffMotor = new Spark(RobotMap.PWM_PORT_BLASTOFF_WHEELS);
     //Init our Double Solenoid
-    blastOffSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_BLASTOFF_LAUNCH, RobotMap.PCM_PORT_BLASTOFF_LAND);
-    blastoffFrontSolenoid = new DoubleSolenoid(4, 5);
+    dinoArmsSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_DINO_ARMS_GRAB, RobotMap.PCM_PORT_DINO_ARMS_UNGRAB);   
     //Init the encoder
     encoder = new Encoder(RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A, RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B);
     //Set the Encoder Distance per Pulse
     encoder.setDistancePerPulse(RobotMap.BLASTOFF_DISTANCE_PER_PULSE);
-    //  Init the Proximity Sensor
-    proximitySensor = new AnalogInput(RobotMap.ANALOG_PORT_BLASTOFF_PROXIMITY_SENSOR);
   }
 
   @Override
@@ -70,10 +65,8 @@ public class BlastOffSubsystem extends Subsystem {
      // if (matchTime <= RobotMap.BLASTOFF_OK_TIME_TO_LAUNCH){
         //  If the Proximity Sensor voltage is less than our threshold and we are close to the high hab platform
   //      if (getProximityVoltage() <= RobotMap.BLASTOFF_PROXIMITY_SENSOR_THRESHOLD_VOLTAGE){
-          blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
-          blastoffFrontSolenoid.set(DoubleSolenoid.Value.kForward);
+          dinoArmsSolenoid.set(DoubleSolenoid.Value.kForward);
           
-          SmartDashboard.putNumber("Proximity Sensor", getProximityVoltage());
 
   //      }  
   //      else{
@@ -93,13 +86,7 @@ public class BlastOffSubsystem extends Subsystem {
 
   //   Pull the pneumatic back up
   public void land(){
-    blastOffSolenoid.set(DoubleSolenoid.Value.kReverse);
-  }
-
-    //Pull the front pneumatics back up..
-  public void landFront(){
-    blastoffFrontSolenoid.set(DoubleSolenoid.Value.kReverse);
-    blastOffSolenoid.set(DoubleSolenoid.Value.kForward);
+    dinoArmsSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
   //  Move the robot forward with the blastoff wheels onto the high Habitat Platform
@@ -124,19 +111,9 @@ public class BlastOffSubsystem extends Subsystem {
     SmartDashboard.putNumber("BlastOff Encoder", encoder.getDistance() );
   }
 
-  //  Return the voltage off of the Proximity Sensor
-  public double getProximityVoltage() {
-    SmartDashboard.putNumber("Proximity Sensor Voltage", proximitySensor.getVoltage());
-    return proximitySensor.getVoltage();
-  }
-
   //  Reset the BlastOff Encoder
   public void resetEncoder() {
     encoder.reset();
   }
-
-public void launchFront() {
-  blastoffFrontSolenoid.set(DoubleSolenoid.Value.kForward);
-}
 
 }

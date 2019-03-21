@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
-public class BlackHoleRetractPlungerCommand extends Command {
-  public BlackHoleRetractPlungerCommand() {
+public class BlackHoleUnBoomCommand extends Command {
+  public BlackHoleUnBoomCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blackHoleSubsystem);
@@ -21,10 +21,10 @@ public class BlackHoleRetractPlungerCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-  // Put the BLACKHOLE PLUNGER STATUS into the Dashboard
-  SmartDashboard.putString("BLACKHOLE PLUNGER Status", "RETRACT");
-  // RETRACT the PLUNGER!!
-  Robot.blackHoleSubsystem.retractPlunger();
+  // Put the BLACKHOLE BOOMSTICK STATUS into the Dashboard
+  SmartDashboard.putString("BLACKHOLE BOOMSTICK Status", "UNBOOM");
+  // RETRACT the BOOMSTICK!!
+  Robot.blackHoleSubsystem.unBoom();
   }
 
   // Called repeatedly when this Command is scheduled to run

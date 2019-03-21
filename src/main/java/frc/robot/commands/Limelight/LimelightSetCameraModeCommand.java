@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.LimeLightConstants;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 public class LimeLightSetCameraModeCommand extends Command {
 

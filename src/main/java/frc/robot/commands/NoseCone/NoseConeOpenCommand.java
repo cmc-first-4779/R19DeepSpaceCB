@@ -28,8 +28,6 @@ public class NoseConeOpenCommand extends Command {
     Robot.noseConeSubsystem.openNoseCone();
     //  Put the NOSECONE Mode into the SmartDashboard
     SmartDashboard.putString("NOSECONE MODE", "Open");
-    //Set the Carry Mode to None
-    Robot.carryMode = RobotMap.CARRY_MODE_HATCH;
     //  Put the CarryMode into the Dashboard
     SmartDashboard.putNumber("Carry Mode", Robot.carryMode);
 

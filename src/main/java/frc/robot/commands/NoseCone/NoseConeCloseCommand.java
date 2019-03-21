@@ -26,8 +26,6 @@ public class NoseConeCloseCommand extends Command {
   protected void initialize() {
     // Close the NOSECONE..
     Robot.noseConeSubsystem.closeNoseCone();
-    //Set the Carry Mode to None
-    Robot.carryMode = RobotMap.CARRY_MODE_NONE;
     //  Put the NOSECONE Mode into the SmartDashboard
     SmartDashboard.putString("NOSECONE MODE", "Closed");
     //  Put the CarryMode into the Dashboard

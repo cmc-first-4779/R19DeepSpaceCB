@@ -7,39 +7,38 @@
 
 package frc.robot.commands.BlackHole;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class BlackHoleRotateToAngleCommand extends Command {
-
-  private double angle;
-
-  public BlackHoleRotateToAngleCommand(double angle) {
+public class BlackHoleBoomCommand extends Command {
+  public BlackHoleBoomCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    this.angle = angle;
+    requires(Robot.blackHoleSubsystem);
+    setTimeout(1);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    // Put the BLACKHOLE Control Mode into the Dashboard
-    SmartDashboard.putString("BLACKHOLE Control Mode", "BlackHoleRotateToAngle");
+  // Put the BLACKHOLE BOOMSTICK STATUS into the Dashboard
+  SmartDashboard.putString("BLACKHOLE BOOMSTICK Status", "BOOM");
+  //  Activate the BOOMSTICK to tip the BlackHole!!
+  Robot.blackHoleSubsystem.boom();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blackHoleSubsystem.setBoxAngle(angle);
-    // Put the BLACKHOLE Encoder Position into the Dashboard
-    SmartDashboard.putNumber("BLACKHOLE Encoder Position", Robot.blackHoleSubsystem.getEncoderPosition());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return isTimedOut();
   }
 
   // Called once after isFinished returns true

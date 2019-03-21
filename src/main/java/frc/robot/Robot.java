@@ -26,7 +26,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.WarpDriveSubsystem;
 //import frc.robot.subsystems.EventHorizonSubsystem;
-import frc.robot.subsystems.ArmsSubsytem;
 import frc.robot.subsystems.BlackHoleSubsystem;
 import frc.robot.subsystems.BlastOffSubsystem;
 import frc.robot.subsystems.NoseConeSubsystem;
@@ -49,7 +48,6 @@ public class Robot extends TimedRobot {
   public static NoseConeSubsystem noseConeSubsystem;
   //public static EventHorizonSubsystem eventHorizonSubsystem;
   public static PhasersSubsystem phasersSubsystem;
-  public static ArmsSubsytem armsSubsytem;
   public static BlackHoleSubsystem blackHoleSubsystem;
   public static BlastOffSubsystem blastOffSubsystem;
 
@@ -95,8 +93,6 @@ public class Robot extends TimedRobot {
     //eventHorizonSubsystem = new EventHorizonSubsystem();
     System.out.println("Initiating the Phasers Subsystem.");
     phasersSubsystem = new PhasersSubsystem();
-    System.out.println("Initiating the Arm Subsystem.");
-    armsSubsytem = new ArmsSubsytem();
     System.out.println("Initiating the BlastOff Subsystem.");
     blastOffSubsystem = new BlastOffSubsystem();
     
@@ -111,12 +107,6 @@ public class Robot extends TimedRobot {
     //RESET OUR DRIVETRAIN ROTARY ENCODERS
     System.out.println("Resetting Warp Drive Encoders.");
     Robot.warpDriveSubsystem.resetEncoders(); 
-    //Reset the Arm encoder
-    System.out.println("Resetting Arm Encoders.");
-    Robot.armsSubsytem.resetEncoder();
-    //Reset the Blackhole / Cargo Handler Encoder
-    System.out.println("Resetting Blackhole Encoders.");
-    Robot.blackHoleSubsystem.resetEncoder();
 
     //Turn on the Camera Server for the Dashboard
 		//System.out.println("Starting the camera server.");
@@ -156,7 +146,6 @@ public class Robot extends TimedRobot {
     
     //  Put all of the Subsystem Objects into the Smart Dashboard
     SmartDashboard.putData(warpDriveSubsystem);
-    SmartDashboard.putData(armsSubsytem);
     //SmartDashboard.putData(eventHorizonSubsystem);
     SmartDashboard.putData(blackHoleSubsystem);
     SmartDashboard.putData(blastOffSubsystem);
@@ -187,13 +176,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
-    System.out.println("Disabling PIDs.");
-    System.out.println("Arm PID Setpoint to 0.");
-    Robot.armsSubsytem.setArmHeight(0);
-    System.out.println("Box Angle PID Setpoint to 0.");
-    Robot.blackHoleSubsystem.setBoxAngle(0);
-    Robot.armsSubsytem.zeroSetPoint();
-    Robot.blackHoleSubsystem.zeroSetPoint(); 
+  
    }
 
   @Override
@@ -245,12 +228,6 @@ public class Robot extends TimedRobot {
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
 
     //  Zero out and reset all of our encoders...
-    Robot.armsSubsytem.zeroSetPoint();
-    Robot.blackHoleSubsystem.zeroSetPoint();
-    Robot.armsSubsytem.setArmHeight(0);  //Reset Arm Height to 0.
-    Robot.blackHoleSubsystem.setBoxAngle(0);
-    Robot.armsSubsytem.resetEncoder();
-    Robot.blackHoleSubsystem.resetEncoder();
     Robot.blastOffSubsystem.resetEncoder(); 
 
   }

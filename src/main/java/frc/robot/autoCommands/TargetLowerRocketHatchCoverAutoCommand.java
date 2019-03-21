@@ -8,16 +8,11 @@
 package frc.robot.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.RobotMap;
 import frc.robot.LimeLightConstants;
-import frc.robot.commands.Limelight.*;
-import frc.robot.commands.WarpDrive.*;
-import frc.robot.commands.Arms.ArmSetPositionCommand;
-import frc.robot.commands.BlackHole.BlackHoleRotateToAngleCommand;
-import frc.robot.commands.NoseCone.*;
-import frc.robot.PhaserConstants;
-import frc.robot.commands.Phasers.PhasersSetPatternCommand;
-import frc.robot.commands.Misc.TimerCommand;
+import frc.robot.RobotMap;
+import frc.robot.commands.Limelight.LimeLightSeekAndFollowCommand;
+import frc.robot.commands.Limelight.LimeLightSetCameraModeCommand;
+import frc.robot.commands.Limelight.LimeLightSetVisionPipelineCommand;
 
 public class TargetLowerRocketHatchCoverAutoCommand extends CommandGroup {
   /**
