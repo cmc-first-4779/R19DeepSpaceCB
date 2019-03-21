@@ -24,9 +24,7 @@ public class BlastOffLandCommand extends Command {
     //  Put the BLASTOFF MODE into the SmartDashboard
     SmartDashboard.putString("BLASTOFF SOLENOID MODE", "LAND");
     //  Make sure the Wheel Motors are STOPPED before moving the Solenoid Foot
-    Robot.blastOffSubsystem.stopMotor();
-    //  LAND!!!!
-    Robot.blastOffSubsystem.land();
+
   }
 
   // Called repeatedly when this Command is scheduled to run

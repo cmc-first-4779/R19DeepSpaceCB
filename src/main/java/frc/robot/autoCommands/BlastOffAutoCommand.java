@@ -57,7 +57,7 @@ public class BlastOffAutoCommand extends CommandGroup {
     addSequential(new TimerCommand(2.25));
 
     //Move the BLASTOFF WHEELS FORWARD
-    addParallel(new BlastOffMoveForwardCommand());
+    
     addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_FIRE_MEDIUM));
     addSequential(new TimerCommand(1.25));
 

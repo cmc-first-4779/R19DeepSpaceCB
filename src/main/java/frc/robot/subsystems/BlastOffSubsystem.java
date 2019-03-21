@@ -29,7 +29,7 @@ public class BlastOffSubsystem extends Subsystem {
   // here. Call these from Commands.
 
   //  Declare the BlastOff Motor
-  Spark blastOffMotor;
+  Spark blastOffLegs;
   Spark blastOffWheels;
   //  Decare the BlastOff Solenoid
   DoubleSolenoid dinoArmsSolenoid;
@@ -37,8 +37,10 @@ public class BlastOffSubsystem extends Subsystem {
   public Encoder encoder;
 
   public BlastOffSubsystem(){
-    //Init our Spark Motor Controller
-    blastOffMotor = new Spark(RobotMap.PWM_PORT_BLASTOFF_WHEELS);
+    //Init our Spark Motor Controller for wheels
+    blastOffWheels = new Spark(RobotMap.PWM_PORT_BLASTOFF_WHEELS);
+    //Init our Spark Motor Controller for Dino Legs
+    blastOffLegs = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS);
     //Init our Double Solenoid
     dinoArmsSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_DINO_ARMS_GRAB, RobotMap.PCM_PORT_DINO_ARMS_UNGRAB);   
     //Init the encoder
@@ -83,37 +85,56 @@ public class BlastOffSubsystem extends Subsystem {
     //}
   }
 
-
-  //   Pull the pneumatic back up
-  public void land(){
-    dinoArmsSolenoid.set(DoubleSolenoid.Value.kReverse);
-  }
-
   //  Move the robot forward with the blastoff wheels onto the high Habitat Platform
-  public void forward(){
-    blastOffMotor.set(RobotMap.BLASTOFF_FORWARD_SPEED);
-    SmartDashboard.putNumber("BlastOff Encoder", encoder.getDistance());
+  public void wheelsForward(){
+    blastOffWheels.set(RobotMap.BLASTOFF_WHEELS_FORWARD_SPEED);
   }
 
   //  Reverse the motors on the Blastoff Foot
-  public void reverse(){
-    blastOffMotor.set(RobotMap.BLASTOFF_REVERSE_SPEED);
-    SmartDashboard.putNumber("BlastOff Encoder", encoder.getDistance() );
+  public void wheelsReverse(){
+    blastOffWheels.set(RobotMap.BLASTOFF_WHEELS_REVERSE_SPEED);
   }
 
-  public void setMotor(double move){
-    blastOffMotor.set(move);
+  public void wheelsSetMotor(double move){
+    blastOffWheels.set(move);
   }
 
   //  Stop the motors on the Blastoff foot
-  public void stopMotor(){
-    blastOffMotor.stopMotor();
-    SmartDashboard.putNumber("BlastOff Encoder", encoder.getDistance() );
+  public void wheelsStopMotor(){
+    blastOffWheels.stopMotor();   
   }
 
   //  Reset the BlastOff Encoder
   public void resetEncoder() {
     encoder.reset();
+  }
+
+  public void dinoArmGrab(){
+    dinoArmsSolenoid.set(DoubleSolenoid.Value.kForward);
+  }
+
+  public void dinoArmUnGrab(){
+    dinoArmsSolenoid.set(DoubleSolenoid.Value.kReverse);
+  }
+
+  public void launchLegs(){
+    blastOffLegs.set(RobotMap.BLASTOFF_LEGS_UP_SPEED);
+    SmartDashboard.putNumber("BlastOff Legs Encoder", encoder.getDistance());
+  }
+
+  public void landLegs(){
+    blastOffLegs.set(RobotMap.BLASTOFF_LEGS_DOWN_SPEED);
+    SmartDashboard.putNumber("BlastOff Legs Encoder", encoder.getDistance());
+  }
+
+  public void legsSetMotor(double move){
+    blastOffLegs.set(move);
+    SmartDashboard.putNumber("BlastOff Legs Encoder", encoder.getDistance());
+  }
+
+  public void stopLegs(){
+    blastOffLegs.stopMotor();
+    SmartDashboard.putNumber("BlastOff Legs Encoder", encoder.getDistance());
   }
 
 }

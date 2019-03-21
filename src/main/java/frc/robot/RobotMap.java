@@ -29,7 +29,7 @@ public class RobotMap {
   public static final int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;  //  Rear Right Drive Motor  (VICTOR)
 
   //***************** PWM PORTS ON THE ROBORIO **********************************/
-  public static final int PWM_PORT_BLASTOFF_MOTOR = 0;  // PWM for Cargo Intake Wheel Motor (SPARK)
+  public static final int PWM_PORT_BLASTOFF_LEGS = 0;  // PWM for Cargo Intake Wheel Motor (SPARK)
   public static final int PWM_PORT_BLASTOFF_WHEELS = 1;  //  PWM for BLASTOFF Motor Wheels (SPARK)
   public static final int PWM_PORT_PHASERS = 2;  //  PWM for BLINKIN LED Driver (Looks like a SPARK, but not)
 
@@ -99,9 +99,12 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   /**********************************************************************/
   /************** BLASTOFF / CLIMBER SETTINGS ***************************/
   /**********************************************************************/
-  public static double BLASTOFF_FORWARD_SPEED = 1.0;  //volts
-  public static double BLASTOFF_REVERSE_SPEED = -1.0;  //volts
-  public static double BLASTOFF_STOP_SPEED = 0.0;  //volts
+  public static double BLASTOFF_LEGS_UP_SPEED = 1.0;  //volts
+  public static double BLASTOFF_LEGS_DOWN_SPEED = -1.0; //volts
+  public static double BLASTOFF_LEGS_STOP_SPEED = 0.0;  //volts
+  public static double BLASTOFF_WHEELS_FORWARD_SPEED = 1.0;  //volts
+  public static double BLASTOFF_WHEELS_REVERSE_SPEED = -1.0;  //volts
+  public static double BLASTOFF_WHEELS_STOP_SPEED = 0.0;  //volts
   public static double BLASTOFF_TIMEOUT = 4.0;  //seconds
   public static double BLASTOFF_OK_TIME_TO_LAUNCH = 29;  //seconds remaining in the game 
   public static double BLASTOFF_ENCODER_PULSES_PER_REVOLUTION = 80;
