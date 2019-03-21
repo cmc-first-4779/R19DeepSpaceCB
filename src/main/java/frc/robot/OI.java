@@ -12,8 +12,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import frc.robot.commands.BlastOff.BlastOffLaunchCommand;
-import frc.robot.commands.BlastOff.BlastOffMoveForwardCommand;
-import frc.robot.commands.BlastOff.BlastOffMoveReverseCommand;
+
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeOpenCommand;
 import frc.robot.commands.WarpDrive.DriveJoystickCommand;
@@ -61,8 +60,7 @@ public class OI {
 		driverStickBButton.whenPressed(new DriveJoystickCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
-		driverStickYButton.whileHeld(new BlastOffMoveForwardCommand());
-		driverStickAButton.whileHeld(new BlastOffMoveReverseCommand());
+
 		driverStickBackButton.whenPressed(new BlastOffLaunchCommand());
 		driverStickStartButton.whenPressed(new BlastOffLandCommand());
 

@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
-import frc.robot.commands.BlastOff.BlastOffStopMotorCommand;
+import frc.robot.commands.BlastOff.BlastOffStopWheelsCommand;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
