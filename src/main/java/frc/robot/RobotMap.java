@@ -29,9 +29,10 @@ public class RobotMap {
   public static final int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;  //  Rear Right Drive Motor  (VICTOR)
 
   //***************** PWM PORTS ON THE ROBORIO **********************************/
-  public static final int PWM_PORT_BLASTOFF_LEGS = 0;  // PWM for Cargo Intake Wheel Motor (SPARK)
-  public static final int PWM_PORT_BLASTOFF_WHEELS = 1;  //  PWM for BLASTOFF Motor Wheels (SPARK)
-  public static final int PWM_PORT_PHASERS = 2;  //  PWM for BLINKIN LED Driver (Looks like a SPARK, but not)
+  public static int frontLeftDrivePWMPort = 0;  // PWM for Cargo Intake Wheel Motor (SPARK)
+  public static int frontRightDrivePWMPort = 1;  //  PWM for BLASTOFF Motor Wheels (SPARK)
+  public static int rearLeftDrivePWMPort = 2;  //  PWM for BLINKIN LED Driver (Looks like a SPARK, but not)
+  public static int rearRightDrivePWMPort = 3;
 
   //************** PCM (PNEUMATICS CONTROL MODULE) PORTS *************************/
   public static final int PCM_PORT_DINO_ARMS_UNGRAB = 3;   //Green Pneumatic Tubing
@@ -94,6 +95,9 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static final double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
   public static final double LIMELIGHT_DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
   public static final double LIMELIGHT_DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
+public static final int PWM_PORT_BLASTOFF_WHEELS = 0;
+public static final int PWM_PORT_BLASTOFF_LEGS = 0;
+public static final int PWM_PORT_PHASERS = 0;
 
 
   /**********************************************************************/

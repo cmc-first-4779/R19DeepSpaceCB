@@ -12,9 +12,7 @@ import frc.robot.RobotMap;
 import frc.robot.LimeLightConstants;
 import frc.robot.commands.Limelight.*;
 import frc.robot.commands.WarpDrive.*;
-import frc.robot.commands.NoseCone.*;
 import frc.robot.PhaserConstants;
-import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
 public class TargetCargoShipHatchCoverAutoCommand extends CommandGroup {
@@ -51,15 +49,12 @@ public class TargetCargoShipHatchCoverAutoCommand extends CommandGroup {
     //
     //  Not sure how far to drive forward YET!!!
     //
-    //  Close the Nosecone to release the Hatch Cover
-    addSequential(new NoseConeCloseCommand());
     //   Back up the robot
     addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE,
         RobotMap.WARPDRIVE_SPEED));
     //  Turn the Camera back to Driver Mode
     addParallel(new LimeLightSetCameraModeCommand(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER));
     //  Flip the LEDs back to DEFAULT
-    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_DEFAULT));
 
   }
 }

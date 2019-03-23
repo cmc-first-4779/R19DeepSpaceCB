@@ -22,7 +22,6 @@ public class LimeLightHasTargetCommand extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.limeLightSubsystem);
-    requires(Robot.phasersSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -32,7 +31,6 @@ public class LimeLightHasTargetCommand extends Command {
 
     if (m_hasTarget == 0){
       // If..  NO TARGET
-      Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_RED);
       // Put the Phasers Pattern Value to the Dashboard
       SmartDashboard.putNumber("Phasers Pattern", PhaserConstants.PHASERS_RED);
       //Output to the Dashboard whether the LimeLight has a target
@@ -41,7 +39,6 @@ public class LimeLightHasTargetCommand extends Command {
       // Else it has a target and set the lights to LIME GREEN
     else{
       // Set the Phasers to Green
-      Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_LIME);
       // Put the Phasers Pattern Value to the Dashboard
       SmartDashboard.putNumber("Phasers Pattern", PhaserConstants.PHASERS_LIME);
       // Output to the Dashboard whether the LimeLight has a target

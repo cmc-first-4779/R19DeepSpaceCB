@@ -10,14 +10,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
-import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
-import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
-import frc.robot.commands.BlastOff.BlastOffLandCommand;
-import frc.robot.commands.BlastOff.BlastOffLaunchCommand;
-
-import frc.robot.commands.NoseCone.NoseConeCloseCommand;
-import frc.robot.commands.NoseCone.NoseConeOpenCommand;
 import frc.robot.commands.WarpDrive.DriveJoystickCommand;
+import frc.robot.subsystems.DriveMotor;
 
 public class OI {
 	// Declare the two joysticks and initate them on the two appropriate USB ports
@@ -57,15 +51,8 @@ public class OI {
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
 		driverStickXButton.whenPressed(new TargetLowerRocketHatchCoverAutoCommand());
-		driverStickBButton.whenPressed(new DriveJoystickCommand());
-		driverStickYButton.whenPressed(new BlackHoleBoomCommand());
-		driverStickAButton.whenPressed(new BlackHoleUnBoomCommand());
-		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
-		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
-
-		// Operator Stick
-		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
-		operStickStartButton.whenPressed(new BlastOffLandCommand());		
+		driverStickBButton.whenPressed(new DriveJoystickCommand());	
+		driverStickAButton.whileHeld(new DriveMotor(0));
 }
 
 	// This method is used later to return the the driverStick when called.

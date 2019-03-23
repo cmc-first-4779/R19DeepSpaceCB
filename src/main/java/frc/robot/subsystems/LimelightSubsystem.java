@@ -12,7 +12,7 @@ import frc.robot.commands.Limelight.LimeLightSetDriverLEDModeOnCommand;
 /**
  *
  */
-public class LimelightSubsystem extends Subsystem {
+public class LimeLightSubsystem extends Subsystem {
 
 	NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 	NetworkTableEntry tx = table.getEntry("tx");

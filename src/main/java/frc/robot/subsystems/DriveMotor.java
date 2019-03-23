@@ -5,33 +5,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlastOff;
+package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
-//Stop the Blastoff Motor
-
-public class BlastOffStopWheelsCommand extends Command {
-  public BlastOffStopWheelsCommand() {
+public class DriveMotor extends Command {
+  int pwmPort;
+  public DriveMotor(int pwmPort) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    //requires(Robot.blastOffSubsystem);
+    requires(Robot.warpDriveSubsystem);
+    this.pwmPort = pwmPort;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blastOffSubsystem.wheelsStopMotor();
-    //  Put the BLASTOFF MOTOR MODE into the SmartDashboard
-    SmartDashboard.putString("BLASTOFF MOTOR MODE", "Stop");
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blastOffSubsystem.wheelsStopMotor();
+    Robot.warpDriveSubsystem.moveMotor(pwmPort);
   }
 
   // Make this return true when this Command no longer needs to run execute()

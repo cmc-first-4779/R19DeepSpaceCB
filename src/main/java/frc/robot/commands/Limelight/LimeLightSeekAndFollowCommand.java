@@ -30,7 +30,6 @@ public class LimeLightSeekAndFollowCommand extends Command {
       // eg. requires(chassis);
       requires(Robot.warpDriveSubsystem);
       requires(Robot.limeLightSubsystem);
-      requires(Robot.phasersSubsystem);
       m_pipeline = pipeline;
     }
   
@@ -42,7 +41,6 @@ public class LimeLightSeekAndFollowCommand extends Command {
       //  Put the LIMELIGHT PIPELINE VALUE ON THE DASHBOARD
       SmartDashboard.putNumber("LIMELIGHT PIPELINE", m_pipeline);
       //Set Phasers to Lime green to tell the driver that the Limelight is driving.
-      Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_LIME);
     }
   
     // Called repeatedly when this Command is scheduled to run

@@ -23,7 +23,6 @@ public class DriveJoystickCommand extends Command {
   @Override
   protected void initialize() {
     //  Set Phasers to Default
-    Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_DEFAULT);
   }
 
   // Called repeatedly when this Command is scheduled to run

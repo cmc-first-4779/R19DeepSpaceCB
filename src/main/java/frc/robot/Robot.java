@@ -24,13 +24,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.LimeLightSubsystem;
 import frc.robot.subsystems.WarpDriveSubsystem;
 //import frc.robot.subsystems.EventHorizonSubsystem;
-import frc.robot.subsystems.BlackHoleSubsystem;
-import frc.robot.subsystems.BlastOffSubsystem;
-import frc.robot.subsystems.NoseConeSubsystem;
-import frc.robot.subsystems.LimelightSubsystem;
-import frc.robot.subsystems.PhasersSubsystem;
 import frc.robot.PhaserConstants;
 
 /**
@@ -44,12 +40,12 @@ public class Robot extends TimedRobot {
 
   //Declare our Subsystems
   public static WarpDriveSubsystem warpDriveSubsystem;
-  public static LimelightSubsystem limeLightSubsystem;
-  public static NoseConeSubsystem noseConeSubsystem;
+  public static LimeLightSubsystem limeLightSubsystem;
+  //public static NoseConeSubsystem noseConeSubsystem;
   //public static EventHorizonSubsystem eventHorizonSubsystem;
-  public static PhasersSubsystem phasersSubsystem;
-  public static BlackHoleSubsystem blackHoleSubsystem;
-  public static BlastOffSubsystem blastOffSubsystem;
+  //public static PhasersSubsystem phasersSubsystem;
+  //public static BlackHoleSubsystem blackHoleSubsystem;
+  //public static BlastOffSubsystem blastOffSubsystem;
 
   //CARRY MODE is a variable that we will use to determine what the Robot is carrying in
   //   its BlackHole Cargo Container..
@@ -84,17 +80,17 @@ public class Robot extends TimedRobot {
     System.out.println("Initiating the Warp Drive Subsystem.");
     warpDriveSubsystem = new WarpDriveSubsystem();
     System.out.println("Initiating the Limelight Subsystem.");
-    limeLightSubsystem = new LimelightSubsystem();
+    limeLightSubsystem = new LimeLightSubsystem();
     System.out.println("Initiating the NoseCone Subsystem.");
-    noseConeSubsystem = new NoseConeSubsystem();
+    //noseConeSubsystem = new NoseConeSubsystem();
     System.out.println("Initiating the BlackHole Subsystem.");
-    blackHoleSubsystem = new BlackHoleSubsystem();
+    //blackHoleSubsystem = new BlackHoleSubsystem();
     System.out.println("Initiating the Event Horizon Subsystem.");
     //eventHorizonSubsystem = new EventHorizonSubsystem();
     System.out.println("Initiating the Phasers Subsystem.");
-    phasersSubsystem = new PhasersSubsystem();
+    //phasersSubsystem = new PhasersSubsystem();
     System.out.println("Initiating the BlastOff Subsystem.");
-    blastOffSubsystem = new BlastOffSubsystem();
+    //blastOffSubsystem = new BlastOffSubsystem();
     
 
     //Initiate the OI LAST!!!!
@@ -147,9 +143,9 @@ public class Robot extends TimedRobot {
     //  Put all of the Subsystem Objects into the Smart Dashboard
     SmartDashboard.putData(warpDriveSubsystem);
     //SmartDashboard.putData(eventHorizonSubsystem);
-    SmartDashboard.putData(blackHoleSubsystem);
-    SmartDashboard.putData(blastOffSubsystem);
-    SmartDashboard.putData(noseConeSubsystem);
+    //SmartDashboard.putData(blackHoleSubsystem);
+    //SmartDashboard.putData(blastOffSubsystem);
+   // SmartDashboard.putData(noseConeSubsystem);
     SmartDashboard.putData(Robot.warpDriveSubsystem.gyro);
 
 
@@ -218,7 +214,7 @@ public class Robot extends TimedRobot {
     //if (whatCarry == 0){
       //Robot Opens the NoseCone for the first few swconds of the match to make sure a preloaded hatch stays
      // System.out.println("Opening NoseCone...");
-      Robot.noseConeSubsystem.openNoseCone();
+     // Robot.noseConeSubsystem.openNoseCone();
     //}
     //else {  //Else we are carrying a cargo ball
       //Robot.noseConeSubsystem.closeNoseCone();
@@ -228,7 +224,7 @@ public class Robot extends TimedRobot {
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
 
     //  Zero out and reset all of our encoders...
-    Robot.blastOffSubsystem.resetEncoder(); 
+   // Robot.blastOffSubsystem.resetEncoder(); 
 
   }
 
@@ -332,11 +328,11 @@ public class Robot extends TimedRobot {
   public void setPhaserColorToAllianceColor(){
     if (getAllianceColor() == DriverStation.Alliance.Blue){
       System.out.println("Phasers set to:  BLUE");
-      Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_CHASE_BLUE);
+     // Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_CHASE_BLUE);
     }
     else{
       System.out.println("Phasers set to:  RED");
-      Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_CHASE_RED);
+     // Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_CHASE_RED);
     }
   }
 

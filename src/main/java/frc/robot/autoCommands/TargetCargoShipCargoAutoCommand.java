@@ -8,16 +8,13 @@
 package frc.robot.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-
-import frc.robot.RobotMap;
-import frc.robot.commands.Limelight.*;
-import frc.robot.commands.WarpDrive.*;
 import frc.robot.LimeLightConstants;
-import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
-import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
-import frc.robot.PhaserConstants;
-import frc.robot.commands.Phasers.PhasersSetPatternCommand;
-import frc.robot.commands.Misc.TimerCommand;
+import frc.robot.RobotMap;
+import frc.robot.commands.Limelight.LimeLightHasTargetCommand;
+import frc.robot.commands.Limelight.LimeLightSeekAndFollowCommand;
+import frc.robot.commands.Limelight.LimeLightSetCameraModeCommand;
+import frc.robot.commands.Limelight.LimeLightSetVisionPipelineCommand;
+import frc.robot.commands.WarpDrive.DriveToSetPointCommand;
 
 public class TargetCargoShipCargoAutoCommand extends CommandGroup {
   /**
@@ -53,16 +50,11 @@ public class TargetCargoShipCargoAutoCommand extends CommandGroup {
         //  Not sure how far to drive forward YET!!!
         //
      
-        //   Eject the ball with the plunger...
-        addSequential(new BlackHoleBoomCommand());        
+        //   Eject the ball with the plunger...    
         //   Back up the robot
         addSequential(new DriveToSetPointCommand(RobotMap.WARPDRIVE_BACKUP_DISTANCE, RobotMap.WARPDRIVE_DIRECTION_REVERSE,
                         RobotMap.WARPDRIVE_SPEED));
         //  Turn the Camera back to Driver Mode
         addParallel(new LimeLightSetCameraModeCommand(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER));
-        //  Flip the LEDs back to DEFAULT
-        addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_DEFAULT));
-        //  Retract the Plunger
-        addParallel(new BlackHoleUnBoomCommand());    
   }
 }
