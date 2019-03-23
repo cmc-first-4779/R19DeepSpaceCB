@@ -14,7 +14,7 @@ import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeReverseCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
-import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
+import frc.robot.commands.WarpDrive.WarpDriveHabSlowCommand;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
 import frc.robot.commands.BlastOff.*;
 
@@ -33,6 +33,7 @@ public class BlastOffHighHabPlatformAutoCommand extends CommandGroup {
     addSequential(new TimerCommand(0.5));
     addSequential(new BlastOffHighHabPlatformCommand());
     addSequential(new TimerCommand(1.0));
+    addParallel(new WarpDriveHabSlowCommand());
     addSequential(new BlastOffWheelsForwardCommand());
     addSequential(new TimerCommand(4.5));
     addParallel(new BlastOffWheelsStopCommand());
