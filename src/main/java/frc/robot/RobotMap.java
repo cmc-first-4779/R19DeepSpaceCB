@@ -29,9 +29,10 @@ public class RobotMap {
   public static final int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;  //  Rear Right Drive Motor  (VICTOR)
 
   //***************** PWM PORTS ON THE ROBORIO **********************************/
-  public static final int PWM_PORT_BLASTOFF_LEGS = 0;  // PWM for Cargo Intake Wheel Motor (SPARK)
-  public static final int PWM_PORT_BLASTOFF_WHEELS = 1;  //  PWM for BLASTOFF Motor Wheels (SPARK)
-  public static final int PWM_PORT_PHASERS = 2;  //  PWM for BLINKIN LED Driver (Looks like a SPARK, but not)
+  public static final int PWM_PORT_BLASTOFF_LEGS_LEFT = 0;  // PWM for Cargo Intake Wheel Motor (SPARK)
+  public static final int PWM_PORT_BLASTOFF_LEGS_RIGHT = 1;
+  public static final int PWM_PORT_BLASTOFF_WHEELS = 2;  //  PWM for BLASTOFF Motor Wheels (SPARK)
+  public static final int PWM_PORT_PHASERS = 3;  //  PWM for BLINKIN LED Driver (Looks like a SPARK, but not)
 
   //************** PCM (PNEUMATICS CONTROL MODULE) PORTS *************************/
   public static final int PCM_PORT_DINO_ARMS_UNGRAB = 3;   //Green Pneumatic Tubing
@@ -40,6 +41,11 @@ public class RobotMap {
   public static final int PCM_PORT_BOOMSTICK_BOOM = 0;   //Dark Blue Pneumatic Tubing
   public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 4;
   public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 5;
+  public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_EXPAND = 6;
+  public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_RETRACT = 7;
+
+
+
 
   /********************** GYRO SPI PORT **************************************************/
   public static final int SPI_PORT_AHRS = 0;  //Using Nav-X GYRO THIS YEAR
@@ -99,6 +105,10 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   /**********************************************************************/
   /************** BLASTOFF / CLIMBER SETTINGS ***************************/
   /**********************************************************************/
+  public static double BLASTOFF_LEGS_kP = 0.8;
+  public static double BLASTOFF_LEGS_kI = 0.0;
+  public static double BLASTOFF_LEGS_kD = 0.0;
+  
   public static double BLASTOFF_LEGS_UP_SPEED = 1.0;  //volts
   public static double BLASTOFF_LEGS_DOWN_SPEED = -1.0; //volts
   public static double BLASTOFF_LEGS_STOP_SPEED = 0.0;  //volts
@@ -113,6 +123,7 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
  // public static double BLASTOFF_DISTANCE_PER_REVOLUTION = 0.628; // inches..   
   public static double BLASTOFF_DISTANCE_PER_REVOLUTION = 4; // inches..   
   public static double BLASTOFF_DISTANCE_PER_PULSE = BLASTOFF_DISTANCE_PER_REVOLUTION / BLASTOFF_ENCODER_PULSES_PER_REVOLUTION;
-
+  public static double BLASTOFF_MEDIUM_HAB_HEIGHT = 7.0; //inches 
+  public static double BLASTOFF_HIGH_HAB_HEIGHT = 14.0; //inches 
   
 }

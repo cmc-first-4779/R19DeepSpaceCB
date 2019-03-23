@@ -27,6 +27,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.WarpDriveSubsystem;
 //import frc.robot.subsystems.EventHorizonSubsystem;
 import frc.robot.subsystems.BlackHoleSubsystem;
+import frc.robot.subsystems.BlastOffPIDSubsystem;
 import frc.robot.subsystems.BlastOffSubsystem;
 import frc.robot.subsystems.NoseConeSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
@@ -50,6 +51,7 @@ public class Robot extends TimedRobot {
   public static PhasersSubsystem phasersSubsystem;
   public static BlackHoleSubsystem blackHoleSubsystem;
   public static BlastOffSubsystem blastOffSubsystem;
+  public static BlastOffPIDSubsystem blastOffPIDSubsystem;
 
   //CARRY MODE is a variable that we will use to determine what the Robot is carrying in
   //   its BlackHole Cargo Container..
@@ -95,6 +97,7 @@ public class Robot extends TimedRobot {
     phasersSubsystem = new PhasersSubsystem();
     System.out.println("Initiating the BlastOff Subsystem.");
     blastOffSubsystem = new BlastOffSubsystem();
+    blastOffPIDSubsystem = new BlastOffPIDSubsystem();
     
 
     //Initiate the OI LAST!!!!

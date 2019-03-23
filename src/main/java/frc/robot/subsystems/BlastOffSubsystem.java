@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.AnalogInput;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
@@ -16,15 +17,19 @@ import frc.robot.commands.BlastOff.BlastOffStopWheelsCommand;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.PIDBase;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.PIDOutput;
+import edu.wpi.first.wpilibj.PIDSource;
 
 import javax.swing.text.StyleContext.SmallAttributeSet;
 
-import edu.wpi.first.wpilibj.AnalogInput;
+
 
 /**
  * Add your docs here.
  */
-public class BlastOffSubsystem extends Subsystem {
+public class BlastOffSubsystem extends Subsystem  {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
@@ -36,7 +41,20 @@ public class BlastOffSubsystem extends Subsystem {
   //  Declare the Blastoff Wheel Encoder
   public Encoder encoder;
 
+    // PIDController to handle blastoff heights
+  public PIDController blastOffLegsController;
+
+    // PID Tuning values
+   // private final double kP = 0.025;
+    //private final double kI = 0;
+    //private final double kD = 0;
+    //private PIDSource encoderDistance;
+    //private PIDOutput blastOffLegsPower;
+
   public BlastOffSubsystem(){
+
+    //Init our PID Controller for the Legs
+    //blastOffLegsController = new PIDController(kP, kI, kD, encoderDistance, blastOffLegsPower);
     //Init our Spark Motor Controller for wheels
     blastOffWheels = new Spark(RobotMap.PWM_PORT_BLASTOFF_WHEELS);
     //Init our Spark Motor Controller for Dino Legs
@@ -136,5 +154,24 @@ public class BlastOffSubsystem extends Subsystem {
     blastOffLegs.stopMotor();
     SmartDashboard.putNumber("BlastOff Legs Encoder", encoder.getDistance());
   }
+
+  public void lift(double yValue) {
+    //  Move the Lift.	
+    
+    //Send the distance and power to the Smart Dashboard.
+    //SmartDashboard.putNumber("Lift Power:" , yValue);
+    //SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
+    //Stop the lift if we are within a quarter of an inch.
+    if (yValue < .25 && yValue > -.25) {
+         blastOffLegs.set(0);
+       }
+       else if (yValue <-.25) {
+         blastOffLegs.set(RobotMap.BLASTOFF_LEGS_UP_SPEED);
+       }
+       else if (yValue >.25) {
+         blastOffLegs.set(RobotMap.BLASTOFF_LEGS_DOWN_SPEED);
+       }
+  }
+
 
 }

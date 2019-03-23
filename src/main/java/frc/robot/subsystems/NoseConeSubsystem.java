@@ -22,10 +22,12 @@ public class NoseConeSubsystem extends Subsystem {
   //
   //Declare our noseCone as a Double Solenoid
   DoubleSolenoid noseCone;
+  DoubleSolenoid theAlex;
 
   public NoseConeSubsystem(){
     //Initiate the noseCone.
     noseCone = new DoubleSolenoid(RobotMap.PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND, RobotMap.PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT);
+    theAlex = new DoubleSolenoid(RobotMap.PCM_PORT_HATCHHANDLER_THE_ALEX_EXPAND, RobotMap.PCM_PORT_HATCHHANDLER_THE_ALEX_RETRACT);
   }
 
   @Override
@@ -44,4 +46,13 @@ public class NoseConeSubsystem extends Subsystem {
     noseCone.set(DoubleSolenoid.Value.kForward);
 
   }
+
+  public void forwardTheAlex() {
+    theAlex.set(DoubleSolenoid.Value.kForward);
+  }
+
+  public void reverseTheAlex() {
+    theAlex.set(DoubleSolenoid.Value.kReverse);
+  }
+
 }
