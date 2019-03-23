@@ -8,6 +8,7 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import frc.robot.commands.Limelight.LimeLightSetCameraModeCommand;
 import frc.robot.commands.Limelight.LimeLightSetDriverLEDModeOnCommand;
+import frc.robot.commands.Limelight.LimeLightSetVisionPipelineCommand;
 
 /**
  *
@@ -37,7 +38,7 @@ public class LimelightSubsystem extends Subsystem {
 		//setDefaultCommand(new MySpecialCommand());
 		//
 		//By Default, put the Camera Mode into Driver Mode and turn the LEDs on
-		setDefaultCommand(new LimeLightSetDriverLEDModeOnCommand());
+		setDefaultCommand(new LimeLightSetVisionPipelineCommand(0));
     }
     
 	//SET THE LIMELIGHT CAMERA MODE
@@ -114,6 +115,30 @@ public class LimelightSubsystem extends Subsystem {
 		double m_streaming_mode = streamingMode;
 		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(m_streaming_mode);
 		setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_ON);
+	}
+
+	public boolean isHeadonTarget(){
+		return getTS() == 0;
+	}
+
+	public boolean isRightOfTarget() {
+  		double ts = getTS();
+  	return ts <= RobotMap.LIMELIGHT_SKEW_CLOCKWISE_MAX && ts >= RobotMap.LIMELIGHT_SKEW_CLOCKWISE_MIN;
+	}
+
+	public boolean isLeftOfTarget() {
+  		double ts = getTS();
+  	return ts >= RobotMap.LIMELIGHT_SKEW_COUNTERCLOCKWISE_MAX && ts <= RobotMap.LIMELIGHT_SKEW_COUNTERCLOCKWISE_MIN;
+	}
+
+	public double skewDegrees() {
+		NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+		NetworkTableEntry thor = table.getEntry("thor");
+		NetworkTableEntry tvert = table.getEntry("tvert");
+		double currentRatio = thor.getDouble(0.0) / tvert.getDouble(0.0);
+		double originalRatio = 77.0 / 35.0;  // the largest possible ratio from the front
+		double ratio = Math.min(1, currentRatio/originalRatio); // finding acos of a value > 1 will give NaN 
+	return Math.toDegrees(Math.acos(ratio));
 	}
     
 }

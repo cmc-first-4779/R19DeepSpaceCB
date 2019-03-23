@@ -17,6 +17,7 @@ import frc.robot.commands.BlastOff.BlastOffHighHabPlatformCommand;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import frc.robot.commands.BlastOff.BlastOffLaunchCommand;
 import frc.robot.commands.BlastOff.BlastOffMedHabPlatformCommand;
+import frc.robot.commands.Limelight.LimeLightSeekAndFollowCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeForwardCommand;
 import frc.robot.commands.NoseCone.NoseConeOpenCommand;
@@ -47,6 +48,10 @@ public class OI {
 		JoystickButton operStickRightBumper = new JoystickButton(operStick, XBoxJoystickMap.RIGHT_BUMPER_BUTTON);
 		JoystickButton operStickBackButton = new JoystickButton(operStick, XBoxJoystickMap.BACK_BUTTON);
 		JoystickButton operStickStartButton = new JoystickButton(operStick, XBoxJoystickMap.START_BUTTON);
+		JoystickButton operStickLeftStickButton = new JoystickButton(operStick, XBoxJoystickMap.LEFT_STICK_BUTTON);
+		JoystickButton operStickRightStickButton = new JoystickButton(operStick, XBoxJoystickMap.RIGHT_STICK_BUTTON);
+
+
 
 		// Declare and Initiate all of the Buttons on the Driver Stick
 		JoystickButton driverStickYButton = new JoystickButton(driverStick, XBoxJoystickMap.Y_BUTTON);
@@ -57,16 +62,19 @@ public class OI {
 		JoystickButton driverStickRightBumper = new JoystickButton(driverStick, XBoxJoystickMap.RIGHT_BUMPER_BUTTON);
 		JoystickButton driverStickBackButton = new JoystickButton(driverStick, XBoxJoystickMap.BACK_BUTTON);
 		JoystickButton driverStickStartButton = new JoystickButton(driverStick, XBoxJoystickMap.START_BUTTON);
+		JoystickButton driverStickLeftStickButton = new JoystickButton(driverStick, XBoxJoystickMap.LEFT_STICK_BUTTON);
+		JoystickButton driverStickRightStickButton = new JoystickButton(driverStick, XBoxJoystickMap.RIGHT_STICK_BUTTON);
+	
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		driverStickXButton.whenPressed(new TargetLowerRocketHatchCoverAutoCommand());
+		driverStickXButton.whenPressed(new LimeLightSeekAndFollowCommand(0));
 		driverStickBButton.whenPressed(new DriveJoystickCommand());
 		driverStickYButton.whenPressed(new NoseConeForwardCommand());
 		driverStickAButton.whenPressed(new NoseConeReverseCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
-		driverStickBackButton.whenActive(new DefenseModeAutoCommand());
+		driverStickBackButton.whenPressed(new DefenseModeAutoCommand());
 
 		// Operator Stick
 		operStickBackButton.whenPressed(new BlastOffHighHabPlatformCommand());

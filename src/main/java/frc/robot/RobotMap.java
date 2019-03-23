@@ -37,10 +37,10 @@ public class RobotMap {
   //************** PCM (PNEUMATICS CONTROL MODULE) PORTS *************************/
   public static final int PCM_PORT_DINO_ARMS_UNGRAB = 3;   //Green Pneumatic Tubing
   public static final int PCM_PORT_DINO_ARMS_GRAB = 2;    //Green Pneumatic Tubing
-  public static final int PCM_PORT_BOOMSTICK_UNBOOM = 1;  //Dark Blue Pneumatic Tubing
-  public static final int PCM_PORT_BOOMSTICK_BOOM = 0;   //Dark Blue Pneumatic Tubing
-  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 4;
-  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 5;
+  public static final int PCM_PORT_BOOMSTICK_UNBOOM = 0;  //Dark Blue Pneumatic Tubing
+  public static final int PCM_PORT_BOOMSTICK_BOOM = 1;   //Dark Blue Pneumatic Tubing
+  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 5;
+  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 4;
   public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_EXPAND = 6;
   public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_RETRACT = 7;
 
@@ -100,6 +100,11 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static final double LIMELIGHT_HATCHCOVER_HEIGHT = 0.25; // inches
   public static final double LIMELIGHT_DRIVETRAIN_AIM_TOLERANCE = 5;  //Tolerance of degrees we want to be on target
   public static final double LIMELIGHT_DRIVETRAIN_DISTANCE_TOLERANCE = 1;  //Tolerance of degrees we want to be on target
+  public static final double LIMELIGHT_SKEW_CLOCKWISE_MAX = 62.5; // degrees
+  public static final double LIMELIGHT_SKEW_CLOCKWISE_MIN = -90.0; // degrees
+  public static final double LIMELIGHT_SKEW_COUNTERCLOCKWISE_MAX = -0.01; //degrees
+  public static final double LIMELIGHT_SKEW_COUNTERCLOCKWISE_MIN = 32.5; //degrees
+
 
 
   /**********************************************************************/

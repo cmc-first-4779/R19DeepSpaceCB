@@ -26,7 +26,7 @@ public class BlastOffLegsJoystickCommand extends Command {
   @Override
   protected void execute() {
     //Move the legs up and down using the OperStick Right Joystick Y axis
-    Robot.blastOffSubsystem.legsSetMotor(Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS));
+    Robot.blastOffPIDSubsystem.legsMotorsMove(Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS));
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,13 +38,13 @@ public class BlastOffLegsJoystickCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.blastOffSubsystem.stopLegs();
+    Robot.blastOffPIDSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.blastOffSubsystem.stopLegs();
+    Robot.blastOffPIDSubsystem.wheelsStopMotor();
   }
 }

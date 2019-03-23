@@ -24,7 +24,7 @@ public class BlastOffLegsUpCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blastOffSubsystem.launchLegs();
+    Robot.blastOffPIDSubsystem.legsUp();
   }
 
   // Make this return true when this Command no longer needs to run execute()

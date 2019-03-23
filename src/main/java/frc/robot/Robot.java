@@ -27,7 +27,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.WarpDriveSubsystem;
 import frc.robot.subsystems.BlackHoleSubsystem;
 import frc.robot.subsystems.BlastOffPIDSubsystem;
-import frc.robot.subsystems.BlastOffSubsystem;
 import frc.robot.subsystems.NoseConeSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.PhasersSubsystem;
@@ -48,7 +47,7 @@ public class Robot extends TimedRobot {
   public static NoseConeSubsystem noseConeSubsystem;
   public static PhasersSubsystem phasersSubsystem;
   public static BlackHoleSubsystem blackHoleSubsystem;
-  public static BlastOffSubsystem blastOffSubsystem;
+  //public static BlastOffSubsystem blastOffSubsystem;
   public static BlastOffPIDSubsystem blastOffPIDSubsystem;
 
   //CARRY MODE is a variable that we will use to determine what the Robot is carrying in
@@ -142,7 +141,7 @@ public class Robot extends TimedRobot {
     //  Put all of the Subsystem Objects into the Smart Dashboard
     SmartDashboard.putData(warpDriveSubsystem);
     SmartDashboard.putData(blackHoleSubsystem);
-    SmartDashboard.putData(blastOffSubsystem);
+    SmartDashboard.putData(blastOffPIDSubsystem);
     SmartDashboard.putData(noseConeSubsystem);
     SmartDashboard.putData(Robot.warpDriveSubsystem.gyro);
 
@@ -215,7 +214,7 @@ public class Robot extends TimedRobot {
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
 
     //  Zero out and reset all of our encoders...
-    Robot.blastOffSubsystem.resetEncoder(); 
+    Robot.blastOffPIDSubsystem.resetLiftEncoder(); 
 
   }
 

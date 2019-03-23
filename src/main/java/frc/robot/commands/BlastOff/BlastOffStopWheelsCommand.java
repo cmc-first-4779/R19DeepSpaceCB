@@ -23,7 +23,7 @@ public class BlastOffStopWheelsCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blastOffSubsystem.wheelsStopMotor();
+    Robot.blastOffPIDSubsystem.wheelsStopMotor();
     //  Put the BLASTOFF MOTOR MODE into the SmartDashboard
     SmartDashboard.putString("BLASTOFF MOTOR MODE", "Stop");
   }
@@ -31,7 +31,7 @@ public class BlastOffStopWheelsCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blastOffSubsystem.wheelsStopMotor();
+    Robot.blastOffPIDSubsystem.wheelsStopMotor();
   }
 
   // Make this return true when this Command no longer needs to run execute()

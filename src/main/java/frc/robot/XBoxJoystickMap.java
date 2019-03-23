@@ -26,7 +26,9 @@ public class XBoxJoystickMap {
 	public static final int LEFT_BUMPER_BUTTON = 5;  // Left Bumper button on X-Box Joystick is Button #5
 	public static final int RIGHT_BUMPER_BUTTON = 6; // Right Bumper button on X-Box Joystick is Button #6
 	public static final int BACK_BUTTON = 7; // Back button on X-Box Joystick is Button #7
-    public static final int START_BUTTON = 8; // Start button on X-Box Joystick is Button #8
+	public static final int START_BUTTON = 8; // Start button on X-Box Joystick is Button #8
+	public static final int LEFT_STICK_BUTTON = 9; //  Button press by pressind down on Left Stick
+	public static final int RIGHT_STICK_BUTTON = 10; // Button press by pressign down on Right Stick
     //  Joysticks and Triggers
 	public static final int LEFT_STICK_X_AXIS = 0;  // X-axis on X-Box Joystick is axis #0
 	public static final int LEFT_STICK_Y_AXIS = 1;  // Y-axis on X-Box Joystick is axis #1

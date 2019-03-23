@@ -19,7 +19,7 @@ public class BlastOffLaunchCommand extends Command {
   public BlastOffLaunchCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.blastOffSubsystem);
+    requires(Robot.blastOffPIDSubsystem);
     setTimeout(60);
   }
 
@@ -35,12 +35,12 @@ public class BlastOffLaunchCommand extends Command {
         double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS);
         if (leftStickYAxis > leftStickYDeadZone ) {
         //  System.out.println("Increasing Height");
-        Robot.blastOffSubsystem.wheelsSetMotor(leftStickYAxis);
+        Robot.blastOffPIDSubsystem.wheelsSetMotor(leftStickYAxis);
         } else if (leftStickYAxis < -leftStickYDeadZone) {
         //  System.out.println("Decreasing Height");
-          Robot.blastOffSubsystem.wheelsSetMotor(leftStickYAxis);
+          Robot.blastOffPIDSubsystem.wheelsSetMotor(leftStickYAxis);
         } else {
-          Robot.blastOffSubsystem.wheelsStopMotor();
+          Robot.blastOffPIDSubsystem.wheelsStopMotor();
           // do nothing, leave the arm height where it's at
         }
   }
@@ -54,7 +54,7 @@ public class BlastOffLaunchCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.blastOffSubsystem.wheelsStopMotor();
+    Robot.blastOffPIDSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same

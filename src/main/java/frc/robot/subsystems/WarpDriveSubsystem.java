@@ -40,8 +40,8 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
   // DECLARE OUR TALONS
   WPI_TalonSRX leftMaster;
   WPI_TalonSRX rightMaster;
-  WPI_TalonSRX leftSlave;
-  WPI_TalonSRX rightSlave;
+  WPI_VictorSPX leftSlave;
+  WPI_VictorSPX rightSlave;
 
   // DECLARE OUR DIFFERENTAL DRIVE
   DifferentialDrive myDrive;
@@ -77,8 +77,8 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     // INITIATE OUR TALONS
     leftMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_LEFT_FRONT_DRIVE);
     rightMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_RIGHT_FRONT_DRIVE);
-    leftSlave = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_LEFT_REAR_DRIVE);
-    rightSlave = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_RIGHT_REAR_DRIVE);
+    leftSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_LEFT_REAR_DRIVE);
+    rightSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_RIGHT_REAR_DRIVE);
 
     // Init the talons
     Robot.initMotorController(leftMaster);
@@ -385,5 +385,11 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
   //  Turn right just a little using the bumper button
   public void adjustRightTurn(){
     rotateDegrees(RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT);
+  }
+
+  public void limeDrive(double speed){
+    double tx;
+    tx = Robot.limeLightSubsystem.getTX();
+    arcadeDrive(speed, tx);
   }
 }

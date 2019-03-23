@@ -15,7 +15,7 @@ public class BlastOffLandCommand extends Command {
   public BlastOffLandCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.blastOffSubsystem);
+    requires(Robot.blastOffPIDSubsystem);
   }
 
   // Called just before this Command runs the first time
