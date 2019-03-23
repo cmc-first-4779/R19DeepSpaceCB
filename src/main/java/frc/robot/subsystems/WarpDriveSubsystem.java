@@ -40,9 +40,8 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
   // DECLARE OUR TALONS
   WPI_TalonSRX leftMaster;
   WPI_TalonSRX rightMaster;
-  // DECLARE OUR VICTORS
-  WPI_VictorSPX leftSlave;
-  WPI_VictorSPX rightSlave;
+  WPI_TalonSRX leftSlave;
+  WPI_TalonSRX rightSlave;
 
   // DECLARE OUR DIFFERENTAL DRIVE
   DifferentialDrive myDrive;
@@ -78,8 +77,8 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     // INITIATE OUR TALONS
     leftMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_LEFT_FRONT_DRIVE);
     rightMaster = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_RIGHT_FRONT_DRIVE);
-    leftSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_LEFT_REAR_DRIVE);
-    rightSlave = new WPI_VictorSPX(RobotMap.CAN_ADDRESS_RIGHT_REAR_DRIVE);
+    leftSlave = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_LEFT_REAR_DRIVE);
+    rightSlave = new WPI_TalonSRX(RobotMap.CAN_ADDRESS_RIGHT_REAR_DRIVE);
 
     // Init the talons
     Robot.initMotorController(leftMaster);

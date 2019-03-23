@@ -90,46 +90,6 @@ public class LimelightSubsystem extends Subsystem {
 	public double getTS() {
 		return NetworkTableInstance.getDefault().getTable("limelight").getEntry("ts").getDouble(0);
 	}
-		
-	public double getNX()  {
-		double NX = (1/(LimeLightConstants.LIMELIGHT_X_PIXEL_COUNT/2))*(getTX() - ((LimeLightConstants.LIMELIGHT_X_PIXEL_COUNT/2)+0.5));
-		return NX;
-	}
-	
-	public double getNY()  {
-		double NY = (1/(LimeLightConstants.LIMELIGHT_Y_PIXEL_COUNT/2))*(((LimeLightConstants.LIMELIGHT_Y_PIXEL_COUNT/2)+0.5)- getTY());
-		return NY;
-	}
-	
-	public double getViewPlaneWidth()  {
-		double ViewPlaneWidth = 2.0 * Math.tan(LimeLightConstants.LIMELIGHT_X_PIXEL_COUNT/2);
-		return ViewPlaneWidth;
-	}
-	
-	public double getViewPlaneHeight()  {
-		double ViewPlaneHeight = 2.0 * Math.tan(LimeLightConstants.LIMELIGHT_Y_PIXEL_COUNT/2);
-		return ViewPlaneHeight;
-	}
-	
-	public double getX()  {
-		double x = getViewPlaneWidth() / 2 * getNX();
-		return x;
-	}
-	
-	public double getY()  {
-		double y = getViewPlaneHeight() / 2 * getNY();
-		return y;
-	}
-	
-    public double getAX()  {
-    	double AX = Math.atan2(RobotMap.LIMELIGHT_DISTANCE_FROM_TARGET, getX());
-    	return AX;
-    }	
-    
-    public double getAY()  {
-    	double AY = Math.atan2(RobotMap.LIMELIGHT_DISTANCE_FROM_TARGET, getY());
-    	return AY;
-    }	
 	
 	//  Returns the approximate distance to the target..  
 	//  NOTE:  AS PER LIMELIGHT, THIS IS NOT THE MOST OPTIMAL WAY TO ACQUIRE A TARGET.
