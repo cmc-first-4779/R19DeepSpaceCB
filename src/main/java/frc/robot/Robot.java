@@ -25,7 +25,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.WarpDriveSubsystem;
-//import frc.robot.subsystems.EventHorizonSubsystem;
 import frc.robot.subsystems.BlackHoleSubsystem;
 import frc.robot.subsystems.BlastOffPIDSubsystem;
 import frc.robot.subsystems.BlastOffSubsystem;
@@ -47,7 +46,6 @@ public class Robot extends TimedRobot {
   public static WarpDriveSubsystem warpDriveSubsystem;
   public static LimelightSubsystem limeLightSubsystem;
   public static NoseConeSubsystem noseConeSubsystem;
-  //public static EventHorizonSubsystem eventHorizonSubsystem;
   public static PhasersSubsystem phasersSubsystem;
   public static BlackHoleSubsystem blackHoleSubsystem;
   public static BlastOffSubsystem blastOffSubsystem;
@@ -66,7 +64,6 @@ public class Robot extends TimedRobot {
 
   public static OI oi;
 
-  private int whatCarry;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -91,12 +88,10 @@ public class Robot extends TimedRobot {
     noseConeSubsystem = new NoseConeSubsystem();
     System.out.println("Initiating the BlackHole Subsystem.");
     blackHoleSubsystem = new BlackHoleSubsystem();
-    System.out.println("Initiating the Event Horizon Subsystem.");
-    //eventHorizonSubsystem = new EventHorizonSubsystem();
     System.out.println("Initiating the Phasers Subsystem.");
     phasersSubsystem = new PhasersSubsystem();
     System.out.println("Initiating the BlastOff Subsystem.");
-    blastOffSubsystem = new BlastOffSubsystem();
+    //blastOffSubsystem = new BlastOffSubsystem();
     blastOffPIDSubsystem = new BlastOffPIDSubsystem();
     
 
@@ -112,13 +107,10 @@ public class Robot extends TimedRobot {
     Robot.warpDriveSubsystem.resetEncoders(); 
 
     //Turn on the Camera Server for the Dashboard
-		//System.out.println("Starting the camera server.");
+		System.out.println("Starting the camera server.");
 		CameraServer.getInstance().startAutomaticCapture();
     System.out.println("Camera Server started.");
     
-    //noseConeSubsystem.openNoseCone();
-
-
     //Set up the Limelight Camera to Camera Mode with LED's on..
    // System.out.println("Configuring Limelight...");
     //Robot.limeLightSubsystem.setCameraMode(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER);
@@ -149,7 +141,6 @@ public class Robot extends TimedRobot {
     
     //  Put all of the Subsystem Objects into the Smart Dashboard
     SmartDashboard.putData(warpDriveSubsystem);
-    //SmartDashboard.putData(eventHorizonSubsystem);
     SmartDashboard.putData(blackHoleSubsystem);
     SmartDashboard.putData(blastOffSubsystem);
     SmartDashboard.putData(noseConeSubsystem);
@@ -204,10 +195,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     m_autonomousCommand = m_chooser.getSelected();
-    //Get what we are carrying..   Hatch or Cargo Ball
-    setWhatCarry(carryChooser.getSelected());
-
-    /*
+     /*
      * String autoSelected = SmartDashboard.getString("Auto Selector",
      * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
      * = new MyAutoCommand(); break; case "Default Auto": default:
@@ -248,8 +236,6 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-    
-
     //Turning Limelight LEDs on.
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
 
@@ -311,14 +297,9 @@ public class Robot extends TimedRobot {
   //    *   Auto, Telop, etc.
   public static boolean inAutonmousMode(){
     return DriverStation.getInstance().isAutonomous();
-
   }
 
-  // Define what we carry...   Hatch = 0, Cargo Ball = 1
-  private void setWhatCarry(int selected){
-    whatCarry = selected;
-  }
-
+ 
   // Get our Alliance color from the DriverStation..   We may use this later to determine our LED Colors..
   public static Alliance getAllianceColor(){
     DriverStation.Alliance color;

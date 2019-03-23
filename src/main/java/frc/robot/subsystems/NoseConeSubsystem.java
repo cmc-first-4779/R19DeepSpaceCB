@@ -32,8 +32,6 @@ public class NoseConeSubsystem extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-     // DEFAULT COMMAND:  Close the noseCone!!
-    //setDefaultCommand(new NoseConeCloseCommand());
   }
 
   //Open the noseCone
@@ -47,10 +45,12 @@ public class NoseConeSubsystem extends Subsystem {
 
   }
 
+  //Forward the platform 
   public void forwardTheAlex() {
     theAlex.set(DoubleSolenoid.Value.kForward);
   }
 
+  //Reverse the platform..
   public void reverseTheAlex() {
     theAlex.set(DoubleSolenoid.Value.kReverse);
   }

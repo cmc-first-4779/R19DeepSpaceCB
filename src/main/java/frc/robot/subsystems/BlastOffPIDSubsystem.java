@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+import frc.robot.commands.BlastOff.BlastOffDefaultCommand;
 
 
 public class BlastOffPIDSubsystem extends PIDSubsystem {
@@ -44,18 +45,20 @@ public DoubleSolenoid dinoArmsSolenoid;
     //Init our Spark Motor Controller for Dino Legs
     legsMotorLeft = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_LEFT);
     legsMotorRight = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_RIGHT);
+    legsMotorRight.setInverted(true);  //Invert the right motor
+    
     //Init our Double Solenoid
     dinoArmsSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_DINO_ARMS_GRAB, RobotMap.PCM_PORT_DINO_ARMS_UNGRAB);   
     //Init the encoder
     legsEncoder = new Encoder(RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A, RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B);
     //Set the Encoder Distance per Pulse
     legsEncoder.setDistancePerPulse(RobotMap.BLASTOFF_DISTANCE_PER_PULSE);
+    legsEncoder.reset();
   }
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new BlastOffDefaultCommand());
   }
 
   @Override
@@ -75,7 +78,7 @@ public DoubleSolenoid dinoArmsSolenoid;
   
   public void legsMotorsMove(double speed){
     legsMotorLeft.set(speed);
-    legsMotorRight.set(speed*-1);  //Invert the right motor
+    legsMotorRight.set(speed);  //Right motor is inverted
   }
 
   public void legsUp() {
@@ -97,6 +100,7 @@ public DoubleSolenoid dinoArmsSolenoid;
          legsMotorsMove(RobotMap.BLASTOFF_LEGS_DOWN_SPEED);
        }
   }
+
   public void legsDown() {
       legsMotorsMove(RobotMap.BLASTOFF_LEGS_DOWN_SPEED);
   } 

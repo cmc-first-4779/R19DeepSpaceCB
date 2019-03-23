@@ -116,7 +116,7 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static double BLASTOFF_WHEELS_STOP_SPEED = 0.0;  //volts
   public static double BLASTOFF_TIMEOUT = 4.0;  //seconds
   public static double BLASTOFF_OK_TIME_TO_LAUNCH = 29;  //seconds remaining in the game 
-  public static double BLASTOFF_ENCODER_PULSES_PER_REVOLUTION = 80;
+  public static double BLASTOFF_ENCODER_PULSES_PER_REVOLUTION = 1024;
   //  Distance per axle revolution.    2" diameter wheels =>  2 *pi = Circumference = 6.28"  
   //     Motor is geared on a 10:1 ratio, so we should be seeing 6.28" / 10 distance each rotation
  // public static double BLASTOFF_DISTANCE_PER_REVOLUTION = 0.628; // inches..   

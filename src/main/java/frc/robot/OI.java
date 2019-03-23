@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.autoCommands.DefenseModeAutoCommand;
 import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
@@ -65,6 +66,7 @@ public class OI {
 		driverStickAButton.whenPressed(new NoseConeReverseCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
+		driverStickBackButton.whenActive(new DefenseModeAutoCommand());
 
 		// Operator Stick
 		operStickBackButton.whenPressed(new BlastOffHighHabPlatformCommand());

@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class BlastOffMoveWheelsForwardCommand extends Command {
-  public BlastOffMoveWheelsForwardCommand() {
+public class BlastOffWheelsForwardCommand extends Command {
+  public BlastOffWheelsForwardCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     //requires(Robot.blastOffSubsystem);

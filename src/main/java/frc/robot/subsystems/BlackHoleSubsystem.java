@@ -7,14 +7,13 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
 
 /**
  * Add your docs here.
@@ -26,8 +25,7 @@ public class BlackHoleSubsystem extends Subsystem {
   // Declare our BoomStick as a Double Solenoid
   DoubleSolenoid boomStick;
 
-  // Angle the box should be at
-  double boxAngle = 0;
+
 
   public BlackHoleSubsystem() {
     // Initiate our boomStick
@@ -37,7 +35,8 @@ public class BlackHoleSubsystem extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-
+    //  Default Command is to Un Boom the Boom Stick
+    setDefaultCommand(new BlackHoleUnBoomCommand());
   }
 
   // Make the BoomStick Boom
