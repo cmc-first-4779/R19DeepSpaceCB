@@ -19,11 +19,9 @@ public class BlastOffPIDSubsystem extends PIDSubsystem {
 
 //  Declare our Spark Motor that powers the LEGS
 Spark legsMotorLeft;
-
 Spark legsMotorRight; 
 //  Declare our Spark Motor that powers the Wheels on the Legs
 Spark wheelsMotor;
-
 
 	
 //  Declare and initiate our Lift encoder.
@@ -31,6 +29,7 @@ private static Encoder legsEncoder;
 
 //  Declare the BlastOff Solenoid
 public DoubleSolenoid dinoArmsSolenoid;
+
 
   public BlastOffPIDSubsystem() {
     // Intert a subsystem name and PID values here
@@ -76,7 +75,7 @@ public DoubleSolenoid dinoArmsSolenoid;
   
   public void legsMotorsMove(double speed){
     legsMotorLeft.set(speed);
-    legsMotorRight.set(speed);
+    legsMotorRight.set(speed*-1);  //Invert the right motor
   }
 
   public void legsUp() {
@@ -86,11 +85,7 @@ public DoubleSolenoid dinoArmsSolenoid;
   }
   
   public void legs(double yValue) {
-    //  Move the Lift.	
-    
-    //Send the distance and power to the Smart Dashboard.
-    //SmartDashboard.putNumber("Lift Power:" , yValue);
-    //SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
+    //  Move the Lift.	  
     //Stop the lift if we are within a quarter of an inch.
     if (yValue < .25 && yValue > -.25) {
          legsMotorsMove(RobotMap.BLASTOFF_LEGS_STOP_SPEED);
@@ -103,28 +98,16 @@ public DoubleSolenoid dinoArmsSolenoid;
        }
   }
   public void legsDown() {
-    //  Move the Lift Down.
-    //if (getDistance() <= 15)  {
-      //liftMotor.set(RobotMap.liftThrottleDown);
-    //}else {
       legsMotorsMove(RobotMap.BLASTOFF_LEGS_DOWN_SPEED);
-     // SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
   } 
 
   public void legsOff() {
     //  Power the Lift Off.
     legsMotorsMove(RobotMap.BLASTOFF_LEGS_STOP_SPEED);	
-    //SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
   }
   
   public void legsMove(double power) {
     //  PID method used to move the lift up/down
-    //SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
-    //SmartDashboard.putNumber("Lift Power", power);
-    
-    //  This if/else-if/else is used to throttle the lift's speed to not jam it and damage it or
-    //   torque it on top of the robot and make it tipsy.
-    
      if (Robot.blastOffPIDSubsystem.getSetpoint() < Robot.blastOffPIDSubsystem.getDistance()) {
       legsMotorsMove(power);
     }	
@@ -134,11 +117,11 @@ public DoubleSolenoid dinoArmsSolenoid;
   }
 
   public static double getDistance() {
-  return legsEncoder.getDistance();
+    return legsEncoder.getDistance();
   }
 
   public void resetLiftEncoder()  {
-  legsEncoder.reset();
+    legsEncoder.reset();
   }
 
   public void wheelsForward(){
@@ -166,5 +149,16 @@ public DoubleSolenoid dinoArmsSolenoid;
   public void dinoArmUnGrab(){
     dinoArmsSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
+
+  public void legsMidHabPlatform(){
+    setSetpoint(RobotMap.BLASTOFF_MEDIUM_HAB_HEIGHT);
+    enable();
+  }
+
+  public void legsHighHabPlatform(){
+    setSetpoint(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT);
+    enable();
+  }
+
 
 }

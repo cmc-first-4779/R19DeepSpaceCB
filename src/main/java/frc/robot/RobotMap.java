@@ -108,7 +108,6 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static double BLASTOFF_LEGS_kP = 0.8;
   public static double BLASTOFF_LEGS_kI = 0.0;
   public static double BLASTOFF_LEGS_kD = 0.0;
-  
   public static double BLASTOFF_LEGS_UP_SPEED = 1.0;  //volts
   public static double BLASTOFF_LEGS_DOWN_SPEED = -1.0; //volts
   public static double BLASTOFF_LEGS_STOP_SPEED = 0.0;  //volts
@@ -125,5 +124,9 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static double BLASTOFF_DISTANCE_PER_PULSE = BLASTOFF_DISTANCE_PER_REVOLUTION / BLASTOFF_ENCODER_PULSES_PER_REVOLUTION;
   public static double BLASTOFF_MEDIUM_HAB_HEIGHT = 7.0; //inches 
   public static double BLASTOFF_HIGH_HAB_HEIGHT = 14.0; //inches 
+
+
+  //BlackHole Settings
+  public static double BLACKHOLE_BOOM_TIMER = 1.0; //seconds   Time to boom before we un-boom
   
 }

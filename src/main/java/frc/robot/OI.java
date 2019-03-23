@@ -12,9 +12,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
+import frc.robot.commands.BlastOff.BlastOffHighHabPlatformCommand;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import frc.robot.commands.BlastOff.BlastOffLaunchCommand;
-
+import frc.robot.commands.BlastOff.BlastOffMedHabPlatformCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeForwardCommand;
 import frc.robot.commands.NoseCone.NoseConeOpenCommand;
@@ -66,10 +67,11 @@ public class OI {
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
 
 		// Operator Stick
-		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
-		operStickStartButton.whenPressed(new BlastOffLandCommand());	
-		operStickYButton.whenPressed(new BlackHoleBoomCommand());
-		operStickAButton.whenPressed(new BlackHoleUnBoomCommand());	
+		operStickBackButton.whenPressed(new BlastOffHighHabPlatformCommand());
+		operStickStartButton.whenPressed(new BlastOffMedHabPlatformCommand());
+		operStickXButton.whenPressed(new BlastOffLandCommand());	
+		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
+	
 }
 
 	// This method is used later to return the the driverStick when called.

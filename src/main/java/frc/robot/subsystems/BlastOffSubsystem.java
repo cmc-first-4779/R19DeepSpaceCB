@@ -58,7 +58,7 @@ public class BlastOffSubsystem extends Subsystem  {
     //Init our Spark Motor Controller for wheels
     blastOffWheels = new Spark(RobotMap.PWM_PORT_BLASTOFF_WHEELS);
     //Init our Spark Motor Controller for Dino Legs
-    blastOffLegs = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS);
+    blastOffLegs = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_LEFT);
     //Init our Double Solenoid
     dinoArmsSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_DINO_ARMS_GRAB, RobotMap.PCM_PORT_DINO_ARMS_UNGRAB);   
     //Init the encoder

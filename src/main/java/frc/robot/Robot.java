@@ -155,7 +155,10 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData(noseConeSubsystem);
     SmartDashboard.putData(Robot.warpDriveSubsystem.gyro);
 
-
+    //Initial Robot positions on power up..
+    Robot.noseConeSubsystem.reverseTheAlex();
+    Robot.noseConeSubsystem.openNoseCone();
+    Robot.blackHoleSubsystem.unBoom();
 
     }
 
@@ -216,16 +219,9 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.start();
     }
 
-    //  Set the nose cone based off of the CarryChooser
-      //  If we are carrying a hatch
-    //if (whatCarry == 0){
-      //Robot Opens the NoseCone for the first few swconds of the match to make sure a preloaded hatch stays
-     // System.out.println("Opening NoseCone...");
+
       Robot.noseConeSubsystem.openNoseCone();
-    //}
-    //else {  //Else we are carrying a cargo ball
-      //Robot.noseConeSubsystem.closeNoseCone();
-    //}
+      Robot.noseConeSubsystem.forwardTheAlex();
     
     //  Turning Limelight LEDs on
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
