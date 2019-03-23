@@ -5,23 +5,21 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.Limelight;
+package frc.robot.commands.BlastOff;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.LimeLightConstants;
 import frc.robot.Robot;
 
-public class LimeLightSetLEDModeOnCommand extends Command {
-  public LimeLightSetLEDModeOnCommand() {
+public class BlastOffWheelsStopCommand extends Command {
+  public BlastOffWheelsStopCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.limeLightSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_ON);
+    Robot.blastOffPIDSubsystem.wheelsStopMotor();
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -38,6 +36,7 @@ public class LimeLightSetLEDModeOnCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.blastOffPIDSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same

@@ -5,34 +5,32 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.Limelight;
+package frc.robot.commands.WarpDrive;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.LimeLightConstants;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class LimeLightSetLEDModeOnCommand extends Command {
-  public LimeLightSetLEDModeOnCommand() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.limeLightSubsystem);
+public class WarpDriveHabSlowCommand extends Command {
+  public WarpDriveHabSlowCommand() {
+    requires(Robot.warpDriveSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_ON);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.warpDriveSubsystem.arcadeDrive(RobotMap.WARPDRIVE_HAB_SPEED, 0);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true
