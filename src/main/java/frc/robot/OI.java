@@ -16,7 +16,9 @@ import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import frc.robot.commands.BlastOff.BlastOffLaunchCommand;
 
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
+import frc.robot.commands.NoseCone.NoseConeForwardCommand;
 import frc.robot.commands.NoseCone.NoseConeOpenCommand;
+import frc.robot.commands.NoseCone.NoseConeReverseCommand;
 import frc.robot.commands.WarpDrive.DriveJoystickCommand;
 
 public class OI {
@@ -58,14 +60,16 @@ public class OI {
 		// Driver Stick
 		driverStickXButton.whenPressed(new TargetLowerRocketHatchCoverAutoCommand());
 		driverStickBButton.whenPressed(new DriveJoystickCommand());
-		driverStickYButton.whenPressed(new BlackHoleBoomCommand());
-		driverStickAButton.whenPressed(new BlackHoleUnBoomCommand());
+		driverStickYButton.whenPressed(new NoseConeForwardCommand());
+		driverStickAButton.whenPressed(new NoseConeReverseCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
 
 		// Operator Stick
 		operStickBackButton.whenPressed(new BlastOffLaunchCommand());
-		operStickStartButton.whenPressed(new BlastOffLandCommand());		
+		operStickStartButton.whenPressed(new BlastOffLandCommand());	
+		operStickYButton.whenPressed(new BlackHoleBoomCommand());
+		operStickAButton.whenPressed(new BlackHoleUnBoomCommand());	
 }
 
 	// This method is used later to return the the driverStick when called.
