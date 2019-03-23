@@ -106,7 +106,7 @@ public class Robot extends TimedRobot {
 
     //Turn on the Camera Server for the Dashboard
 		//System.out.println("Starting the camera server.");
-		CameraServer.getInstance().startAutomaticCapture();
+		//CameraServer.getInstance().startAutomaticCapture();
     System.out.println("Camera Server started.");
     
     //noseConeSubsystem.openNoseCone();

@@ -31,6 +31,7 @@ public class LimeLightSeekAndFollowCommand extends Command {
       requires(Robot.warpDriveSubsystem);
       requires(Robot.limeLightSubsystem);
       m_pipeline = pipeline;
+      System.out.println("In LimeLightSeekAndFollowCommand");
     }
   
     // Called just before this Command runs the first time
@@ -50,11 +51,12 @@ public class LimeLightSeekAndFollowCommand extends Command {
        * First check to see if there is a target, if not turn Then make sure we are on
        * target Then make sure we are the proper distance from target
        */
-  
+  System.out.println("In Execute");
       boolean hasTarget = Robot.limeLightSubsystem.hasTarget();
   
       if (hasTarget) {
         // Output to the Dashboard whether the LimeLight has a target
+        System.out.println("LimeLight Has Target");
         SmartDashboard.putString("LimeLight Has Target", "TARGET ACQUIRED");
         turn = calculateTurn();
         if (aimAndMove) {
