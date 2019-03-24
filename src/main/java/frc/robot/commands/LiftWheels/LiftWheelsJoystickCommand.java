@@ -15,6 +15,7 @@ public class LiftWheelsJoystickCommand extends Command {
   public LiftWheelsJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.liftWheelsSubsystem);
   }
 
   // Called just before this Command runs the first time
