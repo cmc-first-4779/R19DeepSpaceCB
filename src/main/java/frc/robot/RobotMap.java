@@ -53,6 +53,9 @@ public class RobotMap {
   /************************* DIO PORTS ************************************************* */
   public static final int DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A = 0;  //Blastoff Spark Motor Encoder Channel A
   public static final int DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B = 1;  //Blastoff Spark Motor Encoder Channel B
+  public static final int DIO_PORT_LIFT_WHEELS_ENCODER_CHANNEL_A = 2;
+  public static final int DIO_PORT_LIFT_WHEELS_ENCODER_CHANNEL_B = 3;
+  
 
 
 /*********************************************************************************/
