@@ -27,7 +27,7 @@ public class NoseConeSubsystem extends Subsystem {
   public NoseConeSubsystem(){
     //Initiate the noseCone.
     noseCone = new DoubleSolenoid(RobotMap.PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND, RobotMap.PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT);
-    theAlex = new DoubleSolenoid(RobotMap.PCM_PORT_HATCHHANDLER_THE_ALEX_EXPAND, RobotMap.PCM_PORT_HATCHHANDLER_THE_ALEX_RETRACT);
+    theAlex = new DoubleSolenoid(RobotMap.PCM_PORT_HATCHHANDLER_THE_ALEX_FORWARD, RobotMap.PCM_PORT_HATCHHANDLER_THE_ALEX_REVERSE);
   }
 
   @Override

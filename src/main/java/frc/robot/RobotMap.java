@@ -41,8 +41,8 @@ public class RobotMap {
   public static final int PCM_PORT_BOOMSTICK_BOOM = 1;   //Dark Blue Pneumatic Tubing
   public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 5;
   public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 4;
-  public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_EXPAND = 6;
-  public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_RETRACT = 7;
+  public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_FORWARD = 7;
+  public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_REVERSE = 6;
 
 
 

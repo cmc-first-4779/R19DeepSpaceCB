@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.BlastOff.BlastOffDefaultCommand;
+import frc.robot.commands.BlastOff.BlastOffLegsJoystickCommand;
 
 
 public class BlastOffPIDSubsystem extends PIDSubsystem {
@@ -58,7 +59,7 @@ public DoubleSolenoid dinoArmsSolenoid;
 
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new BlastOffDefaultCommand());
+    setDefaultCommand(new BlastOffLegsJoystickCommand());
   }
 
   @Override

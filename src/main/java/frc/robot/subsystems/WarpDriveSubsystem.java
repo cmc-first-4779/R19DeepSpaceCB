@@ -387,9 +387,5 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     rotateDegrees(RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT);
   }
 
-  public void limeDrive(double speed){
-    double tx;
-    tx = Robot.limeLightSubsystem.getTX();
-    arcadeDrive(speed, tx);
-  }
+
 }

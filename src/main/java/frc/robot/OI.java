@@ -23,6 +23,7 @@ import frc.robot.commands.NoseCone.NoseConeForwardCommand;
 import frc.robot.commands.NoseCone.NoseConeOpenCommand;
 import frc.robot.commands.NoseCone.NoseConeReverseCommand;
 import frc.robot.commands.WarpDrive.DriveJoystickCommand;
+import frc.robot.commands.WarpDrive.DriveLimeLightCommand;
 
 public class OI {
 	// Declare the two joysticks and initate them on the two appropriate USB ports
@@ -68,7 +69,7 @@ public class OI {
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		driverStickXButton.whenPressed(new LimeLightSeekAndFollowCommand(0));
+		driverStickRightStickButton.whileHeld(new DriveLimeLightCommand());
 		driverStickBButton.whenPressed(new DriveJoystickCommand());
 		driverStickYButton.whenPressed(new NoseConeForwardCommand());
 		driverStickAButton.whenPressed(new NoseConeReverseCommand());
