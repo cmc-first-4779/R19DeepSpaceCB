@@ -17,7 +17,6 @@ import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
 import frc.robot.PhaserConstants;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
-import frc.robot.commands.Misc.TimerCommand;
 
 public class TargetCargoShipCargoAutoCommand extends CommandGroup {
   /**

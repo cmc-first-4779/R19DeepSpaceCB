@@ -7,7 +7,6 @@
 
 package frc.robot.autoCommands;
 
-import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.PhaserConstants;
 import frc.robot.commands.Misc.TimerCommand;

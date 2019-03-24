@@ -15,7 +15,6 @@ import frc.robot.commands.WarpDrive.*;
 import frc.robot.commands.NoseCone.*;
 import frc.robot.PhaserConstants;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
-import frc.robot.commands.Misc.TimerCommand;
 
 public class TargetCargoShipHatchCoverAutoCommand extends CommandGroup {
   /**
