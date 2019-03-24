@@ -19,8 +19,6 @@ public class BlastOffPIDSubsystem extends PIDSubsystem {
 //  Declare our Spark Motor that powers the LEGS
 Spark legsMotorMain;
 Spark legsMotorSecondary; 
-//  Declare our Spark Motor that powers the Wheels on the Legs
-Spark wheelsMotor;
 
 	
 //  Declare and initiate our Lift encoder.
@@ -35,8 +33,6 @@ private static Encoder legsEncoder;
     // to
     // enable() - Enables the PID controller.
 
-    //Init our Spark Motor Controller for wheels
-    wheelsMotor = new Spark(RobotMap.PWM_PORT_BLASTOFF_WHEELS);
     //Init our Spark Motor Controller for Dino Legs
     legsMotorMain = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_MAIN);
     legsMotorSecondary = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_SECONDARY);
@@ -121,26 +117,6 @@ private static Encoder legsEncoder;
   public void resetLiftEncoder()  {
     legsEncoder.reset();
   }
-
-  public void wheelsForward(){
-    wheelsMotor.set(RobotMap.BLASTOFF_WHEELS_FORWARD_SPEED);
-  }
-
-  //  Reverse the motors on the Blastoff Foot
-  public void wheelsReverse(){
-    wheelsMotor.set(RobotMap.BLASTOFF_WHEELS_REVERSE_SPEED);
-  }
-
-  public void wheelsSetMotor(double move){
-    wheelsMotor.set(move);
-  }
-
-  //  Stop the motors on the Blastoff foot
-  public void wheelsStopMotor(){
-    wheelsMotor.stopMotor();   
-  }
-
-
 
   public void legsMidHabPlatform(){
     setSetpoint(RobotMap.BLASTOFF_MEDIUM_HAB_HEIGHT);

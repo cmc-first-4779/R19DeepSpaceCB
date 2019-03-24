@@ -5,14 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlastOff;
+package frc.robot.commands.LiftWheels;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.XBoxJoystickMap;
 
-public class BlastOffWheelsJoystickCommand extends Command {
-  public BlastOffWheelsJoystickCommand() {
+public class LiftWheelsJoystickCommand extends Command {
+  public LiftWheelsJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -26,7 +26,7 @@ public class BlastOffWheelsJoystickCommand extends Command {
   @Override
   protected void execute() {
     //Move the Blastoff wheels using the Operstick Left Stick Y-Axis
-    Robot.blastOffPIDSubsystem.wheelsSetMotor(Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS));
+    Robot.liftWheelsSubsystem.wheelsSetMotor(Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS));
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,13 +38,13 @@ public class BlastOffWheelsJoystickCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.blastOffPIDSubsystem.wheelsStopMotor();
+    Robot.liftWheelsSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.blastOffPIDSubsystem.wheelsStopMotor();
+    Robot.liftWheelsSubsystem.wheelsStopMotor();
   }
 }

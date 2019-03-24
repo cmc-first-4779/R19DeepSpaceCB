@@ -28,6 +28,7 @@ import frc.robot.subsystems.WarpDriveSubsystem;
 import frc.robot.subsystems.BlackHoleSubsystem;
 import frc.robot.subsystems.BlastOffPIDSubsystem;
 import frc.robot.subsystems.DinoArmsSubsystem;
+import frc.robot.subsystems.LiftWheelsSubsystem;
 import frc.robot.subsystems.NoseConeSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.PhasersSubsystem;
@@ -51,6 +52,7 @@ public class Robot extends TimedRobot {
   //public static BlastOffSubsystem blastOffSubsystem;
   public static BlastOffPIDSubsystem blastOffPIDSubsystem;
   public static DinoArmsSubsystem dinoArmsSubsystem;
+  public static LiftWheelsSubsystem liftWheelsSubsystem;
 
   //CARRY MODE is a variable that we will use to determine what the Robot is carrying in
   //   its BlackHole Cargo Container..
@@ -95,6 +97,7 @@ public class Robot extends TimedRobot {
     //blastOffSubsystem = new BlastOffSubsystem();
     blastOffPIDSubsystem = new BlastOffPIDSubsystem();
     dinoArmsSubsystem = new DinoArmsSubsystem();
+    liftWheelsSubsystem = new LiftWheelsSubsystem();
     
 
     //Initiate the OI LAST!!!!
