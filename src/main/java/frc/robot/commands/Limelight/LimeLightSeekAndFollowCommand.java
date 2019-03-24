@@ -14,7 +14,7 @@ import frc.robot.RobotMap;
 import frc.robot.PhaserConstants;
 
 public class LimeLightSeekAndFollowCommand extends Command {
-  double pAim = .025;
+  double pAim = .05;
   double pDistance = .05;
   double minimalAimCommand = .15; // This is the minimal amount that it would take to start turning the bot
   double minimalMoveCommand = .25; // This is the minimal amount that it would take to start turning the bot
@@ -51,7 +51,6 @@ public class LimeLightSeekAndFollowCommand extends Command {
        * First check to see if there is a target, if not turn Then make sure we are on
        * target Then make sure we are the proper distance from target
        */
-  System.out.println("In Execute");
       boolean hasTarget = Robot.limeLightSubsystem.hasTarget();
   
       if (hasTarget) {
@@ -59,11 +58,14 @@ public class LimeLightSeekAndFollowCommand extends Command {
         System.out.println("LimeLight Has Target");
         SmartDashboard.putString("LimeLight Has Target", "TARGET ACQUIRED");
         turn = calculateTurn();
+        System.out.println("Turn Value: " + turn);
         if (aimAndMove) {
           move = calculateMove();
+          System.out.println("Move Value: " + move);
         } else { // only want to move if we are on target already
           if (turn == 0) {
             move = calculateMove();
+            System.out.println("Move Value: " + move);
           }
         }
       } 
@@ -108,7 +110,7 @@ public class LimeLightSeekAndFollowCommand extends Command {
       } else {
         move = 0;
       }
-      return move;
+      return -move;
     }
   
     // Make this return true when this Command no longer needs to run execute()

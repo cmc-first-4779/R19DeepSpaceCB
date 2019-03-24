@@ -28,6 +28,7 @@ public class DriveJoystickCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    System.out.println("Test message");
     Robot.warpDriveSubsystem.arcadeDrive(Robot.oi.getDriverStick().getY(), Robot.oi.getDriverStick().getX());
   }
 
