@@ -10,16 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.autoCommands.DefenseModeAutoCommand;
-import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
-import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
-import frc.robot.commands.BlastOff.BlastOffHighHabPlatformCommand;
-import frc.robot.commands.BlastOff.BlastOffLandCommand;
-import frc.robot.commands.BlastOff.BlastOffLaunchCommand;
-import frc.robot.commands.BlastOff.BlastOffMedHabPlatformCommand;
 import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
 import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
-import frc.robot.commands.Limelight.LimeLightSeekAndFollowCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeForwardCommand;
 import frc.robot.commands.NoseCone.NoseConeOpenCommand;
@@ -72,7 +65,7 @@ public class OI {
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
 		driverStickRightStickButton.whileHeld(new DriveLimeLightCommand());
-		driverStickBButton.whenPressed(new DriveJoystickCommand());
+		driverStickLeftStickButton.whenPressed(new DriveJoystickCommand());
 		driverStickYButton.whenPressed(new NoseConeForwardCommand());
 		driverStickAButton.whenPressed(new NoseConeReverseCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());

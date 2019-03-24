@@ -79,16 +79,18 @@ private static Encoder legsEncoder;
   public void legsUp() {
     //  Move the Lift up.
        legsMotorsMove(RobotMap.BLASTOFF_LEGS_UP_SPEED);	
-       //SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
+       SmartDashboard.putNumber("BlastOff Encoder", getPosition());
   }
   
   public void legsDown() {
       legsMotorsMove(RobotMap.BLASTOFF_LEGS_DOWN_SPEED);
+      SmartDashboard.putNumber("BlastOff Encoder", getPosition());
   } 
 
   public void legsOff() {
     //  Power the Lift Off.
     legsMotorsMove(RobotMap.BLASTOFF_LEGS_STOP_SPEED);	
+    SmartDashboard.putNumber("BlastOff Encoder", getPosition());
   }
   
   public void legsMove(double power) {
@@ -96,6 +98,7 @@ private static Encoder legsEncoder;
      //if (Robot.blastOffPIDSubsystem.getSetpoint() < Robot.blastOffPIDSubsystem.getDistance()) {
       legsMotorsMove(power);
     //}	
+    SmartDashboard.putNumber("BlastOff Encoder", getPosition());
    }
   
   public void log() {
@@ -105,23 +108,26 @@ private static Encoder legsEncoder;
     return legsEncoder.getDistance();
   }
 
-  public void resetLiftEncoder()  {
+  public void resetLegsEncoder()  {
     legsEncoder.reset();
   }
 
   public void legsMidHabPlatform(){
     setSetpoint(RobotMap.BLASTOFF_MEDIUM_HAB_HEIGHT);
     enable();
+    SmartDashboard.putNumber("BlastOff Encoder", getPosition());
   }
 
   public void legsHighHabPlatform(){
     setSetpoint(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT);
     enable();
+    SmartDashboard.putNumber("BlastOff Encoder", getPosition());
   }
 
   public void land(){
     setSetpoint(RobotMap.BLASTOFF_LAND_HEIGHT);
     enable();
+    SmartDashboard.putNumber("BlastOff Encoder", getPosition());
   }
 
 

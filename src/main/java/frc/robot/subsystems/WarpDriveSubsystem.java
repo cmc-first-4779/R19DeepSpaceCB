@@ -387,5 +387,18 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
     rotateDegrees(RobotMap.WARPDRIVE_BUMPER_TURN_INCREMENT);
   }
 
+  public void setDefenseMode(){
+    leftMaster.setNeutralMode(NeutralMode.Brake);
+    leftSlave.setNeutralMode(NeutralMode.Brake);
+    rightMaster.setNeutralMode(NeutralMode.Brake);
+    rightSlave.setNeutralMode(NeutralMode.Brake);
+  }
+
+  public void setOffenseMode(){
+    leftMaster.setNeutralMode(NeutralMode.Coast);
+    leftSlave.setNeutralMode(NeutralMode.Coast);
+    rightMaster.setNeutralMode(NeutralMode.Coast);
+    rightSlave.setNeutralMode(NeutralMode.Coast);
+  }
 
 }

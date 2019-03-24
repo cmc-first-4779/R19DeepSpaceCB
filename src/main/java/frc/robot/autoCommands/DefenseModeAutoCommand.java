@@ -17,6 +17,7 @@ import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeReverseCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.WarpDrive.DriveJoystickCommand;
+import frc.robot.commands.WarpDrive.WarpDriveDefenseModeCommand;
 
 public class DefenseModeAutoCommand extends CommandGroup {
   /**
@@ -30,6 +31,7 @@ public class DefenseModeAutoCommand extends CommandGroup {
     addParallel(new BlackHoleUnBoomCommand());
     addParallel(new NoseConeReverseCommand());
     addParallel(new NoseConeCloseCommand());
+    addParallel(new WarpDriveDefenseModeCommand());
     addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_STROBE_GOLD));
   }
 }

@@ -214,13 +214,13 @@ public class Robot extends TimedRobot {
 
 
       Robot.noseConeSubsystem.openNoseCone();
-      Robot.noseConeSubsystem.forwardTheAlex();
+      //Robot.noseConeSubsystem.forwardTheAlex();
     
     //  Turning Limelight LEDs on
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
 
     //  Zero out and reset all of our encoders...
-    Robot.blastOffPIDSubsystem.resetLiftEncoder(); 
+    Robot.blastOffPIDSubsystem.resetLegsEncoder(); 
 
   }
 
@@ -243,6 +243,7 @@ public class Robot extends TimedRobot {
     }
     //Turning Limelight LEDs on.
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
+    Robot.blastOffPIDSubsystem.resetLegsEncoder();
 
   }
 
