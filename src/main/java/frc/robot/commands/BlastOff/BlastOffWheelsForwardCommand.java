@@ -16,14 +16,14 @@ public class BlastOffWheelsForwardCommand extends Command {
   public BlastOffWheelsForwardCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    //requires(Robot.blastOffSubsystem);
+    requires(Robot.blastOffWheelsSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
     //Set the amount of time for the BlastOff motor to run
-    setTimeout(RobotMap.BLASTOFF_TIMEOUT);
+    //setTimeout(RobotMap.BLASTOFF_TIMEOUT);
     //  Put the BLASTOFF MOTOR MODE into the SmartDashboard
     SmartDashboard.putString("BLASTOFF MOTOR MODE", "Forward");
   }
@@ -31,7 +31,7 @@ public class BlastOffWheelsForwardCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.liftWheelsSubsystem.wheelsForward();
+    Robot.blastOffWheelsSubsystem.wheelsForward();
     //SmartDashboard.putNumber("Blastoff Encoder", Robot.blastOffPIDSubsystem.encoder.getRaw());
   }
 
@@ -44,13 +44,13 @@ public class BlastOffWheelsForwardCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.liftWheelsSubsystem.wheelsStopMotor();
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.liftWheelsSubsystem.wheelsStopMotor();
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 }

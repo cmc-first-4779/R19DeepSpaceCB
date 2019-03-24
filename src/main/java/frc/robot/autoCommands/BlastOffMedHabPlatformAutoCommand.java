@@ -10,6 +10,7 @@ package frc.robot.autoCommands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.PhaserConstants;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
+import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import frc.robot.commands.BlastOff.BlastOffLegsSetPositionZeroCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeReverseCommand;
@@ -38,9 +39,9 @@ public class BlastOffMedHabPlatformAutoCommand extends CommandGroup {
      addSequential(new TimerCommand(1.0));
      addParallel(new WarpDriveHabSlowCommand());
      addSequential(new BlastOffWheelsForwardCommand());
-     addSequential(new TimerCommand(4.5));
+     //Won't get to next line until we have a way to know that we've finished moving forward. 
      addParallel(new BlastOffWheelsStopCommand());
-     addSequential(new BlastOffLegsSetPositionZeroCommand());
+     addParallel(new BlastOffLandCommand());
      addSequential(new DinoArmsReleaseCommand());
   }
 }

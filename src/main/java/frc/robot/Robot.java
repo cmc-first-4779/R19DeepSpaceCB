@@ -52,7 +52,7 @@ public class Robot extends TimedRobot {
   //public static BlastOffSubsystem blastOffSubsystem;
   public static BlastOffPIDSubsystem blastOffPIDSubsystem;
   public static DinoArmsSubsystem dinoArmsSubsystem;
-  public static BlastOffWheelsSubsystem liftWheelsSubsystem;
+  public static BlastOffWheelsSubsystem blastOffWheelsSubsystem;
 
   //CARRY MODE is a variable that we will use to determine what the Robot is carrying in
   //   its BlackHole Cargo Container..
@@ -97,7 +97,7 @@ public class Robot extends TimedRobot {
     //blastOffSubsystem = new BlastOffSubsystem();
     blastOffPIDSubsystem = new BlastOffPIDSubsystem();
     dinoArmsSubsystem = new DinoArmsSubsystem();
-    liftWheelsSubsystem = new BlastOffWheelsSubsystem();
+    blastOffWheelsSubsystem = new BlastOffWheelsSubsystem();
     
 
     //Initiate the OI LAST!!!!

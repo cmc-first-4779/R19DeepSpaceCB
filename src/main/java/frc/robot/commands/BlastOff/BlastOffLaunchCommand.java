@@ -35,12 +35,12 @@ public class BlastOffLaunchCommand extends Command {
         double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS);
         if (leftStickYAxis > leftStickYDeadZone ) {
         //  System.out.println("Increasing Height");
-        Robot.liftWheelsSubsystem.wheelsSetMotor(leftStickYAxis);
+        Robot.blastOffWheelsSubsystem.wheelsSetMotor(leftStickYAxis);
         } else if (leftStickYAxis < -leftStickYDeadZone) {
         //  System.out.println("Decreasing Height");
-          Robot.liftWheelsSubsystem.wheelsSetMotor(leftStickYAxis);
+          Robot.blastOffWheelsSubsystem.wheelsSetMotor(leftStickYAxis);
         } else {
-          Robot.liftWheelsSubsystem.wheelsStopMotor();
+          Robot.blastOffWheelsSubsystem.wheelsStopMotor();
           // do nothing, leave the arm height where it's at
         }
   }
@@ -54,7 +54,7 @@ public class BlastOffLaunchCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.liftWheelsSubsystem.wheelsStopMotor();
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same

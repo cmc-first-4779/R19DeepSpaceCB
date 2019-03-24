@@ -31,7 +31,7 @@ public class BlastOffWheelsReverseCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.liftWheelsSubsystem.wheelsReverse();
+    Robot.blastOffWheelsSubsystem.wheelsReverse();
    // SmartDashboard.putNumber("Blastoff Encoder", Robot.blastOffSubsystem.encoder.getRaw());
   }
 
@@ -44,13 +44,13 @@ public class BlastOffWheelsReverseCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.liftWheelsSubsystem.wheelsStopMotor();
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.liftWheelsSubsystem.wheelsStopMotor();
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 }

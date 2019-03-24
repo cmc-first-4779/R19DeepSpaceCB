@@ -34,12 +34,12 @@ public class BlastOffHighHabPlatformAutoCommand extends CommandGroup {
     addSequential(new DinoArmsGrabCommand());
     addSequential(new TimerCommand(0.5));
     addSequential(new BlastOffHighHabPlatformCommand());
-    addSequential(new TimerCommand(1.0));
+    addSequential(new TimerCommand(.5));
     addParallel(new WarpDriveHabSlowCommand());
     addSequential(new BlastOffWheelsForwardCommand());
-    addSequential(new TimerCommand(4.5));
+    //Wont ever get here unless we get limit switch to stop previous command
     addParallel(new BlastOffWheelsStopCommand());
-    addSequential(new BlastOffLegsSetPositionZeroCommand());
+    addParallel(new BlastOffLandCommand());
     addSequential(new DinoArmsReleaseCommand());
   }
 }

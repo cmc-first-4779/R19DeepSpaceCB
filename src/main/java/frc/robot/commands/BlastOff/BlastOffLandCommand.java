@@ -22,8 +22,9 @@ public class BlastOffLandCommand extends Command {
   @Override
   protected void initialize() {
     //  Put the BLASTOFF MODE into the SmartDashboard
-    SmartDashboard.putString("BLASTOFF SOLENOID MODE", "LAND");
+    SmartDashboard.putString("BLASTOFF MODE", "LAND");
     //  Make sure the Wheel Motors are STOPPED before moving the Solenoid Foot
+    Robot.blastOffPIDSubsystem.land();
 
   }
 
@@ -35,7 +36,8 @@ public class BlastOffLandCommand extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    //Check the the PID loop to see if encoder is on target.
+    return Robot.blastOffPIDSubsystem.onTarget();
   }
 
   // Called once after isFinished returns true

@@ -44,6 +44,9 @@ private static Encoder legsEncoder;
     //Set the Encoder Distance per Pulse
     legsEncoder.setDistancePerPulse(RobotMap.BLASTOFF_DISTANCE_PER_PULSE);
     legsEncoder.reset();
+
+    //Set the tolerance of the PID loop
+    setAbsoluteTolerance(RobotMap.BLASTOFF_PID_TOLERANCE);
   }
 
   @Override
@@ -125,6 +128,11 @@ private static Encoder legsEncoder;
 
   public void legsHighHabPlatform(){
     setSetpoint(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT);
+    enable();
+  }
+
+  public void land(){
+    setSetpoint(RobotMap.BLASTOFF_LAND_HEIGHT);
     enable();
   }
 
