@@ -10,16 +10,21 @@ package frc.robot.commands.BlastOff;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class BlastOffHighHabPlatformCommand extends Command {
-  public BlastOffHighHabPlatformCommand() {
+public class BlastOffSetHeightCommand extends Command {
+  double height;
+  public BlastOffSetHeightCommand(double height) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.blastOffPIDSubsystem);
+    setTimeout(4);
+    this.height = height;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blastOffPIDSubsystem.legsHighHabPlatform();
+    Robot.blastOffPIDSubsystem.enable();
+    Robot.blastOffPIDSubsystem.setSetpoint(height);
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -30,13 +35,14 @@ public class BlastOffHighHabPlatformCommand extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.blastOffPIDSubsystem.onTarget();
+    return (Robot.blastOffPIDSubsystem.onTarget() || isTimedOut());
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
     Robot.blastOffPIDSubsystem.disable();
+    Robot.blastOffPIDSubsystem.legsOff();
   }
 
   // Called when another command which requires one or more of the same
