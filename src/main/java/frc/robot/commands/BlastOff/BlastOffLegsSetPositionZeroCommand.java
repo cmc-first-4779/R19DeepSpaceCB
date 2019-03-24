@@ -20,7 +20,7 @@ public class BlastOffLegsSetPositionZeroCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blastOffPIDSubsystem.legs(0);
+  //  Robot.blastOffPIDSubsystem.legs(0);
 
   }
 

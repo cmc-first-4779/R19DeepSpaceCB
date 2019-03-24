@@ -7,30 +7,24 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.commands.BlastOff.BlastOffDefaultCommand;
 import frc.robot.commands.BlastOff.BlastOffLegsJoystickCommand;
 
 
 public class BlastOffPIDSubsystem extends PIDSubsystem {
 
 //  Declare our Spark Motor that powers the LEGS
-Spark legsMotorLeft;
-Spark legsMotorRight; 
+Spark legsMotorMain;
+Spark legsMotorSecondary; 
 //  Declare our Spark Motor that powers the Wheels on the Legs
 Spark wheelsMotor;
 
 	
 //  Declare and initiate our Lift encoder.
 private static Encoder legsEncoder;
-
-//  Declare the BlastOff Solenoid
-public DoubleSolenoid dinoArmsSolenoid;
 
 
   public BlastOffPIDSubsystem() {
@@ -44,12 +38,11 @@ public DoubleSolenoid dinoArmsSolenoid;
     //Init our Spark Motor Controller for wheels
     wheelsMotor = new Spark(RobotMap.PWM_PORT_BLASTOFF_WHEELS);
     //Init our Spark Motor Controller for Dino Legs
-    legsMotorLeft = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_LEFT);
-    legsMotorRight = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_RIGHT);
+    legsMotorMain = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_MAIN);
+    legsMotorSecondary = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_SECONDARY);
     //legsMotorRight.setInverted(true);  //Invert the right motor
     
-    //Init our Double Solenoid
-    dinoArmsSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_DINO_ARMS_GRAB, RobotMap.PCM_PORT_DINO_ARMS_UNGRAB);   
+
     //Init the encoder
     legsEncoder = new Encoder(RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_A, RobotMap.DIO_PORT_BLASTOFF_ENCODER_CHANNEL_B);
     //Set the Encoder Distance per Pulse
@@ -74,13 +67,13 @@ public DoubleSolenoid dinoArmsSolenoid;
   protected void usePIDOutput(double output) {
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
-    legsMove(output);	
+    legsMotorsMove(output);	
   }
   
   public void legsMotorsMove(double speed){
-    legsMotorLeft.set(speed);
-    legsMotorRight.set(speed);  //Right motor is inverted
-  }
+    legsMotorMain.set(speed);
+    legsMotorSecondary.set(speed);  
+    }
 
   public void legsUp() {
     //  Move the Lift up.
@@ -88,7 +81,7 @@ public DoubleSolenoid dinoArmsSolenoid;
        //SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
   }
   
-  public void legs(double yValue) {
+/*   public void legs(double yValue) {
     //  Move the Lift.	  
     //Stop the lift if we are within a quarter of an inch.
     if (yValue < .25 && yValue > -.25) {
@@ -101,7 +94,7 @@ public DoubleSolenoid dinoArmsSolenoid;
          legsMotorsMove(RobotMap.BLASTOFF_LEGS_DOWN_SPEED);
        }
   }
-
+ */
   public void legsDown() {
       legsMotorsMove(RobotMap.BLASTOFF_LEGS_DOWN_SPEED);
   } 
@@ -113,9 +106,9 @@ public DoubleSolenoid dinoArmsSolenoid;
   
   public void legsMove(double power) {
     //  PID method used to move the lift up/down
-     if (Robot.blastOffPIDSubsystem.getSetpoint() < Robot.blastOffPIDSubsystem.getDistance()) {
+     //if (Robot.blastOffPIDSubsystem.getSetpoint() < Robot.blastOffPIDSubsystem.getDistance()) {
       legsMotorsMove(power);
-    }	
+    //}	
    }
   
   public void log() {
@@ -147,13 +140,7 @@ public DoubleSolenoid dinoArmsSolenoid;
     wheelsMotor.stopMotor();   
   }
 
-  public void dinoArmGrab(){
-    dinoArmsSolenoid.set(DoubleSolenoid.Value.kForward);
-  }
 
-  public void dinoArmUnGrab(){
-    dinoArmsSolenoid.set(DoubleSolenoid.Value.kReverse);
-  }
 
   public void legsMidHabPlatform(){
     setSetpoint(RobotMap.BLASTOFF_MEDIUM_HAB_HEIGHT);

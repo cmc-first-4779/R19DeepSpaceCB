@@ -17,6 +17,8 @@ import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.WarpDrive.WarpDriveHabSlowCommand;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
 import frc.robot.commands.BlastOff.*;
+import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
+import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
 
 
 public class BlastOffHighHabPlatformAutoCommand extends CommandGroup {
@@ -29,7 +31,7 @@ public class BlastOffHighHabPlatformAutoCommand extends CommandGroup {
     addParallel(new NoseConeCloseCommand());
     addParallel(new BlackHoleUnBoomCommand());
     addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_GLITTER_PALETTE));
-    addSequential(new BlastOffDinoArmsGrabCommand());
+    addSequential(new DinoArmsGrabCommand());
     addSequential(new TimerCommand(0.5));
     addSequential(new BlastOffHighHabPlatformCommand());
     addSequential(new TimerCommand(1.0));
@@ -38,6 +40,6 @@ public class BlastOffHighHabPlatformAutoCommand extends CommandGroup {
     addSequential(new TimerCommand(4.5));
     addParallel(new BlastOffWheelsStopCommand());
     addSequential(new BlastOffLegsSetPositionZeroCommand());
-    addSequential(new BlastOffDInoArmsUnGrabCommand());
+    addSequential(new DinoArmsReleaseCommand());
   }
 }

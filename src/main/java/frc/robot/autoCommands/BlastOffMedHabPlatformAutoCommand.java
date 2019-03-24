@@ -10,8 +10,6 @@ package frc.robot.autoCommands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.PhaserConstants;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
-import frc.robot.commands.BlastOff.BlastOffDInoArmsUnGrabCommand;
-import frc.robot.commands.BlastOff.BlastOffDinoArmsGrabCommand;
 import frc.robot.commands.BlastOff.BlastOffLegsSetPositionZeroCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeReverseCommand;
@@ -20,6 +18,8 @@ import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.WarpDrive.WarpDriveHabSlowCommand;
 import frc.robot.commands.BlastOff.BlastOffWheelsForwardCommand;
 import frc.robot.commands.BlastOff.BlastOffWheelsStopCommand;
+import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
+import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
 import frc.robot.commands.BlastOff.BlastOffMedHabPlatformCommand;
 
 public class BlastOffMedHabPlatformAutoCommand extends CommandGroup {
@@ -32,7 +32,7 @@ public class BlastOffMedHabPlatformAutoCommand extends CommandGroup {
      addParallel(new NoseConeCloseCommand());
      addParallel(new BlackHoleUnBoomCommand());
      addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_GLITTER_PALETTE));
-     addSequential(new BlastOffDinoArmsGrabCommand());
+     addSequential(new DinoArmsGrabCommand());
      addSequential(new TimerCommand(0.5));
      addSequential(new BlastOffMedHabPlatformCommand());
      addSequential(new TimerCommand(1.0));
@@ -41,6 +41,6 @@ public class BlastOffMedHabPlatformAutoCommand extends CommandGroup {
      addSequential(new TimerCommand(4.5));
      addParallel(new BlastOffWheelsStopCommand());
      addSequential(new BlastOffLegsSetPositionZeroCommand());
-     addSequential(new BlastOffDInoArmsUnGrabCommand());
+     addSequential(new DinoArmsReleaseCommand());
   }
 }

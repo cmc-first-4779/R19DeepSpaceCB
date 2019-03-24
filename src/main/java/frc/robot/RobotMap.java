@@ -29,8 +29,8 @@ public class RobotMap {
   public static final int CAN_ADDRESS_RIGHT_REAR_DRIVE = 12;  //  Rear Right Drive Motor  (VICTOR)
 
   //***************** PWM PORTS ON THE ROBORIO **********************************/
-  public static final int PWM_PORT_BLASTOFF_LEGS_LEFT = 0;  // PWM for Cargo Intake Wheel Motor (SPARK)
-  public static final int PWM_PORT_BLASTOFF_LEGS_RIGHT = 1;
+  public static final int PWM_PORT_BLASTOFF_LEGS_MAIN = 0;  // PWM for Cargo Intake Wheel Motor (SPARK)
+  public static final int PWM_PORT_BLASTOFF_LEGS_SECONDARY = 1;
   public static final int PWM_PORT_BLASTOFF_WHEELS = 2;  //  PWM for BLASTOFF Motor Wheels (SPARK)
   public static final int PWM_PORT_PHASERS = 3;  //  PWM for BLINKIN LED Driver (Looks like a SPARK, but not)
 

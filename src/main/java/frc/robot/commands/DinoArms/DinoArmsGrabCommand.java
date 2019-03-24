@@ -5,13 +5,13 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlastOff;
+package frc.robot.commands.DinoArms;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class BlastOffDInoArmsUnGrabCommand extends Command {
-  public BlastOffDInoArmsUnGrabCommand() {
+public class DinoArmsGrabCommand extends Command {
+  public DinoArmsGrabCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -19,7 +19,7 @@ public class BlastOffDInoArmsUnGrabCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blastOffPIDSubsystem.dinoArmUnGrab();
+    Robot.dinoArmsSubsystem.dinoArmGrab();
   }
 
   // Called repeatedly when this Command is scheduled to run

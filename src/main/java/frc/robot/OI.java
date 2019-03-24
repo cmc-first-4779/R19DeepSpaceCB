@@ -13,12 +13,12 @@ import frc.robot.autoCommands.DefenseModeAutoCommand;
 import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
-import frc.robot.commands.BlastOff.BlastOffDInoArmsUnGrabCommand;
-import frc.robot.commands.BlastOff.BlastOffDinoArmsGrabCommand;
 import frc.robot.commands.BlastOff.BlastOffHighHabPlatformCommand;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import frc.robot.commands.BlastOff.BlastOffLaunchCommand;
 import frc.robot.commands.BlastOff.BlastOffMedHabPlatformCommand;
+import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
+import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
 import frc.robot.commands.Limelight.LimeLightSeekAndFollowCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeForwardCommand;
@@ -82,8 +82,8 @@ public class OI {
 		// Operator Stick
 		//operStickBackButton.whenPressed(new BlastOffHighHabPlatformCommand());
 		//operStickStartButton.whenPressed(new BlastOffMedHabPlatformCommand());
-		operStickXButton.whenPressed(new BlastOffDinoArmsGrabCommand());
-		operStickBButton.whenPressed(new BlastOffDInoArmsUnGrabCommand());	
+		operStickXButton.whenPressed(new DinoArmsGrabCommand());
+		operStickBButton.whenPressed(new DinoArmsReleaseCommand());	
 		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
 	
 }

@@ -5,22 +5,22 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlastOff;
+package frc.robot.commands.DinoArms;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class BlastOffDefaultCommand extends Command {
-  public BlastOffDefaultCommand() {
-   requires(Robot.blastOffPIDSubsystem); 
+public class DinoArmsReleaseCommand extends Command {
+  public DinoArmsReleaseCommand() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    requires(Robot.dinoArmsSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blastOffPIDSubsystem.dinoArmUnGrab();
-    Robot.blastOffPIDSubsystem.wheelsStopMotor();
-    Robot.blastOffPIDSubsystem.legs(0);
+    Robot.dinoArmsSubsystem.dinoArmRelease();
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -31,7 +31,7 @@ public class BlastOffDefaultCommand extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true
@@ -43,5 +43,6 @@ public class BlastOffDefaultCommand extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }
