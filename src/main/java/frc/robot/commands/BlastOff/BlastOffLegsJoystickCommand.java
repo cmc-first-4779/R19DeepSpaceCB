@@ -8,6 +8,7 @@
 package frc.robot.commands.BlastOff;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.XBoxJoystickMap;
 
@@ -28,6 +29,7 @@ public class BlastOffLegsJoystickCommand extends Command {
   protected void execute() {
     //Move the legs up and down using the OperStick Right Joystick Y axis
     Robot.blastOffPIDSubsystem.legsMotorsMove(Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS));
+    SmartDashboard.putNumber("BlastOff Encoder", Robot.blastOffPIDSubsystem.getPosition());
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.BlastOff.BlastOffLegsJoystickCommand;
 
@@ -66,6 +67,7 @@ private static Encoder legsEncoder;
   protected void usePIDOutput(double output) {
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
+    SmartDashboard.putNumber("BlastOff Encoder", getPosition());
     legsMotorsMove(output);	
   }
   
@@ -80,20 +82,6 @@ private static Encoder legsEncoder;
        //SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
   }
   
-/*   public void legs(double yValue) {
-    //  Move the Lift.	  
-    //Stop the lift if we are within a quarter of an inch.
-    if (yValue < .25 && yValue > -.25) {
-         legsMotorsMove(RobotMap.BLASTOFF_LEGS_STOP_SPEED);
-       }
-       else if (yValue <-.25) {
-         legsMotorsMove(RobotMap.BLASTOFF_LEGS_UP_SPEED);
-       }
-       else if (yValue >.25) {
-         legsMotorsMove(RobotMap.BLASTOFF_LEGS_DOWN_SPEED);
-       }
-  }
- */
   public void legsDown() {
       legsMotorsMove(RobotMap.BLASTOFF_LEGS_DOWN_SPEED);
   } 
