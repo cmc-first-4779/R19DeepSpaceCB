@@ -35,14 +35,14 @@ public class RobotMap {
   public static final int PWM_PORT_PHASERS = 3;  //  PWM for BLINKIN LED Driver (Looks like a SPARK, but not)
 
   //************** PCM (PNEUMATICS CONTROL MODULE) PORTS *************************/
-  public static final int PCM_PORT_DINO_ARMS_UNGRAB = 3;   //Green Pneumatic Tubing
-  public static final int PCM_PORT_DINO_ARMS_GRAB = 2;    //Green Pneumatic Tubing
+  public static final int PCM_PORT_DINO_ARMS_UNGRAB = 7;   //Green Pneumatic Tubing
+  public static final int PCM_PORT_DINO_ARMS_GRAB = 6;    //Green Pneumatic Tubing
   public static final int PCM_PORT_BOOMSTICK_UNBOOM = 0;  //Dark Blue Pneumatic Tubing
   public static final int PCM_PORT_BOOMSTICK_BOOM = 1;   //Dark Blue Pneumatic Tubing
-  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 5;
-  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 4;
-  public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_FORWARD = 7;
-  public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_REVERSE = 6;
+  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_EXPAND = 3;
+  public static final int PCM_PORT_HATCHHANDLER_NOSECONE_RETRACT = 2;
+  public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_FORWARD = 4;
+  public static final int PCM_PORT_HATCHHANDLER_THE_ALEX_REVERSE = 5;
 
 
 
@@ -132,6 +132,6 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
 
 
   //BlackHole Settings
-  public static double BLACKHOLE_BOOM_TIMER = 1.0; //seconds   Time to boom before we un-boom
+  public static double BLACKHOLE_BOOM_TIMER = 0.75; //seconds   Time to boom before we un-boom
   
 }

@@ -46,7 +46,7 @@ public DoubleSolenoid dinoArmsSolenoid;
     //Init our Spark Motor Controller for Dino Legs
     legsMotorLeft = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_LEFT);
     legsMotorRight = new Spark(RobotMap.PWM_PORT_BLASTOFF_LEGS_RIGHT);
-    legsMotorRight.setInverted(true);  //Invert the right motor
+    //legsMotorRight.setInverted(true);  //Invert the right motor
     
     //Init our Double Solenoid
     dinoArmsSolenoid = new DoubleSolenoid(RobotMap.PCM_PORT_DINO_ARMS_GRAB, RobotMap.PCM_PORT_DINO_ARMS_UNGRAB);   
