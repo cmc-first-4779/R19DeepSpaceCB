@@ -13,6 +13,7 @@ import frc.robot.RobotMap;
 
 public class WarpDriveHabSlowCommand extends Command {
   public WarpDriveHabSlowCommand() {
+    setTimeout(7.0);
     requires(Robot.warpDriveSubsystem);
   }
 
@@ -30,7 +31,7 @@ public class WarpDriveHabSlowCommand extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isTimedOut();
   }
 
   // Called once after isFinished returns true

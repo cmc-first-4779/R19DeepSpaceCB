@@ -48,6 +48,7 @@ private static Encoder legsEncoder;
 
     //Set the tolerance of the PID loop
     setAbsoluteTolerance(RobotMap.BLASTOFF_PID_TOLERANCE);
+    setOutputRange(-.5, .5);
   }
 
   @Override
@@ -67,8 +68,9 @@ private static Encoder legsEncoder;
   protected void usePIDOutput(double output) {
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
-    SmartDashboard.putNumber("BlastOff Encoder", getPosition());
-    legsMotorsMove(output);	
+    SmartDashboard.putNumber("BlastOff Encoder", getDistance());
+    System.out.println("Blastoff PID Output:  " + output);
+    legsMotorsMove(-output);	
   }
   
   public void legsMotorsMove(double speed){
@@ -104,7 +106,7 @@ private static Encoder legsEncoder;
   public void log() {
   }
 
-  public static double getDistance() {
+  public double getDistance() {
     return legsEncoder.getDistance();
   }
 
@@ -128,6 +130,10 @@ private static Encoder legsEncoder;
     setSetpoint(RobotMap.BLASTOFF_LAND_HEIGHT);
     enable();
     SmartDashboard.putNumber("BlastOff Encoder", getPosition());
+  }
+
+  public void setOutputRange(double outputRange){
+    setOutputRange(-outputRange, outputRange);
   }
 
 

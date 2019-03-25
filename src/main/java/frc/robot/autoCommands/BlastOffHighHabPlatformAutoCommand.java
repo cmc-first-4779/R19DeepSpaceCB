@@ -9,6 +9,7 @@ package frc.robot.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.PhaserConstants;
+import frc.robot.autoCommands.SetHeightLevel2DriveForwardAutoCommand;
 import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeReverseCommand;
@@ -25,20 +26,21 @@ public class BlastOffHighHabPlatformAutoCommand extends CommandGroup {
    * Add your docs here.
    */
   public BlastOffHighHabPlatformAutoCommand() {
-    //Kick off the blastoff LEDs
-    addParallel(new NoseConeReverseCommand());
-    addParallel(new NoseConeCloseCommand());
-    addParallel(new BlackHoleUnBoomCommand());
-    addSequential(new PhasersSetPatternCommand(PhaserConstants.PHASERS_GLITTER_PALETTE));
-    addSequential(new DinoArmsGrabCommand());
-    addSequential(new TimerCommand(0.5));
-    addSequential(new BlastOffHighHabPlatformCommand());
-    addSequential(new TimerCommand(.5));
-    addParallel(new WarpDriveHabSlowCommand());
-    addSequential(new BlastOffWheelsForwardCommand());
-    //Wont ever get here unless we get limit switch to stop previous command
-    addParallel(new BlastOffWheelsStopCommand());
-    addParallel(new BlastOffLandCommand());
-    addSequential(new DinoArmsReleaseCommand());
+     //Kick off the blastoff LEDs
+     addParallel(new BlastOffSetOutputRangeCommand(0.7));
+     addParallel(new BlastOffResetEncoderCommand());
+     addParallel(new NoseConeReverseCommand());
+     addParallel(new NoseConeCloseCommand());
+     addParallel(new BlackHoleUnBoomCommand());
+     addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_GLITTER_PALETTE));
+     addParallel(new DinoArmsGrabCommand());
+     addSequential(new SetHeightLevel3DriveForwardAutoCommand());
+     
+
+     
+     //Won't get to next line until we have a way to know that we've finished moving forward. 
+     addParallel(new BlastOffWheelsStopCommand());
+     addParallel(new BlastOffLandCommand());
+     addSequential(new DinoArmsReleaseCommand());
   }
 }

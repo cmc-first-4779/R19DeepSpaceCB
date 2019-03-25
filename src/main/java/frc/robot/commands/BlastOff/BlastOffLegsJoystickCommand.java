@@ -22,14 +22,16 @@ public class BlastOffLegsJoystickCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.blastOffPIDSubsystem.disable();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     //Move the legs up and down using the OperStick Right Joystick Y axis
+    //System.out.println("BlastOffEncoder: " + Robot.blastOffPIDSubsystem.getDistance());
     Robot.blastOffPIDSubsystem.legsMotorsMove(Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS));
-    SmartDashboard.putNumber("BlastOff Encoder", Robot.blastOffPIDSubsystem.getPosition());
+    SmartDashboard.putNumber("BlastOff Encoder", Robot.blastOffPIDSubsystem.getDistance());
   }
 
   // Make this return true when this Command no longer needs to run execute()

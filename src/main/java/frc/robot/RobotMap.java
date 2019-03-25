@@ -72,7 +72,7 @@ public static int WARPDRIVE_DIRECTION_REVERSE = -1;
 public static int WARPDRIVE_BACKUP_DISTANCE = 3000;  // placeholder, we need to adjust
 public static double WARPDRIVE_SPEED = 0.8;
 public static double WARPDRIVE_LOW_HAB_SPEED = 0.8; //placeholder
-public static double WARPDRIVE_HAB_SPEED = 0.4; //placeholder
+public static double WARPDRIVE_HAB_SPEED = -0.55; //placeholder
 public static int WARPDRIVE_DISTANCE_MEDIUM_HAB = 600; //placeholder
 public static int WARPDRIVE_DISTANCE_LOW_HAB = 400; //placeholder
 public static double WARPDRIVE_BUMPER_TURN_INCREMENT = 10;  //degrees.. placeholder.  Used to do minor turn corrections via the bumpers.
@@ -116,24 +116,25 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   /**********************************************************************/
   /************** BLASTOFF / CLIMBER SETTINGS ***************************/
   /**********************************************************************/
-  public static double BLASTOFF_LEGS_kP = 0.8;
+  public static double BLASTOFF_LEGS_kP = .8;
   public static double BLASTOFF_LEGS_kI = 0.0;
   public static double BLASTOFF_LEGS_kD = 0.0;
-  public static final double BLASTOFF_PID_TOLERANCE = 20;
+  public static final double BLASTOFF_PID_TOLERANCE = 0;
   public static double BLASTOFF_LEGS_UP_SPEED = 1.0;  //volts
   public static double BLASTOFF_LEGS_DOWN_SPEED = -1.0; //volts
   public static double BLASTOFF_LEGS_STOP_SPEED = 0.0;  //volts
-  public static double BLASTOFF_WHEELS_FORWARD_SPEED = 1.0;  //volts
-  public static double BLASTOFF_WHEELS_REVERSE_SPEED = -1.0;  //volts
+  public static double BLASTOFF_WHEELS_FORWARD_SPEED = -1.0;  //volts
+  public static double BLASTOFF_WHEELS_REVERSE_SPEED = 1.0;  //volts
   public static double BLASTOFF_WHEELS_STOP_SPEED = 0.0;  //volts
   public static double BLASTOFF_TIMEOUT = 4.0;  //seconds
   public static double BLASTOFF_OK_TIME_TO_LAUNCH = 29;  //seconds remaining in the game 
-  public static double BLASTOFF_ENCODER_PULSES_PER_REVOLUTION = 1024;
+  public static double BLASTOFF_ENCODER_PULSES_PER_REVOLUTION = 4096;
   //  Distance per axle revolution.    2" diameter wheels =>  2 *pi = Circumference = 6.28"  
   //     Motor is geared on a 10:1 ratio, so we should be seeing 6.28" / 10 distance each rotation
  // public static double BLASTOFF_DISTANCE_PER_REVOLUTION = 0.628; // inches..   
-  public static double BLASTOFF_DISTANCE_PER_REVOLUTION = 4; // inches..   
-  public static double BLASTOFF_DISTANCE_PER_PULSE = BLASTOFF_DISTANCE_PER_REVOLUTION / BLASTOFF_ENCODER_PULSES_PER_REVOLUTION;
+  public static double BLASTOFF_DISTANCE_PER_REVOLUTION = .000053246; // inches..   
+//  public static double BLASTOFF_DISTANCE_PER_PULSE = BLASTOFF_DISTANCE_PER_REVOLUTION / BLASTOFF_ENCODER_PULSES_PER_REVOLUTION;
+  public static double BLASTOFF_DISTANCE_PER_PULSE = .000053246;
   public static double BLASTOFF_MEDIUM_HAB_HEIGHT = 7.0; //inches 
   public static double BLASTOFF_HIGH_HAB_HEIGHT = 14.0; //inches 
   public static double BLASTOFF_LAND_HEIGHT = 0;

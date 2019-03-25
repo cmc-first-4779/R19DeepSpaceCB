@@ -16,8 +16,8 @@ public class BlastOffSetHeightCommand extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blastOffPIDSubsystem);
-    setTimeout(4);
-    this.height = height;
+    setTimeout(6);
+    this.height = -height;
   }
 
   // Called just before this Command runs the first time
@@ -35,7 +35,7 @@ public class BlastOffSetHeightCommand extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return (Robot.blastOffPIDSubsystem.onTarget() || isTimedOut());
+    return (isTimedOut());
   }
 
   // Called once after isFinished returns true

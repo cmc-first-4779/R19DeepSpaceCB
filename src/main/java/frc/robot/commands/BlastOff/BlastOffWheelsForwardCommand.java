@@ -16,6 +16,7 @@ public class BlastOffWheelsForwardCommand extends Command {
   public BlastOffWheelsForwardCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    setTimeout(6);
     requires(Robot.blastOffWheelsSubsystem);
   }
 
@@ -38,7 +39,7 @@ public class BlastOffWheelsForwardCommand extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isTimedOut();
   }
 
   // Called once after isFinished returns true

@@ -5,31 +5,21 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.Phasers;
+package frc.robot.commands.BlastOff;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
-
-public class PhasersSetPatternCommand extends Command {
-
-  double m_pattern;
-
-  public PhasersSetPatternCommand(double pattern) {
+public class BlastOffResetEncoderCommand extends Command {
+  public BlastOffResetEncoderCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.phasersSubsystem);
-    m_pattern = pattern;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    //Set the Phasers Pattern.
-    Robot.phasersSubsystem.setPhasers(m_pattern);
-    //Put the Phasers Pattern Value to the Dashboard
-    SmartDashboard.putNumber("Phasers Pattern", m_pattern);
+    Robot.blastOffPIDSubsystem.resetLegsEncoder();
   }
 
   // Called repeatedly when this Command is scheduled to run

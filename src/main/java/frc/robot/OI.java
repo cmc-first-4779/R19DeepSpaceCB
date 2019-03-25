@@ -9,8 +9,11 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.autoCommands.BlastOffHighHabPlatformAutoCommand;
+import frc.robot.autoCommands.BlastOffMedHabPlatformAutoCommand;
 import frc.robot.autoCommands.DefenseModeAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
+import frc.robot.commands.BlastOff.BlastOffSetHeightCommand;
 import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
 import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
@@ -78,6 +81,7 @@ public class OI {
 		operStickXButton.whenPressed(new DinoArmsGrabCommand());
 		operStickBButton.whenPressed(new DinoArmsReleaseCommand());	
 		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
+		operStickAButton.whenPressed(new BlastOffHighHabPlatformAutoCommand());
 	
 }
 
