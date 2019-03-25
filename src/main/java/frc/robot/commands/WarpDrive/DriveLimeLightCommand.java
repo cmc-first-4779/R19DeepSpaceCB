@@ -38,7 +38,7 @@ public class DriveLimeLightCommand extends Command {
   @Override
   protected void execute() {
     tx = Robot.limeLightSubsystem.getTX();
-    Robot.warpDriveSubsystem.arcadeDrive(Robot.oi.getDriverStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS), tx);
+    Robot.warpDriveSubsystem.arcadeDrive(Robot.oi.getDriverStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS), tx);
   }
 
   // Make this return true when this Command no longer needs to run execute()

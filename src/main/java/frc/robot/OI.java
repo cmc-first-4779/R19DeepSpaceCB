@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.autoCommands.BlastOffHighHabPlatformAutoCommand;
 import frc.robot.autoCommands.BlastOffMedHabPlatformAutoCommand;
 import frc.robot.autoCommands.DefenseModeAutoCommand;
+import frc.robot.autoCommands.OffenseModeAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
 import frc.robot.commands.BlastOff.BlastOffSetHeightCommand;
 import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
@@ -67,13 +68,15 @@ public class OI {
 
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		driverStickRightStickButton.whileHeld(new DriveLimeLightCommand());
+		//driverStickRightStickButton.whileHeld(new DriveLimeLightCommand());
 		driverStickLeftStickButton.whenPressed(new DriveJoystickCommand());
-		driverStickYButton.whenPressed(new NoseConeForwardCommand());
-		driverStickAButton.whenPressed(new NoseConeReverseCommand());
+		driverStickXButton.whenPressed(new NoseConeForwardCommand());
+		driverStickBButton.whenPressed(new NoseConeReverseCommand());
+		driverStickAButton.whileHeld(new DriveLimeLightCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
 		driverStickBackButton.whenPressed(new DefenseModeAutoCommand());
+		driverStickStartButton.whenPressed(new OffenseModeAutoCommand());
 
 		// Operator Stick
 		//operStickBackButton.whenPressed(new BlastOffHighHabPlatformCommand());

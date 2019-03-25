@@ -48,7 +48,7 @@ private static Encoder legsEncoder;
 
     //Set the tolerance of the PID loop
     setAbsoluteTolerance(RobotMap.BLASTOFF_PID_TOLERANCE);
-    setOutputRange(-.5, .5);
+    //setOutputRange(-.5, .5);
   }
 
   @Override
