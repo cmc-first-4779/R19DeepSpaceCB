@@ -49,7 +49,6 @@ public class Robot extends TimedRobot {
   public static NoseConeSubsystem noseConeSubsystem;
   public static PhasersSubsystem phasersSubsystem;
   public static BlackHoleSubsystem blackHoleSubsystem;
-  //public static BlastOffSubsystem blastOffSubsystem;
   public static BlastOffPIDSubsystem blastOffPIDSubsystem;
   public static DinoArmsSubsystem dinoArmsSubsystem;
   public static BlastOffWheelsSubsystem blastOffWheelsSubsystem;
@@ -93,10 +92,11 @@ public class Robot extends TimedRobot {
     blackHoleSubsystem = new BlackHoleSubsystem();
     System.out.println("Initiating the Phasers Subsystem.");
     phasersSubsystem = new PhasersSubsystem();
-    System.out.println("Initiating the BlastOff Subsystem.");
-    //blastOffSubsystem = new BlastOffSubsystem();
+    System.out.println("Initiating the BlastOff PID Subsystem.");  
     blastOffPIDSubsystem = new BlastOffPIDSubsystem();
+    System.out.println("Initiating the DinoArms Subsystem.");
     dinoArmsSubsystem = new DinoArmsSubsystem();
+    System.out.println("Initiating the BlastOffWheels Subsystem.");
     blastOffWheelsSubsystem = new BlastOffWheelsSubsystem();
     
 
@@ -116,11 +116,13 @@ public class Robot extends TimedRobot {
 		CameraServer.getInstance().startAutomaticCapture();
     System.out.println("Camera Server started.");
     
-    //Set up the Limelight Camera to Camera Mode with LED's on..
-   // System.out.println("Configuring Limelight...");
+
+    System.out.println("Configuring Limelight...");
     //Robot.limeLightSubsystem.setCameraMode(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER);
     //Robot.limeLightSubsystem.setStreamingMode(LimeLightConstants.LIMELIGHT_STREAMING_STANDARD_MODE);
+    Robot.limeLightSubsystem.setCameraMode(LimeLightConstants.LIMELIGHT_CAMMODE_VISION);		  
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
+    
 
 
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
@@ -243,6 +245,8 @@ public class Robot extends TimedRobot {
     }
     //Turning Limelight LEDs on.
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_PIPELINE_DEFAULT);
+	  
+    //Reset Legs Encoder on BLASTOFFPID	  
     Robot.blastOffPIDSubsystem.resetLegsEncoder();
 
   }
@@ -266,7 +270,7 @@ public class Robot extends TimedRobot {
   public static void initMotorController(WPI_TalonSRX talon) {
     System.out.println("Initializing Talon SRX: " + talon);
     talon.configFactoryDefault();
-    talon.setNeutralMode(NeutralMode.Brake);  //Neutral Mode is Coast
+    talon.setNeutralMode(NeutralMode.Brake);  //Neutral Mode is Brake
     talon.neutralOutput();
     talon.setSensorPhase(false);
     talon.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
@@ -280,7 +284,7 @@ public class Robot extends TimedRobot {
   public static void initMotorController (WPI_VictorSPX victor) {
     System.out.println("Initializing Victor SPX: " + victor);
     victor.configFactoryDefault();
-    victor.setNeutralMode(NeutralMode.Brake);  //Neutral Mode is Coast
+    victor.setNeutralMode(NeutralMode.Brake);  //Neutral Mode is Brake
     victor.neutralOutput();
     victor.setSensorPhase(false);
     victor.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
