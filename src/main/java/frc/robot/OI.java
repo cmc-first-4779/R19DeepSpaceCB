@@ -71,24 +71,25 @@ public class OI {
 	// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
 		//driverStickRightStickButton.whileHeld(new DriveLimeLightCommand());
-		driverStickLeftStickButton.whenPressed(new DriveJoystickCommand());
+		//driverStickLeftStickButton.whenPressed(new DriveJoystickCommand());
 		driverStickXButton.whenPressed(new NoseConeForwardCommand());
 		driverStickBButton.whenPressed(new NoseConeReverseCommand());
 		driverStickAButton.whileHeld(new DriveLimeLightCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
 		driverStickBackButton.whenPressed(new DefenseModeAutoCommand());
-		//driverStickStartButton.whenPressed(new OffenseModeAutoCommand());
-		driverStickYButton.whenPressed(new TargetLowerRocketHatchCoverAutoCommand());
-		driverStickStartButton.whenPressed( new BlastOffHighHabPlatformAutoCommand());
+		driverStickStartButton.whenPressed(new OffenseModeAutoCommand());
+		//driverStickYButton.whenPressed(new TargetLowerRocketHatchCoverAutoCommand());
+		
 
 		// Operator Stick
 		//operStickBackButton.whenPressed(new BlastOffHighHabPlatformCommand());
 		//operStickStartButton.whenPressed(new BlastOffMedHabPlatformCommand());
-		operStickXButton.whenPressed(new DinoArmsGrabCommand());
-		operStickBButton.whenPressed(new DinoArmsReleaseCommand());	
+		//operStickXButton.whenPressed(new DinoArmsGrabCommand());
+		//operStickBButton.whenPressed(new DinoArmsReleaseCommand());	
 		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
-		operStickAButton.whenPressed(new BlastOffHighHabPlatformAutoCommand());
+		operStickBackButton.whenPressed( new BlastOffMedHabPlatformAutoCommand());
+		operStickStartButton.whenPressed( new BlastOffHighHabPlatformAutoCommand());
 
 	
 }
