@@ -8,12 +8,14 @@
 package frc.robot.commands.WarpDrive;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.LimeLightConstants;
 import frc.robot.PhaserConstants;
 import frc.robot.Robot;
 import frc.robot.XBoxJoystickMap;
 
 public class DriveLimeLightCommand extends Command {
+  double pAim = .030;
 
   public DriveLimeLightCommand() {
     // Use requires() here to declare subsystem dependencies
@@ -31,14 +33,17 @@ public class DriveLimeLightCommand extends Command {
     Robot.limeLightSubsystem.setCameraMode(LimeLightConstants.LIMELIGHT_CAMMODE_VISION);
     Robot.limeLightSubsystem.setLEDMode(LimeLightConstants.LIMELIGHT_LEDMODE_ON);
     Robot.phasersSubsystem.setPhasers(PhaserConstants.PHASERS_LIME);
-    tx = Robot.limeLightSubsystem.getTX();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     tx = Robot.limeLightSubsystem.getTX();
-    Robot.warpDriveSubsystem.arcadeDrive(Robot.oi.getDriverStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS), tx);
+    double ts = Robot.limeLightSubsystem.getTS();
+
+    SmartDashboard.putNumber("LimeLight Skew:", ts);
+   // System.out.println("Limelight Target?: " + Robot.limeLightSubsystem.hasTarget());
+    Robot.warpDriveSubsystem.arcadeDrive(Robot.oi.getDriverStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS), tx*pAim);
   }
 
   // Make this return true when this Command no longer needs to run execute()

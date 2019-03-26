@@ -13,10 +13,12 @@ import frc.robot.autoCommands.BlastOffHighHabPlatformAutoCommand;
 import frc.robot.autoCommands.BlastOffMedHabPlatformAutoCommand;
 import frc.robot.autoCommands.DefenseModeAutoCommand;
 import frc.robot.autoCommands.OffenseModeAutoCommand;
+import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
 import frc.robot.commands.BlastOff.BlastOffSetHeightCommand;
 import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
 import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
+import frc.robot.commands.Limelight.LimeLightSeekAndFollowCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeForwardCommand;
 import frc.robot.commands.NoseCone.NoseConeOpenCommand;
@@ -76,7 +78,9 @@ public class OI {
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
 		driverStickBackButton.whenPressed(new DefenseModeAutoCommand());
-		driverStickStartButton.whenPressed(new OffenseModeAutoCommand());
+		//driverStickStartButton.whenPressed(new OffenseModeAutoCommand());
+		driverStickYButton.whenPressed(new TargetLowerRocketHatchCoverAutoCommand());
+		driverStickStartButton.whenPressed( new BlastOffHighHabPlatformAutoCommand());
 
 		// Operator Stick
 		//operStickBackButton.whenPressed(new BlastOffHighHabPlatformCommand());
@@ -85,6 +89,7 @@ public class OI {
 		operStickBButton.whenPressed(new DinoArmsReleaseCommand());	
 		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
 		operStickAButton.whenPressed(new BlastOffHighHabPlatformAutoCommand());
+
 	
 }
 

@@ -14,8 +14,9 @@ import frc.robot.RobotMap;
 import frc.robot.PhaserConstants;
 
 public class LimeLightSeekAndFollowCommand extends Command {
-  double pAim = .025;
-  double pDistance = .05;
+//  double pAim = .025;
+double pAim = .1;
+double pDistance = .05;
   double minimalAimCommand = .15; // This is the minimal amount that it would take to start turning the bot
   double minimalMoveCommand = .25; // This is the minimal amount that it would take to start turning the bot
 

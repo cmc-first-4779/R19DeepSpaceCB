@@ -395,10 +395,10 @@ public class WarpDriveSubsystem extends Subsystem implements PIDOutput {
   }
 
   public void setOffenseMode(){
-    leftMaster.setNeutralMode(NeutralMode.Coast);
-    leftSlave.setNeutralMode(NeutralMode.Coast);
-    rightMaster.setNeutralMode(NeutralMode.Coast);
-    rightSlave.setNeutralMode(NeutralMode.Coast);
+    leftMaster.setNeutralMode(NeutralMode.Brake);
+    leftSlave.setNeutralMode(NeutralMode.Brake);
+    rightMaster.setNeutralMode(NeutralMode.Brake);
+    rightSlave.setNeutralMode(NeutralMode.Brake);
   }
 
 }

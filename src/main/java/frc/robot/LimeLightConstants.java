@@ -21,7 +21,7 @@ public class LimeLightConstants {
   //
   //  LIMELIGHT Camera Modes
   public static final double LIMELIGHT_CAMMODE_VISION = 0; // Vision Processing Mode = 0
-  public static final double LIMELIGHT_CAMMODE_DRIVER = 1; // Driver Mode = 1
+  public static final double LIMELIGHT_CAMMODE_DRIVER = 0; // Driver Mode = 1
   //  LIMELIGHT LED Modes
   public static final double LIMELIGHT_LEDMODE_PIPELINE_DEFAULT = 0;  // Uses the Default LED Mode for the Pipeline
   public static final double LIMELIGHT_LEDMODE_OFF = 1; // Force LED Mode Off

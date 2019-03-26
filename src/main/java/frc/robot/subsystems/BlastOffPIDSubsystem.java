@@ -69,7 +69,6 @@ private static Encoder legsEncoder;
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
     SmartDashboard.putNumber("BlastOff Encoder", getDistance());
-    System.out.println("Blastoff PID Output:  " + output);
     legsMotorsMove(-output);	
   }
   

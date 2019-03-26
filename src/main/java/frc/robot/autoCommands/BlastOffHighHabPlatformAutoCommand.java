@@ -27,7 +27,7 @@ public class BlastOffHighHabPlatformAutoCommand extends CommandGroup {
    */
   public BlastOffHighHabPlatformAutoCommand() {
      //Kick off the blastoff LEDs
-     addParallel(new BlastOffSetOutputRangeCommand(0.7));
+     addParallel(new BlastOffSetOutputRangeCommand(1.0));
      addParallel(new BlastOffResetEncoderCommand());
      addParallel(new NoseConeReverseCommand());
      addParallel(new NoseConeCloseCommand());

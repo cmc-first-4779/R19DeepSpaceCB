@@ -266,7 +266,7 @@ public class Robot extends TimedRobot {
   public static void initMotorController(WPI_TalonSRX talon) {
     System.out.println("Initializing Talon SRX: " + talon);
     talon.configFactoryDefault();
-    talon.setNeutralMode(NeutralMode.Coast);  //Neutral Mode is Coast
+    talon.setNeutralMode(NeutralMode.Brake);  //Neutral Mode is Coast
     talon.neutralOutput();
     talon.setSensorPhase(false);
     talon.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
@@ -280,7 +280,7 @@ public class Robot extends TimedRobot {
   public static void initMotorController (WPI_VictorSPX victor) {
     System.out.println("Initializing Victor SPX: " + victor);
     victor.configFactoryDefault();
-    victor.setNeutralMode(NeutralMode.Coast);  //Neutral Mode is Coast
+    victor.setNeutralMode(NeutralMode.Brake);  //Neutral Mode is Coast
     victor.neutralOutput();
     victor.setSensorPhase(false);
     victor.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
