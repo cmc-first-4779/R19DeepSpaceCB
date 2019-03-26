@@ -23,15 +23,12 @@ import frc.robot.commands.WarpDrive.WarpDriveOffenseModeCommand;
 
 public class OffenseModeAutoCommand extends CommandGroup {
   /**
-   * Add your docs here.
+   * This command puts the robot in a mode where it can play offense and try to score.
    */
   public OffenseModeAutoCommand() {
     addParallel(new DriveJoystickCommand());
-    addParallel(new LimeLightSetCameraModeCommand(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER));
-    addParallel(new LimeLightSetLEDModeOnCommand());
     addParallel(new BlackHoleUnBoomCommand());
     addParallel(new NoseConeForwardCommand());
-    addParallel(new NoseConeCloseCommand());
     addParallel(new WarpDriveOffenseModeCommand());
     addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_DEFAULT));
   }
