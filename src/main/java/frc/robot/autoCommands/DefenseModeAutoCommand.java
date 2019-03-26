@@ -26,8 +26,6 @@ public class DefenseModeAutoCommand extends CommandGroup {
   public DefenseModeAutoCommand() {
 
     addParallel(new DriveJoystickCommand());
-    addParallel(new LimeLightSetCameraModeCommand(LimeLightConstants.LIMELIGHT_CAMMODE_DRIVER));
-    addParallel(new LimeLightSetLEDModeOnCommand());
     addParallel(new BlackHoleUnBoomCommand());
     addParallel(new NoseConeReverseCommand());
     addParallel(new NoseConeCloseCommand());
