@@ -8,22 +8,17 @@
 package frc.robot.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.LimeLightConstants;
 import frc.robot.PhaserConstants;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
-import frc.robot.commands.Limelight.LimeLightSetCameraModeCommand;
-import frc.robot.commands.Limelight.LimeLightSetLEDModeOnCommand;
-import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeForwardCommand;
-import frc.robot.commands.NoseCone.NoseConeReverseCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 import frc.robot.commands.WarpDrive.DriveJoystickCommand;
-import frc.robot.commands.WarpDrive.WarpDriveDefenseModeCommand;
 import frc.robot.commands.WarpDrive.WarpDriveOffenseModeCommand;
 
 public class OffenseModeAutoCommand extends CommandGroup {
   /**
-   * This command puts the robot in a mode where it can play offense and try to score.
+   * This command puts the robot in a mode where it can play offense and try to
+   * score.
    */
   public OffenseModeAutoCommand() {
     addParallel(new DriveJoystickCommand());

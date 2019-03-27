@@ -10,7 +10,6 @@ package frc.robot.commands.Limelight;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.LimeLightConstants;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 public class LimeLightSetVisionPipelineCommand extends Command {
 

@@ -5,43 +5,51 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlastOff;
+package frc.robot.commands.BlastOffWheels;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
-public class BlastOffHighHabPlatformCommand extends Command {
-  public BlastOffHighHabPlatformCommand() {
+public class BlastOffWheelsForwardCommand extends Command {
+  public BlastOffWheelsForwardCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.blastOffWheelsSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blastOffPIDSubsystem.legsHighHabPlatform();
+    //Set the amount of time for the BlastOff motor to run
+    //setTimeout(RobotMap.BLASTOFF_TIMEOUT);
+    //  Put the BLASTOFF MOTOR MODE into the SmartDashboard
+    SmartDashboard.putString("BLASTOFF MOTOR MODE", "Forward");
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.blastOffWheelsSubsystem.wheelsForward();
+    //SmartDashboard.putNumber("Blastoff Encoder", Robot.blastOffPIDSubsystem.encoder.getRaw());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.blastOffPIDSubsystem.onTarget();
+    return isTimedOut();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.blastOffPIDSubsystem.disable();
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 }

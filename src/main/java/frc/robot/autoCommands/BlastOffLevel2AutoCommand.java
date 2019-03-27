@@ -13,28 +13,23 @@ import frc.robot.autoCommands.SetHeightLevel2DriveForwardAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
 import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
-import frc.robot.commands.NoseCone.NoseConeReverseCommand;
-import frc.robot.commands.Misc.TimerCommand;
+import frc.robot.commands.NoseCone.NoseConeRetractCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
-import frc.robot.commands.WarpDrive.WarpDriveHabSlowCommand;
-import frc.robot.commands.BlastOff.BlastOffWheelsForwardCommand;
-import frc.robot.commands.BlastOff.BlastOffWheelsStopCommand;
+import frc.robot.commands.BlastOffWheels.*;
 import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
 import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
-import frc.robot.commands.BlastOff.BlastOffMedHabPlatformCommand;
 import frc.robot.commands.BlastOff.BlastOffResetEncoderCommand;
-import frc.robot.commands.BlastOff.BlastOffSetHeightCommand;
 import frc.robot.commands.BlastOff.BlastOffSetOutputRangeCommand;
 
-public class BlastOffMedHabPlatformAutoCommand extends CommandGroup {
+public class BlastOffLevel2AutoCommand extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public BlastOffMedHabPlatformAutoCommand() {
+  public BlastOffLevel2AutoCommand() {
      //Kick off the blastoff LEDs
      addParallel(new BlastOffSetOutputRangeCommand(0.5));
      addParallel(new BlastOffResetEncoderCommand());
-     addParallel(new NoseConeReverseCommand());
+     addParallel(new NoseConeRetractCommand());
      addParallel(new NoseConeCloseCommand());
      addParallel(new BlackHoleUnBoomCommand());
      addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_GLITTER_PALETTE));

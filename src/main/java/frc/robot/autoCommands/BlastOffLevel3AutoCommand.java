@@ -9,27 +9,27 @@ package frc.robot.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.PhaserConstants;
-import frc.robot.autoCommands.SetHeightLevel2DriveForwardAutoCommand;
-import frc.robot.commands.Misc.TimerCommand;
-import frc.robot.commands.NoseCone.NoseConeCloseCommand;
-import frc.robot.commands.NoseCone.NoseConeReverseCommand;
-import frc.robot.commands.Phasers.PhasersSetPatternCommand;
-import frc.robot.commands.WarpDrive.WarpDriveHabSlowCommand;
+import frc.robot.RobotMap;
 import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
-import frc.robot.commands.BlastOff.*;
+import frc.robot.commands.BlastOff.BlastOffResetEncoderCommand;
+import frc.robot.commands.BlastOff.BlastOffSetHeightCommand;
+import frc.robot.commands.BlastOff.BlastOffSetOutputRangeCommand;
+import frc.robot.commands.BlastOffWheels.BlastOffWheelsStopCommand;
 import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
 import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
+import frc.robot.commands.NoseCone.NoseConeCloseCommand;
+import frc.robot.commands.NoseCone.NoseConeRetractCommand;
+import frc.robot.commands.Phasers.PhasersSetPatternCommand;
 
-
-public class BlastOffHighHabPlatformAutoCommand extends CommandGroup {
+public class BlastOffLevel3AutoCommand extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public BlastOffHighHabPlatformAutoCommand() {
+  public BlastOffLevel3AutoCommand() {
      //Kick off the blastoff LEDs
      addParallel(new BlastOffSetOutputRangeCommand(1.0));
      addParallel(new BlastOffResetEncoderCommand());
-     addParallel(new NoseConeReverseCommand());
+     addParallel(new NoseConeRetractCommand());
      addParallel(new NoseConeCloseCommand());
      addParallel(new BlackHoleUnBoomCommand());
      addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_GLITTER_PALETTE));
@@ -38,7 +38,7 @@ public class BlastOffHighHabPlatformAutoCommand extends CommandGroup {
          
      //Won't get to next line until we have a way to know that we've finished moving forward. 
      addParallel(new BlastOffWheelsStopCommand());
-     addParallel(new BlastOffRetractLegsCommand());
+     addParallel(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT + 3));
      //addParallel(new BlastOffLandCommand());
      addSequential(new DinoArmsReleaseCommand());
   }

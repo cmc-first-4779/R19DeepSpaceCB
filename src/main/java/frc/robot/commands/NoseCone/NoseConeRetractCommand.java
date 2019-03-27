@@ -5,61 +5,42 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlastOff;
+package frc.robot.commands.NoseCone;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.XBoxJoystickMap;
 
-public class BlastOffLaunchCommand extends Command {
-
-  double leftStickYDeadZone = .25;
-
-  public BlastOffLaunchCommand() {
+public class NoseConeRetractCommand extends Command {
+  public NoseConeRetractCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.blastOffPIDSubsystem);
-    setTimeout(60);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.noseConeSubsystem.reverseTheAlex();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-        // Move the ARM with the OperStick
-        double leftStickYAxis = -Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.LEFT_STICK_Y_AXIS);
-        if (leftStickYAxis > leftStickYDeadZone ) {
-        //  System.out.println("Increasing Height");
-        Robot.blastOffWheelsSubsystem.wheelsSetMotor(leftStickYAxis);
-        } else if (leftStickYAxis < -leftStickYDeadZone) {
-        //  System.out.println("Decreasing Height");
-          Robot.blastOffWheelsSubsystem.wheelsSetMotor(leftStickYAxis);
-        } else {
-          Robot.blastOffWheelsSubsystem.wheelsStopMotor();
-          // do nothing, leave the arm height where it's at
-        }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }

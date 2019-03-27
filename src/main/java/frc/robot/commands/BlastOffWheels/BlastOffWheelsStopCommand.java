@@ -5,39 +5,33 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlastOff;
+package frc.robot.commands.BlastOffWheels;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
-import frc.robot.XBoxJoystickMap;
 
-public class BlastOffLegsJoystickCommand extends Command {
-  public BlastOffLegsJoystickCommand() {
+public class BlastOffWheelsStopCommand extends Command {
+  public BlastOffWheelsStopCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.blastOffPIDSubsystem);
+    requires(Robot.blastOffWheelsSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blastOffPIDSubsystem.disable();
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Move the legs up and down using the OperStick Right Joystick Y axis
-    System.out.println("BlastOffEncoder: " + Robot.blastOffPIDSubsystem.getDistance());
-    Robot.blastOffPIDSubsystem.legsMotorsMove(Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS));
-    SmartDashboard.putNumber("BlastOff Encoder", Robot.blastOffPIDSubsystem.getDistance());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
@@ -50,6 +44,5 @@ public class BlastOffLegsJoystickCommand extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 }

@@ -5,33 +5,33 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlastOffWheels;
+package frc.robot.commands.BlastOff;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.XBoxJoystickMap;
 
-//Stop the Blastoff Motor
-
-public class BlastOffStopWheelsCommand extends Command {
-  public BlastOffStopWheelsCommand() {
+public class BlastOffJoystickCommand extends Command {
+  public BlastOffJoystickCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    //requires(Robot.blastOffSubsystem);
+    requires(Robot.blastOffPIDSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
-    //  Put the BLASTOFF MOTOR MODE into the SmartDashboard
-    SmartDashboard.putString("BLASTOFF MOTOR MODE", "Stop");
+    Robot.blastOffPIDSubsystem.disable();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
+    //Move the legs up and down using the OperStick Right Joystick Y axis
+    System.out.println("BlastOffEncoder: " + Robot.blastOffPIDSubsystem.getDistance());
+    Robot.blastOffPIDSubsystem.legsMotorsMove(Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS));
+    SmartDashboard.putNumber("BlastOff Encoder", Robot.blastOffPIDSubsystem.getDistance());
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -43,11 +43,13 @@ public class BlastOffStopWheelsCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 }

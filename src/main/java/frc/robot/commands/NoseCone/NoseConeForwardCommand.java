@@ -14,6 +14,7 @@ public class NoseConeForwardCommand extends Command {
   public NoseConeForwardCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.noseConeSubsystem);
   }
 
   // Called just before this Command runs the first time

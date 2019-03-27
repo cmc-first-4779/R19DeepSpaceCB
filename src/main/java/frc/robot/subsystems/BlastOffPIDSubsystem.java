@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
-import frc.robot.commands.BlastOff.BlastOffLegsJoystickCommand;
+import frc.robot.commands.BlastOff.BlastOffJoystickCommand;
 
 
 public class BlastOffPIDSubsystem extends PIDSubsystem {
@@ -53,7 +53,7 @@ private static Encoder legsEncoder;
 
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new BlastOffLegsJoystickCommand());
+    setDefaultCommand(new BlastOffJoystickCommand());
   }
 
   @Override

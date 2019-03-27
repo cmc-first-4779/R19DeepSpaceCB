@@ -10,7 +10,6 @@ package frc.robot.commands.NoseCone;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 //Open our Nosecone for handling our Hatchcovers...
 

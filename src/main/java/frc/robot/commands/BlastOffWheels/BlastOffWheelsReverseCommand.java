@@ -5,55 +5,52 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.BlastOff;
+package frc.robot.commands.BlastOffWheels;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class BlastOffRetractLegsCommand extends Command {
-  public BlastOffRetractLegsCommand() {
+public class BlastOffWheelsReverseCommand extends Command {
+  public BlastOffWheelsReverseCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    setTimeout(1);
-    requires(Robot.blastOffPIDSubsystem);
+    requires(Robot.blastOffWheelsSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    //  Put the BLASTOFF MODE into the SmartDashboard
-    SmartDashboard.putString("BLASTOFF MODE", "Retract");
-    //  Make sure the Wheel Motors are STOPPED before moving the Solenoid Foot
-    Robot.blastOffPIDSubsystem.enable();
-    Robot.blastOffPIDSubsystem.setSetpoint(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT + 3);
-
+    // Set the amount of time for the BlastOff motor to run
+    setTimeout(RobotMap.BLASTOFF_TIMEOUT);
+    //  Put the BLASTOFF MOTOR MODE into the SmartDashboard
+    SmartDashboard.putString("BLASTOFF MOTOR MODE", "Reverse");
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.blastOffWheelsSubsystem.wheelsReverse();
+   // SmartDashboard.putNumber("Blastoff Encoder", Robot.blastOffSubsystem.encoder.getRaw());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    //Check the the PID loop to see if encoder is on target.
     return isTimedOut();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.blastOffPIDSubsystem.disable();
-    Robot.blastOffPIDSubsystem.legsOff();
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
+    Robot.blastOffWheelsSubsystem.wheelsStopMotor();
   }
 }

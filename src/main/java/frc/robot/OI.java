@@ -9,13 +9,13 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.autoCommands.BlastOffHighHabPlatformAutoCommand;
-import frc.robot.autoCommands.BlastOffMedHabPlatformAutoCommand;
+import frc.robot.autoCommands.BlastOffLevel3AutoCommand;
+import frc.robot.autoCommands.BlastOffLevel2AutoCommand;
 import frc.robot.autoCommands.DefenseModeAutoCommand;
 import frc.robot.autoCommands.OffenseModeAutoCommand;
 import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
-import frc.robot.commands.BlastOff.BlastOffLegsJoystickCommand;
+import frc.robot.commands.BlastOff.BlastOffJoystickCommand;
 import frc.robot.commands.BlastOff.BlastOffSetHeightCommand;
 import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
 import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
@@ -23,7 +23,7 @@ import frc.robot.commands.Limelight.LimeLightSeekAndFollowCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeForwardCommand;
 import frc.robot.commands.NoseCone.NoseConeOpenCommand;
-import frc.robot.commands.NoseCone.NoseConeReverseCommand;
+import frc.robot.commands.NoseCone.NoseConeRetractCommand;
 import frc.robot.commands.WarpDrive.DriveJoystickCommand;
 import frc.robot.commands.WarpDrive.DriveLimeLightCommand;
 
@@ -74,7 +74,7 @@ public class OI {
 		//driverStickRightStickButton.whileHeld(new DriveLimeLightCommand());
 		//driverStickLeftStickButton.whenPressed(new DriveJoystickCommand());
 		driverStickXButton.whenPressed(new NoseConeForwardCommand());
-		driverStickBButton.whenPressed(new NoseConeReverseCommand());
+		driverStickBButton.whenPressed(new NoseConeRetractCommand());
 		driverStickAButton.whileHeld(new DriveLimeLightCommand());
 		driverStickLeftBumper.whenPressed(new NoseConeOpenCommand());
 		driverStickRightBumper.whenPressed(new NoseConeCloseCommand());
@@ -87,9 +87,9 @@ public class OI {
 		operStickYButton.whenPressed(new DinoArmsGrabCommand());
 		operStickXButton.whenPressed(new DinoArmsReleaseCommand());	
 		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
-		operStickBButton.whenPressed( new BlastOffMedHabPlatformAutoCommand());
-		operStickAButton.whenPressed( new BlastOffHighHabPlatformAutoCommand());
-		operStickRightStickButton.whenPressed(new BlastOffLegsJoystickCommand());
+		operStickBButton.whenPressed( new BlastOffLevel2AutoCommand());
+		operStickAButton.whenPressed( new BlastOffLevel3AutoCommand());
+		operStickRightStickButton.whenPressed(new BlastOffJoystickCommand());
 
 	
 }

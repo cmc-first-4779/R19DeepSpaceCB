@@ -8,7 +8,7 @@
 package frc.robot.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.commands.BlastOff.BlastOffWheelsForwardCommand;
+import frc.robot.commands.BlastOffWheels.BlastOffWheelsForwardCommand;
 import frc.robot.commands.Misc.TimerCommand;
 import frc.robot.commands.WarpDrive.WarpDriveHabSlowCommand;
 
