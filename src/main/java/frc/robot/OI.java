@@ -84,10 +84,8 @@ public class OI {
 		
 
 		// Operator Stick
-		//operStickBackButton.whenPressed(new BlastOffHighHabPlatformCommand());
-		//operStickStartButton.whenPressed(new BlastOffMedHabPlatformCommand());
-		//operStickXButton.whenPressed(new DinoArmsGrabCommand());
-		//operStickBButton.whenPressed(new DinoArmsReleaseCommand());	
+		operStickYButton.whenPressed(new DinoArmsGrabCommand());
+		operStickXButton.whenPressed(new DinoArmsReleaseCommand());	
 		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
 		operStickBButton.whenPressed( new BlastOffMedHabPlatformAutoCommand());
 		operStickAButton.whenPressed( new BlastOffHighHabPlatformAutoCommand());
