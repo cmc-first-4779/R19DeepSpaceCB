@@ -15,6 +15,7 @@ import frc.robot.autoCommands.DefenseModeAutoCommand;
 import frc.robot.autoCommands.OffenseModeAutoCommand;
 import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
+import frc.robot.commands.BlastOff.BlastOffLegsJoystickCommand;
 import frc.robot.commands.BlastOff.BlastOffSetHeightCommand;
 import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
 import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
@@ -88,8 +89,9 @@ public class OI {
 		//operStickXButton.whenPressed(new DinoArmsGrabCommand());
 		//operStickBButton.whenPressed(new DinoArmsReleaseCommand());	
 		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
-		operStickBackButton.whenPressed( new BlastOffMedHabPlatformAutoCommand());
-		operStickStartButton.whenPressed( new BlastOffHighHabPlatformAutoCommand());
+		operStickBButton.whenPressed( new BlastOffMedHabPlatformAutoCommand());
+		operStickAButton.whenPressed( new BlastOffHighHabPlatformAutoCommand());
+		//operStickRightStickButton.whenPressed(new BlastOffLegsJoystickCommand());
 
 	
 }

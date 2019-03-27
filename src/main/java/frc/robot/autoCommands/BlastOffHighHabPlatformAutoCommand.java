@@ -33,14 +33,13 @@ public class BlastOffHighHabPlatformAutoCommand extends CommandGroup {
      addParallel(new NoseConeCloseCommand());
      addParallel(new BlackHoleUnBoomCommand());
      addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_GLITTER_PALETTE));
-     addParallel(new DinoArmsGrabCommand());
+     addParallel(new DinoArmsGrabCommand(),6);
      addSequential(new SetHeightLevel3DriveForwardAutoCommand());
-     
-
-     
+         
      //Won't get to next line until we have a way to know that we've finished moving forward. 
      addParallel(new BlastOffWheelsStopCommand());
-     addParallel(new BlastOffLandCommand());
+     addParallel(new BlastOffRetractLegsCommand());
+     //addParallel(new BlastOffLandCommand());
      addSequential(new DinoArmsReleaseCommand());
   }
 }

@@ -16,7 +16,7 @@ public class BlastOffWheelsForwardCommand extends Command {
   public BlastOffWheelsForwardCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    setTimeout(6);
+    setTimeout(8);
     requires(Robot.blastOffWheelsSubsystem);
   }
 

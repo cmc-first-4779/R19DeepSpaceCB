@@ -72,7 +72,7 @@ public static int WARPDRIVE_DIRECTION_REVERSE = -1;
 public static int WARPDRIVE_BACKUP_DISTANCE = 3000;  // placeholder, we need to adjust
 public static double WARPDRIVE_SPEED = 0.8;
 public static double WARPDRIVE_LOW_HAB_SPEED = 0.8; //placeholder
-public static double WARPDRIVE_HAB_SPEED = -0.55; //placeholder
+public static double WARPDRIVE_HAB_SPEED = -0.65; //placeholder
 public static int WARPDRIVE_DISTANCE_MEDIUM_HAB = 600; //placeholder
 public static int WARPDRIVE_DISTANCE_LOW_HAB = 400; //placeholder
 public static double WARPDRIVE_BUMPER_TURN_INCREMENT = 10;  //degrees.. placeholder.  Used to do minor turn corrections via the bumpers.
@@ -120,6 +120,7 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static double BLASTOFF_LEGS_kI = 0.0;
   public static double BLASTOFF_LEGS_kD = 0.0;
   public static final double BLASTOFF_PID_TOLERANCE = 0;
+public static final double BLASTOFF_RETRACT_HEIGHT = -18;
   public static double BLASTOFF_LEGS_UP_SPEED = 1.0;  //volts
   public static double BLASTOFF_LEGS_DOWN_SPEED = -1.0; //volts
   public static double BLASTOFF_LEGS_STOP_SPEED = 0.0;  //volts
@@ -135,8 +136,8 @@ public static final double WARPDRIVE_TURN_TOLERANCE = 1;  //number of degrees we
   public static double BLASTOFF_DISTANCE_PER_REVOLUTION = .000053246; // inches..   
 //  public static double BLASTOFF_DISTANCE_PER_PULSE = BLASTOFF_DISTANCE_PER_REVOLUTION / BLASTOFF_ENCODER_PULSES_PER_REVOLUTION;
   public static double BLASTOFF_DISTANCE_PER_PULSE = .000053246;
-  public static double BLASTOFF_MEDIUM_HAB_HEIGHT = 7.0; //inches 
-  public static double BLASTOFF_HIGH_HAB_HEIGHT = 14.0; //inches 
+  public static double BLASTOFF_MEDIUM_HAB_HEIGHT = -7.0; //inches 
+  public static double BLASTOFF_HIGH_HAB_HEIGHT = -22.5; //inches 
   public static double BLASTOFF_LAND_HEIGHT = 0;
 
 

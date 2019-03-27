@@ -16,8 +16,8 @@ public class BlastOffSetHeightCommand extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.blastOffPIDSubsystem);
-    setTimeout(6);
-    this.height = -height;
+    setTimeout(8);
+    this.height = height;
   }
 
   // Called just before this Command runs the first time

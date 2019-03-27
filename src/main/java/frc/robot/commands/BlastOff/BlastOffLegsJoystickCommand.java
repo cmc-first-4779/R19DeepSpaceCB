@@ -29,7 +29,7 @@ public class BlastOffLegsJoystickCommand extends Command {
   @Override
   protected void execute() {
     //Move the legs up and down using the OperStick Right Joystick Y axis
-    //System.out.println("BlastOffEncoder: " + Robot.blastOffPIDSubsystem.getDistance());
+    System.out.println("BlastOffEncoder: " + Robot.blastOffPIDSubsystem.getDistance());
     Robot.blastOffPIDSubsystem.legsMotorsMove(Robot.oi.getOperStick().getRawAxis(XBoxJoystickMap.RIGHT_STICK_Y_AXIS));
     SmartDashboard.putNumber("BlastOff Encoder", Robot.blastOffPIDSubsystem.getDistance());
   }
