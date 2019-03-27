@@ -91,7 +91,7 @@ public class OI {
 		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
 		operStickBButton.whenPressed( new BlastOffMedHabPlatformAutoCommand());
 		operStickAButton.whenPressed( new BlastOffHighHabPlatformAutoCommand());
-		//operStickRightStickButton.whenPressed(new BlastOffLegsJoystickCommand());
+		operStickRightStickButton.whenPressed(new BlastOffLegsJoystickCommand());
 
 	
 }
