@@ -10,8 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.autoCommands.BlastOffLevel2AutoCommand;
-import frc.robot.autoCommands.BlastOffLevel3AutoCommand;
+import frc.robot.autoCommands.Level3ClimbAutoCommandGroup;
 import frc.robot.autoCommands.DefenseModeAutoCommand;
+import frc.robot.autoCommands.Level2ClimbAutoCommandGroup;
 import frc.robot.autoCommands.OffenseModeAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
 import frc.robot.commands.BlastOff.BlastOffJoystickCommand;
@@ -83,8 +84,8 @@ public class OI {
 		operStickYButton.whenPressed(new DinoArmsGrabCommand());
 		operStickXButton.whenPressed(new DinoArmsReleaseCommand());	
 		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
-		operStickBButton.whenPressed( new BlastOffLevel2AutoCommand());
-		operStickAButton.whenPressed( new BlastOffLevel3AutoCommand());
+		operStickBButton.whenPressed( new Level2ClimbAutoCommandGroup());
+		operStickAButton.whenPressed( new Level3ClimbAutoCommandGroup());
 		operStickRightStickButton.whenPressed(new BlastOffJoystickCommand());
 }
 

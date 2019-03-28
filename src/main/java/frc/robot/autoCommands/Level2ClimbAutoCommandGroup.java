@@ -20,12 +20,13 @@ import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeRetractCommand;
 import frc.robot.commands.Phasers.PhasersSetPatternCommand;
+import frc.robot.commands.WarpDrive.WarpDriveHabSlowCommand;
 
-public class BlastOffLevel3AutoCommand extends CommandGroup {
+public class Level2ClimbAutoCommandGroup extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public BlastOffLevel3AutoCommand() {
+  public Level2ClimbAutoCommandGroup() {
      //Kick off the blastoff LEDs
      addParallel(new BlastOffSetOutputRangeCommand(1.0));
      addParallel(new BlastOffResetEncoderCommand());
@@ -33,12 +34,14 @@ public class BlastOffLevel3AutoCommand extends CommandGroup {
      addParallel(new NoseConeCloseCommand());
      addParallel(new BlackHoleUnBoomCommand());
      addParallel(new PhasersSetPatternCommand(PhaserConstants.PHASERS_GLITTER_PALETTE));
-     addParallel(new DinoArmsGrabCommand(),6);
-     addSequential(new SetHeightLevel3DriveForwardAutoCommand());
-         
+     addParallel(new DinoArmsLevel2GrabAutoCommandGroup());
+     addParallel(new BlastOffLevel2ClimbAutoCommandGroup());
+     addParallel(new BlastOffWheelsLevel2ClimbAutoCommandGroup());
+     addParallel(new WarpDriveLevel2ClimbAutoCommandGroup());
+       
      //Won't get to next line until we have a way to know that we've finished moving forward. 
      addParallel(new BlastOffWheelsStopCommand());
-     addParallel(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT + 3));
+    // addParallel(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_MEDIUM_HAB_HEIGHT + 2));
      //addParallel(new BlastOffLandCommand());
      addSequential(new DinoArmsReleaseCommand());
   }

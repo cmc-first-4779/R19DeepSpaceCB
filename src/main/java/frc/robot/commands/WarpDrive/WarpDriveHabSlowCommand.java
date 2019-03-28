@@ -13,7 +13,6 @@ import frc.robot.RobotMap;
 
 public class WarpDriveHabSlowCommand extends Command {
   public WarpDriveHabSlowCommand() {
-    setTimeout(7.0);
     requires(Robot.warpDriveSubsystem);
   }
 
