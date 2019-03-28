@@ -37,7 +37,7 @@ public class Level2ClimbAutoCommandGroup extends CommandGroup {
      addParallel(new DinoArmsLevel2GrabAutoCommandGroup());
      addParallel(new BlastOffLevel2ClimbAutoCommandGroup());
      addParallel(new BlastOffWheelsLevel2ClimbAutoCommandGroup());
-     addParallel(new WarpDriveLevel2ClimbAutoCommandGroup());
+     addSequential(new WarpDriveLevel2ClimbAutoCommandGroup());
        
      //Won't get to next line until we have a way to know that we've finished moving forward. 
      addParallel(new BlastOffWheelsStopCommand());
