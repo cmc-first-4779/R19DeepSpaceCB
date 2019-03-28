@@ -135,8 +135,5 @@ private static Encoder legsEncoder;
     setOutputRange(-outputRange, outputRange);
   }
 
-  public void retractLegs(){
-    setSetpoint(RobotMap.BLASTOFF_RETRACT_HEIGHT);
-  }
 
 }

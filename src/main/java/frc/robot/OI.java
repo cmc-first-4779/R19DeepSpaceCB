@@ -9,22 +9,18 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.autoCommands.BlastOffLevel3AutoCommand;
 import frc.robot.autoCommands.BlastOffLevel2AutoCommand;
+import frc.robot.autoCommands.BlastOffLevel3AutoCommand;
 import frc.robot.autoCommands.DefenseModeAutoCommand;
 import frc.robot.autoCommands.OffenseModeAutoCommand;
-import frc.robot.autoCommands.TargetLowerRocketHatchCoverAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
 import frc.robot.commands.BlastOff.BlastOffJoystickCommand;
-import frc.robot.commands.BlastOff.BlastOffSetHeightCommand;
 import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
 import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
-import frc.robot.commands.Limelight.LimeLightSeekAndFollowCommand;
 import frc.robot.commands.NoseCone.NoseConeCloseCommand;
 import frc.robot.commands.NoseCone.NoseConeForwardCommand;
 import frc.robot.commands.NoseCone.NoseConeOpenCommand;
 import frc.robot.commands.NoseCone.NoseConeRetractCommand;
-import frc.robot.commands.WarpDrive.DriveJoystickCommand;
 import frc.robot.commands.WarpDrive.DriveLimeLightCommand;
 
 public class OI {
@@ -90,8 +86,6 @@ public class OI {
 		operStickBButton.whenPressed( new BlastOffLevel2AutoCommand());
 		operStickAButton.whenPressed( new BlastOffLevel3AutoCommand());
 		operStickRightStickButton.whenPressed(new BlastOffJoystickCommand());
-
-	
 }
 
 	// This method is used later to return the the driverStick when called.
