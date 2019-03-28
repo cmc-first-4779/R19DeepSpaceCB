@@ -19,6 +19,6 @@ public class BlastOffLevel2ClimbAutoCommandGroup extends CommandGroup {
   public BlastOffLevel2ClimbAutoCommandGroup() {
     addSequential(new TimerCommand(.25));
     addSequential(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_MEDIUM_HAB_HEIGHT), 8);
-    addSequential(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_MEDIUM_HAB_HEIGHT + 2));
+    addSequential(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_MEDIUM_HAB_HEIGHT + 6));
  }
 }
