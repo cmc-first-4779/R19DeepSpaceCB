@@ -8,6 +8,7 @@
 package frc.robot.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.RobotMap;
 import frc.robot.autoCommands.BlastOffSpinBothWheelsAutoCommand;
 import frc.robot.commands.BlastOff.BlastOffSetHeightCommand;
 import frc.robot.commands.BlastOff.BlastOffWheelsForwardCommand;
@@ -21,7 +22,7 @@ public class SetHeightLevel2DriveForwardAutoCommand extends CommandGroup {
   public SetHeightLevel2DriveForwardAutoCommand() {
     
      addSequential(new TimerCommand(3.0));
-     addParallel(new BlastOffSetHeightCommand(10));
+     addParallel(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_MEDIUM_HAB_HEIGHT));
      addParallel(new BlastOffSpinBothWheelsAutoCommand());
 
   }
