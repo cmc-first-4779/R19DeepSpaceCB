@@ -136,7 +136,7 @@ public static final double BLASTOFF_RETRACT_HEIGHT = -18;
   public static double BLASTOFF_DISTANCE_PER_REVOLUTION = .000053246; // inches..   
 //  public static double BLASTOFF_DISTANCE_PER_PULSE = BLASTOFF_DISTANCE_PER_REVOLUTION / BLASTOFF_ENCODER_PULSES_PER_REVOLUTION;
   public static double BLASTOFF_DISTANCE_PER_PULSE = .000053246;
-  public static double BLASTOFF_MEDIUM_HAB_HEIGHT = -7.0; //inches 
+  public static double BLASTOFF_MEDIUM_HAB_HEIGHT = -12.0; //inches 
   public static double BLASTOFF_HIGH_HAB_HEIGHT = -22.5; //inches 
   public static double BLASTOFF_LAND_HEIGHT = 0;
 

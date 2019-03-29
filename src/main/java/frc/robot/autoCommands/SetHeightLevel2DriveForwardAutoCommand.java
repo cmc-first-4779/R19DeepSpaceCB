@@ -21,7 +21,7 @@ public class SetHeightLevel2DriveForwardAutoCommand extends CommandGroup {
    */
   public SetHeightLevel2DriveForwardAutoCommand() {
     
-     addSequential(new TimerCommand(3.0));
+     addSequential(new TimerCommand(1.0));
      addParallel(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_MEDIUM_HAB_HEIGHT));
      addParallel(new BlastOffSpinBothWheelsAutoCommand());
 

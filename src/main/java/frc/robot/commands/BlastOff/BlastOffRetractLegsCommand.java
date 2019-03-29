@@ -27,7 +27,7 @@ public class BlastOffRetractLegsCommand extends Command {
     SmartDashboard.putString("BLASTOFF MODE", "Retract");
     //  Make sure the Wheel Motors are STOPPED before moving the Solenoid Foot
     Robot.blastOffPIDSubsystem.enable();
-    Robot.blastOffPIDSubsystem.setSetpoint(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT + 3);
+    Robot.blastOffPIDSubsystem.setSetpoint(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT + 15);
 
   }
 
