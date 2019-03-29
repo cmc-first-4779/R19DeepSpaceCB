@@ -15,6 +15,7 @@ import frc.robot.autoCommands.DefenseModeAutoCommand;
 import frc.robot.autoCommands.Level2ClimbAutoCommandGroup;
 import frc.robot.autoCommands.OffenseModeAutoCommand;
 import frc.robot.commands.BlackHole.BlackHoleBoomCommand;
+import frc.robot.commands.BlackHole.BlackHoleUnBoomCommand;
 import frc.robot.commands.BlastOff.BlastOffJoystickCommand;
 import frc.robot.commands.DinoArms.DinoArmsGrabCommand;
 import frc.robot.commands.DinoArms.DinoArmsReleaseCommand;
@@ -84,6 +85,7 @@ public class OI {
 		operStickYButton.whenPressed(new DinoArmsGrabCommand());
 		operStickXButton.whenPressed(new DinoArmsReleaseCommand());	
 		operStickLeftBumper.whenPressed(new BlackHoleBoomCommand());
+		operStickRightBumper.whenPressed(new BlackHoleUnBoomCommand());
 		operStickBButton.whenPressed( new Level2ClimbAutoCommandGroup());
 		operStickAButton.whenPressed( new Level3ClimbAutoCommandGroup());
 		operStickRightStickButton.whenPressed(new BlastOffJoystickCommand());

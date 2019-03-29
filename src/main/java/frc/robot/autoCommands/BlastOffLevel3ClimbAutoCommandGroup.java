@@ -9,6 +9,7 @@ package frc.robot.autoCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
+import frc.robot.commands.BlastOff.BlastOffLandCommand;
 import frc.robot.commands.BlastOff.BlastOffSetHeightCommand;
 import frc.robot.commands.Misc.TimerCommand;
 
@@ -17,8 +18,9 @@ public class BlastOffLevel3ClimbAutoCommandGroup extends CommandGroup {
    * Add your docs here.
    */
   public BlastOffLevel3ClimbAutoCommandGroup() {
-    addSequential(new TimerCommand(.25));
+    //addSequential(new TimerCommand(.25));
     addSequential(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT), 8);
-    addSequential(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT + 2));
+//    addSequential(new BlastOffSetHeightCommand(RobotMap.BLASTOFF_HIGH_HAB_HEIGHT + 2));
+    addSequential(new BlastOffLandCommand());
  }
 }
